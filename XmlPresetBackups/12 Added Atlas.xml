@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Processor Type="SynthChain" ID="12 Added Atlas" Bypassed="0" Gain="1" Balance="0"
+           VoiceLimit="64" KillFadeTime="20" IconColour="0" packageName=""
+           BuildVersion="650">
+  <ChildProcessors>
+    <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+      <ChildProcessors>
+        <Processor Type="ScriptProcessor" ID="Interface" Bypassed="0">
+          <ChildProcessors/>
+          <Content>
+            <Control type="ScriptSlider" id="Slider_Attack" value="1.95"/>
+            <Control type="ScriptSlider" id="Slider_Decay" value="4320"/>
+            <Control type="ScriptSlider" id="Slider_Sustain" value="0"/>
+            <Control type="ScriptSlider" id="Slider_Release" value="1630.98"/>
+            <Control type="ScriptButton" id="Button_AHDSRDisplay" value="0"/>
+            <Control type="ScriptButton" id="Button_OpenExpansions" value="0"/>
+            <Control type="ScriptedViewport" id="Viewport_ExpansionsHolder" value="0"/>
+            <Control type="ScriptButton" id="Expansions_ButtonCloudburst" value="1"/>
+            <Control type="ScriptButton" id="Expansions_ButtonBloom" value="0"/>
+            <Control type="ScriptButton" id="Expansions_ButtonAtlas" value="0"/>
+          </Content>
+          <UIData Source="12 Added AtlasUIData"/>
+        </Processor>
+      </ChildProcessors>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="1" Intensity="0">
+      <ChildProcessors/>
+    </Processor>
+    <Processor Type="EffectChain" ID="FX" Bypassed="0">
+      <ChildProcessors>
+        <Processor Type="Delay" ID="Delay1" Bypassed="0" DelayTimeLeft="6" DelayTimeRight="5"
+                   FeedbackLeft="0.3" FeedbackRight="0.3" LowPassFreq="20000" HiPassFreq="40"
+                   Mix="0.39" TempoSync="1">
+          <ChildProcessors/>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+        </Processor>
+      </ChildProcessors>
+    </Processor>
+    <Processor Type="StreamingSampler" ID="SamplerRR" Bypassed="0" Gain="1"
+               Balance="0" VoiceLimit="256" KillFadeTime="20" IconColour="0"
+               PreloadSize="8192" BufferSize="4096" VoiceAmount="256" SamplerRepeatMode="3"
+               RRGroupAmount="1" PitchTracking="1" OneShot="0" CrossfadeGroups="0"
+               Purged="0" Reversed="0" NumChannels="1" UseStaticMatrix="0" Group0Table=""
+               Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
+               Group6Table="" Group7Table="" SampleMapID="{EXP::Bloom}Bloom_SampleMap">
+      <ChildProcessors>
+        <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+          <ChildProcessors>
+            <Processor Type="AHDSR" ID="AHDSR Envelope1" Bypassed="0" Monophonic="0"
+                       Retrigger="1" Intensity="1" AttackCurve="0" DecayCurve="0" Attack="1.95"
+                       AttackLevel="0" Hold="10" Decay="4320" Sustain="0" Release="1630.98"
+                       EcoMode="1">
+              <ChildProcessors>
+                <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="EffectChain" ID="FX" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1">
+          <ChildProcessors/>
+        </Processor>
+      </ChildProcessors>
+      <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+      <channels>
+        <channelData enabled="1" level="0" suffix=""/>
+      </channels>
+    </Processor>
+    <Processor Type="StreamingSampler" ID="Sampler_NoRR" Bypassed="0" Gain="1"
+               Balance="0" VoiceLimit="256" KillFadeTime="20" IconColour="0"
+               PreloadSize="8192" BufferSize="4096" VoiceAmount="256" SamplerRepeatMode="3"
+               RRGroupAmount="1" PitchTracking="1" OneShot="0" CrossfadeGroups="0"
+               Purged="0" Reversed="0" NumChannels="1" UseStaticMatrix="0" Group0Table=""
+               Group1Table="" Group2Table="" Group3Table="" Group4Table="" Group5Table=""
+               Group6Table="" Group7Table="" SampleMapID="">
+      <ChildProcessors>
+        <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1">
+          <ChildProcessors>
+            <Processor Type="AHDSR" ID="AHDSR Envelope2" Bypassed="0" Monophonic="0"
+                       Retrigger="1" Intensity="1" AttackCurve="0" DecayCurve="0" Attack="1.95"
+                       AttackLevel="0" Hold="10" Decay="4320" Sustain="0" Release="1630.98"
+                       EcoMode="1">
+              <ChildProcessors>
+                <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Attack Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Decay Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Sustain Level" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+                <Processor Type="ModulatorChain" ID="Release Time" Bypassed="0" Intensity="1">
+                  <ChildProcessors/>
+                </Processor>
+              </ChildProcessors>
+            </Processor>
+          </ChildProcessors>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="PitchModulation" Bypassed="0" Intensity="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="EffectChain" ID="FX" Bypassed="0">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="Sample Start" Bypassed="0" Intensity="1">
+          <ChildProcessors/>
+        </Processor>
+        <Processor Type="ModulatorChain" ID="Group Fade" Bypassed="0" Intensity="1">
+          <ChildProcessors/>
+        </Processor>
+      </ChildProcessors>
+      <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+      <channels>
+        <channelData enabled="1" level="0" suffix=""/>
+      </channels>
+    </Processor>
+  </ChildProcessors>
+  <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+  <macro_controls>
+    <macro name="Macro 1" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 2" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 3" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 4" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 5" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 6" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 7" value="0.0" midi_cc="-1"/>
+    <macro name="Macro 8" value="0.0" midi_cc="-1"/>
+  </macro_controls>
+  <MidiAutomation/>
+  <MPEData Enabled="0"/>
+</Processor>

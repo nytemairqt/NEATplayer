@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptPanel" id="Panel_BG" x="2" y="23" width="568" height="273"
+             borderRadius="19">
+    <Component type="ScriptImage" id="Image_BG" x="-2" y="0" parentComponent="Panel_BG"
+               text="Image" width="567" height="291" fileName="{EXP::Bloom}bg_bloom.png"/>
+  </Component>
+  <Component type="ScriptButton" id="Button_OpenExpansions" x="11" y="272"
+             text="&gt;" width="47" height="28" itemColour="4281545523" filmstripImage="{PROJECT_FOLDER}show expansions button.png"
+             numStrips="6"/>
+  <Component type="ScriptedViewport" id="Viewport_ExpansionsHolder" x="0"
+             y="23" width="200" height="300" autoHide="0" scrollBarThickness="9.79798"
+             visible="0">
+    <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="5" y="-15"
+               width="190" height="500" borderRadius="0" parentComponent="Viewport_ExpansionsHolder"
+               bgColour="9700870" itemColour="4278190080" itemColour2="4278190080">
+      <Component type="ScriptButton" id="Expansions_ButtonEXP1" x="2" y="3" parentComponent="Panel_ExpansionsItemHolder"
+                 radioGroup="1" text="Cloudburst" filmstripImage="{PROJECT_FOLDER}cloudburst button.png"
+                 width="185" height="55" numStrips="6"/>
+      <Component type="ScriptButton" id="Expansions_ButtonEXP2" x="2" y="59" parentComponent="Panel_ExpansionsItemHolder"
+                 radioGroup="1" text="Bloom" filmstripImage="{PROJECT_FOLDER}bloom button.png"
+                 numStrips="6" width="185" height="55"/>
+      <Component type="ScriptButton" id="Expansions_ButtonEXP3" x="30" y="162"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1"/>
+    </Component>
+  </Component>
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="35" y="301" ContentType="Keyboard"
+             bgColour="4284769380" itemColour="436207615" itemColour2="4294967295"
+             textColour="4294951115" Data="{&#13;&#10;  &quot;KeyWidth&quot;: 14,&#13;&#10;  &quot;DisplayOctaveNumber&quot;: false,&#13;&#10;  &quot;LowKey&quot;: 36,&#13;&#10;  &quot;HiKey&quot;: 96,&#13;&#10;  &quot;CustomGraphics&quot;: false,&#13;&#10;  &quot;DefaultAppearance&quot;: true,&#13;&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#13;&#10;  &quot;ToggleMode&quot;: false,&#13;&#10;  &quot;MidiChannel&quot;: 1,&#13;&#10;  &quot;UseVectorGraphics&quot;: true,&#13;&#10;  &quot;UseFlatStyle&quot;: false,&#13;&#10;  &quot;MPEKeyboard&quot;: false,&#13;&#10;  &quot;MPEStartChannel&quot;: 2,&#13;&#10;  &quot;MPEEndChannel&quot;: 16&#13;&#10;}"
+             width="505" height="79"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile2" x="388" y="-1" ContentType="PerformanceLabel"
+             bgColour="0" itemColour="4294951115" itemColour2="4294951115"
+             Data="{&#13;&#10;}" width="174" height="27" FontSize="11"/>
+</ContentProperties>

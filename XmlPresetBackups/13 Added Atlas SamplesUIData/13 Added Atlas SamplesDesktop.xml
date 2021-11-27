@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptPanel" id="Panel_BG" x="2" y="23" width="568" height="273"
+             borderRadius="19">
+    <Component type="ScriptImage" id="Image_BG" x="-2" y="0" parentComponent="Panel_BG"
+               text="Image" width="567" height="291" fileName="{EXP::Bloom}bg_bloom.png"/>
+    <Component type="ScriptPanel" id="Panel_AHDSR" x="133" y="22" width="300"
+               height="241" parentComponent="Panel_BG" bgColour="3339060742"
+               itemColour="1895825408" itemColour2="1895825408">
+      <Component type="ScriptLabel" id="Label_Attack" x="8" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Attack" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_Decay" x="77" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Decay" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_Sustain" x="147" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Sustain" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_Release" x="220" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Release" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_AttackValue" x="8" y="210" width="74"
+                 height="28" fontStyle="Regular" text="3.76" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_DecayValue" x="77" y="210" width="74"
+                 height="28" fontStyle="Regular" text="4320" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_SustainValue" x="147" y="210" width="74"
+                 height="28" fontStyle="Regular" text="0" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_ReleaseValue" x="220" y="210" width="74"
+                 height="28" fontStyle="Regular" text="1630.98" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptFloatingTile" id="AHDSRDisplay" x="49" y="35" parentComponent="Panel_AHDSR"
+                 ContentType="AHDSRGraph" bgColour="1191182336" itemColour="3299337446"
+                 itemColour2="4282624939" textColour="4294951115" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;AHDSR Envelope1&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 itemColour3="4278190080" width="200" height="100"/>
+      <Component type="ScriptSlider" id="Slider_Attack" x="21" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" min="1" max="20000" middlePosition="1000"/>
+      <Component type="ScriptSlider" id="Slider_Decay" x="91" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" max="20000"/>
+      <Component type="ScriptSlider" id="Slider_Sustain" x="161" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" min="-100" max="0" middlePosition="-12"/>
+      <Component type="ScriptSlider" id="Slider_Release" x="231" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" min="4" max="20000" middlePosition="1000"/>
+      <Component type="ScriptLabel" id="Label_AHDSRTitle" x="1" y="5" width="298"
+                 height="28" fontStyle="Bold" text="ADSR" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+    </Component>
+    <Component type="ScriptButton" id="Button_AHDSRDisplay" x="477" y="133"
+               parentComponent="Panel_BG" width="75" height="31" text="ADSR"/>
+  </Component>
+  <Component type="ScriptButton" id="Button_OpenExpansions" x="11" y="272"
+             text="&gt;" width="47" height="28" itemColour="4281545523" filmstripImage="{PROJECT_FOLDER}show expansions button.png"
+             numStrips="6"/>
+  <Component type="ScriptedViewport" id="Viewport_ExpansionsHolder" x="0"
+             y="23" width="200" height="300" autoHide="0" scrollBarThickness="9.79798"
+             visible="0">
+    <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="5" y="-15"
+               width="190" height="500" borderRadius="0" parentComponent="Viewport_ExpansionsHolder"
+               bgColour="9700870" itemColour="4278190080" itemColour2="4278190080">
+      <Component type="ScriptButton" id="Expansions_ButtonCloudburst" x="2" y="3"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1" text="Cloudburst"
+                 filmstripImage="{PROJECT_FOLDER}cloudburst button.png" width="185"
+                 height="55" numStrips="6"/>
+      <Component type="ScriptButton" id="Expansions_ButtonBloom" x="2" y="60"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1" text="Bloom"
+                 filmstripImage="{PROJECT_FOLDER}bloom button.png" numStrips="6"
+                 width="185" height="55"/>
+      <Component type="ScriptButton" id="Expansions_ButtonAtlas" x="2" y="117"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1" filmstripImage="{PROJECT_FOLDER}atlas button.png"
+                 width="185" height="55" numStrips="6"/>
+    </Component>
+  </Component>
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="35" y="301" ContentType="Keyboard"
+             bgColour="4284769380" itemColour="436207615" itemColour2="4294967295"
+             textColour="4294951115" Data="{&#13;&#10;  &quot;KeyWidth&quot;: 14,&#13;&#10;  &quot;DisplayOctaveNumber&quot;: false,&#13;&#10;  &quot;LowKey&quot;: 36,&#13;&#10;  &quot;HiKey&quot;: 96,&#13;&#10;  &quot;CustomGraphics&quot;: false,&#13;&#10;  &quot;DefaultAppearance&quot;: true,&#13;&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#13;&#10;  &quot;ToggleMode&quot;: false,&#13;&#10;  &quot;MidiChannel&quot;: 1,&#13;&#10;  &quot;UseVectorGraphics&quot;: true,&#13;&#10;  &quot;UseFlatStyle&quot;: false,&#13;&#10;  &quot;MPEKeyboard&quot;: false,&#13;&#10;  &quot;MPEStartChannel&quot;: 2,&#13;&#10;  &quot;MPEEndChannel&quot;: 16&#13;&#10;}"
+             width="505" height="79"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile2" x="388" y="-1" ContentType="PerformanceLabel"
+             bgColour="0" itemColour="4294951115" itemColour2="4294951115"
+             Data="{&#13;&#10;}" width="174" height="27" FontSize="11"/>
+  <Component type="ScriptComboBox" id="ComboBox_Atlas" x="39" y="132" max="16"
+             text="Select" items="Crystal&#10;Dialup&#10;Discovery&#10;Dirty Vinyl&#10;Drift&#10;Droplets&#10;Levitate&#10;Mod Organ&#10;Morning&#10;Ossuary&#10;Phenom&#10;Reliquary&#10;Science&#10;Solstice&#10;Temple&#10;Wonky"/>
+</ContentProperties>

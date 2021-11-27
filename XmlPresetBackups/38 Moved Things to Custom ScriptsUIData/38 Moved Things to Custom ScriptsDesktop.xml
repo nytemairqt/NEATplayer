@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptPanel" id="Panel_BG" x="200" y="23" width="568" height="273"
+             borderRadius="19">
+    <Component type="ScriptImage" id="Image_BG" x="-2" y="0" parentComponent="Panel_BG"
+               text="Image" width="567" height="291" fileName="{EXP::Blackout}bg_blackout.jpg"
+               alpha="0"/>
+    <Component type="ScriptPanel" id="Panel_AHDSR" x="127" y="22" width="300"
+               height="241" parentComponent="Panel_BG" bgColour="3825600006"
+               itemColour="2147483648" itemColour2="2147483648">
+      <Component type="ScriptLabel" id="Label_Attack" x="8" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Attack" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_Decay" x="77" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Decay" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_Sustain" x="147" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Sustain" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_Release" x="220" y="191" width="74"
+                 height="28" fontStyle="Bold" text="Release" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_AttackValue" x="8" y="210" width="74"
+                 height="28" fontStyle="Regular" text="1" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_DecayValue" x="77" y="210" width="74"
+                 height="28" fontStyle="Regular" text="0" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_SustainValue" x="147" y="210" width="74"
+                 height="28" fontStyle="Regular" text="0" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptLabel" id="Label_ReleaseValue" x="220" y="210" width="74"
+                 height="28" fontStyle="Regular" text="1954.35" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+      <Component type="ScriptFloatingTile" id="AHDSRDisplay" x="49" y="35" parentComponent="Panel_AHDSR"
+                 ContentType="AHDSRGraph" bgColour="1191182336" itemColour="3435066873"
+                 itemColour2="4282624939" textColour="4294951115" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;AHDSR Envelope1&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 itemColour3="4278190080" width="200" height="100"/>
+      <Component type="ScriptSlider" id="Slider_Attack" x="21" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" min="1" max="20000" middlePosition="1000"/>
+      <Component type="ScriptSlider" id="Slider_Decay" x="91" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" max="20000"/>
+      <Component type="ScriptSlider" id="Slider_Sustain" x="161" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" min="-100" max="0" middlePosition="-12"/>
+      <Component type="ScriptSlider" id="Slider_Release" x="231" y="141" parentComponent="Panel_AHDSR"
+                 showTextBox="0" width="49" height="51" textColour="16777215"
+                 itemColour2="1118481" itemColour="3355443" bgColour="16777215"
+                 text="" min="4" max="20000" middlePosition="1000"/>
+      <Component type="ScriptLabel" id="Label_AHDSRTitle" x="1" y="5" width="298"
+                 height="28" fontStyle="Bold" text="ADSR" parentComponent="Panel_AHDSR"
+                 editable="0"/>
+    </Component>
+    <Component type="ScriptButton" id="Button_AHDSRDisplay" x="480" y="177"
+               parentComponent="Panel_BG" width="80" height="26" text="PLAY"
+               itemColour="2147483648" radioGroup="2" saveInPreset="0" filmstripImage="{PROJECT_FOLDER}switch page button.png"
+               numStrips="6"/>
+    <Component type="ScriptButton" id="Button_FXDisplay" x="480" y="206" text="FX"
+               width="80" height="26" radioGroup="2" parentComponent="Panel_BG"
+               saveInPreset="0" filmstripImage="{PROJECT_FOLDER}switch page button.png"
+               numStrips="6"/>
+    <Component type="ScriptLabel" id="Label_PlayPage" x="488" y="179" width="66"
+               height="20" text="Play" fontSize="12" editable="0" parentComponent="Panel_BG"/>
+    <Component type="ScriptLabel" id="Label_FXPage" x="488" y="209" width="66"
+               height="20" text="FX" fontSize="12" editable="0" parentComponent="Panel_BG"/>
+    <Component type="ScriptPanel" id="Panel_FX" x="75" y="8" parentComponent="Panel_BG"
+               width="400" height="255" itemColour="2801795072" itemColour2="2801795072"
+               visible="0">
+      <Component type="ScriptButton" id="Button_FilterSettings" x="26" y="27"
+                 parentComponent="Panel_FX" text="" width="87" height="15" radioGroup="3"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6"/>
+      <Component type="ScriptButton" id="Button_EQSettings" x="26" y="51" parentComponent="Panel_FX"
+                 text="" width="87" height="15" radioGroup="3" bgColour="16777215"
+                 itemColour="3355443" itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6"/>
+      <Component type="ScriptButton" id="Button_DriveSettings" x="26" y="100"
+                 parentComponent="Panel_FX" text="" width="87" height="15" radioGroup="3"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6"/>
+      <Component type="ScriptButton" id="Button_CompSettings" x="26" y="75" parentComponent="Panel_FX"
+                 text="" width="87" height="15" radioGroup="3" bgColour="16777215"
+                 itemColour="3355443" itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6"/>
+      <Component type="ScriptButton" id="Button_ReverbSettings" x="26" y="197"
+                 parentComponent="Panel_FX" text="" width="87" height="15" radioGroup="3"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6"/>
+      <Component type="ScriptButton" id="Button_WidthSettings" x="26" y="124"
+                 parentComponent="Panel_FX" text="" width="87" height="15" radioGroup="3"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6"/>
+      <Component type="ScriptButton" id="Button_DelaySettings" x="26" y="222"
+                 parentComponent="Panel_FX" text="" width="87" height="15" radioGroup="3"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6"/>
+      <Component type="ScriptButton" id="Button_PhaserSettings" x="26" y="148"
+                 parentComponent="Panel_FX" text="" width="87" height="15" radioGroup="3"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6"/>
+      <Component type="ScriptButton" id="Button_DegradeSettings" x="26" y="173"
+                 parentComponent="Panel_FX" text="" width="87" height="15" radioGroup="3"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6"/>
+      <Component type="ScriptButton" id="Button_FilterBypass" x="2" y="20" parentComponent="Panel_FX"
+                 text="" width="30" height="24" processorId="Filter1" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_EQBypass" x="2" y="44" parentComponent="Panel_FX"
+                 text="" width="30" height="24" processorId="Parametriq EQ1" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_CompBypass" x="2" y="68" parentComponent="Panel_FX"
+                 text="" width="30" height="24" processorId="Compressor" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_DriveTubeDriveEnable" x="2" y="91"
+                 parentComponent="Panel_FX" text="" width="30" bgColour="16777215"
+                 itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_WidthEnable" x="2" y="116" parentComponent="Panel_FX"
+                 width="30" height="29" text="" processorId="Width" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_PhaserEnable" x="2" y="140" parentComponent="Panel_FX"
+                 width="30" height="28" text="" processorId="Phase FX1" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_DegradeEnable" x="2" y="165" parentComponent="Panel_FX"
+                 width="30" height="26" text="" processorId="Degrade" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_ReverbEnable" x="2" y="188" parentComponent="Panel_FX"
+                 width="30" height="27" text="" processorId="Simple Reverb1" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptButton" id="Button_DelayEnable" x="2" y="214" parentComponent="Panel_FX"
+                 width="30" height="27" text="" processorId="Delay1" parameterId="Enabled"
+                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"/>
+      <Component type="ScriptPanel" id="Panel_EQSettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416"
+                 visible="0">
+        <Component type="ScriptFloatingTile" id="FloatingTile3" x="7" y="90" parentComponent="Panel_EQSettings"
+                   width="255" height="112" ContentType="DraggableFilterPanel" bgColour="5855577"
+                   itemColour="3435066873" itemColour2="4294967295" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;Parametriq EQ1&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                   itemColour3="544305521"/>
+        <Component type="ScriptLabel" id="Label_EQTitle" x="72" y="7" parentComponent="Panel_EQSettings"
+                   text="PARAMETRIC EQ" editable="0"/>
+        <Component type="ScriptLabel" id="Label_EQTip1" x="3" y="36" parentComponent="Panel_EQSettings"
+                   text="Click to add point." width="114" height="28" fontStyle="Italic"
+                   fontSize="12" editable="0"/>
+        <Component type="ScriptLabel" id="Label_EQTip2" x="13" y="51" parentComponent="Panel_EQSettings"
+                   text="Mouse Wheel to adjust Q." width="130" height="28" fontStyle="Italic"
+                   fontSize="12" editable="0"/>
+        <Component type="ScriptLabel" id="Label_EQTip3" x="8" y="66" parentComponent="Panel_EQSettings"
+                   text="Right Click for Options." width="130" height="28" fontStyle="Italic"
+                   fontSize="12" editable="0"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_CompSettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416"
+                 visible="0">
+        <Component type="ScriptLabel" id="Label_CompTitle" x="72" y="7" parentComponent="Panel_CompSettings"
+                   text="COMPRESSOR" editable="0"/>
+        <Component type="ScriptSlider" id="Slider_CompThreshold" x="7" y="48" parentComponent="Panel_CompSettings"
+                   text="Threshold" min="-100" max="0" processorId="Compressor"
+                   parameterId="Threshold" middlePosition="-48"/>
+        <Component type="ScriptSlider" id="Slider_CompAttack" x="7" y="102" parentComponent="Panel_CompSettings"
+                   text="Attack" min="1" max="250" processorId="Compressor" parameterId="Attack"
+                   middlePosition="125" defaultValue="50"/>
+        <Component type="ScriptSlider" id="Slider_CompRelease" x="7" y="157" parentComponent="Panel_CompSettings"
+                   text="Release" defaultValue="50" min="1" max="250" middlePosition="125"
+                   processorId="Compressor" parameterId="Release"/>
+        <Component type="ScriptSlider" id="Slider_CompRatio" x="133" y="48" parentComponent="Panel_CompSettings"
+                   text="Ratio" min="2" max="8" stepSize="1" middlePosition="4"
+                   defaultValue="2" processorId="Compressor" parameterId="Ratio"/>
+        <Component type="ScriptSlider" id="Slider_CompMakeup" x="133" y="102" parentComponent="Panel_CompSettings"
+                   text="Makeup" max="12" middlePosition="6" processorId="Compressor"
+                   parameterId="Makeup"/>
+        <Component type="ScriptSlider" id="Slider_CompMix" x="133" y="157" parentComponent="Panel_CompSettings"
+                   text="Mix" processorId="Compressor" parameterId="Mix" middlePosition="0.5"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_FilterSettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416"
+                 visible="0">
+        <Component type="ScriptLabel" id="Label_FilterTitle" x="72" y="7" parentComponent="Panel_FilterSettings"
+                   text="FILTER" editable="0"/>
+        <Component type="ScriptSlider" id="Slider_FilterFreq" x="18" y="133" parentComponent="Panel_FilterSettings"
+                   text="Freq" min="20" max="20000" stepSize="1" middlePosition="1500"
+                   processorId="Filter1" parameterId="Frequency" width="111" height="48"/>
+        <Component type="ScriptSlider" id="Slider_FilterFreq1" x="140" y="133" parentComponent="Panel_FilterSettings"
+                   text="Q" min="0.3" max="8" middlePosition="1" processorId="Filter1"
+                   parameterId="Q" width="111" height="48"/>
+        <Component type="ScriptComboBox" id="ComboBox_FilterMode" x="73" y="189"
+                   max="2" parentComponent="Panel_FilterSettings" text="Select"
+                   items="LowPass&#10;HighPass" width="128" height="26"/>
+        <Component type="ScriptFloatingTile" id="FloatingTile4" x="42" y="35" parentComponent="Panel_FilterSettings"
+                   ContentType="FilterDisplay" bgColour="4281545523" itemColour="4294967295"
+                   itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;Filter1&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                   width="188" height="91"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_DriveSettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416"
+                 visible="0">
+        <Component type="ScriptLabel" id="Label_DriveTitle" x="72" y="7" parentComponent="Panel_DriveSettings"
+                   text="DRIVE" editable="0"/>
+        <Component type="ScriptComboBox" id="ComboBox_DriveOversample" x="146" y="85"
+                   max="2" parentComponent="Panel_DriveSettings" width="112" height="32"
+                   text="Oversample" items="Off&#10;2x" processorId="Shape FX1"
+                   parameterId="Oversampling"/>
+        <Component type="ScriptSlider" id="Slider_DriveGain" x="10" y="75" parentComponent="Panel_DriveSettings"
+                   text="Gain" max="60" middlePosition="24" processorId="Shape FX1"
+                   parameterId="Gain"/>
+        <Component type="ScriptComboBox" id="ComboBox_DriveOversample1" x="146"
+                   y="165" max="2" parentComponent="Panel_DriveSettings" width="112"
+                   height="32" text="Oversample" items="Off&#10;2x"/>
+        <Component type="ScriptSlider" id="Slider_DriveGain1" x="10" y="155" parentComponent="Panel_DriveSettings"
+                   text="Gain" max="60" middlePosition="24" processorId="TubeDrive"
+                   parameterId="Gain"/>
+        <Component type="ScriptLabel" id="Label_DriveWaveShaper" x="5" y="52" parentComponent="Panel_DriveSettings"
+                   text="WaveShaper" width="102" height="28" editable="0"/>
+        <Component type="ScriptLabel" id="Label_DriveTube" x="15" y="134" parentComponent="Panel_DriveSettings"
+                   text="Tube Drive" width="71" height="28" editable="0"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_ReverbSettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416"
+                 visible="0">
+        <Component type="ScriptLabel" id="Label_ReverbTitle" x="72" y="7" parentComponent="Panel_ReverbSettings"
+                   text="REVERB" editable="0"/>
+        <Component type="ScriptSlider" id="Slider_ReverbSize" x="8" y="54" parentComponent="Panel_ReverbSettings"
+                   text="Size" processorId="Simple Reverb1" parameterId="RoomSize"
+                   middlePosition="0.5" defaultValue="0.7"/>
+        <Component type="ScriptSlider" id="Slider_ReverbWidth" x="8" y="107" parentComponent="Panel_ReverbSettings"
+                   text="Width" processorId="Simple Reverb1" parameterId="Width"
+                   middlePosition="0.5" defaultValue="0.8"/>
+        <Component type="ScriptSlider" id="Slider_ReverbDamping" x="135" y="54"
+                   parentComponent="Panel_ReverbSettings" text="Damping" processorId="Simple Reverb1"
+                   parameterId="Damping" middlePosition="0.5" defaultValue="0.5"/>
+        <Component type="ScriptSlider" id="Slider_ReverbMix" x="135" y="107" parentComponent="Panel_ReverbSettings"
+                   text="Mix" processorId="Simple Reverb1" parameterId="WetLevel"
+                   middlePosition="0.5" defaultValue="0.2"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_DelaySettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416">
+        <Component type="ScriptLabel" id="Label_DelayTitle" x="72" y="7" parentComponent="Panel_DelaySettings"
+                   text="DELAY" editable="0"/>
+        <Component type="ScriptSlider" id="Slider_DelayTimeLeftSynced" x="7" y="35"
+                   parentComponent="Panel_DelaySettings" text="Time Left" max="18"
+                   middlePosition="9" stepSize="1" visible="0"/>
+        <Component type="ScriptSlider" id="Slider_DelayTimeRightSynced" x="137"
+                   y="35" parentComponent="Panel_DelaySettings" text="Time Right"
+                   max="18" middlePosition="9" stepSize="1" visible="0"/>
+        <Component type="ScriptSlider" id="Slider_DelayFeedbackRight" x="137" y="84"
+                   parentComponent="Panel_DelaySettings" text="Right Feedback"/>
+        <Component type="ScriptSlider" id="Slider_DelayFeedbackLeft" x="7" y="84"
+                   parentComponent="Panel_DelaySettings" text="Left Feedback"/>
+        <Component type="ScriptSlider" id="Slider_DelayMix" x="129" y="146" parentComponent="Panel_DelaySettings"
+                   text="Mix" processorId="Delay1" parameterId="Mix"/>
+        <Component type="ScriptButton" id="Button_DelayLink" x="7" y="142" parentComponent="Panel_DelaySettings"
+                   text="Link" width="100" height="28"/>
+        <Component type="ScriptButton" id="Button_DelaySync" x="7" y="173" parentComponent="Panel_DelaySettings"
+                   text="Tempo Sync" width="102" height="28"/>
+        <Component type="ScriptSlider" id="Slider_DelayTimeRightFree" x="137" y="35"
+                   parentComponent="Panel_DelaySettings" text="Time Right" max="20000"
+                   middlePosition="1050"/>
+        <Component type="ScriptSlider" id="Slider_DelayTimeLeftFree" x="7" y="35"
+                   parentComponent="Panel_DelaySettings" text="Time Left" max="20000"
+                   middlePosition="1050"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_WidthSettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416"
+                 visible="0">
+        <Component type="ScriptLabel" id="Label_WidthTitle" x="72" y="7" parentComponent="Panel_WidthSettings"
+                   text="WIDTH" editable="0"/>
+        <Component type="ScriptSlider" id="Slider_WidthAmount" x="8" y="55" parentComponent="Panel_WidthSettings"
+                   text="Width" max="200" middlePosition="100" defaultValue="100"
+                   processorId="Width" parameterId="Width"/>
+        <Component type="ScriptSlider" id="Slider_WidthGain" x="137" y="55" parentComponent="Panel_WidthSettings"
+                   text="Gain" min="-100" max="36" middlePosition="0" processorId="Width"
+                   parameterId="Gain"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_PhaserSettings" x="112" y="21" parentComponent="Panel_FX"
+                 width="269" height="223" itemColour="3372220416" itemColour2="3372220416"
+                 visible="0">
+        <Component type="ScriptLabel" id="Label_PhaserTitle" x="72" y="7" parentComponent="Panel_PhaserSettings"
+                   text="PHASER" editable="0"/>
+        <Component type="ScriptSlider" id="Slider_PhaserRateA" x="6" y="50" parentComponent="Panel_PhaserSettings"
+                   text="Rate A" min="20" max="20000" middlePosition="1500" defaultValue="1500"
+                   processorId="Phase FX1" parameterId="Frequency1"/>
+        <Component type="ScriptSlider" id="Slider_PhaserRateB" x="9" y="104" parentComponent="Panel_PhaserSettings"
+                   text="Rate B" min="20" max="20000" middlePosition="1500" defaultValue="1500"
+                   processorId="Phase FX1" parameterId="Frequency2"/>
+        <Component type="ScriptSlider" id="Slider_PhaserMix" x="131" y="104" parentComponent="Panel_PhaserSettings"
+                   text="Mix" middlePosition="0.5" processorId="Phase FX1" parameterId="Mix"/>
+        <Component type="ScriptSlider" id="Slider_PhaserFeedback" x="132" y="51"
+                   parentComponent="Panel_PhaserSettings" text="Feedback" middlePosition="0.5"
+                   processorId="Phase FX1" parameterId="Feedback"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_DegradeSettings" x="112" y="21"
+                 parentComponent="Panel_FX" width="269" height="223" itemColour="3372220416"
+                 itemColour2="3372220416" visible="0">
+        <Component type="ScriptLabel" id="Label_DegradeTitle" x="72" y="7" parentComponent="Panel_DegradeSettings"
+                   text="DEGRADE" editable="0"/>
+        <Component type="ScriptSlider" id="Slider_DegradeBitDepth" x="5" y="68"
+                   parentComponent="Panel_DegradeSettings" min="4" max="16" stepSize="0.1"
+                   middlePosition="10" defaultValue="16" text="Bit Depth" processorId="Degrade"
+                   parameterId="BitDepth"/>
+        <Component type="ScriptSlider" id="Slider_DegradeSampleHold" x="134" y="67"
+                   parentComponent="Panel_DegradeSettings" max="64" min="1" defaultValue="1"
+                   middlePosition="32" stepSize="1" text="Sample &amp; Hold" processorId="Degrade"
+                   parameterId="SampleHold"/>
+      </Component>
+      <Component type="ScriptLabel" id="Label_Filter" x="22" y="18" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Filter" editable="0"/>
+      <Component type="ScriptLabel" id="Label_EQ" x="22" y="42" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="EQ" editable="0"/>
+      <Component type="ScriptLabel" id="Label_Comp" x="22" y="66" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Comp" editable="0"/>
+      <Component type="ScriptLabel" id="Label_Drive" x="22" y="90" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Drive" editable="0"/>
+      <Component type="ScriptLabel" id="Label_Width" x="22" y="115" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Width" editable="0"/>
+      <Component type="ScriptLabel" id="Label_Phaser" x="22" y="139" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Phaser" editable="0"/>
+      <Component type="ScriptLabel" id="Label_Degrade" x="22" y="164" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Degrade" editable="0"/>
+      <Component type="ScriptLabel" id="Label_Reverb" x="22" y="188" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Reverb" editable="0"/>
+      <Component type="ScriptLabel" id="Label_Delay" x="22" y="213" parentComponent="Panel_FX"
+                 width="77" height="28" fontSize="12" text="Delay" editable="0"/>
+    </Component>
+    <Component type="ScriptComboBox" id="ComboBox_Atlas" x="480" y="148" max="16"
+               text="Select" items="Crystal&#10;Dialup&#10;Discovery&#10;Dirty Vinyl&#10;Drift&#10;Droplets&#10;Levitate&#10;Mod Organ&#10;Morning&#10;Ossuary&#10;Phenom&#10;Reliquary&#10;Science&#10;Solstice&#10;Temple&#10;Wonky"
+               width="80" height="26" itemColour="4212199697" bgColour="4294967295"
+               parentComponent="Panel_BG" visible="0"/>
+  </Component>
+  <Component type="ScriptedViewport" id="Viewport_ExpansionsHolder" x="0"
+             y="23" width="200" height="300" autoHide="0" scrollBarThickness="9.79798">
+    <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="5" y="-15"
+               width="190" height="500" borderRadius="0" parentComponent="Viewport_ExpansionsHolder"
+               bgColour="9700870" itemColour="4278190080" itemColour2="4278190080">
+      <Component type="ScriptButton" id="Expansions_ButtonCloudburst" x="2" y="3"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1" text="Cloudburst"
+                 filmstripImage="{PROJECT_FOLDER}cloudburst button.png" width="185"
+                 height="55" numStrips="6" saveInPreset="0"/>
+      <Component type="ScriptButton" id="Expansions_ButtonBloom" x="2" y="60"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1" text="Bloom"
+                 filmstripImage="{PROJECT_FOLDER}bloom button.png" numStrips="6"
+                 width="185" height="55" saveInPreset="0"/>
+      <Component type="ScriptButton" id="Expansions_ButtonAtlas" x="2" y="117"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1" filmstripImage="{PROJECT_FOLDER}atlas button.png"
+                 width="185" height="55" numStrips="6" saveInPreset="0"/>
+      <Component type="ScriptButton" id="Expansions_ButtonBlackout" x="2" y="173"
+                 parentComponent="Panel_ExpansionsItemHolder" radioGroup="1" filmstripImage="{PROJECT_FOLDER}blackout button.png"
+                 width="185" height="55" numStrips="6" saveInPreset="0"/>
+    </Component>
+  </Component>
+  <Component type="ScriptFloatingTile" id="FloatingTile1" x="35" y="301" ContentType="Keyboard"
+             bgColour="4284769380" itemColour="436207615" itemColour2="4294967295"
+             textColour="4294951115" Data="{&#13;&#10;  &quot;KeyWidth&quot;: 14,&#13;&#10;  &quot;DisplayOctaveNumber&quot;: false,&#13;&#10;  &quot;LowKey&quot;: 36,&#13;&#10;  &quot;HiKey&quot;: 96,&#13;&#10;  &quot;CustomGraphics&quot;: false,&#13;&#10;  &quot;DefaultAppearance&quot;: true,&#13;&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#13;&#10;  &quot;ToggleMode&quot;: false,&#13;&#10;  &quot;MidiChannel&quot;: 1,&#13;&#10;  &quot;UseVectorGraphics&quot;: true,&#13;&#10;  &quot;UseFlatStyle&quot;: false,&#13;&#10;  &quot;MPEKeyboard&quot;: false,&#13;&#10;  &quot;MPEStartChannel&quot;: 2,&#13;&#10;  &quot;MPEEndChannel&quot;: 16&#13;&#10;}"
+             width="505" height="79"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile2" x="397" y="0" ContentType="PerformanceLabel"
+             bgColour="0" itemColour="4294951115" itemColour2="4294951115"
+             Data="{&#13;&#10;}" width="162" height="27" FontSize="11"/>
+  <Component type="ScriptPanel" id="Panel_ChangeSampleFolder" x="110" y="68"
+             width="368" height="135" itemColour="4278190080" itemColour2="4278190080"
+             visible="0">
+    <Component type="ScriptPanel" id="Panel2" x="25" y="36" parentComponent="Panel_ChangeSampleFolder"
+               width="316" height="35" itemColour="814846353" itemColour2="814846353"/>
+    <Component type="ScriptFloatingTile" id="FloatingTile_SampleFolder" x="14"
+               y="23" ContentType="CustomSettings" bgColour="4278190080" itemColour="4294951115"
+               itemColour2="4294951115" Data="{&#13;&#10;  &quot;Driver&quot;: false,&#13;&#10;  &quot;Device&quot;: false,&#13;&#10;  &quot;Output&quot;: false,&#13;&#10;  &quot;BufferSize&quot;: false,&#13;&#10;  &quot;SampleRate&quot;: false,&#13;&#10;  &quot;GlobalBPM&quot;: false,&#13;&#10;  &quot;StreamingMode&quot;: false,&#13;&#10;  &quot;ScaleFactor&quot;: false,&#13;&#10;  &quot;VoiceAmountMultiplier&quot;: false,&#13;&#10;  &quot;ClearMidiCC&quot;: false,&#13;&#10;  &quot;SampleLocation&quot;: true,&#13;&#10;  &quot;DebugMode&quot;: false,&#13;&#10;  &quot;ScaleFactorList&quot;: [&#13;&#10;    0.5,&#13;&#10;    0.75,&#13;&#10;    1.0,&#13;&#10;    1.25,&#13;&#10;    1.5,&#13;&#10;    2.0&#13;&#10;  ]&#13;&#10;}"
+               width="351" height="97" itemColour3="4278190080" parentComponent="Panel_ChangeSampleFolder"/>
+    <Component type="ScriptButton" id="Button_CloseSetFolder" x="265" y="6"
+               parentComponent="Panel_ChangeSampleFolder" filmstripImage="{PROJECT_FOLDER}set samples folder button base.png"
+               numStrips="6" width="93" height="21" isMomentary="1"/>
+    <Component type="ScriptLabel" id="Label_CloseSetFolder" x="263" y="1" parentComponent="Panel_ChangeSampleFolder"
+               width="94" height="28" text="Close" fontSize="12" editable="0"/>
+  </Component>
+  <Component type="ScriptComboBox" id="ExpansionSelector" x="275" y="0" max="5"
+             items="No Expansion&#10;Atlas&#10;Blackout&#10;Bloom&#10;Cloudburst"
+             enabled="0" visible="0"/>
+  <Component type="ScriptButton" id="Button_OpenExpansions" x="210" y="272"
+             text="&gt;" width="47" height="28" itemColour="4281545523" filmstripImage="{PROJECT_FOLDER}show expansions button.png"
+             numStrips="6"/>
+  <Component type="ScriptButton" id="Button_InstallLibrary" x="101" y="3"
+             text="Install Library" saveInPreset="0" isMomentary="1" filmstripImage="{PROJECT_FOLDER}set samples folder button base.png"
+             numStrips="6" width="93" height="20"/>
+  <Component type="ScriptLabel" id="Label_InstallLibrary" x="100" y="-2" width="94"
+             height="28" text="Add Library" fontSize="12" editable="0"/>
+  <Component type="ScriptButton" id="Button_SetSamplesFolder" x="4" y="3"
+             text="Set Samples Folder" saveInPreset="0" filmstripImage="{PROJECT_FOLDER}set samples folder button base.png"
+             numStrips="6" width="93" height="20"/>
+  <Component type="ScriptLabel" id="Label_SetSamplesFolder" x="2" y="-2" width="94"
+             height="28" text="Set Folder" fontSize="12" editable="0"/>
+  <Component type="ScriptButton" id="Button_OpenPresetBrowser" x="198" y="3"
+             text="Preset Browser" saveInPreset="0" width="93" height="20"
+             filmstripImage="{PROJECT_FOLDER}set samples folder button base.png"
+             numStrips="6"/>
+  <Component type="ScriptLabel" id="Label_OpenPresetBrowser" x="197" y="-2"
+             width="94" height="28" text="Preset Browser" fontSize="12" editable="0"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile_PresetBrowser" x="0"
+             y="23" ContentType="PresetBrowser" bgColour="4160749568" itemColour="4287692721"
+             itemColour2="4294951115" Data="{&#13;&#10;  &quot;ShowSaveButton&quot;: true,&#13;&#10;  &quot;ShowExpansionsAsColumn&quot;: true,&#13;&#10;  &quot;ShowFolderButton&quot;: true,&#13;&#10;  &quot;ShowNotes&quot;: false,&#13;&#10;  &quot;ShowEditButtons&quot;: true,&#13;&#10;  &quot;ShowFavoriteIcon&quot;: true,&#13;&#10;  &quot;NumColumns&quot;: 1,&#13;&#10;  &quot;ColumnWidthRatio&quot;: [&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333&#13;&#10;  ]&#13;&#10;}"
+             width="570" height="270" visible="0"/>
+  <Component type="ScriptSlider" id="Slider_OutputVolume" x="300" y="3" filmstripImage="{PROJECT_FOLDER}slider_volumecontrol.png"
+             numStrips="127" width="98" height="25" dragDirection="Horizontal"
+             min="-100" max="0" middlePosition="-12" processorId="Simple Gain1"
+             parameterId="Gain"/>
+</ContentProperties>

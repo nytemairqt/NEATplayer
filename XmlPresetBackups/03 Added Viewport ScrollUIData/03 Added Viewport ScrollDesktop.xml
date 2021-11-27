@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptButton" id="Button_OpenExpansions" x="200" y="270"
+             text="&gt;" width="47" height="28"/>
+  <Component type="ScriptedViewport" id="Viewport_ExpansionsHolder" x="0"
+             y="0" width="200" height="300" autoHide="0">
+    <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="5" y="-15"
+               width="190" height="500" borderRadius="0" parentComponent="Viewport_ExpansionsHolder">
+      <Component type="ScriptButton" id="Expansions_ButtonEXP1" x="31" y="18"
+                 parentComponent="Panel_ExpansionsItemHolder"/>
+      <Component type="ScriptButton" id="Expansions_ButtonEXP2" x="31" y="90"
+                 parentComponent="Panel_ExpansionsItemHolder"/>
+      <Component type="ScriptButton" id="Expansions_ButtonEXP3" x="30" y="162"
+                 parentComponent="Panel_ExpansionsItemHolder"/>
+    </Component>
+  </Component>
+</ContentProperties>
