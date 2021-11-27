@@ -99,7 +99,7 @@ namespace VuMeter
 //OUTPUT SLIDER
 
 const var outputSliderContainer = Content.addPanel("outputSliderContainer", 300, 10);
-const var OutputGain = Synth.getEffect("OutputGain");
+//const var OutputGain = Synth.getEffect("OutputGain");
 
 outputSliderContainer.setPosition(323, 7, 96, 12);
 

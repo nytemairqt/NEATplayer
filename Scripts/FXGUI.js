@@ -5,14 +5,13 @@ const var Panel_FX = Content.getComponent("Panel_FX");
 
 const var Button_DriveTubeDriveEnable = Content.getComponent("Button_DriveTubeDriveEnable");
 
-
 const var ShapeFX1 = Synth.getEffect("Shape FX1");
-const var TubeDrive = Synth.getEffect("TubeDrive");
+//const var TubeDrive = Synth.getEffect("TubeDrive");
 const var Filter1 = Synth.getEffect("Filter1");
-const var Compressor = Synth.getEffect("Compressor");
+//const var Compressor = Synth.getEffect("Compressor");
 const var Width = Synth.getEffect("Width");
 const var PhaseFX1 = Synth.getEffect("Phase FX1");
-const var Degrade = Synth.getEffect("Degrade");
+//const var Degrade = Synth.getEffect("Degrade");
 const var SimpleReverb1 = Synth.getEffect("Simple Reverb1");
 const var Delay1 = Synth.getEffect("Delay1");
 
@@ -173,7 +172,7 @@ const var Label_CompMixValue = Content.getComponent("Label_CompMixValue");
 
 inline function onSlider_CompThresholdControl(component, value)
 {
-	Compressor.setAttribute(Compressor.Threshold, value);
+	//Compressor.setAttribute(Compressor.Threshold, value);
 	Label_CompThresholdValue.set("text", value + "dB");
 };
 
@@ -181,7 +180,7 @@ Content.getComponent("Slider_CompThreshold").setControlCallback(onSlider_CompThr
 
 inline function onSlider_CompAttackControl(component, value)
 {
-	Compressor.setAttribute(Compressor.Attack, value);
+	//Compressor.setAttribute(Compressor.Attack, value);
 	Label_CompAttackValue.set("text", Math.round(value) + "ms");
 };
 
@@ -189,7 +188,7 @@ Content.getComponent("Slider_CompAttack").setControlCallback(onSlider_CompAttack
 
 inline function onSlider_CompReleaseControl(component, value)
 {
-	Compressor.setAttribute(Compressor.Release, value);
+	//Compressor.setAttribute(Compressor.Release, value);
 	Label_CompReleaseValue.set("text", Math.round(value) + "ms");
 };
 
@@ -197,7 +196,7 @@ Content.getComponent("Slider_CompRelease").setControlCallback(onSlider_CompRelea
 
 inline function onSlider_CompRatioControl(component, value)
 {
-	Compressor.setAttribute(Compressor.Ratio, value);
+	//Compressor.setAttribute(Compressor.Ratio, value);
 	Label_CompRatioValue.set("text", value + ":1");
 };
 
@@ -205,7 +204,7 @@ Content.getComponent("Slider_CompRatio").setControlCallback(onSlider_CompRatioCo
 
 inline function onSlider_CompMakeupControl(component, value)
 {
-	Compressor.setAttribute(Compressor.Makeup, value);
+	//Compressor.setAttribute(Compressor.Makeup, value);
 	Label_CompMakeupValue.set("text", value + "dB");
 };
 
@@ -213,7 +212,7 @@ Content.getComponent("Slider_CompMakeup").setControlCallback(onSlider_CompMakeup
 
 inline function onSlider_CompMixControl(component, value)
 {
-	Compressor.setAttribute(Compressor.Mix, value);
+	//Compressor.setAttribute(Compressor.Mix, value);
 	Label_CompMixValue.set("text", Math.round(value * 100) + "%");
 };
 
@@ -248,7 +247,7 @@ Content.getComponent("Button_DriveSettings").setControlCallback(onButton_DriveSe
 
 inline function onComboBox_DriveOversample1Control(component, value)
 {
-	TubeDrive.setAttribute(TubeDrive.Oversample, value-1);
+	//TubeDrive.setAttribute(TubeDrive.Oversample, value-1);
 };
 
 Content.getComponent("ComboBox_DriveOversample1").setControlCallback(onComboBox_DriveOversample1Control);
@@ -256,7 +255,7 @@ Content.getComponent("ComboBox_DriveOversample1").setControlCallback(onComboBox_
 inline function onButton_DriveTubeDriveEnableControl(component, value)
 {
 	ShapeFX1.setBypassed(1-value);
-	TubeDrive.setBypassed(1-value);
+	//TubeDrive.setBypassed(1-value);
 };
 
 Content.getComponent("Button_DriveTubeDriveEnable").setControlCallback(onButton_DriveTubeDriveEnableControl);
@@ -272,7 +271,7 @@ Content.getComponent("Slider_DriveWaveshaperGain").setControlCallback(onSlider_D
 
 inline function onSlider_DriveTubeGainControl(component, value)
 {
-    TubeDrive.setAttribute(TubeDrive.Gain, value);
+    //TubeDrive.setAttribute(TubeDrive.Gain, value);
     Label_DriveTubeGainValue.set("text", value + "db");
 };
 
@@ -348,7 +347,7 @@ Content.getComponent("Button_DegradeSettings").setControlCallback(onButton_Degra
 
 inline function onSlider_DegradeBitDepthControl(component, value)
 {
-	Degrade.setAttribute(Degrade.BitDepth, value);
+	//Degrade.setAttribute(Degrade.BitDepth, value);
 	Label_DegradeBitDepthValue.set("text", value);
 };
 
@@ -356,7 +355,7 @@ Content.getComponent("Slider_DegradeBitDepth").setControlCallback(onSlider_Degra
 
 inline function onSlider_DegradeSampleHoldControl(component, value)
 {
-	Degrade.setAttribute(Degrade.SampleHold, value);
+	//Degrade.setAttribute(Degrade.SampleHold, value);
 	Label_DegradeSampleHoldValue.set("text", value);
 };
 
@@ -786,7 +785,7 @@ const var Button_AmpCabBypass = Content.getComponent("Button_AmpCabBypass");
 const var Button_AmpHQ = Content.getComponent("Button_AmpHQ");
 
 const var Amp_EQ = Synth.getEffect("Amp_EQ");
-const var Amp = Synth.getEffect("Amp");
+//const var Amp = Synth.getEffect("Amp");
 const var Amp_CorrectiveEQ = Synth.getEffect("Amp_CorrectiveEQ");
 const var Amp_Cab = Synth.getAudioSampleProcessor("Amp_Cab");
 
@@ -820,7 +819,7 @@ Content.getComponent("Slider_AmpEQHigh").setControlCallback(onSlider_AmpEQHighCo
 inline function onSlider_AmpGainControl(component, value)
 {
 	//Gain
-	Amp.setAttribute(Amp.Gain, value);
+	//Amp.setAttribute(Amp.Gain, value);
 	Label_AmpGainValue.set("text", value + "%");
 };
 
@@ -831,7 +830,7 @@ Content.getComponent("Slider_AmpGain").setControlCallback(onSlider_AmpGainContro
 inline function onSlider_AmpOutputControl(component, value)
 {
 	//Output
-	Amp.setAttribute(Amp.Output, value);
+	//Amp.setAttribute(Amp.Output, value);
 	Label_AmpOutputValue.set("text", value + "dB");
 };
 
@@ -897,7 +896,7 @@ Content.getComponent("Button_AmpSettings").setControlCallback(onButton_AmpSettin
 inline function onButton_AmpEnableControl(component, value)
 {
 	Amp_EQ.setBypassed(1-value);
-	Amp.setBypassed(1-value);
+	//Amp.setBypassed(1-value);
 	Amp_CorrectiveEQ.setBypassed(1-value);
     Button_AmpCabBypass.setValue(value);
     Button_AmpCabBypass.changed();	
