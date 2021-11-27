@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="Degrade">
+  <Node FactoryPath="container.chain" ID="Degrade" Bypassed="0" ShowParameters="1">
+    <Nodes>
+      <Node ID="chain" FactoryPath="container.chain" Bypassed="0">
+        <Nodes>
+          <Node ID="bitcrush" FactoryPath="fx.bitcrush" Bypassed="0">
+            <Parameters>
+              <Parameter MinValue="4.000000059604645" MaxValue="16.0" StepSize="0.1000000014901161"
+                         ID="BitDepth" Automated="1"/>
+            </Parameters>
+          </Node>
+          <Node ID="sampleandhold" FactoryPath="fx.sampleandhold" Bypassed="0">
+            <Parameters>
+              <Parameter MinValue="1.0" MaxValue="64.0" StepSize="1.0" ID="Counter" Automated="1"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="BitDepth" MinValue="4.0" MaxValue="16.0" StepSize="0.1" Value="16.0">
+        <Connections>
+          <Connection NodeId="bitcrush" ParameterId="BitDepth" MinValue="4.0" MaxValue="16.0"
+                      StepSize="0.1"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="SampleHold" MinValue="1.0" MaxValue="64.0" StepSize="1" Value="1.0">
+        <Connections>
+          <Connection NodeId="sampleandhold" ParameterId="Counter" MinValue="1.0" MaxValue="64.0"
+                      StepSize="1.0"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

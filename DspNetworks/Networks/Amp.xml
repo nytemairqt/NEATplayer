@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="Amp">
+  <Node FactoryPath="container.chain" ID="Amp" Bypassed="0" ShowParameters="1">
+    <Nodes>
+      <Node ID="gain" FactoryPath="core.gain" Bypassed="0">
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="100.0" StepSize="1" SkewFactor="1" ID="Gain"
+                     Automated="1"/>
+          <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.3010300099849701" ID="Smoothing" Value="20.0"/>
+          <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                     SkewFactor="5.422270774841309" ID="ResetValue" Value="0.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="xfader1" FactoryPath="control.xfader" Bypassed="0">
+        <Properties>
+          <Property ID="NumParameters" Value="2"/>
+          <Property ID="Mode" Value="Linear"/>
+        </Properties>
+        <SwitchTargets>
+          <SwitchTarget>
+            <Connections>
+              <Connection NodeId="soft_bypass3" ParameterId="Bypassed" MinValue="0.5" MaxValue="1.1"
+                          StepSize="0.5"/>
+            </Connections>
+          </SwitchTarget>
+          <SwitchTarget>
+            <Connections>
+              <Connection NodeId="soft_bypass2" ParameterId="Bypassed" MinValue="0.5" MaxValue="1.1"
+                          StepSize="0.5"/>
+            </Connections>
+          </SwitchTarget>
+        </SwitchTargets>
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+        </Parameters>
+      </Node>
+      <Node ID="soft_bypass2" FactoryPath="container.soft_bypass" Bypassed="1">
+        <Nodes>
+          <Node ID="oversample2x2" FactoryPath="container.oversample2x" Bypassed="0">
+            <Nodes>
+              <Node ID="tanh5" FactoryPath="math.tanh" Bypassed="0">
+                <Parameters>
+                  <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+                </Parameters>
+              </Node>
+            </Nodes>
+            <Parameters/>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+      <Node ID="soft_bypass3" FactoryPath="container.soft_bypass" Bypassed="0">
+        <Nodes>
+          <Node ID="tanh6" FactoryPath="math.tanh" Bypassed="0">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Value="1.0"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+      <Node ID="gain1" FactoryPath="core.gain" Bypassed="0">
+        <Parameters>
+          <Parameter MinValue="0.0" MaxValue="-30.0" StepSize="1" SkewFactor="1" ID="Gain"
+                     Automated="1"/>
+          <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.3010300099849701" ID="Smoothing" Value="20.0"/>
+          <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                     SkewFactor="5.422270774841309" ID="ResetValue" Value="0.0"/>
+        </Parameters>
+      </Node>
+      <Node ID="gain2" FactoryPath="core.gain" Bypassed="0">
+        <Parameters>
+          <Parameter MinValue="-100.0" MaxValue="36.0" StepSize="1" SkewFactor="1"
+                     ID="Gain" Automated="1"/>
+          <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                     SkewFactor="0.3010300099849701" ID="Smoothing" Value="20.0"/>
+          <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                     SkewFactor="5.422270774841309" ID="ResetValue" Value="0.0"/>
+        </Parameters>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Gain" MinValue="0.0" MaxValue="100.0" StepSize="1" Value="0.0">
+        <Connections>
+          <Connection NodeId="gain" ParameterId="Gain" MinValue="0.0" MaxValue="100.0"
+                      StepSize="1" SkewFactor="1"/>
+          <Connection NodeId="gain1" ParameterId="Gain" MinValue="0.0" MaxValue="-30.0"
+                      StepSize="1" SkewFactor=".13"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Output" MinValue="-100.0" MaxValue="36.0" StepSize="1" Value="0.0">
+        <Connections>
+          <Connection NodeId="gain2" ParameterId="Gain" MinValue="-100.0" MaxValue="0.0"
+                      StepSize="1" SkewFactor="1"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Oversample" MinValue="0.0" MaxValue="1.0" StepSize="1" Value="0.0">
+        <Connections>
+          <Connection NodeId="xfader1" ParameterId="Value" MinValue="0.0" MaxValue="1.0"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

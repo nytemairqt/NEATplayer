@@ -13,7 +13,7 @@
   <OSXStaticLibs value=""/>
   <WindowsStaticLibFolder value=""/>
   <ExtraDefinitionsWindows value="HISE_SAMPLE_DIALOG_SHOW_INSTALL_BUTTON=0&#10;HISE_SAMPLE_DIALOG_SHOW_LOCATE_BUTTON=0"/>
-  <ExtraDefinitionsOSX value=""/>
+  <ExtraDefinitionsOSX value="HISE_SAMPLE_DIALOG_SHOW_INSTALL_BUTTON=0&#10;HISE_SAMPLE_DIALOG_SHOW_LOCATE_BUTTON=0"/>
   <ExtraDefinitionsIOS value=""/>
   <ExtraDefinitionsLinux value=""/>
   <AppGroupID value=""/>
@@ -26,4 +26,6 @@
   <ExpansionType value="Encrypted"/>
   <EncryptionKey value="xoutfull1"/>
   <LinkExpansionsToProject value="1"/>
+  <EnableSoundGeneratorsFX value="No"/>
+  <ReadOnlyFactoryPresets value="No"/>
 </ProjectSettings>
