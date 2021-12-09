@@ -173,7 +173,7 @@ const var Label_CompMixValue = Content.getComponent("Label_CompMixValue");
 inline function onSlider_CompThresholdControl(component, value)
 {
 	Compressor.setAttribute(Compressor.Threshold, value);
-	Label_CompThresholdValue.set("text", value + "dB");
+	Label_CompThresholdValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_CompThreshold").setControlCallback(onSlider_CompThresholdControl);
@@ -205,7 +205,7 @@ Content.getComponent("Slider_CompRatio").setControlCallback(onSlider_CompRatioCo
 inline function onSlider_CompMakeupControl(component, value)
 {
 	Compressor.setAttribute(Compressor.Makeup, value);
-	Label_CompMakeupValue.set("text", value + "dB");
+	Label_CompMakeupValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_CompMakeup").setControlCallback(onSlider_CompMakeupControl);
@@ -264,7 +264,7 @@ Content.getComponent("Button_DriveTubeDriveEnable").setControlCallback(onButton_
 inline function onSlider_DriveWaveshaperGainControl(component, value)
 {
     ShapeFX1.setAttribute(ShapeFX1.Gain, value);
-    Label_DriveWaveShaperGainValue.set("text", value + "db");
+    Label_DriveWaveShaperGainValue.set("text", Math.round(value) + "db");
 };
 
 Content.getComponent("Slider_DriveWaveshaperGain").setControlCallback(onSlider_DriveWaveshaperGainControl);
@@ -272,7 +272,7 @@ Content.getComponent("Slider_DriveWaveshaperGain").setControlCallback(onSlider_D
 inline function onSlider_DriveTubeGainControl(component, value)
 {
     TubeDrive.setAttribute(TubeDrive.Gain, value);
-    Label_DriveTubeGainValue.set("text", value + "db");
+    Label_DriveTubeGainValue.set("text", Math.round(value) + "db");
 };
 
 Content.getComponent("Slider_DriveTubeGain").setControlCallback(onSlider_DriveTubeGainControl);
@@ -348,7 +348,7 @@ Content.getComponent("Button_DegradeSettings").setControlCallback(onButton_Degra
 inline function onSlider_DegradeBitDepthControl(component, value)
 {
 	Degrade.setAttribute(Degrade.BitDepth, value);
-	Label_DegradeBitDepthValue.set("text", value);
+	Label_DegradeBitDepthValue.set("text", Math.round(value));
 };
 
 Content.getComponent("Slider_DegradeBitDepth").setControlCallback(onSlider_DegradeBitDepthControl);

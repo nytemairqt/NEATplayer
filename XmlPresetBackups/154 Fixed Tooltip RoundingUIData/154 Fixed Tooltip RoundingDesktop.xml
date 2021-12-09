@@ -453,7 +453,7 @@
                    numStrips="127.0" width="36.0" height="36.0" defaultValue="1.0"/>
         <Component type="ScriptLabel" id="Label_CompThresholdValue" x="57.0" y="75.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
-                   text="0.0dB" editable="0" saveInPreset="1"/>
+                   text="0dB" editable="0" saveInPreset="1"/>
         <Component type="ScriptLabel" id="Label_CompThreshold" x="56.0" y="60.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="Threshold" editable="0" fontStyle="Bold"/>
@@ -467,7 +467,7 @@
                    text="Makeup" editable="0" fontStyle="Bold"/>
         <Component type="ScriptLabel" id="Label_CompMakeupValue" x="181.0" y="131.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
-                   text="0.0dB" editable="0" saveInPreset="1"/>
+                   text="0dB" editable="0" saveInPreset="1"/>
         <Component type="ScriptLabel" id="Label_CompAttack" x="56.0" y="116.0" parentComponent="Panel_CompSettings"
                    width="61.0" height="28.0" text="Attack" editable="0" fontStyle="Bold"/>
         <Component type="ScriptLabel" id="Label_CompAttackValue" x="57.0" y="131.0"
@@ -534,7 +534,7 @@
                    text="Gain" editable="0" fontStyle="Bold"/>
         <Component type="ScriptLabel" id="Label_DriveWaveShaperGainValue" x="54.0"
                    y="101.0" parentComponent="Panel_DriveSettings" width="50.0"
-                   height="28.0" text="0.0db" editable="0" saveInPreset="1"/>
+                   height="28.0" text="0db" editable="0" saveInPreset="1"/>
         <Component type="ScriptLabel" id="Label_DriveTitle" x="72.0" y="7.0" parentComponent="Panel_DriveSettings"
                    text="DRIVE" editable="0"/>
         <Component type="ScriptComboBox" id="ComboBox_DriveOversample" x="146.0"
@@ -559,7 +559,7 @@
                    text="Tube Drive" width="71.0" height="28.0" editable="0"/>
         <Component type="ScriptLabel" id="Label_DriveTubeGainValue" x="54.0" y="182.0"
                    parentComponent="Panel_DriveSettings" width="50.0" height="28.0"
-                   text="0.0db" editable="0" saveInPreset="1"/>
+                   text="0db" editable="0" saveInPreset="1"/>
         <Component type="ScriptLabel" id="Label_DriveTubeGain" x="46.0" y="167.0"
                    parentComponent="Panel_DriveSettings" width="61.0" height="28.0"
                    text="Gain" editable="0" fontStyle="Bold"/>
@@ -873,7 +873,7 @@
                    text="Bit Depth" editable="0" fontStyle="Bold"/>
         <Component type="ScriptLabel" id="Label_DegradeBitDepthValue" x="54.0" y="65.0"
                    parentComponent="Panel_DegradeSettings" width="61.0" height="28.0"
-                   text="16.0" editable="0" saveInPreset="1"/>
+                   text="16" editable="0" saveInPreset="1"/>
         <Component type="ScriptLabel" id="Label_DegradeTitle" x="72.0" y="7.0" parentComponent="Panel_DegradeSettings"
                    text="DEGRADE" editable="0"/>
         <Component type="ScriptSlider" id="Slider_DegradeBitDepth" x="15.0" y="53.0"

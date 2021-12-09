@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Processor Type="SynthChain" ID="153 ReEnabled FX" Bypassed="0" Gain="1.0"
-           Balance="0.0" VoiceLimit="64.0" KillFadeTime="20.0" IconColour="0"
-           packageName="" BuildVersion="650">
+<Processor Type="SynthChain" ID="154 Fixed Tooltip Rounding" Bypassed="0"
+           Gain="1.0" Balance="0.0" VoiceLimit="64.0" KillFadeTime="20.0"
+           IconColour="0" packageName="" BuildVersion="650">
   <ChildProcessors>
     <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
       <ChildProcessors>
@@ -57,9 +57,9 @@
             <Control type="ScriptSlider" id="Slider_CompRatio" value="2.0"/>
             <Control type="ScriptSlider" id="Slider_CompMakeup" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompMix" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_CompThresholdValue" value="0.0dB"/>
+            <Control type="ScriptLabel" id="Label_CompThresholdValue" value="0dB"/>
             <Control type="ScriptLabel" id="Label_CompRatioValue" value="2.0:1"/>
-            <Control type="ScriptLabel" id="Label_CompMakeupValue" value="0.0dB"/>
+            <Control type="ScriptLabel" id="Label_CompMakeupValue" value="0dB"/>
             <Control type="ScriptLabel" id="Label_CompAttackValue" value="50ms"/>
             <Control type="ScriptLabel" id="Label_CompMixValue" value="100%"/>
             <Control type="ScriptLabel" id="Label_CompReleaseValue" value="50ms"/>
@@ -70,12 +70,12 @@
             <Control type="ScriptLabel" id="Label_FilterQValue" value="0.4000000059604645"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterFreq" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterQ" value="0.0"/>
-            <Control type="ScriptLabel" id="Label_DriveWaveShaperGainValue" value="0.0db"/>
+            <Control type="ScriptLabel" id="Label_DriveWaveShaperGainValue" value="0db"/>
             <Control type="ScriptComboBox" id="ComboBox_DriveOversample" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_DriveWaveshaperGain" value="0.0"/>
             <Control type="ScriptComboBox" id="ComboBox_DriveOversample1" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_DriveTubeGain" value="0.0"/>
-            <Control type="ScriptLabel" id="Label_DriveTubeGainValue" value="0.0db"/>
+            <Control type="ScriptLabel" id="Label_DriveTubeGainValue" value="0db"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDriveWaveShaperGain"
                      value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDriveTubeDriveGain"
@@ -139,7 +139,7 @@
             <Control type="ScriptButton" id="Button_RandomizeFXPhaserRateB" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXPhaserMix" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_DegradeBitDepthValue" value="16.0"/>
+            <Control type="ScriptLabel" id="Label_DegradeBitDepthValue" value="16"/>
             <Control type="ScriptSlider" id="Slider_DegradeBitDepth" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_DegradeSampleHold" value="1.0"/>
             <Control type="ScriptLabel" id="Label_DegradeSampleHoldValue" value="1.0"/>
@@ -299,7 +299,7 @@
             <Control type="ScriptButton" id="Button_PortamentoBypass" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_PortamentoTime" value="250.0"/>
           </Content>
-          <UIData Source="153 ReEnabled FXUIData"/>
+          <UIData Source="154 Fixed Tooltip RoundingUIData"/>
         </Processor>
         <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="1">
           <ChildProcessors/>
