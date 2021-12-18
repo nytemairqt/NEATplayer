@@ -419,10 +419,6 @@ Content.getComponent("Slider_ReverbMix").setControlCallback(onSlider_ReverbMixCo
 
 const var Button_DelayLink = Content.getComponent("Button_DelayLink");
 const var Button_DelaySync = Content.getComponent("Button_DelaySync");
-const var Slider_DelayTimeLeftSynced = Content.getComponent("Slider_DelayTimeLeftSynced");
-const var Slider_DelayTimeRightSynced = Content.getComponent("Slider_DelayTimeRightSynced");
-const var Slider_DelayTimeLeftFree = Content.getComponent("Slider_DelayTimeLeftFree");
-const var Slider_DelayTimeRightFree = Content.getComponent("Slider_DelayTimeRightFree");
 const var Slider_DelayFeedbackLeft = Content.getComponent("Slider_DelayFeedbackLeft");
 const var Slider_DelayFeedbackRight = Content.getComponent("Slider_DelayFeedbackRight");
 const var Slider_DelayMix = Content.getComponent("Slider_DelayMix");
