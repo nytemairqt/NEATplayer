@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Processor Type="SynthChain" ID="155 AUVal Fixes" Bypassed="0" Gain="1.0"
+<Processor Type="SynthChain" ID="156 Bug Fix Pass" Bypassed="0" Gain="1.0"
            Balance="0.0" VoiceLimit="64.0" KillFadeTime="20.0" IconColour="0"
            packageName="" BuildVersion="650">
   <ChildProcessors>
@@ -63,11 +63,11 @@
             <Control type="ScriptLabel" id="Label_CompAttackValue" value="50ms"/>
             <Control type="ScriptLabel" id="Label_CompMixValue" value="100%"/>
             <Control type="ScriptLabel" id="Label_CompReleaseValue" value="50ms"/>
-            <Control type="ScriptLabel" id="Label_FilterFreqValue" value="20000.0Hz"/>
+            <Control type="ScriptLabel" id="Label_FilterFreqValue" value="20000Hz"/>
             <Control type="ScriptSlider" id="Slider_FilterFreq" value="20000.0"/>
             <Control type="ScriptSlider" id="Slider_FilterQ" value="0.4000000059604645"/>
             <Control type="ScriptComboBox" id="ComboBox_FilterMode" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_FilterQValue" value="0.4000000059604645"/>
+            <Control type="ScriptLabel" id="Label_FilterQValue" value="0.40"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterFreq" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterQ" value="0.0"/>
             <Control type="ScriptLabel" id="Label_DriveWaveShaperGainValue" value="0db"/>
@@ -295,7 +295,7 @@
             <Control type="ScriptButton" id="Button_PortamentoBypass" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_PortamentoTime" value="250.0"/>
           </Content>
-          <UIData Source="155 AUVal FixesUIData"/>
+          <UIData Source="156 Bug Fix PassUIData"/>
         </Processor>
         <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="1">
           <ChildProcessors/>

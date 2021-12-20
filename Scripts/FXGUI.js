@@ -113,7 +113,7 @@ const var Label_FilterQValue = Content.getComponent("Label_FilterQValue");
 inline function onSlider_FilterFreqControl(component, value)
 {
 	Filter1.setAttribute(Filter1.Frequency, value);
-	Label_FilterFreqValue.set("text", value + "Hz");	
+	Label_FilterFreqValue.set("text", Math.round(value) + "Hz");	
 };
 
 Content.getComponent("Slider_FilterFreq").setControlCallback(onSlider_FilterFreqControl);
@@ -121,7 +121,7 @@ Content.getComponent("Slider_FilterFreq").setControlCallback(onSlider_FilterFreq
 inline function onSlider_FilterQControl(component, value)
 {
 	Filter1.setAttribute(Filter1.Q, value);
-    Label_FilterQValue.set("text", value);
+    Label_FilterQValue.set("text", Engine.doubleToString(value, 2));
 };
 
 Content.getComponent("Slider_FilterQ").setControlCallback(onSlider_FilterQControl);

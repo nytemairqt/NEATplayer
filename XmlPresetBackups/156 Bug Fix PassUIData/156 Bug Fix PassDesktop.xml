@@ -34,8 +34,8 @@
              numStrips="6.0" enableMidiLearn="0" saveInPreset="0"/>
   <Component type="ScriptLabel" id="Label_MoveDisplay" x="379.0" y="286.0"
              width="45.0" height="20.0" text="MOVE" fontSize="11.0" editable="0"/>
-  <Component type="ScriptPanel" id="Panel_BG" x="2.0" y="23.0" width="596.0"
-             height="263.0" borderRadius="19.0">
+  <Component type="ScriptPanel" id="Panel_BG" x="2" y="23" width="596" height="263"
+             borderRadius="19.0">
     <Component type="ScriptImage" id="Image_BG" x="-2.0" y="0.0" parentComponent="Panel_BG"
                text="Image" width="596.0" height="263.0" fileName="{EXP::Cloudburst}bg_cloudburst.png"
                alpha="0.0"/>
@@ -490,7 +490,7 @@
                  itemColour2="3372220416">
         <Component type="ScriptLabel" id="Label_FilterFreqValue" x="88.0" y="149.0"
                    parentComponent="Panel_FilterSettings" width="60.0" height="27.0"
-                   text="20000.0Hz" editable="0" saveInPreset="1"/>
+                   text="20000Hz" editable="0" saveInPreset="1"/>
         <Component type="ScriptLabel" id="Label_FilterTitle" x="72.0" y="7.0" parentComponent="Panel_FilterSettings"
                    text="FILTER" editable="0"/>
         <Component type="ScriptSlider" id="Slider_FilterFreq" x="51.0" y="136.0"
@@ -518,7 +518,7 @@
                    text="Q" editable="0" width="35.0" height="28.0" fontStyle="Bold"/>
         <Component type="ScriptLabel" id="Label_FilterQValue" x="182.0" y="149.0"
                    parentComponent="Panel_FilterSettings" width="43.0" height="27.0"
-                   text="0.4000000059604645" editable="0" saveInPreset="1"/>
+                   text="0.40" editable="0" saveInPreset="1"/>
         <Component type="ScriptButton" id="Button_RandomizeFXFilterFreq" x="126.0"
                    y="143.0" parentComponent="Panel_FilterSettings" text="LAFButtonRandomize"
                    width="8.0" height="8.0" enableMidiLearn="0"/>
@@ -1016,7 +1016,7 @@
                  min="-100.0" max="0.0" middlePosition="-12.0" stepSize="1.0"
                  pluginParameterName="SamplerA_Gain" isPluginParameter="1"/>
       <Component type="ScriptLabel" id="Label_SamplerAGainValue" x="134.0" y="225.0"
-                 width="50.0" height="28.0" fontStyle="Regular" text="0.0dB" parentComponent="Panel_Sample"
+                 width="50.0" height="28.0" fontStyle="Regular" text="0dB" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptSlider" id="Slider_SamplerAPan" x="101.0" y="186.0"
                  parentComponent="Panel_Sample" width="28.0" height="28.0" text=""
@@ -1057,16 +1057,16 @@
                  height="28.0" fontStyle="Bold" text="R" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerAAttackValue" x="-4.0" y="148.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="5.0ms" parentComponent="Panel_Sample"
+                 width="74.0" height="28.0" fontStyle="Regular" text="5ms" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerADecayValue" x="38.0" y="148.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="1500.0ms"
+                 width="74.0" height="28.0" fontStyle="Regular" text="1500ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerASustainValue" x="79.0" y="148.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="0.0dB" parentComponent="Panel_Sample"
+                 width="74.0" height="28.0" fontStyle="Regular" text="0dB" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerAReleaseValue" x="120.0"
-                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="1000.0ms"
+                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="1000ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptSlider" id="Slider_SamplerAAttack" x="20.0" y="110.0"
                  parentComponent="Panel_Sample" showTextBox="0" width="28.0" height="28.0"
@@ -1112,14 +1112,14 @@
                  text="" min="-12.0" max="12.0" stepSize="1.0" middlePosition="0.0"
                  isPluginParameter="1" pluginParameterName="SamplerA_Pitch"/>
       <Component type="ScriptLabel" id="Label_SamplerAPitchCoarseValue" x="9.0"
-                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0.0st"
+                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0st"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptSlider" id="Slider_SamplerAPitchFine" x="60.0" y="186.0"
                  parentComponent="Panel_Sample" width="28.0" height="28.0" text=""
                  min="-100.0" max="100.0" middlePosition="0.0" stepSize="1.0"
                  isPluginParameter="1" pluginParameterName="SamplerA_Tune"/>
       <Component type="ScriptLabel" id="Label_SamplerAPitchFineValue" x="48.0"
-                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0.0c"
+                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0c"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_Attack3" x="-2.0" y="210.0" width="74.0"
                  height="28.0" fontStyle="Bold" text="Pitch" parentComponent="Panel_Sample"
@@ -1167,13 +1167,13 @@
                  y="103.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
                  width="8.0" height="8.0" enableMidiLearn="0"/>
       <Component type="ScriptLabel" id="Label_SamplerBDecayValue" x="231.0" y="148.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="1500.0ms"
+                 width="74.0" height="28.0" fontStyle="Regular" text="1500ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_Sustain2" x="270.0" y="134.0" width="74.0"
                  height="28.0" fontStyle="Bold" text="S" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerBSustainValue" x="272.0"
-                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="0.0dB"
+                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerB" x="231.0" y="6.0"
                  text="Select" width="115.0" height="22.0" itemColour="4212199697"
@@ -1231,22 +1231,22 @@
                  height="28.0" fontStyle="Bold" text="Gain" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerBReleaseValue" x="313.0"
-                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="1000.0ms"
+                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="1000ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerBPitchCoarseValue" x="202.0"
-                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0.0st"
+                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0st"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerBPitchFineValue" x="241.0"
-                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0.0c"
+                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0c"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerBPanValue" x="282.0" y="225.0"
                  width="50.0" height="28.0" fontStyle="Regular" text="C" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerBGainValue" x="327.0" y="225.0"
-                 width="50.0" height="28.0" fontStyle="Regular" text="0.0dB" parentComponent="Panel_Sample"
+                 width="50.0" height="28.0" fontStyle="Regular" text="0dB" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerBAttackValue" x="189.0" y="148.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="5.0ms" parentComponent="Panel_Sample"
+                 width="74.0" height="28.0" fontStyle="Regular" text="5ms" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_Attack2" x="189.0" y="134.0" width="74.0"
                  height="28.0" fontStyle="Bold" text="A" parentComponent="Panel_Sample"
@@ -1295,13 +1295,13 @@
                  bgColour="4294967295" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" max="0"/>
       <Component type="ScriptLabel" id="Label_SamplerCAttackValue" x="382.0" y="148.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="5.0ms" parentComponent="Panel_Sample"
+                 width="74.0" height="28.0" fontStyle="Regular" text="5ms" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCSustainValue" x="465.0"
-                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="0.0dB"
+                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCDecayValue" x="424.0" y="148.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="1500.0ms"
+                 width="74.0" height="28.0" fontStyle="Regular" text="1500ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" x="406.0"
                  y="32.0" parentComponent="Panel_Sample" width="150.0" height="60.0"
@@ -1336,7 +1336,7 @@
                  height="28.0" fontStyle="Bold" text="R" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCReleaseValue" x="506.0"
-                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="1000.0ms"
+                 y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="1000ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_Release6" x="506.0" y="211.0" width="74.0"
                  height="28.0" fontStyle="Bold" text="Gain" parentComponent="Panel_Sample"
@@ -1358,16 +1358,16 @@
                  min="-100.0" max="100.0" middlePosition="0.0" stepSize="1.0"
                  isPluginParameter="1" pluginParameterName="SamplerC_Tune"/>
       <Component type="ScriptLabel" id="Label_SamplerCGainValue" x="520.0" y="225.0"
-                 width="50.0" height="28.0" fontStyle="Regular" text="0.0dB" parentComponent="Panel_Sample"
+                 width="50.0" height="28.0" fontStyle="Regular" text="0dB" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCPanValue" x="475.0" y="225.0"
                  width="50.0" height="28.0" fontStyle="Regular" text="C" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCPitchFineValue" x="434.0"
-                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0.0c"
+                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0c"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCPitchCoarseValue" x="395.0"
-                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0.0st"
+                 y="225.0" width="50.0" height="28.0" fontStyle="Regular" text="0st"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptButton" id="Button_SamplerAReverse" x="172.0" y="74.0"
                  parentComponent="Panel_Sample" width="18.0" height="18.0" text="LAFButtonSamplerReverse"
@@ -1530,7 +1530,7 @@
                  height="10.0" isPluginParameter="1" pluginParameterName="ChaosBypass"
                  enableMidiLearn="0"/>
       <Component type="ScriptLabel" id="Label_ChaosIntensityValue" x="499.0" y="142.0"
-                 width="74.0" height="28.0" fontStyle="Regular" text="50.0%" parentComponent="Panel_Movement"
+                 width="74.0" height="28.0" fontStyle="Regular" text="50%" parentComponent="Panel_Movement"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_PanelXYTooltipX" x="254.0" y="199.0"
                  width="74.0" height="28.0" fontStyle="Bold" text="X" parentComponent="Panel_Movement"
@@ -1686,28 +1686,28 @@
                  width="23.0" height="28.0" fontStyle="Bold" text="R" parentComponent="Panel_Movement"
                  editable="0" fontSize="11.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvAAttackValue" x="3.0"
-                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="5.0ms"
+                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="5ms"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvADecayValue" x="37.0"
-                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="1500.0ms"
+                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="1500ms"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvASustainValue" x="70.0"
-                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="0.0dB"
+                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvAReleaseValue" x="102.0"
-                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="1000.0ms"
+                 y="109.0" width="46.0" height="28.0" fontStyle="Regular" text="1000ms"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvBAttackValue" x="3.0"
-                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="5.0ms"
+                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="5ms"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvBDecayValue" x="37.0"
-                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="1500.0ms"
+                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="1500ms"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvBSustainValue" x="70.0"
-                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="0.0dB"
+                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptLabel" id="Label_MovementEnvBReleaseValue" x="102.0"
-                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="1000.0ms"
+                 y="218.0" width="46.0" height="28.0" fontStyle="Regular" text="1000ms"
                  parentComponent="Panel_Movement" editable="0" fontSize="10.0"/>
       <Component type="ScriptButton" id="Button_MovementSettings" x="185.0" y="225.0"
                  parentComponent="Panel_Movement" text="LAFButtonSettingsCogwheel"
@@ -1792,13 +1792,13 @@
       <Component type="ScriptLabel" id="Label_ArpSwing" x="-1.0" y="187.0" parentComponent="Panel_Arp"
                  width="61.0" height="28.0" text="Swing" editable="0" fontStyle="Bold"/>
       <Component type="ScriptLabel" id="Label_ArpStepsValue" x="-1.0" y="42.0"
-                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="16.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="16"
                  editable="0"/>
       <Component type="ScriptLabel" id="Label_ArpSpeedValue" x="0.0" y="95.0"
                  parentComponent="Panel_Arp" width="61.0" height="28.0" text="1/16"
                  editable="0"/>
       <Component type="ScriptLabel" id="Label_ArpOctaveValue" x="0.0" y="148.0"
-                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="0.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="0"
                  editable="0"/>
       <Component type="ScriptLabel" id="Label_ArpSwingValue" x="2.0" y="201.0"
                  parentComponent="Panel_Arp" width="61.0" height="28.0" text="0%"

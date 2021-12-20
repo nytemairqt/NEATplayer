@@ -603,7 +603,7 @@ inline function onSlider_MovementChaosIntensityControl(component, value)
 	    
     }
 
-	Label_ChaosIntensityValue.set("text", value * 2 + "%");
+	Label_ChaosIntensityValue.set("text", Math.round(value) * 2 + "%");
 };
 
 Content.getComponent("Slider_MovementChaosIntensity").setControlCallback(onSlider_MovementChaosIntensityControl);

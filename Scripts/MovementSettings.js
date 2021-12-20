@@ -211,7 +211,7 @@ Content.getComponent("Button_MacroAssignFilterY").setControlCallback(onButton_Ma
 inline function onSlider_MovementEnvAAttackControl(component, value)
 {
     AHDSR_Macro5.setAttribute(AHDSR_Macro5.Attack, value);
-	Label_MovementEnvAAttackValue.set("text", value + "ms");
+	Label_MovementEnvAAttackValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_MovementEnvAAttack").setControlCallback(onSlider_MovementEnvAAttackControl);
@@ -219,7 +219,7 @@ Content.getComponent("Slider_MovementEnvAAttack").setControlCallback(onSlider_Mo
 inline function onSlider_MovementEnvADecayControl(component, value)
 {
     AHDSR_Macro5.setAttribute(AHDSR_Macro5.Decay, value);
-	Label_MovementEnvADecayValue.set("text", value + "ms");
+	Label_MovementEnvADecayValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_MovementEnvADecay").setControlCallback(onSlider_MovementEnvADecayControl);
@@ -227,7 +227,7 @@ Content.getComponent("Slider_MovementEnvADecay").setControlCallback(onSlider_Mov
 inline function onSlider_MovementEnvASustainControl(component, value)
 {
     AHDSR_Macro5.setAttribute(AHDSR_Macro5.Sustain, value);
-	Label_MovementEnvASustainValue.set("text", value + "dB");
+	Label_MovementEnvASustainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_MovementEnvASustain").setControlCallback(onSlider_MovementEnvASustainControl);
@@ -235,7 +235,7 @@ Content.getComponent("Slider_MovementEnvASustain").setControlCallback(onSlider_M
 inline function onSlider_MovementEnvAReleaseControl(component, value)
 {
     AHDSR_Macro5.setAttribute(AHDSR_Macro5.Release, value);
-	Label_MovementEnvAReleaseValue.set("text", value + "ms");
+	Label_MovementEnvAReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_MovementEnvARelease").setControlCallback(onSlider_MovementEnvAReleaseControl);
@@ -243,7 +243,7 @@ Content.getComponent("Slider_MovementEnvARelease").setControlCallback(onSlider_M
 inline function onSlider_MovementEnvBAttackControl(component, value)
 {
     AHDSR_Macro6.setAttribute(AHDSR_Macro6.Attack, value);
-	Label_MovementEnvBAttackValue.set("text", value + "ms");
+	Label_MovementEnvBAttackValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_MovementEnvBAttack").setControlCallback(onSlider_MovementEnvBAttackControl);
@@ -251,7 +251,7 @@ Content.getComponent("Slider_MovementEnvBAttack").setControlCallback(onSlider_Mo
 inline function onSlider_MovementEnvBDecayControl(component, value)
 {
     AHDSR_Macro6.setAttribute(AHDSR_Macro6.Decay, value);
-	Label_MovementEnvBDecayValue.set("text", value + "ms");
+	Label_MovementEnvBDecayValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_MovementEnvBDecay").setControlCallback(onSlider_MovementEnvBDecayControl);
@@ -259,7 +259,7 @@ Content.getComponent("Slider_MovementEnvBDecay").setControlCallback(onSlider_Mov
 inline function onSlider_MovementEnvBSustainControl(component, value)
 {
     AHDSR_Macro6.setAttribute(AHDSR_Macro6.Sustain, value);
-	Label_MovementEnvBSustainValue.set("text", value + "dB");
+	Label_MovementEnvBSustainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_MovementEnvBSustain").setControlCallback(onSlider_MovementEnvBSustainControl);
@@ -267,7 +267,7 @@ Content.getComponent("Slider_MovementEnvBSustain").setControlCallback(onSlider_M
 inline function onSlider_MovementEnvBReleaseControl(component, value)
 {
     AHDSR_Macro6.setAttribute(AHDSR_Macro6.Release, value);
-	Label_MovementEnvBReleaseValue.set("text", value + "ms");
+	Label_MovementEnvBReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_MovementEnvBRelease").setControlCallback(onSlider_MovementEnvBReleaseControl);

@@ -1,0 +1,34 @@
+LICENSE AGREEMENT
+
+By downloading and installing NEAT Player you agree to the following:
+
+Title, copyright, intellectual property rights and distribution rights of NEAT Player and all associated expansions (.hr1 files) remain exclusively with iamlamprey. 
+
+This agreement constitutes a license for use only, and is not in any way a transfer of ownership rights to NEAT Player or associated explansions (.hr1 files). 
+
+NEAT Player may not be modified, reverse-engineered, or de-compiled in any manner through current or future available technologies.
+
+Failure to comply with any of the terms under the License section will be considered a material breach of this agreement.
+
+NEAT Player is licensed, not sold to you. This license is personal and non-transferrable. As an owner of the software the following apply:
+
+You can:
+
+Use NEAT Player in your own compositions (including library music) and/or commercial work for clients/media, without any restrictions or additional fees;
+Install NEAT Player on up to 2 (two) machines, as long as you are the person who is using the software and not sharing the license with others.
+
+You cannot:
+
+Make multiple copies of NEAT Player, in whole or in part (.hr1 files), with the intent to re-distribute, sell, or give them away - this includes making available any of the content available on a network (such as a file-sharing service or website);
+
+Re-use or re-purpose any of the NEAT Player content, including any associated expansions (.hr1 files) for use in another virtual instrument, sample library, sound pack etc.
+
+RESPONSIBILITY
+
+Using this product and any supplied software is at the licensee’s own risk. Iamlamprey holds no responsibility for any direct or indirect loss arising from any form of use of this product.
+
+The terms and conditions shall be governed according to the laws of the state Queensland, Australia.
+
+INSTALLING the NEAT Player software or any associated expansion (.hr1 file) implies that you agree to the above terms and conditions.
+
+If you have any questions, please email info@iamlamprey.com

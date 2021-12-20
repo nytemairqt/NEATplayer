@@ -202,7 +202,7 @@ Panel_Sample.setPaintRoutine(function(g)
 inline function onSlider_SamplerAGainControl(component, value)
 {
 	SamplerA_Utility.setAttribute(SamplerA_Utility.Gain, value);
-	Label_SamplerAGainValue.set("text", value + "dB");
+	Label_SamplerAGainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_SamplerAGain").setControlCallback(onSlider_SamplerAGainControl);
@@ -216,9 +216,9 @@ inline function onSlider_SamplerAPanControl(component, value)
 	if (value == 0)
 	    Label_SamplerAPanValue.set("text", "C");
 	else if (value < 0)
-	    Label_SamplerAPanValue.set("text", value + "L");
+	    Label_SamplerAPanValue.set("text", Math.round(value) + "L");
 	else
-	    Label_SamplerAPanValue.set("text", value + "R");
+	    Label_SamplerAPanValue.set("text", Math.round(value) + "R");
 };
 
 Content.getComponent("Slider_SamplerAPan").setControlCallback(onSlider_SamplerAPanControl);
@@ -228,7 +228,7 @@ Content.getComponent("Slider_SamplerAPan").setControlCallback(onSlider_SamplerAP
 
 inline function onSlider_SamplerAPitchCoarseControl(component, value)
 {
-    Label_SamplerAPitchCoarseValue.set("text", value + "st");
+    Label_SamplerAPitchCoarseValue.set("text", Math.round(value) + "st");
     SamplerA_PitchMod.setIntensity(value);
 };
 
@@ -236,7 +236,7 @@ Content.getComponent("Slider_SamplerAPitchCoarse").setControlCallback(onSlider_S
 
 inline function onSlider_SamplerAPitchFineControl(component, value)
 {
-	Label_SamplerAPitchFineValue.set("text", value + "c");
+	Label_SamplerAPitchFineValue.set("text", Math.round(value) + "c");
 	SamplerA_TuneMod.setIntensity(value / 100);
 };
 
@@ -293,7 +293,7 @@ inline function onSlider_SamplerAAttackControl(component, value)
 	AudioWaveform_SamplerA.showControl(0);
 	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Attack, value);
-	Label_SamplerAAttackValue.set("text", value + "ms");
+	Label_SamplerAAttackValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerAAttack").setControlCallback(onSlider_SamplerAAttackControl);
@@ -307,7 +307,7 @@ inline function onSlider_SamplerADecayControl(component, value)
 	AudioWaveform_SamplerA.showControl(0);
 	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Decay, value);
-	Label_SamplerADecayValue.set("text", value + "ms");
+	Label_SamplerADecayValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerADecay").setControlCallback(onSlider_SamplerADecayControl);
@@ -320,7 +320,7 @@ inline function onSlider_SamplerASustainControl(component, value)
 	AudioWaveform_SamplerA.showControl(0);
 	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Sustain, value);
-	Label_SamplerASustainValue.set("text", value + "dB");
+	Label_SamplerASustainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_SamplerASustain").setControlCallback(onSlider_SamplerASustainControl);
@@ -333,7 +333,7 @@ inline function onSlider_SamplerAReleaseControl(component, value)
 	AudioWaveform_SamplerA.showControl(0);
 	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Release, value);
-	Label_SamplerAReleaseValue.set("text", value + "ms");
+	Label_SamplerAReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerARelease").setControlCallback(onSlider_SamplerAReleaseControl);
@@ -369,7 +369,7 @@ Content.getComponent("Button_SamplerAReverse").setControlCallback(onButton_Sampl
 inline function onSlider_SamplerBGainControl(component, value)
 {
 	SamplerB_Utility.setAttribute(SamplerB_Utility.Gain, value);
-	Label_SamplerBGainValue.set("text", value + "dB");
+	Label_SamplerBGainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_SamplerBGain").setControlCallback(onSlider_SamplerBGainControl);
@@ -382,9 +382,9 @@ inline function onSlider_SamplerBPanControl(component, value)
 	if (value == 0)
 	    Label_SamplerBPanValue.set("text", "C");
 	else if (value < 0)
-	    Label_SamplerBPanValue.set("text", value + "L");
+	    Label_SamplerBPanValue.set("text", Math.round(value) + "L");
 	else
-	    Label_SamplerBPanValue.set("text", value + "R");
+	    Label_SamplerBPanValue.set("text", Math.round(value) + "R");
 };
 
 Content.getComponent("Slider_SamplerBPan").setControlCallback(onSlider_SamplerBPanControl);
@@ -394,7 +394,7 @@ Content.getComponent("Slider_SamplerBPan").setControlCallback(onSlider_SamplerBP
 
 inline function onSlider_SamplerBPitchCoarseControl(component, value)
 {
-    Label_SamplerBPitchCoarseValue.set("text", value + "st");
+    Label_SamplerBPitchCoarseValue.set("text", Math.round(value) + "st");
     SamplerB_PitchMod.setIntensity(value);
 };
 
@@ -402,7 +402,7 @@ Content.getComponent("Slider_SamplerBPitchCoarse").setControlCallback(onSlider_S
 
 inline function onSlider_SamplerBPitchFineControl(component, value)
 {
-	Label_SamplerBPitchFineValue.set("text", value + "c");
+	Label_SamplerBPitchFineValue.set("text", Math.round(value) + "c");
 	SamplerB_TuneMod.setIntensity(value / 100);
 };
 
@@ -441,7 +441,7 @@ inline function onSlider_SamplerBAttackControl(component, value)
 	AudioWaveform_SamplerB.showControl(0);
 	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Attack, value);
-	Label_SamplerBAttackValue.set("text", value + "ms");
+	Label_SamplerBAttackValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerBAttack").setControlCallback(onSlider_SamplerBAttackControl);
@@ -455,7 +455,7 @@ inline function onSlider_SamplerBDecayControl(component, value)
 	AudioWaveform_SamplerB.showControl(0);
 	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Decay, value);
-	Label_SamplerBDecayValue.set("text", value + "ms");
+	Label_SamplerBDecayValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerBDecay").setControlCallback(onSlider_SamplerBDecayControl);
@@ -468,7 +468,7 @@ inline function onSlider_SamplerBSustainControl(component, value)
 	AudioWaveform_SamplerB.showControl(0);
 	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Sustain, value);
-	Label_SamplerBSustainValue.set("text", value + "dB");
+	Label_SamplerBSustainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_SamplerBSustain").setControlCallback(onSlider_SamplerBSustainControl);
@@ -481,7 +481,7 @@ inline function onSlider_SamplerBReleaseControl(component, value)
 	AudioWaveform_SamplerB.showControl(0);
 	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Release, value);
-	Label_SamplerBReleaseValue.set("text", value + "ms");
+	Label_SamplerBReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerBRelease").setControlCallback(onSlider_SamplerBReleaseControl);
@@ -518,7 +518,7 @@ Content.getComponent("Button_SamplerBReverse").setControlCallback(onButton_Sampl
 inline function onSlider_SamplerCGainControl(component, value)
 {
 	SamplerC_Utility.setAttribute(SamplerC_Utility.Gain, value);
-	Label_SamplerCGainValue.set("text", value + "dB");
+	Label_SamplerCGainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_SamplerCGain").setControlCallback(onSlider_SamplerCGainControl);
@@ -531,9 +531,9 @@ inline function onSlider_SamplerCPanControl(component, value)
 	if (value == 0)
 	    Label_SamplerCPanValue.set("text", "C");
 	else if (value < 0)
-	    Label_SamplerCPanValue.set("text", value + "L");
+	    Label_SamplerCPanValue.set("text", Math.round(value) + "L");
 	else
-	    Label_SamplerCPanValue.set("text", value + "R");
+	    Label_SamplerCPanValue.set("text", Math.round(value) + "R");
 };
 
 Content.getComponent("Slider_SamplerCPan").setControlCallback(onSlider_SamplerCPanControl);
@@ -543,7 +543,7 @@ Content.getComponent("Slider_SamplerCPan").setControlCallback(onSlider_SamplerCP
 
 inline function onSlider_SamplerCPitchCoarseControl(component, value)
 {
-    Label_SamplerCPitchCoarseValue.set("text", value + "st");
+    Label_SamplerCPitchCoarseValue.set("text", Math.round(value) + "st");
     SamplerC_PitchMod.setIntensity(value);
 };
 
@@ -551,7 +551,7 @@ Content.getComponent("Slider_SamplerCPitchCoarse").setControlCallback(onSlider_S
 
 inline function onSlider_SamplerCPitchFineControl(component, value)
 {
-	Label_SamplerCPitchFineValue.set("text", value + "c");
+	Label_SamplerCPitchFineValue.set("text", Math.round(value) + "c");
 	SamplerC_TuneMod.setIntensity(value / 100);
 };
 
@@ -590,7 +590,7 @@ inline function onSlider_SamplerCAttackControl(component, value)
 	AudioWaveform_SamplerC.showControl(0);
 	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Attack, value);
-	Label_SamplerCAttackValue.set("text", value + "ms");
+	Label_SamplerCAttackValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerCAttack").setControlCallback(onSlider_SamplerCAttackControl);
@@ -604,7 +604,7 @@ inline function onSlider_SamplerCDecayControl(component, value)
 	AudioWaveform_SamplerC.showControl(0);
 	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Decay, value);
-	Label_SamplerCDecayValue.set("text", value + "ms");
+	Label_SamplerCDecayValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerCDecay").setControlCallback(onSlider_SamplerCDecayControl);
@@ -617,7 +617,7 @@ inline function onSlider_SamplerCSustainControl(component, value)
 	AudioWaveform_SamplerC.showControl(0);
 	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Sustain, value);
-	Label_SamplerCSustainValue.set("text", value + "dB");
+	Label_SamplerCSustainValue.set("text", Math.round(value) + "dB");
 };
 
 Content.getComponent("Slider_SamplerCSustain").setControlCallback(onSlider_SamplerCSustainControl);
@@ -630,7 +630,7 @@ inline function onSlider_SamplerCReleaseControl(component, value)
 	AudioWaveform_SamplerC.showControl(0);
 	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Release, value);
-	Label_SamplerCReleaseValue.set("text", value + "ms");
+	Label_SamplerCReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerCRelease").setControlCallback(onSlider_SamplerCReleaseControl);

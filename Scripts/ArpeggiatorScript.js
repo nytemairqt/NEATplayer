@@ -66,11 +66,6 @@ Panel_Arp.setPaintRoutine(function(g)
     g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0);
 	g.setColour(Colours.grey);
 	g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0, 2.0);
-	/*
-	g.setColour(Colours.darkgrey);
-	g.drawLine(this.getWidth() / 3, this.getWidth() / 3, 0, this.getHeight(), 1.0);
-	g.drawLine(this.getWidth() / 3 * 2, this.getWidth() / 3 * 2, 0, this.getHeight(), 1.0);
-	*/
 });
 
 //Arpeggiator Controls
@@ -116,7 +111,7 @@ Content.getComponent("Button_ArpBypass").setControlCallback(onButton_ArpBypassCo
 inline function onSlider_ArpStepsControl(component, value)
 {
 	Arpeggiator1.setAttribute(Arpeggiator1.NumStepSlider, value);
-	Label_ArpStepsValue.set("text", value);
+	Label_ArpStepsValue.set("text", Math.round(value));
 };
 
 Content.getComponent("Slider_ArpSteps").setControlCallback(onSlider_ArpStepsControl);
@@ -134,7 +129,7 @@ Content.getComponent("Slider_ArpSpeed").setControlCallback(onSlider_ArpSpeedCont
 inline function onSlider_ArpOctaveControl(component, value)
 {
 	Arpeggiator1.setAttribute(Arpeggiator1.OctaveRange, value);
-	Label_ArpOctaveValue.set("text", value);
+	Label_ArpOctaveValue.set("text", Math.round(value));
 };
 
 Content.getComponent("Slider_ArpOctave").setControlCallback(onSlider_ArpOctaveControl);
