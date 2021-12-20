@@ -835,8 +835,10 @@ Content.getComponent("Slider_AmpOutput").setControlCallback(onSlider_AmpOutputCo
 
 inline function onComboBox_AmpCabSelectControl(component, value)
 {
-    local fullCabName = "{PROJECT_FOLDER}Cab " + value + ".wav";
+    local fullCabName = "{PROJECT_FOLDER}Cab " + Math.round(value) + ".wav";
 	Amp_Cab.setFile(fullCabName);
+	
+	Console.print(fullCabName);
 };
 
 Content.getComponent("ComboBox_AmpCabSelect").setControlCallback(onComboBox_AmpCabSelectControl);
