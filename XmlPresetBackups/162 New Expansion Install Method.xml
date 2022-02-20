@@ -41,16 +41,16 @@
             <Control type="ScriptButton" id="Button_PhaserSettings" value="0"/>
             <Control type="ScriptButton" id="Button_DegradeSettings" value="0"/>
             <Control type="ScriptButton" id="Button_AmpSettings" value="1.0"/>
-            <Control type="ScriptButton" id="Button_FilterBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_EQBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DriveTubeDriveEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DegradeEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ReverbEnable" value="1.0"/>
-            <Control type="ScriptButton" id="Button_DelayEnable" value="1.0"/>
-            <Control type="ScriptButton" id="Button_AmpEnable" value="1.0"/>
+            <Control type="ScriptButton" id="Button_FilterBypass" value="0"/>
+            <Control type="ScriptButton" id="Button_EQBypass" value="0"/>
+            <Control type="ScriptButton" id="Button_CompBypass" value="0"/>
+            <Control type="ScriptButton" id="Button_DriveTubeDriveEnable" value="0"/>
+            <Control type="ScriptButton" id="Button_WidthEnable" value="0"/>
+            <Control type="ScriptButton" id="Button_PhaserEnable" value="0"/>
+            <Control type="ScriptButton" id="Button_DegradeEnable" value="0"/>
+            <Control type="ScriptButton" id="Button_ReverbEnable" value="0"/>
+            <Control type="ScriptButton" id="Button_DelayEnable" value="0"/>
+            <Control type="ScriptButton" id="Button_AmpEnable" value="0"/>
             <Control type="ScriptSlider" id="Slider_CompThreshold" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompAttack" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_CompRelease" value="50.0"/>
@@ -145,7 +145,7 @@
             <Control type="ScriptSlider" id="Slider_AmpGain" value="0.0"/>
             <Control type="ScriptLabel" id="Label_DelayFeedbackRight1" value=""/>
             <Control type="ScriptLabel" id="Label_DelayFeedbackRightValue1" value=""/>
-            <Control type="ScriptButton" id="Button_AmpCabBypass" value="1.0"/>
+            <Control type="ScriptButton" id="Button_AmpCabBypass" value="0"/>
             <Control type="ScriptSlider" id="Slider_AmpEQLow" value="0.0"/>
             <Control type="ScriptLabel" id="Label_AmpEQLowValue" value="0.0dB"/>
             <Control type="ScriptSlider" id="Slider_AmpEQHigh" value="0.0"/>
@@ -154,7 +154,7 @@
             <Control type="ScriptLabel" id="Label_AmpOutputValue" value="0.0dB"/>
             <Control type="ScriptLabel" id="Label_AmpEQMidValue" value="0.0dB"/>
             <Control type="ScriptLabel" id="Label_AmpEQHighValue" value="0.0dB"/>
-            <Control type="ScriptComboBox" id="ComboBox_AmpCabSelect" value="5.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_AmpCabSelect" value="1"/>
             <Control type="ScriptButton" id="Button_AmpHQ" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXAmpLow" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXAmpMid" value="1.0"/>
@@ -263,17 +263,16 @@
             <Control type="ScriptSlider" id="Slider_MovementEnvBDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBSustain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBRelease" value="1000.0"/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="5.0"
+            <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="-1"
                      data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="6.0"
-                     data="64......................................................................................."/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="14.0"
+            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="-1" data="64......................................................................................."/>
+            <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1"
                      data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
             <Control type="ScriptSlider" id="Slider_ArpSteps" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ArpBypass" value="1.0"/>
+            <Control type="ScriptButton" id="Button_ArpBypass" value="0.0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpNotes" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="1.0"/>
@@ -297,7 +296,7 @@
           </Content>
           <UIData Source="162 New Expansion Install MethodUIData"/>
         </Processor>
-        <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="0">
+        <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="1">
           <ChildProcessors/>
           <Content>
             <Control type="ScriptButton" id="BypassButton" value="0.0"/>
@@ -390,7 +389,7 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="CurveEq" ID="Amp_EQ" Bypassed="0" NumFilters="5" Band0="0.0"
+        <Processor Type="CurveEq" ID="Amp_EQ" Bypassed="1" NumFilters="5" Band0="0.0"
                    Band1="81.0" Band2="0.7699999809265137" Band3="1.0" Band4="1.0"
                    Band5="0.0" Band6="10818.0" Band7="1.0" Band8="1.0" Band9="0.0"
                    Band10="0.0" Band11="332.0" Band12="0.4399999976158142" Band13="1.0"
@@ -400,7 +399,7 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="ScriptFX" ID="Amp" Bypassed="0">
+        <Processor Type="ScriptFX" ID="Amp" Bypassed="1">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
           <Content/>
@@ -411,7 +410,7 @@
             <ContentProperties DeviceType="Desktop"/>
           </UIData>
         </Processor>
-        <Processor Type="CurveEq" ID="Amp_CorrectiveEQ" Bypassed="0" NumFilters="4"
+        <Processor Type="CurveEq" ID="Amp_CorrectiveEQ" Bypassed="1" NumFilters="4"
                    Band0="1.324140429496765" Band1="40.0" Band2="0.6700000166893005"
                    Band3="1.0" Band4="1.0" Band5="0.3310355246067047" Band6="14663.2998046875"
                    Band7="1.0" Band8="1.0" Band9="0.0" Band10="-2.03000020980835"
@@ -421,10 +420,10 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Convolution" ID="Amp_Cab" Bypassed="0" DryGain="-100.0"
+        <Processor Type="Convolution" ID="Amp_Cab" Bypassed="1" DryGain="-100.0"
                    WetGain="0.0" Latency="0.0" ImpulseLength="1.0" ProcessInput="1.0"
                    UseBackgroundThread="0.0" Predelay="0.0" HiCut="20000.0" Damping="0.0"
-                   FFTType="0.0" FileName="{PROJECT_FOLDER}Cab 5.wav" min="0" max="22050"
+                   FFTType="0.0" FileName="{PROJECT_FOLDER}Cab 1.wav" min="0" max="22050"
                    loopStart="0" loopEnd="22050">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
@@ -485,13 +484,13 @@
             <ContentProperties DeviceType="Desktop"/>
           </UIData>
         </Processor>
-        <Processor Type="SimpleReverb" ID="Simple Reverb1" Bypassed="0" RoomSize="0.699999988079071"
+        <Processor Type="SimpleReverb" ID="Simple Reverb1" Bypassed="1" RoomSize="0.699999988079071"
                    Damping="0.5" WetLevel="0.2000000029802322" DryLevel="0.800000011920929"
                    Width="0.800000011920929" FreezeMode="0.1000000014901161">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Delay" ID="Delay1" Bypassed="0" DelayTimeLeft="5.0" DelayTimeRight="5.0"
+        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="5.0" DelayTimeRight="5.0"
                    FeedbackLeft="0.25" FeedbackRight="0.25" LowPassFreq="20000.0"
                    HiPassFreq="40.0" Mix="0.2000000029802322" TempoSync="1.0">
           <ChildProcessors/>
@@ -502,7 +501,7 @@
           <ChildProcessors>
             <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="LFO" ID="LFO Modulator2" Bypassed="0" Intensity="0.0" Frequency="11.0"
+                <Processor Type="LFO" ID="LFO Modulator2" Bypassed="1" Intensity="0.0" Frequency="11.0"
                            FadeIn="1000.0" WaveformType="4.0" Legato="0.0" TempoSync="1.0"
                            SmoothingTime="5.0" LoopEnabled="0.0" PhaseOffset="0.0" CustomWaveform=""
                            StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">

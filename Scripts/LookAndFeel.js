@@ -1021,3 +1021,20 @@ laf.registerFunction("drawNumberTag", function(g, obj)
     }
     
 });
+
+//Alert Window Popups
+
+laf.registerFunction("drawAlertWindowIcon", function(g, obj)
+{
+    if(obj.type == "Question")
+    {
+            g.setColour(Colours.lightgrey);
+            path.clear();
+            path.loadFromData(openAppDataFolderButtonFillDataBack);
+            g.fillPath(path, [obj.area[0], obj.area[1], obj.area[2] - 40, obj.area[3] - 48]);
+            path.clear();
+            g.setColour(Colours.white);
+            path.loadFromData(openAppDataFolderButtonFillDataFront);
+            g.fillPath(path, [obj.area[0], obj.area[1] + 14, obj.area[2] - 40, obj.area[3] - 56]);  
+    }
+});

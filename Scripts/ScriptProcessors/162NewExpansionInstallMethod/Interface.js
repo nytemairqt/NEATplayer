@@ -7,10 +7,8 @@ include("CustomExpansionLoading.js");
 include("SampleSettings.js");
 include("MovementSettings.js");
 include("FXGUI.js");
-//include("Custom_ADSR.js");
 include("loadingBar.js");
 include("InitializeModules.js");
-//include("ComboBoxes.js");
 include("OutputMeter.js");
 include("RandomizeEverything.js");
 include("extrasOracle2.js");
@@ -37,7 +35,6 @@ const var Button_SetSamplesFolder = Content.getComponent("Button_SetSamplesFolde
 const var Button_InstallLibrary = Content.getComponent("Button_InstallLibrary");
 const var Button_CloseSetFolder = Content.getComponent("Button_CloseSetFolder");
 const var Panel_CustomSettings = Content.getComponent("Panel_CustomSettings");
-
 
 //Expansion shit
 

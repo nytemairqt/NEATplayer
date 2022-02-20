@@ -12,8 +12,8 @@
   <AdditionalDspLibraries value=""/>
   <OSXStaticLibs value=""/>
   <WindowsStaticLibFolder value=""/>
-  <ExtraDefinitionsWindows value="HISE_SAMPLE_DIALOG_SHOW_INSTALL_BUTTON=0&#10;HISE_SAMPLE_DIALOG_SHOW_LOCATE_BUTTON=0"/>
-  <ExtraDefinitionsOSX value="HISE_SAMPLE_DIALOG_SHOW_INSTALL_BUTTON=0&#10;HISE_SAMPLE_DIALOG_SHOW_LOCATE_BUTTON=0"/>
+  <ExtraDefinitionsWindows value="HISE_SAMPLE_DIALOG_SHOW_INSTALL_BUTTON=0&#10;HISE_SAMPLE_DIALOG_SHOW_LOCATE_BUTTON=0&#10;HISE_DEACTIVATE_OVERLAY=1"/>
+  <ExtraDefinitionsOSX value="HISE_SAMPLE_DIALOG_SHOW_INSTALL_BUTTON=0&#10;HISE_SAMPLE_DIALOG_SHOW_LOCATE_BUTTON=0&#10;HISE_DEACTIVATE_OVERLAY=1"/>
   <ExtraDefinitionsIOS value=""/>
   <ExtraDefinitionsLinux value=""/>
   <AppGroupID value=""/>
@@ -21,7 +21,7 @@
   <AAXCategoryFX value="AAX_ePlugInCategory_Modulation"/>
   <SupportMonoFX value="No"/>
   <EnableMidiInputFX value="No"/>
-  <VST3Support value="1"/>
+  <VST3Support value="0"/>
   <UseRawFrontend value="No"/>
   <ExpansionType value="Encrypted"/>
   <EncryptionKey value="xoutfull1"/>

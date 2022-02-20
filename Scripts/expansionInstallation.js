@@ -6,7 +6,7 @@ inline function onButton_InstallLibraryControl(component, value)
 {
    if (value)
        {
-   	    Engine.showYesNoWindow("Load .hr1", "Please select the .hr1 file.", function(response)
+   	    Engine.showYesNoWindow("Install Library", "Please select the .hr1 file.", function(response)
    	    {
    			if (!response) return;
    
@@ -16,7 +16,7 @@ inline function onButton_InstallLibraryControl(component, value)
    				
    				if (f.isFile())
    				{
-   					Engine.showYesNoWindow("Samples Folder", "Please select the folder to install the samples to.", function(response)
+   					Engine.showYesNoWindow("Target Directory", "Please select the folder to install the samples to.", function(response)
    					{
    						if (!response) return;
    
@@ -40,7 +40,7 @@ inline function onButton_BulkInstallControl(component, value)
 {
 	if (value)
 	       {
-	   	    Engine.showYesNoWindow("Load .hr1", "Please select the folder containing the .hr1 files.", function(response)
+	   	    Engine.showYesNoWindow("Bulk Install", "Please select the folder containing the .hr1 files.", function(response)
 	   	    {
 	   			if (!response) return;
 	   
@@ -49,7 +49,7 @@ inline function onButton_BulkInstallControl(component, value)
 	   				if (f.isDirectory())
 	   				{
 						hrList = FileSystem.findFiles(f, "*.hr1", 0);
-	   					Engine.showYesNoWindow("Samples Folder", "Please select the folder to install the samples to.", function(response)
+	   					Engine.showYesNoWindow("Target Directory", "Please select the folder to install the samples to.", function(response)
 	   					{
 	   						if (!response) return;
 	   
