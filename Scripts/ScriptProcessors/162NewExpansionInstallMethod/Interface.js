@@ -20,6 +20,7 @@ include("extrasCloudburstAcoustic.js");
 include("extrasGloom.js");
 include("PDQBass_Extras.js");
 include("ChaosEngine.js");
+include("expansionInstallation.js");
 
 Engine.setFrontendMacros(["X Pos", "X Neg", "Y Pos", "Y Neg", "Env A", "Env B", "Velocity", "Random"]);
 
@@ -224,45 +225,6 @@ Content.getComponent("Button_AddLibrary").setControlCallback(onButton_AddLibrary
 //Install Single
 
 var installDirectory = expansionDirectory;
-
-inline function onButton_InstallLibraryControl(component, value)
-{
-    if (value)
-    {         
-        FileSystem.browse(installDirectory, false, "", function(result) 
-        {
-            hr = result;
-            expHandler.installExpansionFromPackage(hr,FileSystem.getFolder(FileSystem.Samples));
-            expHandler.refreshExpansions(); 
-            installDirectory = result.getParentDirectory();
-        });
-    };
-};
-
-Content.getComponent("Button_InstallLibrary").setControlCallback(onButton_InstallLibraryControl);
-
-//Bulk Install
-
-var hrList = [];
-
-inline function onButton_BulkInstallControl(component, value)
-{
-	if (value)
-    {
-        FileSystem.browseForDirectory(installDirectory, function(result)
-        {
-            hrList = FileSystem.findFiles(result, "*.hr1", 0);
-            for (h in hrList)
-            {
-                expHandler.installExpansionFromPackage(h,FileSystem.getFolder(FileSystem.Samples));
-                expHandler.refreshExpansions(); 
-            }
-        });
-    }
-};
-
-Content.getComponent("Button_BulkInstall").setControlCallback(onButton_BulkInstallControl);
-
 
 //Expansion Selection Navigation.
 
@@ -688,6 +650,8 @@ for (c in Panel_BG.getChildPanelList())
 }
 
 //clearEverything();
+
+
 
 
 
@@ -1669,7 +1633,7 @@ function onNoteOn()
         default:
     }
 }
- function onNoteOff()
+  function onNoteOff()
 {
     local e = Message.getNoteNumber();    
     local v = Message.getVelocity();
@@ -1909,7 +1873,7 @@ function onNoteOn()
     
     
 }
- function onController()
+  function onController()
 {
     local val = Message.getControllerValue() / 127;
     
@@ -1935,7 +1899,7 @@ function onNoteOn()
     
 
 }
- function onTimer()
+  function onTimer()
 {
 	
 }

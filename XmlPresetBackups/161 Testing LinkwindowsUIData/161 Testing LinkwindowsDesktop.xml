@@ -38,7 +38,10 @@
              height="263.0" borderRadius="19.0">
     <Component type="ScriptImage" id="Image_BG" x="-2.0" y="0.0" parentComponent="Panel_BG"
                text="Image" width="596.0" height="263.0" fileName="{EXP::Blackout}bg_blackout.jpg"
-               alpha="0.0"/>
+               alpha="0.0">
+      <Component type="ScriptButton" id="Button1" x="440.0" y="17.0" parentComponent="Image_BG"
+                 text="LAF_ButtonAppData" isMomentary="1"/>
+    </Component>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="9.0" y="181.0"
                parentComponent="Panel_BG" width="84.0" height="76.0" itemColour="3456106496"
                itemColour2="3456106496" visible="0">
@@ -279,7 +282,8 @@
                  fontStyle="Regular" width="108.0" height="28.0" editable="0"/>
     </Component>
     <Component type="ScriptPanel" id="Panel_FX" x="8.0" y="5.0" parentComponent="Panel_BG"
-               width="580.0" height="253.0" itemColour="4194304000" itemColour2="4194304000">
+               width="580.0" height="253.0" itemColour="4194304000" itemColour2="4194304000"
+               visible="0">
       <Component type="ScriptButton" id="Button_FilterSettings" x="9.0" y="28.0"
                  parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
                  height="30.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
@@ -1036,7 +1040,7 @@
                  parentComponent="Panel_Sample" width="150.0" height="60.0" text="LAFSliderOracleSampleOffset"
                  dragDirection="Horizontal" itemColour="4294901502" bgColour="4294967295"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerA" x="38.0" y="6.0"
-                 text="Blackout" width="115.0" height="22.0" itemColour="4212199697"
+                 text="Select" width="115.0" height="22.0" itemColour="4212199697"
                  bgColour="4294967295" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" max="0"/>
       <Component type="ScriptFloatingTile" id="AHDSR_SamplerA" x="20.0" y="32.0"
@@ -1175,7 +1179,7 @@
                  y="148.0" width="74.0" height="28.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerB" x="231.0" y="6.0"
-                 text="unused" width="115.0" height="22.0" itemColour="4212199697"
+                 text="Select" width="115.0" height="22.0" itemColour="4212199697"
                  bgColour="4294967295" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" max="0"/>
       <Component type="ScriptLabel" id="Label_Sustain4" x="270.0" y="210.0" width="74.0"
@@ -1290,7 +1294,7 @@
                  height="28.0" fontStyle="Bold" text="S" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerC" x="424.0" y="6.0"
-                 text="unused" width="115.0" height="22.0" itemColour="4212199697"
+                 text="Select" width="115.0" height="22.0" itemColour="4212199697"
                  bgColour="4294967295" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" max="0"/>
       <Component type="ScriptLabel" id="Label_SamplerCAttackValue" x="382.0" y="148.0"
@@ -1454,10 +1458,10 @@
                  width="8.0" height="8.0" enableMidiLearn="0"/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledB" x="191.0" y="1.0"
                  parentComponent="Panel_Sample" width="200.0" height="250.0" itemColour="3942645760"
-                 itemColour2="3942645760"/>
+                 itemColour2="3942645760" visible="0"/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledC" x="388.0" y="1.0"
                  parentComponent="Panel_Sample" width="200.0" height="250.0" itemColour="3942645760"
-                 itemColour2="3942645760"/>
+                 itemColour2="3942645760" visible="0"/>
     </Component>
     <Component type="ScriptPanel" id="Panel_Movement" x="8.0" y="5.0" width="580.0"
                height="253.0" parentComponent="Panel_BG" bgColour="3825600006"
@@ -1885,12 +1889,12 @@
              y="23.0" width="195.0" height="262.0" autoHide="0" scrollBarThickness="9.79798"
              visible="0">
     <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="0" y="3"
-               width="186" height="955" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
+               width="186" height="1010" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
                bgColour="9700870" itemColour="4278190080" itemColour2="4278190080"/>
   </Component>
   <Component type="ScriptFloatingTile" id="FloatingTile_Keyboard" x="39.0"
              y="307.0" ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
-             itemColour2="4294967295" textColour="0" Data="{&#13;&#10;  &quot;KeyWidth&quot;: 12.0,&#13;&#10;  &quot;DisplayOctaveNumber&quot;: true,&#13;&#10;  &quot;LowKey&quot;: 24,&#13;&#10;  &quot;HiKey&quot;: 96,&#13;&#10;  &quot;CustomGraphics&quot;: false,&#13;&#10;  &quot;DefaultAppearance&quot;: true,&#13;&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#13;&#10;  &quot;ToggleMode&quot;: false,&#13;&#10;  &quot;MidiChannel&quot;: 1,&#13;&#10;  &quot;UseVectorGraphics&quot;: true,&#13;&#10;  &quot;UseFlatStyle&quot;: false,&#13;&#10;  &quot;MPEKeyboard&quot;: false,&#13;&#10;  &quot;MPEStartChannel&quot;: 2,&#13;&#10;  &quot;MPEEndChannel&quot;: 16&#13;&#10;}"
+             itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 12.0,&#10;  &quot;DisplayOctaveNumber&quot;: true,&#10;  &quot;LowKey&quot;: 24,&#10;  &quot;HiKey&quot;: 96,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: true,&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
              width="517.0" height="60.0"/>
   <Component type="ScriptFloatingTile" id="FloatingTile2" x="428.0" y="0.0"
              ContentType="PerformanceLabel" bgColour="0" itemColour="4294951115"

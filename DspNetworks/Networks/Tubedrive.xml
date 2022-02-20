@@ -29,14 +29,12 @@
                 <SwitchTargets>
                   <SwitchTarget>
                     <Connections>
-                      <Connection NodeId="soft_bypass1" ParameterId="Bypassed" MinValue="0.5" MaxValue="1.1"
-                                  StepSize="0.5"/>
+                      <Connection NodeId="soft_bypass1" ParameterId="Bypassed"/>
                     </Connections>
                   </SwitchTarget>
                   <SwitchTarget>
                     <Connections>
-                      <Connection NodeId="soft_bypass" ParameterId="Bypassed" MinValue="0.5" MaxValue="1.1"
-                                  StepSize="0.5"/>
+                      <Connection NodeId="soft_bypass" ParameterId="Bypassed"/>
                     </Connections>
                   </SwitchTarget>
                 </SwitchTargets>
@@ -44,7 +42,7 @@
                   <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
                 </Parameters>
               </Node>
-              <Node ID="soft_bypass" FactoryPath="container.soft_bypass" Bypassed="1">
+              <Node ID="soft_bypass" FactoryPath="container.soft_bypass" Bypassed="0">
                 <Nodes>
                   <Node ID="oversample2x" FactoryPath="container.oversample2x" Bypassed="0">
                     <Nodes>
@@ -106,13 +104,12 @@
     <Parameters>
       <Parameter ID="Gain" MinValue="0.0" MaxValue="60.0" StepSize="0.01" Value="0.0">
         <Connections>
-          <Connection NodeId="gain" ParameterId="Gain" MinValue="0.0" MaxValue="60.0"
-                      StepSize="0.01" SkewFactor="1"/>
+          <Connection NodeId="gain" ParameterId="Gain"/>
         </Connections>
       </Parameter>
       <Parameter ID="Oversample" MinValue="0.0" MaxValue="1.0" StepSize="1" Value="0.0">
         <Connections>
-          <Connection NodeId="xfader" ParameterId="Value" MinValue="0.0" MaxValue="1.0"/>
+          <Connection NodeId="xfader" ParameterId="Value"/>
         </Connections>
       </Parameter>
     </Parameters>

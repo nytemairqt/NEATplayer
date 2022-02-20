@@ -21,14 +21,12 @@
         <SwitchTargets>
           <SwitchTarget>
             <Connections>
-              <Connection NodeId="soft_bypass3" ParameterId="Bypassed" MinValue="0.5" MaxValue="1.1"
-                          StepSize="0.5"/>
+              <Connection NodeId="soft_bypass3" ParameterId="Bypassed"/>
             </Connections>
           </SwitchTarget>
           <SwitchTarget>
             <Connections>
-              <Connection NodeId="soft_bypass2" ParameterId="Bypassed" MinValue="0.5" MaxValue="1.1"
-                          StepSize="0.5"/>
+              <Connection NodeId="soft_bypass2" ParameterId="Bypassed"/>
             </Connections>
           </SwitchTarget>
         </SwitchTargets>
@@ -36,7 +34,7 @@
           <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
         </Parameters>
       </Node>
-      <Node ID="soft_bypass2" FactoryPath="container.soft_bypass" Bypassed="1">
+      <Node ID="soft_bypass2" FactoryPath="container.soft_bypass" Bypassed="0">
         <Nodes>
           <Node ID="oversample2x2" FactoryPath="container.oversample2x" Bypassed="0">
             <Nodes>
@@ -85,21 +83,18 @@
     <Parameters>
       <Parameter ID="Gain" MinValue="0.0" MaxValue="100.0" StepSize="1" Value="0.0">
         <Connections>
-          <Connection NodeId="gain" ParameterId="Gain" MinValue="0.0" MaxValue="100.0"
-                      StepSize="1" SkewFactor="1"/>
-          <Connection NodeId="gain1" ParameterId="Gain" MinValue="0.0" MaxValue="-30.0"
-                      StepSize="1" SkewFactor=".13"/>
+          <Connection NodeId="gain" ParameterId="Gain"/>
+          <Connection NodeId="gain1" ParameterId="Gain"/>
         </Connections>
       </Parameter>
       <Parameter ID="Output" MinValue="-100.0" MaxValue="36.0" StepSize="1" Value="0.0">
         <Connections>
-          <Connection NodeId="gain2" ParameterId="Gain" MinValue="-100.0" MaxValue="0.0"
-                      StepSize="1" SkewFactor="1"/>
+          <Connection NodeId="gain2" ParameterId="Gain"/>
         </Connections>
       </Parameter>
       <Parameter ID="Oversample" MinValue="0.0" MaxValue="1.0" StepSize="1" Value="0.0">
         <Connections>
-          <Connection NodeId="xfader1" ParameterId="Value" MinValue="0.0" MaxValue="1.0"/>
+          <Connection NodeId="xfader1" ParameterId="Value"/>
         </Connections>
       </Parameter>
     </Parameters>

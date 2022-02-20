@@ -23,14 +23,12 @@
     <Parameters>
       <Parameter ID="BitDepth" MinValue="4.0" MaxValue="16.0" StepSize="0.1" Value="16.0">
         <Connections>
-          <Connection NodeId="bitcrush" ParameterId="BitDepth" MinValue="4.0" MaxValue="16.0"
-                      StepSize="0.1"/>
+          <Connection NodeId="bitcrush" ParameterId="BitDepth"/>
         </Connections>
       </Parameter>
       <Parameter ID="SampleHold" MinValue="1.0" MaxValue="64.0" StepSize="1" Value="1.0">
         <Connections>
-          <Connection NodeId="sampleandhold" ParameterId="Counter" MinValue="1.0" MaxValue="64.0"
-                      StepSize="1.0"/>
+          <Connection NodeId="sampleandhold" ParameterId="Counter"/>
         </Connections>
       </Parameter>
     </Parameters>

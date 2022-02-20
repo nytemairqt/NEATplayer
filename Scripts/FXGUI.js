@@ -832,13 +832,10 @@ inline function onSlider_AmpOutputControl(component, value)
 
 Content.getComponent("Slider_AmpOutput").setControlCallback(onSlider_AmpOutputControl);
 
-
 inline function onComboBox_AmpCabSelectControl(component, value)
 {
     local fullCabName = "{PROJECT_FOLDER}Cab " + Math.round(value) + ".wav";
 	Amp_Cab.setFile(fullCabName);
-	
-	Console.print(fullCabName);
 };
 
 Content.getComponent("ComboBox_AmpCabSelect").setControlCallback(onComboBox_AmpCabSelectControl);

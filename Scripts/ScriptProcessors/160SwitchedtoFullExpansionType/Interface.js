@@ -1669,7 +1669,7 @@ function onNoteOn()
         default:
     }
 }
- function onNoteOff()
+  function onNoteOff()
 {
     local e = Message.getNoteNumber();    
     local v = Message.getVelocity();
@@ -1909,7 +1909,7 @@ function onNoteOn()
     
     
 }
- function onController()
+  function onController()
 {
     local val = Message.getControllerValue() / 127;
     
@@ -1935,7 +1935,7 @@ function onNoteOn()
     
 
 }
- function onTimer()
+  function onTimer()
 {
 	
 }

@@ -20,6 +20,7 @@ include("extrasCloudburstAcoustic.js");
 include("extrasGloom.js");
 include("PDQBass_Extras.js");
 include("ChaosEngine.js");
+include("linkWindows.js");
 
 Engine.setFrontendMacros(["X Pos", "X Neg", "Y Pos", "Y Neg", "Env A", "Env B", "Velocity", "Random"]);
 
@@ -689,6 +690,14 @@ for (c in Panel_BG.getChildPanelList())
 
 //clearEverything();
 
+
+inline function onButton1Control(component, value)
+{
+	if(value)
+		linkWindows();
+};
+
+Content.getComponent("Button1").setControlCallback(onButton1Control);
 
 
 
@@ -1669,7 +1678,7 @@ function onNoteOn()
         default:
     }
 }
- function onNoteOff()
+  function onNoteOff()
 {
     local e = Message.getNoteNumber();    
     local v = Message.getVelocity();
@@ -1909,7 +1918,7 @@ function onNoteOn()
     
     
 }
- function onController()
+  function onController()
 {
     local val = Message.getControllerValue() / 127;
     
@@ -1935,7 +1944,7 @@ function onNoteOn()
     
 
 }
- function onTimer()
+  function onTimer()
 {
 	
 }
