@@ -53,6 +53,13 @@ const var settingsCogwheelData = [ 110,109,182,243,138,66,225,186,155,66,98,0,0,
 119,190,135,65,108,98,16,166,66,123,20,189,65,108,225,186,155,66,39,49,244,65,98,80,77,161,66,0,0,10,66,76,55,165,66,96,101,28,66,207,247,166,66,168,70,48,66,108,0,0,184,66,221,36,53,66,108,0,0,184,66,35,219,90,66,108,207,247,166,66,88,185,95,66,98,76,
 55,165,66,160,154,115,66,80,77,161,66,0,0,131,66,225,186,155,66,182,243,138,66,108,98,16,166,66,225,186,152,66,108,225,186,152,66,98,16,166,66,108,182,243,138,66,225,186,155,66,99,101,0,0 ];
 
+Panel_BG.setPaintRoutine(function(g)
+{
+	 g.setColour(Colours.grey);
+	 g.drawRoundedRectangle([Panel_BG.getGlobalPositionX(), Panel_BG.getGlobalPositionY() - 32, Panel_BG.getWidth() - 4, Panel_BG.getHeight() - 4], 2, 1);
+});
+
+
 laf.registerFunction("drawToggleButton", function(g, obj)
 {
     inline function reduced(obj, amount)
@@ -215,16 +222,12 @@ laf.registerFunction("drawToggleButton", function(g, obj)
             if (obj.over)
             {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }
             else
             {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }
         }
     else 
@@ -232,16 +235,12 @@ laf.registerFunction("drawToggleButton", function(g, obj)
             if (obj.over)
             {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }
             else
             {
                 g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }
         }
     break;  
@@ -252,16 +251,12 @@ laf.registerFunction("drawToggleButton", function(g, obj)
             if (obj.over)
             {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }
             else
             {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }  
         }
     else
@@ -269,16 +264,12 @@ laf.registerFunction("drawToggleButton", function(g, obj)
             if (obj.over)
             {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }
             else
             {
                 g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
+                g.fillRoundedRectangle(obj.area, 2.0);
             }  
         }
           

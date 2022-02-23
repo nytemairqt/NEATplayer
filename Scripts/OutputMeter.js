@@ -101,5 +101,33 @@ namespace VuMeter
 const var outputSliderContainer = Content.addPanel("outputSliderContainer", 300, 10);
 const var OutputGain = Synth.getEffect("OutputGain");
 
-outputSliderContainer.setPosition(323, 7, 96, 12);
+inline function positionOutputSliderContainer()
+{
+	local x = Button_OpenAppData.getGlobalPositionX() + Button_OpenAppData.getWidth() + padding;
+	local y = Button_OpenAppData.getGlobalPositionY();
+	local w = 160;
+	local h = 16;
+
+	outputSliderContainer.setPosition(x, y, w, h);
+}
+
+positionOutputSliderContainer();
+
+const var Slider_OutputGain = Content.getComponent("Slider_OutputGain");
+
+
+inline function positionSlider_OutputGain()
+{
+	local x = outputSliderContainer.getGlobalPositionX();
+	local y = outputSliderContainer.getGlobalPositionY();
+	local w = outputSliderContainer.getWidth();
+	local h = outputSliderContainer.getHeight();
+
+	Slider_OutputGain.setPosition(x, y, w, h);
+	LEVELING_Container.setPosition(x, y, w, h);
+	LEVELING_Meter.setPosition(0, 0, w, h);
+
+}
+
+positionSlider_OutputGain();
 

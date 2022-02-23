@@ -73,7 +73,7 @@ inline function clearGUI()
 
 inline function loadCloudburst()
 {
-    backgroundImage = ("{EXP::Cloudburst}bg_cloudburst.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_cloudburst.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);
     
@@ -104,7 +104,7 @@ inline function loadCloudburst()
 
 inline function loadCloudburstAcoustic()
 {
-    backgroundImage = ("{EXP::CloudburstAcoustic}bg_cloudburstacoustic.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_cloudburstacoustic.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);
     
@@ -139,7 +139,7 @@ inline function loadCloudburstAcoustic()
 inline function loadBloom()
 {
         //Setting BG Image        
-    backgroundImage = ("{EXP::Bloom}bg_bloom.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_bloom.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage); 
     
@@ -186,7 +186,7 @@ inline function loadBloom()
 inline function loadAtlas()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::Atlas}bg_atlas.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_atlas.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);     
     
@@ -249,7 +249,7 @@ inline function loadAtlas()
 inline function loadFoundKeys()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::Found Keys}bg_foundkeys.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_foundkeys.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     
@@ -310,7 +310,7 @@ inline function loadFoundKeys()
 inline function loadEndure()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::Endure}bg_endure.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_endure.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     
@@ -367,7 +367,7 @@ inline function loadEndure()
 inline function loadPrismatic()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::Prismatic}bg_prismatic.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_prismatic.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);     
     
@@ -428,7 +428,7 @@ inline function loadPrismatic()
 inline function loadBlackout()
 {
         //Setting Images
-    backgroundImage = ("{EXP::Blackout}bg_blackout.jpg");
+    backgroundImage = ("{PROJECT_FOLDER}bg_blackout.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);    
     
@@ -464,7 +464,7 @@ inline function loadBlackout()
 inline function loadBlackout2()
 {
         //Setting Images
-    backgroundImage = ("{EXP::Blackout2}bg_blackout2.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_blackout2.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);   
     
@@ -500,7 +500,7 @@ inline function loadBlackout2()
 inline function loadPortal()
 {
         //Setting Images
-    backgroundImage = ("{EXP::Portal}bg_portal.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_portal.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     
@@ -535,7 +535,7 @@ inline function loadPortal()
 inline function loadOracle()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::Oracle}bg_oracle.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_oracle.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage); 
     
@@ -569,7 +569,7 @@ inline function loadOracle()
 inline function loadAetheric()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::Aetheric}bg_aetheric.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_aetheric.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     
@@ -649,7 +649,7 @@ inline function loadAetheric()
 inline function loadMachineTribes()
 {
         //Setting Images
-    backgroundImage = ("{EXP::MachineTribes}bg_machinetribes.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_machinetribes.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     
@@ -690,7 +690,7 @@ inline function loadMachineTribes()
 inline function loadAchromic()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::Achromic}bg_achromic.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_achromic.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     
@@ -735,7 +735,7 @@ inline function loadAchromic()
 inline function loadPDQBass()
 {
         //Setting BG Image       
-    backgroundImage = ("{EXP::PDQBass}bg_PDQBass.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_pdqbass.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     
@@ -774,7 +774,7 @@ inline function loadOracle2()
 {
         //Setting BG Image           
     
-    backgroundImage = ("{EXP::Oracle2}bg_oracle2.png");        
+    backgroundImage = ("{PROJECT_FOLDER}bg_oracle2.jpg");        
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);       
     
@@ -830,9 +830,9 @@ inline function loadOracle2()
     
     resolveComboBoxes();
         
-    Button_SampleDisplay.showControl(1);
+    //Button_SampleDisplay.showControl(1);
 
-    Label_SamplePage.showControl(1);
+    //Label_SamplePage.showControl(1);
     restoreArp();    
 };
 
@@ -840,7 +840,7 @@ inline function loadOracle2()
 
 inline function loadGloom()
 {
-    backgroundImage = ("{EXP::Gloom}bg_gloom.png");
+    backgroundImage = ("{PROJECT_FOLDER}bg_gloom.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);
     

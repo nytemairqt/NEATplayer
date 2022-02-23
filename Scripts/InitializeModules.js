@@ -9,8 +9,8 @@ const var Panel_AchromicSettings = Content.getComponent("Panel_AchromicSettings"
 
 //Initialize Background Image.
 
-const var Panel_BG = Content.getComponent("Panel_BG");
-const var Image_BG = Content.getComponent("Image_BG");
+//const var Panel_BG = Content.getComponent("Panel_BG");
+//const var Image_BG = Content.getComponent("Image_BG");
 
 Image_BG.setAlpha(0);
 

@@ -1,7 +1,6 @@
 //Declarations
 
 const var Panel_Movement = Content.getComponent("Panel_Movement");
-const var Button_MoveDisplay = Content.getComponent("Button_MoveDisplay");
 const var Panel_MovementXYPad = Content.getComponent("Panel_MovementXYPad");
 
 const var Slider_MovementYInvisible = Content.getComponent("Slider_MovementYInvisible");

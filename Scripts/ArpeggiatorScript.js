@@ -1,7 +1,6 @@
 //Arp Stuff
 
-const var Button_ArpDisplay = Content.getComponent("Button_ArpDisplay");
-const var Label_ArpDisplay = Content.getComponent("Label_ArpDisplay");
+//const var Label_ArpDisplay = Content.getComponent("Label_ArpDisplay");
 
 const var Button_ArpModeUpArrow = Content.getComponent("Button_ArpModeUpArrow");
 const var Button_ArpModeDownArrow = Content.getComponent("Button_ArpModeDownArrow");

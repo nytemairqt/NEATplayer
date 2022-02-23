@@ -816,7 +816,6 @@ inline function randomFX()
 
 //Randomize Panel
 
-const var Button_OpenRandomizePanel = Content.getComponent("Button_OpenRandomizePanel");
 const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
 
 //Open the panel

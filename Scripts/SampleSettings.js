@@ -47,10 +47,6 @@ inline function samplerLoopPitch(value)
 
 //GUI Elements
 
-const var Panel_Sample = Content.getComponent("Panel_Sample");
-const var Button_SampleDisplay = Content.getComponent("Button_SampleDisplay");
-const var Label_SamplePage = Content.getComponent("Label_SamplePage");
-
 const var Button_SamplerABypass = Content.getComponent("Button_SamplerABypass");
 const var Button_SamplerBBypass = Content.getComponent("Button_SamplerBBypass");
 const var Button_SamplerCBypass = Content.getComponent("Button_SamplerCBypass");
@@ -169,26 +165,135 @@ Panel_Sample.setPaintRoutine(function(g)
 {
     g.setColour(0xFB111111);
     g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0);
-	g.setColour(Colours.grey);
-	g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0, 2.0);
 	g.setColour(Colours.darkgrey);
 	g.drawLine(this.getWidth() / 3, this.getWidth() / 3, 0, this.getHeight(), 1.0);
 	g.drawLine(this.getWidth() / 3 * 2, this.getWidth() / 3 * 2, 0, this.getHeight(), 1.0);
 	
 	//Fancy Lines
 	
+	
 	g.drawLine(this.getWidth() / 3 - 15, 20, 174, 174, 1.0);
-	g.drawLine(20, 10, 174, 186, 1.0);
-	g.drawLine(10, 10, 186, 195, 1.0);
-	
 	g.drawLine(this.getWidth() / 3 * 2 - 15, this.getWidth() / 3 + 20, 174, 174, 1.0);
-	g.drawLine(this.getWidth() / 3 + 20, this.getWidth() / 3 + 10, 174, 186, 1.0);
-	g.drawLine(this.getWidth() / 3 + 10, this.getWidth() / 3 + 10, 186, 195, 1.0);
-	
 	g.drawLine(this.getWidth() / 3 * 3 - 15, this.getWidth() / 3 * 2 + 20, 174, 174, 1.0);
-	g.drawLine(this.getWidth() / 3 * 2 + 20, this.getWidth() / 3 * 2 + 10, 174, 186, 1.0);
-	g.drawLine(this.getWidth() / 3 * 2 + 10, this.getWidth() / 3 * 2 + 10, 186, 195, 1.0);
+
 });
+
+//================================================================================================
+
+//POSITIONING CONTROLS
+
+const var samplerASlidersTop=[Slider_SamplerAAttack, Slider_SamplerADecay, Slider_SamplerASustain, Slider_SamplerARelease];
+
+const var samplerASlidersBottom=[Slider_SamplerAPitchCoarse, Slider_SamplerAPitchFine, Slider_SamplerAPan, Slider_SamplerAGain];
+
+const var samplerALabels = [Content.getComponent("Label_SamplerAAttack"),
+                            Content.getComponent("Label_SamplerADecay"),
+                            Content.getComponent("Label_SamplerASustain"),
+                            Content.getComponent("Label_SamplerARelease"),
+                            Content.getComponent("Label_SamplerAPitchCoarse"),
+                            Content.getComponent("Label_SamplerAPitchFine"),
+                            Content.getComponent("Label_SamplerAPan"),
+                            Content.getComponent("Label_SamplerAGain")];
+                            
+const var samplerBLabels = [Content.getComponent("Label_SamplerBAttack"),
+                            Content.getComponent("Label_SamplerBDecay"),
+                            Content.getComponent("Label_SamplerBSustain"),
+                            Content.getComponent("Label_SamplerBRelease"),
+                            Content.getComponent("Label_SamplerBPitchCoarse"),
+                            Content.getComponent("Label_SamplerBPitchFine"),
+                            Content.getComponent("Label_SamplerBPan"),
+                            Content.getComponent("Label_SamplerBGain")];
+
+const var samplerCLabels = [Content.getComponent("Label_SamplerCAttack"),
+                            Content.getComponent("Label_SamplerCDecay"),
+                            Content.getComponent("Label_SamplerCSustain"),
+                            Content.getComponent("Label_SamplerCRelease"),
+                            Content.getComponent("Label_SamplerCPitchCoarse"),
+                            Content.getComponent("Label_SamplerCPitchFine"),
+                            Content.getComponent("Label_SamplerCPan"),
+                            Content.getComponent("Label_SamplerCGain")];
+                            
+
+const var samplerAValues = [];
+
+const var samplerBSlidersTop=[Slider_SamplerBAttack, Slider_SamplerBDecay, Slider_SamplerBSustain, Slider_SamplerBRelease];
+
+const var samplerBSlidersBottom=[Slider_SamplerBPitchCoarse, Slider_SamplerBPitchFine, Slider_SamplerBPan, Slider_SamplerBGain];
+
+const var samplerCSlidersTop=[Slider_SamplerCAttack, Slider_SamplerCDecay, Slider_SamplerCSustain, Slider_SamplerCRelease];
+
+const var samplerCSlidersBottom=[Slider_SamplerCPitchCoarse, Slider_SamplerCPitchFine, Slider_SamplerCPan, Slider_SamplerCGain];
+
+inline function positionSamplerSliders()
+{
+	local width = Panel_BG.getWidth() / 3;
+	local increment = width / 5;
+
+	local positionSamplerA = (width / 5);	
+	local positionSamplerB = width + (width / 5);
+	local positionSamplerC = (width / 5) + (width * 2);
+	local sliderSize = 48;
+	
+	local textBuffer = 16;
+	
+	//Sampler A
+	
+	for (i=0; i<samplerASlidersTop.length; i++)
+		samplerASlidersTop[i].setPosition(positionSamplerA + (increment * i + 1) - sliderSize / 2, 260, sliderSize, sliderSize);
+		
+	for (i=0; i<samplerASlidersBottom.length; i++)
+		samplerASlidersBottom[i].setPosition(positionSamplerA + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);
+		
+	for (i=0; i<samplerALabels.length; i++)
+		{
+			if (i < 4)
+				samplerALabels[i].setPosition(samplerASlidersTop[i].getGlobalPositionX() - 3, samplerASlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
+			else	
+				samplerALabels[i].setPosition(samplerASlidersBottom[i-4].getGlobalPositionX() - 3, samplerASlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
+		}
+		
+	//Sampler B
+
+	for (i=0; i<samplerBSlidersTop.length; i++)
+		samplerBSlidersTop[i].setPosition(positionSamplerB + (increment * i + 1) - sliderSize / 2, 260, sliderSize, sliderSize);
+		
+	for (i=0; i<samplerBSlidersBottom.length; i++)
+		samplerBSlidersBottom[i].setPosition(positionSamplerB + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);	
+		
+for (i=0; i<samplerBLabels.length; i++)
+	{
+		if (i < 4)
+			samplerBLabels[i].setPosition(samplerBSlidersTop[i].getGlobalPositionX() - 3, samplerBSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
+		else	
+			samplerBLabels[i].setPosition(samplerBSlidersBottom[i-4].getGlobalPositionX() - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
+	}		
+		
+	//Sampler C
+
+	for (i=0; i<samplerCSlidersTop.length; i++)
+		samplerCSlidersTop[i].setPosition(positionSamplerC + (increment * i + 1) - sliderSize / 2, 260, sliderSize, sliderSize);
+		
+	for (i=0; i<samplerCSlidersBottom.length; i++)
+		samplerCSlidersBottom[i].setPosition(positionSamplerC + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);		
+		
+for (i=0; i<samplerCLabels.length; i++)
+	{
+		if (i < 4)
+			samplerCLabels[i].setPosition(samplerCSlidersTop[i].getGlobalPositionX() - 3, samplerCSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
+		else	
+			samplerCLabels[i].setPosition(samplerCSlidersBottom[i-4].getGlobalPositionX() - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
+	}				
+		
+	//Labels
+	
+		
+	
+
+}
+
+positionSamplerSliders();
+
+
 
 //================================================================================================
 
