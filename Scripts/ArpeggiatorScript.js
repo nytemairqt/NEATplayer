@@ -1,7 +1,5 @@
 //Arp Stuff
 
-//const var Label_ArpDisplay = Content.getComponent("Label_ArpDisplay");
-
 const var Button_ArpModeUpArrow = Content.getComponent("Button_ArpModeUpArrow");
 const var Button_ArpModeDownArrow = Content.getComponent("Button_ArpModeDownArrow");
 
@@ -42,7 +40,65 @@ const var Button_ArpNotesMajor = Content.getComponent("Button_ArpNotesMajor");
 
 const var Button_ArpNotesInvert = Content.getComponent("Button_ArpNotesInvert");
 
+const var Label_Arp = Content.getComponent("Label_Arp");
+
+//Positioning Elements
+
+inline function positionArpPanel()
+{
+
+    local padding = 6;
+    local buttonSize = (SliderPack_ArpNotes.get("height") / 4) - (padding * 4);     
+    local sliderPackXPosition = Panel_Arp.get("width") - (SliderPack_ArpNotes.get("width") + padding) - buttonSize - padding;
+
+
+	Panel_Arp.setPosition(0, 0, Panel_BG.get("width"), Panel_BG.get("height"));	
+	Panel_Arp.set("borderRadius", 2.0);
+
+    Label_Arp.set("x", (Panel_BG.get("width") / 2) - (Label_Arp.get("width") / 2));
+
+    SliderPack_ArpNotes.set("width", Panel_Arp.get("width") * 0.7);
+    SliderPack_ArpVelocity.set("width", Panel_Arp.get("width") * 0.7);
+    SliderPack_ArpLength.set("width", Panel_Arp.get("width") * 0.7);
+
+    SliderPack_ArpNotes.set("height", Panel_Arp.get("height") * 0.4);
+    SliderPack_ArpVelocity.set("height", Panel_Arp.get("height") * 0.22);
+    SliderPack_ArpLength.set("height", Panel_Arp.get("height") * 0.22);
+
+    SliderPack_ArpNotes.set("x", sliderPackXPosition);
+    SliderPack_ArpNotes.set("y", 30);
+
+    SliderPack_ArpVelocity.set("x", sliderPackXPosition);
+    SliderPack_ArpVelocity.set("y", SliderPack_ArpNotes.get("y") + SliderPack_ArpNotes.get("height") + padding);
+
+    SliderPack_ArpLength.set("x", sliderPackXPosition);
+    SliderPack_ArpLength.set("y", SliderPack_ArpVelocity.get("y") + SliderPack_ArpVelocity.get("height") + padding);  
+
+    //Setting Button Sizes & Positions
+
+    local buttons = [    
+    Button_ArpNotesReset,
+    Button_ArpNotesMinor,
+    Button_ArpNotesMajor,
+    Button_ArpNotesInvert, 
+    Button_ArpVelocityReset,
+    Button_ArpLengthReset
+    ];
+
+    for (b in buttons)
+    {
+        b.set("width", buttonSize);
+        b.set("height", buttonSize);
+    }
+
+
+}
+
+positionArpPanel();
+
 //Arp Panel
+
+
 
 inline function onButton_ArpDisplayControl(component, value)
 {
@@ -62,9 +118,7 @@ Content.getComponent("Button_ArpDisplay").setControlCallback(onButton_ArpDisplay
 Panel_Arp.setPaintRoutine(function(g)
 {
     g.setColour(0xFB111111);
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0);
-	g.setColour(Colours.grey);
-	g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0, 2.0);
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
 });
 
 //Arpeggiator Controls

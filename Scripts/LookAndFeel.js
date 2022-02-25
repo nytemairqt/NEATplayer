@@ -17,6 +17,9 @@ function LAFFXButton()
 const var randomizationButtonData = [110,109,215,163,32,65,0,0,0,65,108,10,215,31,66,0,0,0,65,98,16,88,36,66,0,0,0,65,0,0,40,66,190,159,14,65,0,0,40,66,215,163,32,65,108,0,0,40,66,10,215,31,66,98,0,0,40,66,16,88,36,66,16,88,36,66,0,0,40,66,10,215,31,66,0,0,40,66,108,215,163,32,65,0,0,40,
 66,98,190,159,14,65,0,0,40,66,0,0,0,65,16,88,36,66,0,0,0,65,10,215,31,66,108,0,0,0,65,215,163,32,65,98,0,0,0,65,190,159,14,65,190,159,14,65,0,0,0,65,215,163,32,65,0,0,0,65,99,101,0,0];
 
+const var samplerPowerButtonData = [110,109,117,147,163,66,197,32,128,65,98,29,90,202,66,145,237,185,65,0,0,230,66,82,184,39,66,0,0,230,66,193,74,127,66,98,0,0,230,66,164,240,183,66,199,75,184,66,96,165,229,66,0,0,128,66,96,165,229,66,98,115,104,15,66,96,165,229,66,0,0,80,65,164,240,183,
+66,0,0,80,65,193,74,127,66,98,0,0,80,65,82,184,39,66,141,151,214,65,145,237,185,65,23,217,56,66,197,32,128,65,101,0,0 ];
+
 const var randomizationButtonFillData = [110,109,227,165,206,65,227,165,223,65,108,16,88,166,65,227,165,223,65,108,16,88,166,65,0,0,24,66,108,59,223,143,65,0,0,24,66,108,59,223,143,65,104,145,93,65,108,59,223,196,65,104,145,93,65,108,59,223,196,65,104,145,93,65,113,139,108,232,65,104,145,93,
 65,115,104,249,65,180,200,120,65,108,115,104,249,65,180,200,120,65,108,115,104,249,65,180,200,120,65,113,39,49,5,66,12,2,138,65,39,49,5,66,41,92,165,65,108,39,49,5,66,41,92,165,65,108,39,49,5,66,41,92,165,65,113,39,49,5,66,33,176,203,65,55,137,227,65,
 2,43,217,65,108,55,137,227,65,2,43,217,65,108,0,0,12,66,0,0,24,66,108,152,110,253,65,0,0,24,66,108,227,165,206,65,227,165,223,65,99,109,16,88,166,65,213,120,130,65,108,16,88,166,65,29,90,204,65,108,209,34,197,65,29,90,204,65,108,209,34,197,65,29,90,204,
@@ -38,6 +41,18 @@ const var arpResetButtonStrokeData = [110,109,0,0,32,64,66,96,101,64,98,104,145,
 64,231,251,31,65,98,106,188,148,64,231,251,31,65,213,120,113,64,236,81,26,65,25,4,70,64,145,237,16,65,101,0,0 ];
 
 const var arpResetButtonFillData = [110,109,229,208,226,63,168,198,219,63,108,205,204,140,63,33,176,174,64,108,59,223,143,64,197,32,112,64,99,101,0,0 ];
+
+const var arpButtonMinor = [ 110,109,111,210,56,67,94,218,88,67,113,217,110,81,67,94,218,88,67,68,11,106,67,10,55,53,67,98,129,181,76,67,211,205,79,67,195,21,35,67,125,255,76,67,154,153,7,67,10,55,53,67,98,109,167,21,67,193,74,70,67,61,106,40,67,94,218,88,67,111,210,56,67,94,218,
+88,67,108,111,210,56,67,94,218,88,67,108,111,210,56,67,94,218,88,67,99,109,55,105,160,67,94,218,88,67,113,109,183,172,67,94,218,88,67,162,5,185,67,10,55,53,67,98,193,90,170,67,211,205,79,67,225,138,149,67,125,255,76,67,205,204,135,67,10,55,53,67,98,182,
+211,142,67,193,74,70,67,31,53,152,67,94,218,88,67,55,105,160,67,94,218,88,67,108,55,105,160,67,94,218,88,67,99,109,0,0,124,67,0,0,216,66,113,0,0,70,67,0,0,214,66,0,0,178,66,0,0,132,66,113,0,0,116,66,0,128,192,67,0,0,124,67,0,0,218,67,113,0,128,221,67,
+0,128,192,67,0,128,207,67,0,0,132,66,113,0,0,153,67,0,0,214,66,0,0,124,67,0,0,216,66,108,0,0,124,67,0,0,216,66,108,0,0,124,67,0,0,216,66,99,109,0,0,124,67,0,0,156,67,113,106,156,82,67,0,0,156,67,213,56,41,67,76,247,185,67,98,86,142,90,67,231,155,163,
+67,43,71,144,67,240,247,165,67,150,99,167,67,76,247,185,67,98,111,146,155,67,100,155,171,67,231,203,139,67,0,0,156,67,0,0,124,67,0,0,156,67,99,101,0,0 ];
+
+const var arpButtonMajor = [110,109,111,210,56,67,10,55,53,67,113,4,54,32,67,10,55,53,67,154,153,7,67,94,218,88,67,98,92,239,36,67,150,67,62,67,27,143,78,67,45,18,65,67,68,11,106,67,94,218,88,67,98,178,253,91,67,233,198,71,67,225,58,73,67,10,55,53,67,111,210,56,67,10,55,53,67,108,
+111,210,56,67,10,55,53,67,108,111,210,56,67,10,55,53,67,99,109,55,105,160,67,10,55,53,67,113,2,27,148,67,10,55,53,67,205,204,135,67,94,218,88,67,98,174,119,150,67,150,67,62,67,141,71,171,67,45,18,65,67,162,5,185,67,94,218,88,67,98,217,254,177,67,233,
+198,71,67,113,157,168,67,10,55,53,67,55,105,160,67,10,55,53,67,108,55,105,160,67,10,55,53,67,99,109,0,0,124,67,0,0,216,66,113,0,0,70,67,0,0,214,66,0,0,178,66,0,0,132,66,113,0,0,116,66,0,128,192,67,0,0,124,67,0,0,218,67,113,0,128,221,67,0,128,192,67,0,
+128,207,67,0,0,132,66,113,0,0,153,67,0,0,214,66,0,0,124,67,0,0,216,66,108,0,0,124,67,0,0,216,66,108,0,0,124,67,0,0,216,66,99,109,0,0,124,67,76,247,185,67,113,203,177,146,67,76,247,185,67,150,99,167,67,0,0,156,67,98,213,184,142,67,100,91,178,67,170,113,
+87,67,92,255,175,67,213,56,41,67,0,0,156,67,98,35,219,64,67,199,91,170,67,49,104,96,67,76,247,185,67,0,0,124,67,76,247,185,67,99,101,0,0 ];
 
 const var openAppDataFolderButtonFillDataBack = [110,109,223,79,59,65,0,0,160,65,108,223,79,59,65,0,0,32,65,113,236,81,58,65,125,63,3,65,223,79,91,65,131,192,2,65,113,66,96,128,65,14,45,2,65,0,0,126,65,0,0,32,65,108,240,167,213,65,0,0,32,65,113,197,32,226,65,43,135,44,65,4,86,225,65,180,200,74,65,113,
 199,75,195,65,37,6,75,65,119,190,103,65,180,200,74,65,113,119,190,79,65,250,126,80,65,223,79,59,65,0,0,160,65,99,101,0,0 ];
@@ -179,41 +194,18 @@ laf.registerFunction("drawToggleButton", function(g, obj)
     break;  
     
     case "LAFButtonClose":
-            if (obj.over)
-            {
-                g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
-                g.setColour(Colours.white);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("X", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 4.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1.0);
-                g.setColour(Colours.white);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("X", obj.area, "centred");
-            }
-    break;
-    
-    case "LAFButtonClosePresetBrowser":
-    if (obj.over)
-            {
-                g.setColour(Colours.white);
-                g.setFont("Arial", 14.0);
-                g.drawAlignedText("x", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                g.setFont("Arial", 14.0);
-                g.drawAlignedText("x", obj.area, "centred");
-            }
+	    if (obj.over)
+	            {
+	                g.setColour(Colours.white);
+	                g.setFont("Arial", 14.0);
+	                g.drawAlignedText("x", obj.area, "centred");
+	            }
+	            else
+	            {
+	                g.setColour(Colours.lightgrey);
+	                g.setFont("Arial", 14.0);
+	                g.drawAlignedText("x", obj.area, "centred");
+	            }
     break;
     
     case "LAFButtonChangePage":
@@ -385,23 +377,20 @@ if (obj.over)
     break; 
     
     case "LAFArpResetButton":
+            path.clear();
+            path.loadFromData(arpResetButtonStrokeData);    
             if (obj.over)
             {
-                path.clear();
-                path.loadFromData(arpResetButtonStrokeData);                
                 g.setColour(Colours.white);
-                g.drawPath(path, reduced(obj, 3.0), 2);
+                g.drawPath(path, reduced(obj, 3.0), 4);
                 path.clear();
                 path.loadFromData(arpResetButtonFillData);
                 g.fillPath(path, [obj.area[0] + 1, obj.area[1] + 1, obj.area[2] - 8, obj.area[3] - 8]);
             }
-            
             else
-            {
-                path.clear();
-                path.loadFromData(arpResetButtonStrokeData);                
+            {             
                 g.setColour(Colours.lightgrey);
-                g.drawPath(path, reduced(obj, 3.0), 2);
+                g.drawPath(path, reduced(obj, 3.0), 4);
                 path.clear();
                 path.loadFromData(arpResetButtonFillData);
                 g.fillPath(path, [obj.area[0] + 1, obj.area[1] + 1, obj.area[2] - 8, obj.area[3] - 8]);               
@@ -427,48 +416,40 @@ if (obj.over)
     break;
     
     case "LAFArpMinorButton":
-        if (obj.over)
+	path.clear();
+	path.loadFromData(arpButtonMinor);    
+    if (obj.over)
             {
-                g.setColour(Colours.white);
-                path.clear();
-                path.addArc([obj.area[0] + 2, obj.area[1] + 8, obj.area[2] - 4, obj.area[3] / 2], Math.toRadians(270.0), Math.toRadians(90.0));
-                g.rotate(Math.toRadians(180.0), [obj.area[2] / 2, obj.area[3] / 2]);
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 1, obj.area[2]-4, obj.area[3] - 10], 2.0);
-                g.rotate(Math.toRadians(180.0), [obj.area[2] / 2, obj.area[3] / 2]);
-                g.fillEllipse([2, 3, 3, 3]);
-                g.fillEllipse([obj.area[2] - 5, 3, 3, 3]);  
+				g.setColour(Colours.white);
+				g.fillPath(path, obj.area);
+                g.setColour(0xE4060606);               
+                g.drawPath(path, obj.area, 1.0);
             }
             else
             {
                 g.setColour(Colours.lightgrey);
-                path.clear();
-                path.addArc([obj.area[0] + 2, obj.area[1] + 8, obj.area[2] - 4, obj.area[3] / 2], Math.toRadians(270.0), Math.toRadians(90.0));
-                g.rotate(Math.toRadians(180.0), [obj.area[2] / 2, obj.area[3] / 2]);
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 1, obj.area[2]-4, obj.area[3] - 10], 2.0);
-                g.rotate(Math.toRadians(180.0), [obj.area[2] / 2, obj.area[3] / 2]);
-                g.fillEllipse([2, 3, 3, 3]);
-                g.fillEllipse([obj.area[2] - 5, 3, 3, 3]);
+                g.fillPath(path, obj.area);
+                g.setColour(0xE4060606);               
+                g.drawPath(path, obj.area, 1.0);
             }
     break;
     
     case "LAFArpMajorButton":
+	path.clear();
+	path.loadFromData(arpButtonMajor);    
     if (obj.over)
             {
-                g.setColour(Colours.white);
-                path.clear();
-                path.addArc([obj.area[0] + 2, obj.area[1] + 8, obj.area[2] - 4, obj.area[3] / 2], Math.toRadians(270.0), Math.toRadians(90.0));
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 9, obj.area[2]-4, obj.area[3] - 10], 2.0);
-                g.fillEllipse([2, 3, 3, 3]);
-                g.fillEllipse([obj.area[2] - 5, 3, 3, 3]);   
+				g.setColour(Colours.white);
+				g.fillPath(path, obj.area);
+                g.setColour(0xE4060606);               
+                g.drawPath(path, obj.area, 1.0);
             }
             else
             {
                 g.setColour(Colours.lightgrey);
-                path.clear();
-                path.addArc([obj.area[0] + 2, obj.area[1] + 8, obj.area[2] - 4, obj.area[3] / 2], Math.toRadians(270.0), Math.toRadians(90.0));
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 9, obj.area[2]-4, obj.area[3] - 10], 2.0);
-                g.fillEllipse([2, 3, 3, 3]);
-                g.fillEllipse([obj.area[2] - 5, 3, 3, 3]);
+                g.fillPath(path, obj.area);
+                g.setColour(0xE4060606);               
+                g.drawPath(path, obj.area, 1.0);
             }
     break;
  
@@ -553,22 +534,24 @@ if (obj.over)
         }
     break;
     
-    case "LAFButtonSamplerABypass":
+    case "LAFButtonSamplerBypass":
         if (obj.value)
         {
             if (obj.over)
             {
                 g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("A", obj.area, "centred");
+                path.clear();
+                path.loadFromData(samplerPowerButtonData);
+                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
+                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
             }
             else
             {
                 g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("A", obj.area, "centred");
+                path.clear();
+                path.loadFromData(samplerPowerButtonData);
+                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
+                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
             }
         }
         else
@@ -576,90 +559,18 @@ if (obj.over)
             if (obj.over)
             {
                 g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("A", obj.area, "centred");
+                path.clear();
+                path.loadFromData(samplerPowerButtonData);
+                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
+                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
             }
             else
             {
                 g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("A", obj.area, "centred");
-            }
-        }
-    break;
-    
-    case "LAFButtonSamplerBBypass":
-        if (obj.value)
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("B", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("B", obj.area, "centred");
-            }
-        }
-        else
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("B", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("B", obj.area, "centred");
-            }
-        }
-    break;
-    
-    case "LAFButtonSamplerCBypass":
-        if (obj.value)
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("C", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("C", obj.area, "centred");
-            }
-        }
-        else
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("C", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText("C", obj.area, "centred");
+                path.clear();
+                path.loadFromData(samplerPowerButtonData);
+                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
+                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
             }
         }
     break;
@@ -670,14 +581,14 @@ if (obj.over)
             if (obj.over)
             {
                 g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
                 g.setFont("Arial", 9.0);
                 g.drawAlignedText("REV", obj.area, "centred");
             }
             else
             {
                 g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
                 g.setFont("Arial", 9.0);
                 g.drawAlignedText("REV", obj.area, "centred");
             }
@@ -687,14 +598,14 @@ if (obj.over)
             if (obj.over)
             {
                 g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
                 g.setFont("Arial", 9.0);
                 g.drawAlignedText("REV", obj.area, "centred");
             }
             else
             {
                 g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, .5);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
                 g.setFont("Arial", 9.0);
                 g.drawAlignedText("REV", obj.area, "centred");
             }
@@ -863,7 +774,7 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
     
         //unfilled ring
         sliderRing3.addArc([0.0, 0.0, 1.0, 1.0], start, Math.max(start + 0.08, start + Math.PI * 1.5 * obj.valueNormalized - 0.08));
-        g.setColour(0xff111118);
+        g.setColour(0xFF262626);
         g.drawPath(sliderRing2, reduced(obj, ringWidth), ringWidth * 2);
     
         //filled ring
@@ -893,11 +804,18 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
         
         case "LAFSliderOutputGain":
         g.setColour(Colours.lightgrey);
-        //g.fillEllipse([obj.area[2] * obj.valueNormalized, 0, 8, 8]);
         if (obj.valueNormalized > .95)
             g.fillEllipse([(obj.area[2] * .90), 0, 8, 8]);
         else
             g.fillEllipse([(obj.area[2] * .95) * obj.valueNormalized, 0, 8, 8]);
+        break;
+        
+        case "LAF_SliderPDQBassVel":
+        g.setColour(Colours.white);
+        g.fillRoundedRectangle(obj.area, 2.0);
+        g.setColour(0xFB111111);
+        g.setFont("Arial", 12);
+        g.drawAlignedText(Math.round(obj.value), obj.area, "centred");
         break;
         
         case "LAFSliderOracleSampleOffset":
@@ -905,8 +823,8 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
         g.drawRoundedRectangle(obj.area, 2.0, 1.0);
         g.setColour(Colours.lightblue);
         g.drawLine(obj.area[2] * obj.valueNormalized, obj.area[2] * obj.valueNormalized, 0, obj.area[3], 1.0);
-        g.setColour(0x14595959);
-        g.fillRoundedRectangle([obj.area[2] * obj.valueNormalized, 0, obj.area[2], obj.area[3]], 4.0);
+        g.setColour(0xB11A1A1A);        
+        g.fillRoundedRectangle([0, 0, obj.area[2] * obj.valueNormalized, obj.area[3]], 2.0);
         break;
         
         case "LAFSliderMovementX":
@@ -932,10 +850,7 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
 laf.registerFunction("drawPopupMenuBackground", function(g, obj)
 {
     g.setColour(0xFF222222);
-    g.fillRoundedRectangle([0, 0, obj.width, obj.height], 4.0);
-    
-    g.setColour(Colours.lightgrey);
-    g.drawRoundedRectangle([0, 0, obj.width, obj.height], 4.0, 1);
+    g.fillRoundedRectangle([0, 0, obj.width, obj.height], 0.0);
 });
 
 laf.registerFunction("drawPopupMenuItem", function(g, obj)
@@ -972,10 +887,9 @@ laf.registerFunction("drawPopupMenuItem", function(g, obj)
 laf.registerFunction("drawNumberTag", function(g, obj)
 {
     g.setColour(0xE4060606);
-    g.fillRoundedRectangle([obj.area[2] - 10, obj.area[1], 10, 10], 2.0);
+    g.fillRoundedRectangle([obj.area[2], obj.area[1], 0, 0], 2.0);
     g.setColour(Colours.white);
-    g.drawRoundedRectangle([obj.area[2] - 10, obj.area[1], 10, 10], 2.0, .5);
-    g.setFont("Arial", 8.0);
+    g.setFont("Arial", 12.0);
     switch (obj.macroIndex)
     {
         case 0:

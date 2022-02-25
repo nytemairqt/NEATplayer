@@ -3,6 +3,10 @@
 const var Panel_BG = Content.getComponent("Panel_BG");
 const var Image_BG = Content.getComponent("Image_BG");
 const var Viewport_ExpansionsHolder = Content.getComponent("Viewport_ExpansionsHolder");
+const var Panel_CustomSettings = Content.getComponent("Panel_CustomSettings");
+const var Panel_InstallLibraries = Content.getComponent("Panel_InstallLibraries");
+
+const var FloatingTile_PresetBrowser = Content.getComponent("FloatingTile_PresetBrowser");
 
 const var pageButtonWidth = 120;
 const var pageButtonHeight = 24;
@@ -22,6 +26,7 @@ const var Button_OpenRandomizePanel = Content.getComponent("Button_OpenRandomize
 
 const var Button_Zoom = Content.getComponent("Button_Zoom");
 const var FloatingTile_Keyboard = Content.getComponent("FloatingTile_Keyboard");
+const var FloatingTile_ResourceUsage = Content.getComponent("FloatingTile_ResourceUsage");
 
 const var Button_OpenAppData = Content.getComponent("Button_OpenAppData");
 
@@ -37,6 +42,16 @@ const var Label_PageArray = [Content.getComponent("Label_CustomSettingsButton"),
                              Content.getComponent("Label_FXPage"),
                              Content.getComponent("Label_ArpDisplay"),
                              Content.getComponent("Label_MoveDisplay")];
+
+const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerAAttack"),
+                                         Content.getComponent("Button_RandomizeSamplerADecay"),
+                                         Content.getComponent("Button_RandomizeSamplerASustain"),
+                                         Content.getComponent("Button_RandomizeSamplerARelease"),
+                                         Content.getComponent("Button_RandomizeSamplerAPitchCoarse"),
+                                         Content.getComponent("Button_RandomizeSamplerAPitchFine"),
+                                         Content.getComponent("Button_RandomizeSamplerAPan"),
+                                         Content.getComponent("Button_RandomizeSamplerAGain")];
+                             
 
 const var Panel_Sample = Content.getComponent("Panel_Sample");
 
@@ -79,7 +94,7 @@ inline function positionKeyboard()
 	FloatingTile_Keyboard.setPosition(x, y, FloatingTile_Keyboard.getWidth(), 60);
 }
 
-positionKeyboard();
+//positionKeyboard();
 
 //Position Buttons
 
@@ -99,7 +114,7 @@ inline function positionButtons()
 	}
 }
 
-positionButtons();
+//positionButtons();
 
 //Position Main Panel
 
@@ -123,11 +138,13 @@ inline function positionPanelBG(offset)
 	{
 		Panel_BG.setPosition(padding / 2, y, w, h);
 	}
+	
+	FloatingTile_PresetBrowser.setPosition(Panel_BG.get("x"), Panel_BG.get("y"), Panel_BG.get("width"), Panel_BG.get("height"));
 }
 
-positionPanelBG(false);
+//positionPanelBG(false);
 
-Image_BG.setPosition(0, 0, Panel_BG.getWidth(), Panel_BG.getHeight()); //Set Image Size
+//Image_BG.setPosition(0, 0, Panel_BG.getWidth(), Panel_BG.getHeight()); //Set Image Size
 
 //Panels
 
@@ -139,9 +156,43 @@ inline function positionMainPanels()
 	local h = Panel_BG.getHeight();
 	
 	Panel_Sample.setPosition(x, y, w, h);
+	
+	FloatingTile_ResourceUsage.setPosition(Panel_BG.get("width") - FloatingTile_ResourceUsage.get("width"), 0, 180, 30);
+	
+	FloatingTile_ResourceUsage.set("FontSize", 13);
 }
 
-positionMainPanels();
+//positionMainPanels();
+
+//Extra Panels
+
+inline function positionExtraPanels()
+{
+    Panel_CustomSettings.setPosition(Panel_BG.get("x"), Panel_BG.get("y"), Panel_BG.get("width"), Panel_BG.get("height"));    
+    Panel_InstallLibraries.setPosition(Panel_BG.get("x"), Panel_BG.get("y"), Panel_BG.get("width"), Panel_BG.get("height"));    
+}
+
+//positionExtraPanels();
+
+//Tooltips
+
+const var Panel_TooltipDescriptions = Content.getComponent("Panel_TooltipDescriptions");
+
+Panel_TooltipDescriptions.setPaintRoutine(function(g)
+{
+	var tooltipDescription = Content.getCurrentTooltip();
+	
+	g.setColour(Colours.lightgrey);
+	g.setFont("Arial", 12.0);
+	g.drawAlignedText(tooltipDescription, [0, 0, this.getWidth(), this.getHeight()], "right");
+});
+
+Panel_TooltipDescriptions.setTimerCallback(function()
+{
+	 this.repaint();
+});
+
+Panel_TooltipDescriptions.startTimer(250);
 
 //Expansion Viewport
 
@@ -162,7 +213,7 @@ inline function positionLabels()
 	Label_PageArray[7].setPosition(pageButtonListBottom[4].getGlobalPositionX() + padding, pageButtonListBottom[4].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
 }
 
-positionLabels();
+//positionLabels();
 
 //Position AppData Button
 
@@ -176,7 +227,7 @@ inline function positionAppDataButton()
 	Button_OpenAppData.setPosition(x, y, w, h);	
 }
 
-positionAppDataButton();
+//positionAppDataButton();
 
 
 //Extra Keyboard Stuff

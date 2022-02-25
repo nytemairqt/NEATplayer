@@ -1,5 +1,5 @@
 const var frontInterfaceWidth = 1000;
-const var frontInterfaceHeight = 600;
+const var frontInterfaceHeight = 620;
 
 Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 
@@ -38,7 +38,7 @@ const var syncTimes = ["1/1", "1/2D", "1/2", "1/2T", "1/4D", "1/4", "1/4T", "1/8
 const var Button_SetSamplesFolder = Content.getComponent("Button_SetSamplesFolder");
 const var Button_InstallLibrary = Content.getComponent("Button_InstallLibrary");
 const var Button_CloseSetFolder = Content.getComponent("Button_CloseSetFolder");
-const var Panel_CustomSettings = Content.getComponent("Panel_CustomSettings");
+//const var Panel_CustomSettings = Content.getComponent("Panel_CustomSettings");
 
 //Expansion shit
 
@@ -151,7 +151,7 @@ expHandler.setAllowedExpansionTypes([expHandler.FileBased,
                                      expHandler.Encrypted]);
 //Preset Browser
 
-const var FloatingTile_PresetBrowser = Content.getComponent("FloatingTile_PresetBrowser");
+
 const var Button_PresetBrowserClose = Content.getComponent("Button_PresetBrowserClose");
 
 FloatingTile_PresetBrowser.showControl(0);
@@ -201,7 +201,6 @@ Content.getComponent("Button_CloseSetFolder").setControlCallback(onButton_CloseS
 
 //Install Library Button
 
-const var Panel_InstallLibraries = Content.getComponent("Panel_InstallLibraries");
 const var Button_CloseInstallPanel = Content.getComponent("Button_CloseInstallPanel");
 const var Button_BulkInstall = Content.getComponent("Button_BulkInstall");
 
@@ -343,6 +342,8 @@ function expCallback()
             
         default:
     };    
+    
+    expHandler.getCurrentExpansion().setAllowDuplicateSamples(false);
 }
 
 expHandler.setExpansionCallback(expCallback);

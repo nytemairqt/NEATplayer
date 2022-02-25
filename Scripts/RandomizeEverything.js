@@ -130,10 +130,7 @@ const var randomizationButtonsSampler = [Content.getComponent("Button_RandomizeS
                                         Content.getComponent("Button_RandomizeSamplerCPitchCoarse"),
                                         Content.getComponent("Button_RandomizeSamplerCPitchFine"),
                                         Content.getComponent("Button_RandomizeSamplerCPan"),
-                                        Content.getComponent("Button_RandomizeSamplerCGain")];
-                                        
-const var Array = [];
-                                        
+                                        Content.getComponent("Button_RandomizeSamplerCGain")];                                        
                                       
 const var randomizationButtonsFX = [Content.getComponent("Button_RandomizeFXFilterFreq"),
                                     Content.getComponent("Button_RandomizeFXFilterQ"),
@@ -194,6 +191,33 @@ const var randomizationButtonsSamplerExtras = [Content.getComponent("Button_Rand
 const var randomizationButtonsComboBoxes = [Content.getComponent("Button_RandomizeSamplerAComboBox"),
                                             Content.getComponent("Button_RandomizeSamplerBComboBox"),
                                             Content.getComponent("Button_RandomizeSamplerCComboBox")];
+
+//Set Tooltips for ALL Randomization Buttons.
+
+inline function setRandomizationButtonTooltips()
+{
+	
+	local allRandomizationControls = [];
+	
+	allRandomizationControls.concat(randomizationButtonsSampler);
+	allRandomizationControls.concat(randomizationButtonsArp);
+	allRandomizationControls.concat(randomizationButtonsADSR);
+	allRandomizationControls.concat(randomizationButtonsFX);
+	allRandomizationControls.concat(randomizationButtonsFXBypass);
+	allRandomizationControls.concat(randomizationButtonsSamplerExtras);
+	allRandomizationControls.concat(randomizationButtonsComboBoxes);
+
+	for (a in allRandomizationControls)
+	{
+		a.set("width", 10);
+		a.set("height", 10);
+		a.set("tooltip", "Toggles Randomization for this Control.");
+	}					
+}
+
+//setRandomizationButtonTooltips();
+
+
 
 //Create individual functions for buttons.
 

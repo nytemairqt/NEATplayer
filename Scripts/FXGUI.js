@@ -71,6 +71,112 @@ const var Button_AmpSettings = Content.getComponent("Button_AmpSettings");
 const var ComboBox_DriveOversample1 = Content.getComponent("ComboBox_DriveOversample1");
 const var ComboBox_FilterMode = Content.getComponent("ComboBox_FilterMode");
 
+//LAF
+
+const var listFXPanels = [Panel_FilterSettings,
+Panel_EQSettings,
+Panel_CompSettings,
+Panel_AmpSettings,
+Panel_DriveSettings,
+Panel_DegradeSettings,
+Panel_WidthSettings,
+Panel_PhaserSettings,
+Panel_ReverbSettings,
+Panel_DelaySettings];
+
+const var listFXLabels = [Content.getComponent("Label_EQTitle"),
+                             Content.getComponent("Label_CompTitle"),
+                             Content.getComponent("Label_FilterTitle"),
+                             Content.getComponent("Label_DriveTitle"),
+                             Content.getComponent("Label_ReverbTitle"),
+                             Content.getComponent("Label_DelayTitle"),
+                             Content.getComponent("Label_WidthTitle"),
+                             Content.getComponent("Label_PhaserTitle"),
+                             Content.getComponent("Label_DegradeTitle"),
+                             Content.getComponent("Label_AmpTitle")];
+
+const var listFXButtonsLeft = [Button_FilterSettings,
+Button_EQSettings,
+Button_CompSettings,
+Button_AmpSettings,
+Button_DriveSettings,
+Button_DegradeSettings];
+
+const var listFXButtonsRight = [Button_WidthSettings,
+Button_PhaserSettings,
+Button_ReverbSettings,
+Button_DelaySettings];
+
+const var listRandomizationButtonsFX = [Content.getComponent("Button_RandomizeFXFilterFreq"),
+                                    Content.getComponent("Button_RandomizeFXFilterQ"),
+                                    Content.getComponent("Button_RandomizeFXAmpLow"),
+                                    Content.getComponent("Button_RandomizeFXAmpMid"),
+                                    Content.getComponent("Button_RandomizeFXAmpHigh"),
+                                    Content.getComponent("Button_RandomizeFXAmpDrive"),
+                                    Content.getComponent("Button_RandomizeFXAmpOutput"),
+                                    Content.getComponent("Button_RandomizeFXAmpCabinet"),
+                                    Content.getComponent("Button_RandomizeFXDriveWaveShaperGain"),
+                                    Content.getComponent("Button_RandomizeFXDriveTubeDriveGain"),
+                                    Content.getComponent("Button_RandomizeFXWidenerWidth"),
+                                    Content.getComponent("Button_RandomizeFXStutterRate"),
+                                    Content.getComponent("Button_RandomizeFXStutterAmount"),
+                                    Content.getComponent("Button_RandomizeFXPhaserRateA"),
+                                    Content.getComponent("Button_RandomizeFXPhaserRateB"),
+                                    Content.getComponent("Button_RandomizeFXPhaserFeedback"),
+                                    Content.getComponent("Button_RandomizeFXPhaserMix"),
+                                    Content.getComponent("Button_RandomizeFXDegradeBitDepth"),
+                                    Content.getComponent("Button_RandomizeFXSampleHold"),
+                                    Content.getComponent("Button_RandomizeFXReverbSize"),
+                                    Content.getComponent("Button_RandomizeFXReverbDamping"),
+                                    Content.getComponent("Button_RandomizeFXReverbWidth"),
+                                    Content.getComponent("Button_RandomizeFXReverbMix"),
+                                    Content.getComponent("Button_RandomizeFXDelayTimeL"),
+                                    Content.getComponent("Button_RandomizeFXDelayTimeR"),
+                                    Content.getComponent("Button_RandomizeFXDelayFeedbackL"),
+                                    Content.getComponent("Button_RandomizeFXDelayFeedbackR"),
+                                    Content.getComponent("Button_RandomizeFXDelayMix")];
+                                    
+const var listRandomizationButtonsFXBypass = [Content.getComponent("Button_RandomizeFXFilterBypass"),
+                                          Content.getComponent("Button_RandomizeFXAmpBypass"),
+                                          Content.getComponent("Button_RandomizeFXDrive"),
+                                          Content.getComponent("Button_RandomizeFXDegradeBypass"),
+                                          Content.getComponent("Button_RandomizeFXWidenerBypass"),
+                                          Content.getComponent("Button_RandomizeFXPhaserBypass"),
+                                          Content.getComponent("Button_RandomizeFXReverbBypass"),
+                                          Content.getComponent("Button_RandomizeFXDelayBypass")];
+
+inline function positionFXPanel()
+{
+	local padding = 6;
+	Panel_FX.setPosition(0, 0, Panel_BG.get("width"), Panel_BG.get("height"));
+
+	for (l in listFXPanels)
+	{
+		l.setPosition((Panel_BG.get("width") / 2) - (l.get("width") / 2), (Panel_BG.get("height") / 2) - (l.get("height") / 2), 600, 300);
+		l.set("borderRadius", 2.0);
+		l.set("bgColour", 0x00FFFFFF);
+		l.set("textColour", 0x00FFFFFF);
+	}
+
+	for (i=0; i<listFXButtonsLeft.length; i++)
+	{
+		listFXButtonsLeft[i].setPosition(listFXPanels[0].get("x") - (listFXButtonsLeft[0].get("width") + padding), listFXPanels[0].get("y") + ((listFXButtonsLeft[0].get("height") + padding) * i) + 2, listFXButtonsLeft[0].get("width"), listFXPanels[0].get("height") / listFXButtonsLeft.length - padding);
+	}
+
+	for (i=0; i<listFXButtonsRight.length; i++)
+	{
+		listFXButtonsRight[i].setPosition(listFXPanels[0].get("x") + listFXPanels[0].get("width") + padding, listFXPanels[0].get("y") + ((listFXButtonsLeft[0].get("height") + padding) * i) + 2, listFXButtonsLeft[0].get("width"), listFXPanels[0].get("height") / listFXButtonsLeft.length - padding);
+	}
+
+
+	for (i=0; i<listFXLabels.length; i++)
+	{
+		listFXLabels[i].setPosition((listFXPanels[i].get("width") / 2) - (listFXLabels[i].get("width") / 2), 8, listFXLabels[i].get("width"), listFXLabels[i].get("height"));
+	}
+}
+
+
+//positionFXPanel();
 
 //FX Panel
 
@@ -95,9 +201,7 @@ Content.getComponent("Button_FXDisplay").setControlCallback(onButton_FXDisplayCo
 Panel_FX.setPaintRoutine(function(g)
 {
     g.setColour(0xFB111111);
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0);
-	g.setColour(Colours.grey);
-	g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0, 2.0);
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
 });
 
 //Individual FX Pages.

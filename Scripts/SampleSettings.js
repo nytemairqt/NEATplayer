@@ -84,7 +84,13 @@ const var Label_SamplerAReleaseValue = Content.getComponent("Label_SamplerARelea
 
 const var Button_SamplerAReverse = Content.getComponent("Button_SamplerAReverse");
 
+const var Button_SamplerAComboBoxUp = Content.getComponent("Button_SamplerAComboBoxUp");
+const var Button_SamplerAComboBoxDown = Content.getComponent("Button_SamplerAComboBoxDown");;
 
+const var randomizeComboBoxA = Content.getComponent("Button_RandomizeSamplerAComboBox");
+const var randomizeSampleStartA = Content.getComponent("Button_RandomizeSamplerASampleStart");
+
+const var Label_SamplerATitle = Content.getComponent("Label_SamplerATitle");
 
 //Sampler B
 
@@ -115,6 +121,13 @@ const var Label_SamplerBSustainValue = Content.getComponent("Label_SamplerBSusta
 const var Label_SamplerBReleaseValue = Content.getComponent("Label_SamplerBReleaseValue");
 
 const var Button_SamplerBReverse = Content.getComponent("Button_SamplerBReverse");
+const var Button_SamplerBComboBoxUp = Content.getComponent("Button_SamplerBComboBoxUp");
+const var Button_SamplerBComboBoxDown = Content.getComponent("Button_SamplerBComboBoxDown");
+
+const var randomizeComboBoxB = Content.getComponent("Button_RandomizeSamplerBComboBox");
+const var randomizeSampleStartB = Content.getComponent("Button_RandomizeSamplerBSampleStart");
+
+const var Label_SamplerBTitle = Content.getComponent("Label_SamplerBTitle");
 
 //Sampler C
 
@@ -145,6 +158,13 @@ const var Label_SamplerCSustainValue = Content.getComponent("Label_SamplerCSusta
 const var Label_SamplerCReleaseValue = Content.getComponent("Label_SamplerCReleaseValue");
 
 const var Button_SamplerCReverse = Content.getComponent("Button_SamplerCReverse");
+const var Button_SamplerCComboBoxUp = Content.getComponent("Button_SamplerCComboBoxUp");
+const var Button_SamplerCComboBoxDown = Content.getComponent("Button_SamplerCComboBoxDown");
+
+const var randomizeComboBoxC = Content.getComponent("Button_RandomizeSamplerCComboBox");
+const var randomizeSampleStartC = Content.getComponent("Button_RandomizeSamplerCSampleStart");
+
+const var Label_SamplerCTitle = Content.getComponent("Label_SamplerCTitle");
 
 //Sample Settings Panel
 
@@ -168,14 +188,6 @@ Panel_Sample.setPaintRoutine(function(g)
 	g.setColour(Colours.darkgrey);
 	g.drawLine(this.getWidth() / 3, this.getWidth() / 3, 0, this.getHeight(), 1.0);
 	g.drawLine(this.getWidth() / 3 * 2, this.getWidth() / 3 * 2, 0, this.getHeight(), 1.0);
-	
-	//Fancy Lines
-	
-	
-	g.drawLine(this.getWidth() / 3 - 15, 20, 174, 174, 1.0);
-	g.drawLine(this.getWidth() / 3 * 2 - 15, this.getWidth() / 3 + 20, 174, 174, 1.0);
-	g.drawLine(this.getWidth() / 3 * 3 - 15, this.getWidth() / 3 * 2 + 20, 174, 174, 1.0);
-
 });
 
 //================================================================================================
@@ -213,8 +225,39 @@ const var samplerCLabels = [Content.getComponent("Label_SamplerCAttack"),
                             Content.getComponent("Label_SamplerCPan"),
                             Content.getComponent("Label_SamplerCGain")];
                             
+const var samplerARandomizationButtons = [Content.getComponent("Button_RandomizeSamplerAAttack"),
+                                         Content.getComponent("Button_RandomizeSamplerADecay"),
+                                         Content.getComponent("Button_RandomizeSamplerASustain"),
+                                         Content.getComponent("Button_RandomizeSamplerARelease"),
+                                         Content.getComponent("Button_RandomizeSamplerAPitchCoarse"),
+                                         Content.getComponent("Button_RandomizeSamplerAPitchFine"),
+                                         Content.getComponent("Button_RandomizeSamplerAPan"),
+                                         Content.getComponent("Button_RandomizeSamplerAGain")];
+                                         
+const var samplerBRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerBAttack"),
+                                         Content.getComponent("Button_RandomizeSamplerBDecay"),
+                                         Content.getComponent("Button_RandomizeSamplerBSustain"),
+                                         Content.getComponent("Button_RandomizeSamplerBRelease"),
+                                         Content.getComponent("Button_RandomizeSamplerBPitchCoarse"),
+                                         Content.getComponent("Button_RandomizeSamplerBPitchFine"),
+                                         Content.getComponent("Button_RandomizeSamplerBPan"),
+                                         Content.getComponent("Button_RandomizeSamplerBGain")];
+                                         
+const var samplerCRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerCAttack"),
+                                         Content.getComponent("Button_RandomizeSamplerCDecay"),
+                                         Content.getComponent("Button_RandomizeSamplerCSustain"),
+                                         Content.getComponent("Button_RandomizeSamplerCRelease"),
+                                         Content.getComponent("Button_RandomizeSamplerCPitchCoarse"),
+                                         Content.getComponent("Button_RandomizeSamplerCPitchFine"),
+                                         Content.getComponent("Button_RandomizeSamplerCPan"),
+                                         Content.getComponent("Button_RandomizeSamplerCGain")];                            
+                            
 
-const var samplerAValues = [];
+const var samplerAValues = [Label_SamplerAAttackValue, Label_SamplerADecayValue, Label_SamplerASustainValue, Label_SamplerAReleaseValue, Label_SamplerAPitchCoarseValue, Label_SamplerAPitchFineValue, Label_SamplerAPanValue, Label_SamplerAGainValue];
+
+const var samplerBValues = [Label_SamplerBAttackValue, Label_SamplerBDecayValue, Label_SamplerBSustainValue, Label_SamplerBReleaseValue, Label_SamplerBPitchCoarseValue, Label_SamplerBPitchFineValue, Label_SamplerBPanValue, Label_SamplerBGainValue];
+
+const var samplerCValues = [Label_SamplerCAttackValue, Label_SamplerCDecayValue, Label_SamplerCSustainValue, Label_SamplerCReleaseValue, Label_SamplerCPitchCoarseValue, Label_SamplerCPitchFineValue, Label_SamplerCPanValue, Label_SamplerCGainValue];
 
 const var samplerBSlidersTop=[Slider_SamplerBAttack, Slider_SamplerBDecay, Slider_SamplerBSustain, Slider_SamplerBRelease];
 
@@ -235,6 +278,11 @@ inline function positionSamplerSliders()
 	local sliderSize = 48;
 	
 	local textBuffer = 16;
+	local valueBuffer = 36;
+	
+	local bypassButtonSize = 16;
+	
+	local randomizationButtonSize = 10;
 	
 	//Sampler A
 	
@@ -244,6 +292,30 @@ inline function positionSamplerSliders()
 	for (i=0; i<samplerASlidersBottom.length; i++)
 		samplerASlidersBottom[i].setPosition(positionSamplerA + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);
 		
+	AHDSR_SamplerA.setPosition(AudioWaveform_SamplerA.get("x"), AudioWaveform_SamplerA.get("y"), AudioWaveform_SamplerA.getWidth(), AudioWaveform_SamplerA.getHeight());
+	
+	ComboBox_SamplerA.set("width", 150);
+	ComboBox_SamplerA.set("height", 28);
+	
+	ComboBox_SamplerA.set("x", (width / 2 ) - (ComboBox_SamplerA.get("width") / 2));
+	ComboBox_SamplerA.set("y", AudioWaveform_SamplerA.get("y") - (padding + ComboBox_SamplerA.get("height")));
+	
+	Button_SamplerAComboBoxUp.set("x", ComboBox_SamplerA.get("x") + ComboBox_SamplerA.get("width") - 18);
+	Button_SamplerAComboBoxDown.set("x", ComboBox_SamplerA.get("x") + ComboBox_SamplerA.get("width") - 18);
+	
+	Button_SamplerAComboBoxUp.set("y", ComboBox_SamplerA.get("y") + 7);
+	Button_SamplerAComboBoxDown.set("y", ComboBox_SamplerA.get("y") + 15);
+	
+	Button_SamplerAComboBoxUp.set("width", 8);
+	Button_SamplerAComboBoxUp.set("height", 6);
+	
+	Button_SamplerAComboBoxDown.set("width", 8);
+	Button_SamplerAComboBoxDown.set("height", 6);
+	
+	Button_SamplerABypass.setPosition(padding, padding, bypassButtonSize, bypassButtonSize);
+		
+	//Labels
+		
 	for (i=0; i<samplerALabels.length; i++)
 		{
 			if (i < 4)
@@ -251,6 +323,16 @@ inline function positionSamplerSliders()
 			else	
 				samplerALabels[i].setPosition(samplerASlidersBottom[i-4].getGlobalPositionX() - 3, samplerASlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
 		}
+		
+	for (i=0; i<samplerAValues.length; i++)
+		{
+			if (i < 4)
+				samplerAValues[i].setPosition(samplerASlidersTop[i].getGlobalPositionX() - 3, samplerASlidersTop[i].getGlobalPositionY() + valueBuffer, sliderSize, 20);
+			else	
+				samplerAValues[i].setPosition(samplerASlidersBottom[i-4].getGlobalPositionX() - 3, samplerASlidersBottom[i-4].getGlobalPositionY() + valueBuffer, sliderSize, 20);
+		}		
+	
+	
 		
 	//Sampler B
 
@@ -260,13 +342,43 @@ inline function positionSamplerSliders()
 	for (i=0; i<samplerBSlidersBottom.length; i++)
 		samplerBSlidersBottom[i].setPosition(positionSamplerB + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);	
 		
-for (i=0; i<samplerBLabels.length; i++)
+	AHDSR_SamplerB.setPosition(AudioWaveform_SamplerB.get("x"), AudioWaveform_SamplerB.get("y"), AudioWaveform_SamplerB.getWidth(), AudioWaveform_SamplerB.getHeight());
+		
+	for (i=0; i<samplerBLabels.length; i++)
+		{
+			if (i < 4)
+				samplerBLabels[i].setPosition(samplerBSlidersTop[i].getGlobalPositionX() - 3, samplerBSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
+			else	
+				samplerBLabels[i].setPosition(samplerBSlidersBottom[i-4].getGlobalPositionX() - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
+		}		
+	
+for (i=0; i<samplerBValues.length; i++)
 	{
 		if (i < 4)
-			samplerBLabels[i].setPosition(samplerBSlidersTop[i].getGlobalPositionX() - 3, samplerBSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
+			samplerBValues[i].setPosition(samplerBSlidersTop[i].getGlobalPositionX() - 3, samplerBSlidersTop[i].getGlobalPositionY() + valueBuffer, sliderSize, 20);
 		else	
-			samplerBLabels[i].setPosition(samplerBSlidersBottom[i-4].getGlobalPositionX() - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
-	}		
+			samplerBValues[i].setPosition(samplerBSlidersBottom[i-4].getGlobalPositionX() - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() + valueBuffer, sliderSize, 20);
+	}	
+	
+	ComboBox_SamplerB.set("width", 150);
+	ComboBox_SamplerB.set("height", 28);
+
+	ComboBox_SamplerB.set("x", (width / 2 ) + width - (ComboBox_SamplerB.get("width") / 2));
+	ComboBox_SamplerB.set("y", AudioWaveform_SamplerB.get("y") - (padding + ComboBox_SamplerB.get("height")));
+	
+	Button_SamplerBComboBoxUp.set("x", ComboBox_SamplerB.get("x") + ComboBox_SamplerB.get("width") - 18);
+	Button_SamplerBComboBoxDown.set("x", ComboBox_SamplerB.get("x") + ComboBox_SamplerB.get("width") - 18);
+	
+	Button_SamplerBComboBoxUp.set("y", ComboBox_SamplerB.get("y") + 7);
+	Button_SamplerBComboBoxDown.set("y", ComboBox_SamplerB.get("y") + 15);
+	
+	Button_SamplerBComboBoxUp.set("width", 8);
+	Button_SamplerBComboBoxUp.set("height", 6);
+	
+	Button_SamplerBComboBoxDown.set("width", 8);
+	Button_SamplerBComboBoxDown.set("height", 6);
+	
+	Button_SamplerBBypass.setPosition((width + padding), padding, bypassButtonSize, bypassButtonSize);
 		
 	//Sampler C
 
@@ -274,24 +386,112 @@ for (i=0; i<samplerBLabels.length; i++)
 		samplerCSlidersTop[i].setPosition(positionSamplerC + (increment * i + 1) - sliderSize / 2, 260, sliderSize, sliderSize);
 		
 	for (i=0; i<samplerCSlidersBottom.length; i++)
-		samplerCSlidersBottom[i].setPosition(positionSamplerC + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);		
+		samplerCSlidersBottom[i].setPosition(positionSamplerC + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);	
 		
-for (i=0; i<samplerCLabels.length; i++)
-	{
-		if (i < 4)
-			samplerCLabels[i].setPosition(samplerCSlidersTop[i].getGlobalPositionX() - 3, samplerCSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
-		else	
-			samplerCLabels[i].setPosition(samplerCSlidersBottom[i-4].getGlobalPositionX() - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
-	}				
+	AHDSR_SamplerC.setPosition(AudioWaveform_SamplerC.get("x"), AudioWaveform_SamplerC.get("y"), AudioWaveform_SamplerC.getWidth(), AudioWaveform_SamplerC.getHeight());	
 		
-	//Labels
+	for (i=0; i<samplerCLabels.length; i++)
+		{
+			if (i < 4)
+				samplerCLabels[i].setPosition(samplerCSlidersTop[i].getGlobalPositionX() - 3, samplerCSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
+			else	
+				samplerCLabels[i].setPosition(samplerCSlidersBottom[i-4].getGlobalPositionX() - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
+		}				
 	
+	for (i=0; i<samplerCValues.length; i++)
+		{
+			if (i < 4)
+				samplerCValues[i].setPosition(samplerCSlidersTop[i].getGlobalPositionX() - 3, samplerCSlidersTop[i].getGlobalPositionY() + valueBuffer, sliderSize, 20);
+			else	
+				samplerCValues[i].setPosition(samplerCSlidersBottom[i-4].getGlobalPositionX() - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() + valueBuffer, sliderSize, 20);
+		}		
 		
+		ComboBox_SamplerC.set("width", 150);
+		ComboBox_SamplerC.set("height", 28);
 	
-
+		ComboBox_SamplerC.set("x", (width / 2 ) + width + width - (ComboBox_SamplerC.get("width") / 2));
+		ComboBox_SamplerC.set("y", AudioWaveform_SamplerC.get("y") - (padding + ComboBox_SamplerC.get("height")));
+		
+		Button_SamplerCComboBoxUp.set("x", ComboBox_SamplerC.get("x") + ComboBox_SamplerC.get("width") - 18);
+		Button_SamplerCComboBoxDown.set("x", ComboBox_SamplerC.get("x") + ComboBox_SamplerC.get("width") - 18);
+		
+		Button_SamplerCComboBoxUp.set("y", ComboBox_SamplerC.get("y") + 7);
+		Button_SamplerCComboBoxDown.set("y", ComboBox_SamplerC.get("y") + 15);
+		
+		Button_SamplerCComboBoxUp.set("width", 8);
+		Button_SamplerCComboBoxUp.set("height", 6);
+		
+		Button_SamplerCComboBoxDown.set("width", 8);
+		Button_SamplerCComboBoxDown.set("height", 6);	
+		
+		Button_SamplerCBypass.setPosition((width + width + padding), padding, bypassButtonSize, bypassButtonSize);
+	
+	//Randomization Buttons
+		
+	for (i=0; i<samplerARandomizationButtons.length; i++)
+		{
+			if (i < 4)
+				samplerARandomizationButtons[i].setPosition((samplerASlidersTop[i].getGlobalPositionX() + sliderSize) - 3, samplerASlidersTop[i].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
+			else	
+				samplerARandomizationButtons[i].setPosition((samplerASlidersBottom[i-4].getGlobalPositionX()+ sliderSize) - 3, samplerASlidersBottom[i-4].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
+		}			
+		
+	for (i=0; i<samplerBRandomizationButtons.length; i++)
+		{
+			if (i < 4)
+				samplerBRandomizationButtons[i].setPosition((samplerBSlidersTop[i].getGlobalPositionX() + sliderSize) - 3, samplerBSlidersTop[i].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
+			else	
+				samplerBRandomizationButtons[i].setPosition((samplerBSlidersBottom[i-4].getGlobalPositionX()+ sliderSize) - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
+		}		
+		
+	for (i=0; i<samplerCRandomizationButtons.length; i++)
+		{
+			if (i < 4)
+				samplerCRandomizationButtons[i].setPosition((samplerCSlidersTop[i].getGlobalPositionX() + sliderSize) - 3, samplerCSlidersTop[i].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
+			else	
+				samplerCRandomizationButtons[i].setPosition((samplerCSlidersBottom[i-4].getGlobalPositionX()+ sliderSize) - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
+		}			
+		
+	randomizeComboBoxA.setPosition(ComboBox_SamplerA.get("x") + ComboBox_SamplerA.get("width") + padding, ComboBox_SamplerA.get("y"), randomizationButtonSize, randomizationButtonSize);
+	
+	randomizeSampleStartA.setPosition(AudioWaveform_SamplerA.get("x") + AudioWaveform_SamplerA.get("width") - (randomizationButtonSize + padding), AudioWaveform_SamplerA.get("y") - (randomizationButtonSize + padding), randomizationButtonSize, randomizationButtonSize);
+	
+	randomizeComboBoxB.setPosition(ComboBox_SamplerB.get("x") + ComboBox_SamplerB.get("width") + padding, ComboBox_SamplerB.get("y"), randomizationButtonSize, randomizationButtonSize);
+		
+		randomizeSampleStartB.setPosition(AudioWaveform_SamplerB.get("x") + AudioWaveform_SamplerB.get("width") - (randomizationButtonSize + padding), AudioWaveform_SamplerB.get("y") - (randomizationButtonSize + padding), randomizationButtonSize, randomizationButtonSize);
+		
+		randomizeComboBoxC.setPosition(ComboBox_SamplerC.get("x") + ComboBox_SamplerC.get("width") + padding, ComboBox_SamplerC.get("y"), randomizationButtonSize, randomizationButtonSize);
+			
+			randomizeSampleStartC.setPosition(AudioWaveform_SamplerC.get("x") + AudioWaveform_SamplerC.get("width") - (randomizationButtonSize + padding), AudioWaveform_SamplerC.get("y") - (randomizationButtonSize + padding), randomizationButtonSize, randomizationButtonSize);
+		
+	//Other Items
+	
+	AudioWaveform_SamplerA.setPosition(10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
+	Slider_SampleOffsetA.setPosition(10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
+	
+	AudioWaveform_SamplerB.setPosition(width + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
+	Slider_SampleOffsetB.setPosition(width + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);	
+	
+	AudioWaveform_SamplerC.setPosition((width + width) + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
+	Slider_SampleOffsetC.setPosition((width + width) + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
+	
+	Panel_SamplerDisabledB.setPosition(width, 0, width, Panel_BG.getHeight());
+	Panel_SamplerDisabledC.setPosition(width * 2, 0, width, Panel_BG.getHeight());
+	
+	Button_SamplerAReverse.setPosition(AudioWaveform_SamplerA.getGlobalPositionX() + AudioWaveform_SamplerA.getWidth() - 46, AudioWaveform_SamplerA.getGlobalPositionY() + AudioWaveform_SamplerA.getHeight() -24, 40, 20);
+	
+	Button_SamplerBReverse.setPosition(AudioWaveform_SamplerB.getGlobalPositionX() + AudioWaveform_SamplerB.getWidth() - 46, AudioWaveform_SamplerB.getGlobalPositionY() + AudioWaveform_SamplerB.getHeight() -24, 40, 20);
+	
+	Button_SamplerCReverse.setPosition(AudioWaveform_SamplerC.getGlobalPositionX() + AudioWaveform_SamplerC.getWidth() - 46, AudioWaveform_SamplerC.getGlobalPositionY() + AudioWaveform_SamplerC.getHeight() -24, 40, 20);
+	
+	Label_SamplerATitle.setPosition(ComboBox_SamplerA.get("x") + (ComboBox_SamplerA.get("width") / 2) - (Label_SamplerATitle.get("width") / 2), ComboBox_SamplerA.get("y") - (Label_SamplerATitle.get("height") + padding + padding), 100, 30);
+	
+	Label_SamplerBTitle.setPosition(ComboBox_SamplerB.get("x") + (ComboBox_SamplerB.get("width") / 2) - (Label_SamplerBTitle.get("width") / 2), ComboBox_SamplerB.get("y") - (Label_SamplerBTitle.get("height") + padding + padding), 100, 30);
+	
+	Label_SamplerCTitle.setPosition(ComboBox_SamplerC.get("x") + (ComboBox_SamplerC.get("width") / 2) - (Label_SamplerCTitle.get("width") / 2), ComboBox_SamplerC.get("y") - (Label_SamplerCTitle.get("height") + padding + padding), 100, 30);
 }
 
-positionSamplerSliders();
+//positionSamplerSliders();
 
 
 
@@ -860,4 +1060,3 @@ Panel_SamplerDisabledC.setPaintRoutine(function(g)
 	g.setFont("Arial", 12.0);
 	g.drawAlignedText("DISABLED", [0, 0, this.getWidth(), this.getHeight()], "centred");
 });
-
