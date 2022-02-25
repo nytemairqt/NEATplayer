@@ -206,15 +206,15 @@
                  fontStyle="Regular" width="108.0" height="28.0" editable="0"
                  fontSize="14.0"/>
     </Component>
-    <Component type="ScriptPanel" id="Panel_FX" x="0" y="0" parentComponent="Panel_BG"
-               width="994" height="474" itemColour="4194304000" itemColour2="4194304000"
+    <Component type="ScriptPanel" id="Panel_FX" x="0.0" y="0.0" parentComponent="Panel_BG"
+               width="994.0" height="474.0" itemColour="4194304000" itemColour2="4194304000"
                bgColour="16777215" textColour="16777215" borderRadius="2.0">
       <Component type="ScriptLabel" id="Label_FXTitle" x="264.0" y="0.0" width="50.0"
                  height="28.0" fontStyle="Bold" text="FX" parentComponent="Panel_FX"
                  editable="0"/>
-      <Component type="ScriptButton" id="Button_FilterSettings" x="51" y="89"
-                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140"
-                 height="44" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+      <Component type="ScriptButton" id="Button_FilterSettings" x="51.0" y="89.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
                  itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Filter Module.">
         <Component type="ScriptButton" id="Button_FilterBypass" x="9.0" y="14.0"
@@ -225,11 +225,11 @@
         <Component type="ScriptLabel" id="Label_Filter" x="30.0" y="8.0" parentComponent="Button_FilterSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Filter" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_EQSettings" x="51" y="139" parentComponent="Panel_FX"
-                 text="LAFButtonFXSettings" width="140" height="44" radioGroup="3.0"
-                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
-                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6.0"
-                 enableMidiLearn="0" tooltip="Opens the EQ Module.">
+      <Component type="ScriptButton" id="Button_EQSettings" x="51.0" y="139.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the EQ Module.">
         <Component type="ScriptButton" id="Button_EQBypass" x="9.0" y="14.0" parentComponent="Button_EQSettings"
                    text="LAFButtonSamplerBypass" width="16.0" height="16.0" processorId="Parametriq EQ1"
                    parameterId="Enabled" bgColour="16777215" itemColour="3355443"
@@ -238,9 +238,9 @@
         <Component type="ScriptLabel" id="Label_EQ" x="30.0" y="7.0" parentComponent="Button_EQSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="EQ" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_DriveSettings" x="51" y="289"
-                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140"
-                 height="44" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+      <Component type="ScriptButton" id="Button_DriveSettings" x="51.0" y="289.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
                  itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Drive Module.">
         <Component type="ScriptButton" id="Button_DriveTubeDriveEnable" x="9.0"
@@ -251,11 +251,11 @@
         <Component type="ScriptLabel" id="Label_Drive" x="30.0" y="7.0" parentComponent="Button_DriveSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Drive" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_CompSettings" x="51" y="189" parentComponent="Panel_FX"
-                 text="LAFButtonFXSettings" width="140" height="44" radioGroup="3.0"
-                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
-                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6.0"
-                 enableMidiLearn="0" tooltip="Opens the Compressor Module.">
+      <Component type="ScriptButton" id="Button_CompSettings" x="51.0" y="189.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Compressor Module.">
         <Component type="ScriptButton" id="Button_CompBypass" x="9.0" y="14.0" parentComponent="Button_CompSettings"
                    text="LAFButtonSamplerBypass" width="16.0" height="16.0" processorId="Compressor"
                    parameterId="Enabled" bgColour="16777215" itemColour="3355443"
@@ -264,9 +264,9 @@
         <Component type="ScriptLabel" id="Label_Comp" x="30.0" y="7.0" parentComponent="Button_CompSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Comp" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_ReverbSettings" x="803" y="189"
-                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140"
-                 height="44" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+      <Component type="ScriptButton" id="Button_ReverbSettings" x="803.0" y="189.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
                  itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Reverb Module.">
         <Component type="ScriptButton" id="Button_ReverbEnable" x="9.0" y="14.0"
@@ -277,9 +277,9 @@
         <Component type="ScriptLabel" id="Label_Reverb" x="30.0" y="9.0" parentComponent="Button_ReverbSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Reverb" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_WidthSettings" x="803" y="89"
-                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140"
-                 height="44" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+      <Component type="ScriptButton" id="Button_WidthSettings" x="803.0" y="89.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
                  itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Utility Module.">
         <Component type="ScriptButton" id="Button_WidthEnable" x="9.0" y="15.0"
@@ -290,9 +290,9 @@
         <Component type="ScriptLabel" id="Label_Width" x="30.0" y="9.0" parentComponent="Button_WidthSettings"
                    width="82.0" height="28.0" fontSize="14.0" text="Utility" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_DelaySettings" x="803" y="239"
-                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140"
-                 height="44" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+      <Component type="ScriptButton" id="Button_DelaySettings" x="803.0" y="239.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
                  itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Delay Module.">
         <Component type="ScriptButton" id="Button_DelayEnable" x="9.0" y="14.0"
@@ -303,9 +303,9 @@
         <Component type="ScriptLabel" id="Label_Delay" x="30.0" y="9.0" parentComponent="Button_DelaySettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Delay" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_PhaserSettings" x="803" y="139"
-                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140"
-                 height="44" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+      <Component type="ScriptButton" id="Button_PhaserSettings" x="803.0" y="139.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
                  itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Phaser Module.">
         <Component type="ScriptButton" id="Button_PhaserEnable" x="9.0" y="14.0"
@@ -316,9 +316,9 @@
         <Component type="ScriptLabel" id="Label_Phaser" x="30.0" y="9.0" parentComponent="Button_PhaserSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Phaser" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_DegradeSettings" x="51" y="339"
-                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140"
-                 height="44" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+      <Component type="ScriptButton" id="Button_DegradeSettings" x="51.0" y="339.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
                  itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Degrade Module.">
         <Component type="ScriptButton" id="Button_DegradeEnable" x="9.0" y="14.0"
@@ -329,11 +329,11 @@
         <Component type="ScriptLabel" id="Label_Degrade" x="30.0" y="7.0" parentComponent="Button_DegradeSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Degrade" editable="0"/>
       </Component>
-      <Component type="ScriptButton" id="Button_AmpSettings" x="51" y="239" parentComponent="Panel_FX"
-                 text="LAFButtonFXSettings" width="140" height="44" radioGroup="3.0"
-                 bgColour="16777215" itemColour="3355443" itemColour2="1118481"
-                 filmstripImage="{PROJECT_FOLDER}show FX button.png" numStrips="6.0"
-                 enableMidiLearn="0" tooltip="Opens the Amp Module.">
+      <Component type="ScriptButton" id="Button_AmpSettings" x="51.0" y="239.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Amp Module.">
         <Component type="ScriptButton" id="Button_AmpEnable" x="9.0" y="14.0" parentComponent="Button_AmpSettings"
                    width="16.0" height="16.0" text="LAFButtonSamplerBypass" bgColour="16777215"
                    itemColour="3355443" itemColour2="1118481" isPluginParameter="1"
@@ -341,8 +341,8 @@
         <Component type="ScriptLabel" id="Label_Amp" x="30.0" y="7.0" parentComponent="Button_AmpSettings"
                    width="77.0" height="28.0" fontSize="14.0" text="Amp" editable="0"/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_EQSettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
+      <Component type="ScriptPanel" id="Panel_EQSettings" x="197.0" y="87.0" parentComponent="Panel_FX"
+                 width="600.0" height="300.0" itemColour="3372220416" itemColour2="3372220416"
                  borderRadius="2.0" bgColour="16777215" textColour="16777215"
                  visible="0">
         <Component type="ScriptFloatingTile" id="FloatingTile3" x="7.0" y="40.0"
@@ -350,86 +350,87 @@
                    ContentType="DraggableFilterPanel" bgColour="5855577" itemColour="3435066873"
                    itemColour2="4294967295" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;Parametriq EQ1&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
                    itemColour3="544305521"/>
-        <Component type="ScriptLabel" id="Label_EQTitle" x="236" y="8" parentComponent="Panel_EQSettings"
-                   text="PARAMETRIC EQ" editable="0" width="128" height="28"/>
+        <Component type="ScriptLabel" id="Label_EQTitle" x="236.0" y="8.0" parentComponent="Panel_EQSettings"
+                   text="PARAMETRIC EQ" editable="0" width="128.0" height="28.0"/>
       </Component>
       <Component type="ScriptPanel" id="Panel_CompSettings" x="197.0" y="87.0"
-                 parentComponent="Panel_FX" width="600" height="300" itemColour="3372220416"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
                  itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
-                 textColour="16777215">
-        <Component type="ScriptLabel" id="Label_CompTitle" x="236" y="8" parentComponent="Panel_CompSettings"
-                   text="COMPRESSOR" editable="0" width="128" height="28"/>
-        <Component type="ScriptSlider" id="Slider_CompThreshold" x="80.0" y="100"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_CompTitle" x="236.0" y="8.0" parentComponent="Panel_CompSettings"
+                   text="COMPRESSOR" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_CompThreshold" x="44.0" y="90"
                    parentComponent="Panel_CompSettings" text="" min="-100.0" max="0.0"
                    middlePosition="-48.0" isPluginParameter="1" pluginParameterName="Comp_Threshold"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the Compressor Threshold (in dB)."/>
-        <Component type="ScriptSlider" id="Slider_CompAttack" x="80.0" y="164" parentComponent="Panel_CompSettings"
+        <Component type="ScriptSlider" id="Slider_CompAttack" x="44.0" y="159" parentComponent="Panel_CompSettings"
                    text="" min="1.0" max="250.0" middlePosition="125.0" defaultValue="50.0"
                    isPluginParameter="1" pluginParameterName="Comp_Attack" numStrips="127.0"
                    width="48.0" height="48.0" tooltip="Adjusts the Compressor Attack (in ms)."/>
-        <Component type="ScriptSlider" id="Slider_CompRelease" x="80.0" y="229"
+        <Component type="ScriptSlider" id="Slider_CompRelease" x="44.0" y="229"
                    parentComponent="Panel_CompSettings" text="" defaultValue="50.0"
                    min="1.0" max="250.0" middlePosition="125.0" isPluginParameter="1"
                    pluginParameterName="Comp_Release" numStrips="127.0" width="48.0"
                    height="48.0" tooltip="Adjusts the Compressor Release (in ms)."/>
-        <Component type="ScriptSlider" id="Slider_CompRatio" x="400.0" y="100" parentComponent="Panel_CompSettings"
-                   text="" min="2.0" max="8.0" stepSize="1.0" middlePosition="4.0"
-                   defaultValue="4.0" isPluginParameter="1" pluginParameterName="Comp_Ratio"
-                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the Compressor Ratio."/>
-        <Component type="ScriptSlider" id="Slider_CompMakeup" x="400.0" y="164"
+        <Component type="ScriptSlider" id="Slider_CompRatio" x="180.0" y="90.0"
+                   parentComponent="Panel_CompSettings" text="" min="2.0" max="8.0"
+                   stepSize="1.0" middlePosition="4.0" defaultValue="4.0" isPluginParameter="1"
+                   pluginParameterName="Comp_Ratio" numStrips="127.0" width="48.0"
+                   height="48.0" tooltip="Adjusts the Compressor Ratio."/>
+        <Component type="ScriptSlider" id="Slider_CompMakeup" x="180.0" y="159.0"
                    parentComponent="Panel_CompSettings" text="" max="12.0" middlePosition="6.0"
                    isPluginParameter="1" pluginParameterName="Comp_MakeupGain" numStrips="127.0"
                    width="48.0" height="48.0" tooltip="Adjusts the makeup Gain after the Compression has happened."/>
-        <Component type="ScriptSlider" id="Slider_CompMix" x="400.0" y="229" parentComponent="Panel_CompSettings"
+        <Component type="ScriptSlider" id="Slider_CompMix" x="180.0" y="229.0" parentComponent="Panel_CompSettings"
                    text="" middlePosition="0.5" isPluginParameter="1" pluginParameterName="Comp_Mix"
                    numStrips="127.0" width="48.0" height="48.0" defaultValue="1.0"
                    tooltip="Adjusts the blend between Dry and Wet signals."/>
-        <Component type="ScriptLabel" id="Label_CompThresholdValue" x="130.0" y="116.0"
+        <Component type="ScriptLabel" id="Label_CompThresholdValue" x="104.0" y="106"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="0dB" editable="0" saveInPreset="1" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompThreshold" x="130.0" y="100.0"
+        <Component type="ScriptLabel" id="Label_CompThreshold" x="104.0" y="90"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="Threshold" editable="0" fontStyle="Bold" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompRatio" x="450.0" y="100.0" parentComponent="Panel_CompSettings"
+        <Component type="ScriptLabel" id="Label_CompRatio" x="240.0" y="90" parentComponent="Panel_CompSettings"
                    width="61.0" height="28.0" text="Ratio" editable="0" fontStyle="Bold"
                    alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompRatioValue" x="450.0" y="116.0"
+        <Component type="ScriptLabel" id="Label_CompRatioValue" x="240.0" y="106"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="2.0:1" editable="0" saveInPreset="1" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompMakeup" x="450.0" y="164.0"
-                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
-                   text="Makeup" editable="0" fontStyle="Bold" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompMakeupValue" x="450.0" y="180.0"
+        <Component type="ScriptLabel" id="Label_CompMakeup" x="240.0" y="159" parentComponent="Panel_CompSettings"
+                   width="61.0" height="28.0" text="Makeup" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompMakeupValue" x="240.0" y="175"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="0dB" editable="0" saveInPreset="1" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompAttack" x="130.0" y="164.0"
-                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
-                   text="Attack" editable="0" fontStyle="Bold" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompAttackValue" x="130.0" y="180.0"
+        <Component type="ScriptLabel" id="Label_CompAttack" x="104.0" y="159" parentComponent="Panel_CompSettings"
+                   width="61.0" height="28.0" text="Attack" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompAttackValue" x="104.0" y="175"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="50ms" editable="0" saveInPreset="1" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompMix" x="450.0" y="229.0" parentComponent="Panel_CompSettings"
+        <Component type="ScriptLabel" id="Label_CompMix" x="240.0" y="229.0" parentComponent="Panel_CompSettings"
                    width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
                    alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompMixValue" x="450.0" y="245.0"
+        <Component type="ScriptLabel" id="Label_CompMixValue" x="240.0" y="245.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="100%" editable="0" saveInPreset="1" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompRelease" x="130.0" y="229.0"
+        <Component type="ScriptLabel" id="Label_CompRelease" x="104.0" y="229.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="Release" editable="0" fontStyle="Bold" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_CompReleaseValue" x="130.0" y="245.0"
+        <Component type="ScriptLabel" id="Label_CompReleaseValue" x="104.0" y="245.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="50ms" editable="0" saveInPreset="1" alignment="left"/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_FilterSettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
-                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
-                 visible="0">
+      <Component type="ScriptPanel" id="Panel_FilterSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
         <Component type="ScriptLabel" id="Label_FilterFreqValue" x="90.0" y="252.0"
                    parentComponent="Panel_FilterSettings" width="60.0" height="27.0"
                    text="20000Hz" editable="0" saveInPreset="1" alignment="left"/>
-        <Component type="ScriptLabel" id="Label_FilterTitle" x="236" y="8" parentComponent="Panel_FilterSettings"
-                   text="FILTER" editable="0" width="128" height="28"/>
+        <Component type="ScriptLabel" id="Label_FilterTitle" x="236.0" y="8.0" parentComponent="Panel_FilterSettings"
+                   text="FILTER" editable="0" width="128.0" height="28.0"/>
         <Component type="ScriptSlider" id="Slider_FilterFreq" x="30.0" y="236.0"
                    parentComponent="Panel_FilterSettings" text="" min="20.0" max="20000.0"
                    stepSize="1.0" middlePosition="1500.0" width="48.0" height="48.0"
@@ -441,7 +442,7 @@
                    numStrips="127.0" defaultValue="0.4000000059604645" tooltip="Adjusts the Filter Resonance (Q)."/>
         <Component type="ScriptComboBox" id="ComboBox_FilterMode" x="400.0" y="220.0"
                    max="2" parentComponent="Panel_FilterSettings" text="Select"
-                   items="LowPass&#10;HighPass" width="170" height="30" isPluginParameter="1"
+                   items="LowPass&#10;HighPass" width="170.0" height="30.0" isPluginParameter="1"
                    pluginParameterName="Filter_Type" tooltip="Select Filter type."/>
         <Component type="ScriptFloatingTile" id="FloatingTile4" x="30.0" y="40.0"
                    parentComponent="Panel_FilterSettings" ContentType="FilterDisplay"
@@ -464,231 +465,235 @@
                    y="222.0" parentComponent="Panel_FilterSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_DriveSettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
-                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
-                 visible="0">
-        <Component type="ScriptLabel" id="Label_DriveWaveShaperGain" x="200.0" y="121.0"
+      <Component type="ScriptPanel" id="Panel_DriveSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_DriveWaveShaperGain" x="104.0" y="90.0"
                    parentComponent="Panel_DriveSettings" width="61.0" height="28.0"
-                   text="Gain" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DriveWaveShaperGainValue" x="208.0"
-                   y="136.0" parentComponent="Panel_DriveSettings" width="50.0"
-                   height="28.0" text="0db" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DriveTitle" x="236" y="8" parentComponent="Panel_DriveSettings"
-                   text="DRIVE" editable="0" width="128" height="28"/>
-        <Component type="ScriptComboBox" id="ComboBox_DriveOversample" x="300.0"
-                   y="120.0" max="2" parentComponent="Panel_DriveSettings" width="112.0"
-                   height="32.0" text="Oversample" items="Off&#10;2x" processorId="Shape FX1"
+                   text="Gain" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveWaveShaperGainValue" x="104.0"
+                   y="106.0" parentComponent="Panel_DriveSettings" width="50.0"
+                   height="28.0" text="0db" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveTitle" x="236.0" y="8.0" parentComponent="Panel_DriveSettings"
+                   text="DRIVE" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptComboBox" id="ComboBox_DriveOversample" x="180.0"
+                   y="110.0" max="2" parentComponent="Panel_DriveSettings" width="112.0"
+                   height="30.0" text="Oversample" items="Off&#10;2x" processorId="Shape FX1"
                    parameterId="Oversampling" tooltip="Applies Oversampling."/>
-        <Component type="ScriptSlider" id="Slider_DriveWaveshaperGain" x="174.0"
-                   y="120.0" parentComponent="Panel_DriveSettings" text="" max="16.0"
+        <Component type="ScriptSlider" id="Slider_DriveWaveshaperGain" x="44.0"
+                   y="90.0" parentComponent="Panel_DriveSettings" text="" max="16.0"
                    middlePosition="8.0" isPluginParameter="1" pluginParameterName="Drive_WaveShaperGain"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of Gain applied to the WaveShaper."/>
-        <Component type="ScriptComboBox" id="ComboBox_DriveOversample1" x="300.0"
-                   y="200.0" max="2" parentComponent="Panel_DriveSettings" width="112.0"
-                   height="32.0" text="Oversample" items="Off&#10;2x" tooltip="Applies Oversampling."/>
-        <Component type="ScriptSlider" id="Slider_DriveTubeGain" x="174.0" y="200.0"
+        <Component type="ScriptComboBox" id="ComboBox_DriveOversample1" x="180.0"
+                   y="240.0" max="2" parentComponent="Panel_DriveSettings" width="112.0"
+                   height="30.0" text="Oversample" items="Off&#10;2x" tooltip="Applies Oversampling."/>
+        <Component type="ScriptSlider" id="Slider_DriveTubeGain" x="44.0" y="220.0"
                    parentComponent="Panel_DriveSettings" text="" max="16.0" middlePosition="8.0"
                    isPluginParameter="1" pluginParameterName="Drive_TubeGain" numStrips="127.0"
                    width="48.0" height="48.0" tooltip="Adjusts the amount of Gain applied to the Tube Drive."/>
-        <Component type="ScriptLabel" id="Label_DriveWaveShaper" x="159.0" y="87.0"
-                   parentComponent="Panel_DriveSettings" text="WaveShaper" width="102.0"
-                   height="28.0" editable="0"/>
-        <Component type="ScriptLabel" id="Label_DriveTube" x="169.0" y="169.0" parentComponent="Panel_DriveSettings"
-                   text="Tube Drive" width="71.0" height="28.0" editable="0"/>
-        <Component type="ScriptLabel" id="Label_DriveTubeGainValue" x="208.0" y="217.0"
+        <Component type="ScriptLabel" id="Label_DriveWaveShaper" x="10.0" y="45.0"
+                   parentComponent="Panel_DriveSettings" text="WaveShaper" width="100.0"
+                   height="28.0" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptLabel" id="Label_DriveTube" x="10.0" y="175.0" parentComponent="Panel_DriveSettings"
+                   text="Tube Drive" width="100.0" height="28.0" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptLabel" id="Label_DriveTubeGainValue" x="104.0" y="236.0"
                    parentComponent="Panel_DriveSettings" width="50.0" height="28.0"
-                   text="0db" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DriveTubeGain" x="200.0" y="202.0"
+                   text="0db" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveTubeGain" x="104.0" y="220.0"
                    parentComponent="Panel_DriveSettings" width="61.0" height="28.0"
-                   text="Gain" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DriveWaveShaperOversample" x="285.0"
-                   y="91.0" parentComponent="Panel_DriveSettings" width="109.0"
-                   height="28.0" text="Oversampling" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DriveTubeOversample" x="285.0" y="170.0"
+                   text="Gain" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveWaveShaperOversample" x="180.0"
+                   y="80.0" parentComponent="Panel_DriveSettings" width="109.0"
+                   height="28.0" text="Oversampling" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveTubeOversample" x="180.0" y="210.0"
                    parentComponent="Panel_DriveSettings" width="109.0" height="28.0"
-                   text="Oversampling" editable="0" fontStyle="Bold"/>
+                   text="Oversampling" editable="0" fontStyle="Bold" alignment="left"/>
         <Component type="ScriptButton" id="Button_RandomizeFXDriveWaveShaperGain"
-                   x="99.0" y="101.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
+                   x="104.0" y="76.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXDriveTubeDriveGain"
-                   x="99.0" y="182.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
+                   x="104.0" y="206.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_ReverbSettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
-                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
-                 visible="0">
-        <Component type="ScriptLabel" id="Label_ReverbSize" x="229.0" y="104.0"
+      <Component type="ScriptPanel" id="Panel_ReverbSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_ReverbSize" x="104.0" y="90" parentComponent="Panel_ReverbSettings"
+                   width="61.0" height="28.0" text="Size" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbSizeValue" x="104.0" y="106.0"
                    parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
-                   text="Size" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_ReverbSizeValue" x="232.0" y="119.0"
-                   parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
-                   text="70%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_ReverbTitle" x="236" y="8" parentComponent="Panel_ReverbSettings"
-                   text="REVERB" editable="0" width="128" height="28"/>
-        <Component type="ScriptSlider" id="Slider_ReverbSize" x="200.0" y="110.0"
+                   text="70%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbTitle" x="236.0" y="8.0" parentComponent="Panel_ReverbSettings"
+                   text="REVERB" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_ReverbSize" x="44.0" y="90.0"
                    parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
                    defaultValue="0.699999988079071" isPluginParameter="1" pluginParameterName="Reverb_Size"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the Size of the Reverb."/>
-        <Component type="ScriptSlider" id="Slider_ReverbWidth" x="200.0" y="163.0"
+        <Component type="ScriptSlider" id="Slider_ReverbWidth" x="44.0" y="179.0"
                    parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
                    defaultValue="0.800000011920929" isPluginParameter="1" pluginParameterName="Reverb_Width"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the Stereo Width of the Reverb."/>
-        <Component type="ScriptSlider" id="Slider_ReverbDamping" x="315.0" y="110.0"
+        <Component type="ScriptSlider" id="Slider_ReverbDamping" x="180.0" y="90"
                    parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
                    defaultValue="0.5" isPluginParameter="1" pluginParameterName="Reverb_Damping"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of High Frequency Damping."/>
-        <Component type="ScriptSlider" id="Slider_ReverbMix" x="315.0" y="163.0"
+        <Component type="ScriptSlider" id="Slider_ReverbMix" x="180.0" y="179.0"
                    parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
                    defaultValue="0.2000000029802322" isPluginParameter="1" pluginParameterName="Reverb_Mix"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the blend between Dry and Wet signals."/>
-        <Component type="ScriptLabel" id="Label_ReverbDampingValue" x="359.0" y="119.0"
+        <Component type="ScriptLabel" id="Label_ReverbDampingValue" x="240.0" y="106.0"
                    parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
-                   text="50%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_ReverbDamping" x="356.0" y="104.0"
+                   text="50%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbDamping" x="240.0" y="90"
                    parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
-                   text="Damping" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_ReverbWidth" x="229.0" y="161.0"
+                   text="Damping" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbWidth" x="104.0" y="179.0"
                    parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
-                   text="Width" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_ReverbWidthValue" x="232.0" y="176.0"
+                   text="Width" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbWidthValue" x="104.0" y="195.0"
                    parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
-                   text="80%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_ReverbMix" x="356.0" y="161.0" parentComponent="Panel_ReverbSettings"
-                   width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_ReverbMixValue" x="359.0" y="176.0"
+                   text="80%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbMix" x="240.0" y="179.0" parentComponent="Panel_ReverbSettings"
+                   width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbMixValue" x="240.0" y="195.0"
                    parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
-                   text="20%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptButton" id="Button_RandomizeFXReverbSize" x="102.0"
-                   y="80.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+                   text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXReverbSize" x="104.0"
+                   y="76.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXReverbDamping" x="240.0"
-                   y="80.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+                   y="76.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXReverbWidth" x="102.0"
-                   y="136.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXReverbWidth" x="104.0"
+                   y="165.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXReverbMix" x="240.0"
-                   y="136.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+                   y="165.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_DelaySettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
-                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
-                 visible="0">
-        <Component type="ScriptLabel" id="Label_DelayTimeLeft" x="209.0" y="80.0"
+      <Component type="ScriptPanel" id="Panel_DelaySettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_DelayTimeLeft" x="104.0" y="90"
                    parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
-                   text="Time L" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DelayTimeLeftValue" x="219.0" y="93.0"
+                   text="Time L" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTimeLeftValue" x="104.0" y="106.0"
                    parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
-                   text="1/8T" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DelayTimeRightValue" x="347.0" y="93.0"
+                   text="1/8T" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTimeRightValue" x="240.0" y="106.0"
                    parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
-                   text="1/8T" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DelayTimeRight" x="338.0" y="80.0"
-                   parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
-                   text="Time R" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DelayTitle" x="236" y="8" parentComponent="Panel_DelaySettings"
-                   text="DELAY" editable="0" width="128" height="28"/>
-        <Component type="ScriptSlider" id="Slider_DelayFeedbackRight" x="309.0"
-                   y="129.0" parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
+                   text="1/8T" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTimeRight" x="240" y="90" parentComponent="Panel_DelaySettings"
+                   width="80.0" height="28.0" text="Time R" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTitle" x="236.0" y="8.0" parentComponent="Panel_DelaySettings"
+                   text="DELAY" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_DelayFeedbackRight" x="180.0"
+                   y="159" parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
                    pluginParameterName="Delay_FeedbackRight" numStrips="127.0" width="48.0"
                    height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Right Channel."/>
-        <Component type="ScriptSlider" id="Slider_DelayFeedbackLeft" x="180.0" y="129.0"
+        <Component type="ScriptSlider" id="Slider_DelayFeedbackLeft" x="44.0" y="159.0"
                    parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
                    pluginParameterName="Delay_FeedbackLeft" numStrips="127.0" width="48.0"
                    height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Left Channel."/>
-        <Component type="ScriptSlider" id="Slider_DelayMix" x="309.0" y="191.0"
-                   parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
-                   pluginParameterName="Delay_Mix" numStrips="127.0" width="48.0"
-                   height="48.0" defaultValue="0.2000000029802322" tooltip="Adjusts the blend between Dry and Wet signals."/>
-        <Component type="ScriptButton" id="Button_DelayLink" x="185.0" y="189.0"
+        <Component type="ScriptSlider" id="Slider_DelayMix" x="180.0" y="229" parentComponent="Panel_DelaySettings"
+                   text="" isPluginParameter="1" pluginParameterName="Delay_Mix"
+                   numStrips="127.0" width="48.0" height="48.0" defaultValue="0.2000000029802322"
+                   tooltip="Adjusts the blend between Dry and Wet signals."/>
+        <Component type="ScriptButton" id="Button_DelayLink" x="49.0" y="228.0"
                    parentComponent="Panel_DelaySettings" text="LAFButtonBypass"
                    width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
                    enableMidiLearn="0" tooltip="Links the Left and Right channels."/>
-        <Component type="ScriptButton" id="Button_DelaySync" x="185.0" y="221.0"
+        <Component type="ScriptButton" id="Button_DelaySync" x="49.0" y="260.0"
                    parentComponent="Panel_DelaySettings" text="LAFButtonBypass"
                    width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
                    enableMidiLearn="0" tooltip="Syncs Delay Times to Host Tempo."/>
-        <Component type="ScriptLabel" id="Label_DelayFeedbackLeft" x="212.0" y="127.0"
+        <Component type="ScriptLabel" id="Label_DelayFeedbackLeft" x="104" y="159"
                    parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
-                   text="FDBK L" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DelayFeedbackRight" x="340.0" y="127.0"
+                   text="FDBK L" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayFeedbackRight" x="240" y="159"
                    parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
-                   text="FDBK R" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DelayFeedbackRightValue" x="347.0"
-                   y="140.0" parentComponent="Panel_DelaySettings" width="61.0"
-                   height="28.0" text="25%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DelayFeedbackLeftValue" x="221.0"
-                   y="140.0" parentComponent="Panel_DelaySettings" width="61.0"
-                   height="28.0" text="25%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DelayMixValue" x="352.0" y="203.0"
+                   text="FDBK R" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayFeedbackRightValue" x="240"
+                   y="175.0" parentComponent="Panel_DelaySettings" width="61.0"
+                   height="28.0" text="25%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayFeedbackLeftValue" x="104.0"
+                   y="175.0" parentComponent="Panel_DelaySettings" width="61.0"
+                   height="28.0" text="25%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayMixValue" x="240" y="245.0"
                    parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
-                   text="20%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DelayMix" x="341.0" y="190.0" parentComponent="Panel_DelaySettings"
-                   width="80.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DelayLink" x="203.0" y="181.0" parentComponent="Panel_DelaySettings"
+                   text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayMix" x="240" y="229" parentComponent="Panel_DelaySettings"
+                   width="80.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayLink" x="67.0" y="220.0" parentComponent="Panel_DelaySettings"
                    width="80.0" height="28.0" text="Link L&amp;R" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DelaySync" x="206.0" y="211.0" parentComponent="Panel_DelaySettings"
+        <Component type="ScriptLabel" id="Label_DelaySync" x="70.0" y="250.0" parentComponent="Panel_DelaySettings"
                    width="80.0" height="28.0" text="Tempo Sync" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeL" x="122.0"
-                   y="62.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeL" x="104"
+                   y="76.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeR" x="248.0"
-                   y="62.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeR" x="240"
+                   y="76.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" x="122.0"
-                   y="110.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" x="104"
+                   y="145.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" x="248.0"
-                   y="110.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" x="240"
+                   y="145.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXDelayMix" x="248.0"
-                   y="173.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayMix" x="240" y="215.0"
+                   parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptSlider" id="Slider_DelayTimeLeft" x="180.0" y="80.0"
+        <Component type="ScriptSlider" id="Slider_DelayTimeLeft" x="44.0" y="90.0"
                    parentComponent="Panel_DelaySettings" text="" width="48.0" height="48.0"
                    max="18" stepSize="1" middlePosition="9.0" defaultValue="5.0"
                    isMetaParameter="1" tooltip="Adjusts the Delay Time of the Left Channel."/>
-        <Component type="ScriptSlider" id="Slider_DelayTimeRight" x="309.0" y="80.0"
+        <Component type="ScriptSlider" id="Slider_DelayTimeRight" x="180.0" y="90"
                    parentComponent="Panel_DelaySettings" text="" width="48.0" height="48.0"
                    max="18" stepSize="1" middlePosition="9.0" defaultValue="5.0"
                    isMetaParameter="1" tooltip="Adjusts the Delay Time of the Right Channel."/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_WidthSettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
-                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
-                 visible="0">
-        <Component type="ScriptLabel" id="Label_StutterLFOSync" x="329.0" y="223.0"
+      <Component type="ScriptPanel" id="Panel_WidthSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_StutterLFOSync" x="177.0" y="260.0"
                    parentComponent="Panel_WidthSettings" width="80.0" height="28.0"
                    text="Sync" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptButton" id="Button_StutterLFOSync" x="330.0" y="232.0"
+        <Component type="ScriptButton" id="Button_StutterLFOSync" x="178.0" y="269.0"
                    parentComponent="Panel_WidthSettings" text="LAFButtonBypass"
                    width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
                    enableMidiLearn="0" tooltip="Synchronizes the Stutter Rate to the Host Tempo."/>
-        <Component type="ScriptLabel" id="Label_WidthAmount" x="208.0" y="86.0"
+        <Component type="ScriptLabel" id="Label_WidthAmount" x="104.0" y="90.0"
+                   parentComponent="Panel_WidthSettings" width="61" height="28"
+                   text="Width" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_WidthAmountValue" x="104.0" y="106.0"
                    parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
-                   text="Width" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_WidthAmountValue" x="211.0" y="99.0"
-                   parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
-                   text="100%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_WidthTitle" x="236" y="8" parentComponent="Panel_WidthSettings"
-                   text="WIDENER" editable="0" width="128" height="28"/>
-        <Component type="ScriptSlider" id="Slider_WidthAmount" x="180.0" y="90.0"
+                   text="100%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_WidthTitle" x="90" y="42.0" parentComponent="Panel_WidthSettings"
+                   text="Widener" editable="0" width="128.0" height="28.0" fontStyle="Bold"/>
+        <Component type="ScriptSlider" id="Slider_WidthAmount" x="44.0" y="90.0"
                    parentComponent="Panel_WidthSettings" text="" max="200.0" middlePosition="100.0"
                    defaultValue="100.0" isPluginParameter="1" pluginParameterName="Width_Amount"
                    numStrips="127.0" width="48.0" height="48.0" stepSize="1.0" tooltip="Adjusts the Stereo Width."/>
-        <Component type="ScriptSlider" id="Slider_WidthGain" x="309.0" y="90.0"
+        <Component type="ScriptSlider" id="Slider_WidthGain" x="180.0" y="90.0"
                    parentComponent="Panel_WidthSettings" text="" min="-100.0" max="36.0"
                    middlePosition="0.0" isPluginParameter="1" pluginParameterName="Width_Gain"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of clean Gain (in dB)."/>
-        <Component type="ScriptLabel" id="Label_WidthGain" x="347.0" y="86.0" parentComponent="Panel_WidthSettings"
-                   width="61.0" height="28.0" text="Gain" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_WidthGainValue" x="348.0" y="99.0"
+        <Component type="ScriptLabel" id="Label_WidthGain" x="240.0" y="90.0" parentComponent="Panel_WidthSettings"
+                   width="61.0" height="28.0" text="Gain" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_WidthGainValue" x="240.0" y="106.0"
                    parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
-                   text="0.0db" editable="0" saveInPreset="1"/>
-        <Component type="ScriptSlider" id="Slider_StutterLFORate" x="180.0" y="176.0"
+                   text="0.0db" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptSlider" id="Slider_StutterLFORate" x="44.0" y="199.0"
                    parentComponent="Panel_WidthSettings" text="" max="18.0" middlePosition="9.0"
                    defaultValue="11.0" isPluginParameter="1" pluginParameterName="Stutter_Rate"
                    numStrips="127.0" width="48.0" height="48.0" stepSize="1.0" tooltip="Adjusts the stutter Rate, synced to DAW tempo."/>
@@ -698,229 +703,237 @@
                    filmstripImage="{PROJECT_FOLDER}slider1.png" numStrips="127.0"
                    width="36.0" height="36.0" stepSize="0.1000000014901161" min="0.5"
                    max="40.0" tooltip="Adjusts the Stutter Rate (in Hz)." visible="0"/>
-        <Component type="ScriptLabel" id="Label_StutterLFORateValue" x="208.0" y="185.0"
+        <Component type="ScriptLabel" id="Label_StutterLFORateValue" x="104.0" y="215.0"
                    parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
-                   text="1/16" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_StutterLFORate" x="208.0" y="172.0"
+                   text="1/16" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_StutterLFORate" x="104.0" y="199.0"
                    parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
-                   text="Rate" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptSlider" id="Slider_StutterLFOAmount" x="309.0" y="176.0"
+                   text="Rate" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptSlider" id="Slider_StutterLFOAmount" x="180.0" y="199.0"
                    parentComponent="Panel_WidthSettings" text="" middlePosition="0.5"
                    isPluginParameter="1" pluginParameterName="Stutter_Amount" numStrips="127.0"
                    width="48.0" height="48.0" tooltip="Adjusts the amount of Stutter applied."/>
-        <Component type="ScriptLabel" id="Label_StutterLFOAmount" x="347.0" y="172.0"
+        <Component type="ScriptLabel" id="Label_StutterLFOAmount" x="240.0" y="199.0"
                    parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
-                   text="Amount" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_StutterLFOAmountValue" x="348.0"
-                   y="185.0" parentComponent="Panel_WidthSettings" width="61.0"
-                   height="28.0" text="0%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_StutterLFOTitle" x="236.0" y="139.0"
-                   parentComponent="Panel_WidthSettings" text="STUTTER LFO" editable="0"/>
-        <Component type="ScriptButton" id="Button_StutterLFOPreFX" x="206.0" y="233.0"
+                   text="Amount" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_StutterLFOAmountValue" x="240.0"
+                   y="215.0" parentComponent="Panel_WidthSettings" width="61.0"
+                   height="28.0" text="0%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_StutterLFOTitle" x="90" y="146.0"
+                   parentComponent="Panel_WidthSettings" text="Stutter LFO" editable="0"
+                   fontStyle="Bold"/>
+        <Component type="ScriptButton" id="Button_StutterLFOPreFX" x="54.0" y="270.0"
                    parentComponent="Panel_WidthSettings" text="LAFButtonBypass"
                    width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
                    enableMidiLearn="0" tooltip="Makes the Stutter Pre-FX."/>
-        <Component type="ScriptLabel" id="Label_StutterLFOPreFX" x="213.0" y="224.0"
+        <Component type="ScriptLabel" id="Label_StutterLFOPreFX" x="61.0" y="261.0"
                    parentComponent="Panel_WidthSettings" width="72.0" height="28.0"
                    text="Pre FX" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptButton" id="Button_RandomizeFXWidenerWidth" x="101.0"
-                   y="61.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXWidenerWidth" x="104.0"
+                   y="76.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXStutterRate" x="101.0"
-                   y="149.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXStutterRate" x="104.0"
+                   y="185.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXStutterAmount" x="248.0"
-                   y="149.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXStutterAmount" x="240.0"
+                   y="185.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptLabel" id="Label_WidthTitle1" x="240.0" y="8.0" parentComponent="Panel_WidthSettings"
+                   text="UTILITY" editable="0" width="128.0" height="28.0" fontStyle="Regular"/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_PhaserSettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
-                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
-                 visible="0">
-        <Component type="ScriptLabel" id="Label_PhaserRateAAmount" x="228.0" y="124.0"
+      <Component type="ScriptPanel" id="Panel_PhaserSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_PhaserRateAAmount" x="104.0" y="106.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="1500Hz" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_PhaserRateA" x="226.0" y="109.0"
+                   text="1500Hz" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserRateA" x="104.0" y="90.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="Rate A" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_PhaserTitle" x="236" y="8" parentComponent="Panel_PhaserSettings"
-                   text="PHASER" editable="0" width="128" height="28"/>
-        <Component type="ScriptSlider" id="Slider_PhaserRateA" x="190.0" y="110.0"
+                   text="Rate A" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserTitle" x="236.0" y="8.0" parentComponent="Panel_PhaserSettings"
+                   text="PHASER" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_PhaserRateA" x="44.0" y="90.0"
                    parentComponent="Panel_PhaserSettings" text="" min="20.0" max="20000.0"
                    middlePosition="1500.0" defaultValue="1500.0" isPluginParameter="1"
                    pluginParameterName="Phaser_RateA" numStrips="127.0" width="48.0"
                    height="48.0" stepSize="1.0" tooltip="Adjusts the Phaser Rate A."/>
-        <Component type="ScriptSlider" id="Slider_PhaserRateB" x="193.0" y="175.0"
+        <Component type="ScriptSlider" id="Slider_PhaserRateB" x="44.0" y="179.0"
                    parentComponent="Panel_PhaserSettings" text="" min="20.0" max="20000.0"
                    middlePosition="1500.0" defaultValue="1500.0" isPluginParameter="1"
                    pluginParameterName="Phaser_RateB" numStrips="127.0" width="48.0"
                    height="48.0" stepSize="1.0" tooltip="Adjusts the Phaser Rate B."/>
-        <Component type="ScriptSlider" id="Slider_PhaserMix" x="310.0" y="175.0"
+        <Component type="ScriptSlider" id="Slider_PhaserMix" x="180.0" y="179.0"
                    parentComponent="Panel_PhaserSettings" text="" middlePosition="0.5"
                    isPluginParameter="1" pluginParameterName="Phaser_Mix" numStrips="127.0"
                    width="48.0" height="48.0" defaultValue="0.2000000029802322"
                    tooltip="Adjusts the blend between Dry and Wet signals."/>
-        <Component type="ScriptSlider" id="Slider_PhaserFeedback" x="311.0" y="111.0"
+        <Component type="ScriptSlider" id="Slider_PhaserFeedback" x="180.0" y="90.0"
                    parentComponent="Panel_PhaserSettings" text="" middlePosition="0.5"
                    isPluginParameter="1" pluginParameterName="Phaser_Feedback" numStrips="127.0"
                    width="48.0" height="48.0" defaultValue="0.2000000029802322"
                    tooltip="Adjusts the level of Feedback."/>
-        <Component type="ScriptLabel" id="Label_PhaserRateB" x="226.0" y="172.0"
+        <Component type="ScriptLabel" id="Label_PhaserRateB" x="104.0" y="179.0"
                    parentComponent="Panel_PhaserSettings" width="64.0" height="28.0"
-                   text="Rate B" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_PhaserRateBAmount" x="228.0" y="187.0"
+                   text="Rate B" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserRateBAmount" x="104.0" y="194.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="1500Hz" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_PhaserFeedback" x="354.0" y="109.0"
+                   text="1500Hz" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserFeedback" x="240.0" y="90.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="Feedback" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_PhaserFeedbackAmount" x="356.0"
-                   y="124.0" parentComponent="Panel_PhaserSettings" width="61.0"
-                   height="28.0" text="20%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_PhaserMix" x="353.0" y="172.0" parentComponent="Panel_PhaserSettings"
-                   width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_PhaserMixAmount" x="356.0" y="187.0"
+                   text="Feedback" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserFeedbackAmount" x="240.0"
+                   y="106.0" parentComponent="Panel_PhaserSettings" width="61.0"
+                   height="28.0" text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserMix" x="240.0" y="179.0" parentComponent="Panel_PhaserSettings"
+                   width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserMixAmount" x="240.0" y="194.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="20%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateA" x="111.0"
-                   y="88.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+                   text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateA" x="104.0"
+                   y="76.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateB" x="111.0"
-                   y="155.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateB" x="104.0"
+                   y="165.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" x="243.0"
-                   y="88.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" x="240.0"
+                   y="76.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXPhaserMix" x="243.0"
-                   y="155.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserMix" x="240.0"
+                   y="165.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_DegradeSettings" x="197" y="87"
-                 parentComponent="Panel_FX" width="600" height="300" itemColour="3372220416"
+      <Component type="ScriptPanel" id="Panel_DegradeSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
                  itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
-                 textColour="16777215" visible="0">
-        <Component type="ScriptLabel" id="Label_DegradeBitDepth" x="232.0" y="157.0"
+                 textColour="16777215">
+        <Component type="ScriptLabel" id="Label_DegradeBitDepth" x="104.0" y="90.0"
                    parentComponent="Panel_DegradeSettings" width="61.0" height="28.0"
-                   text="Bit Depth" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_DegradeBitDepthValue" x="229.0"
-                   y="172.0" parentComponent="Panel_DegradeSettings" width="61.0"
-                   height="28.0" text="16" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DegradeTitle" x="236" y="8" parentComponent="Panel_DegradeSettings"
-                   text="DEGRADE" editable="0" width="128" height="28"/>
-        <Component type="ScriptSlider" id="Slider_DegradeBitDepth" x="190.0" y="160.0"
+                   text="Bit Depth" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DegradeBitDepthValue" x="104.0"
+                   y="106.0" parentComponent="Panel_DegradeSettings" width="61.0"
+                   height="28.0" text="16" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DegradeTitle" x="236.0" y="8.0"
+                   parentComponent="Panel_DegradeSettings" text="DEGRADE" editable="0"
+                   width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_DegradeBitDepth" x="44.0" y="90.0"
                    parentComponent="Panel_DegradeSettings" min="4.0" max="16.0"
                    stepSize="0.1000000014901161" middlePosition="10.0" defaultValue="16.0"
                    text="" isPluginParameter="1" pluginParameterName="Degrade_BitDepth"
                    numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of Bits."/>
-        <Component type="ScriptSlider" id="Slider_DegradeSampleHold" x="310.0" y="159.0"
+        <Component type="ScriptSlider" id="Slider_DegradeSampleHold" x="44.0" y="220.0"
                    parentComponent="Panel_DegradeSettings" max="64.0" min="1.0"
                    defaultValue="1.0" middlePosition="32.0" stepSize="1.0" text=""
                    isPluginParameter="1" pluginParameterName="Degrade_SnH" numStrips="127.0"
                    width="48.0" height="48.0" tooltip="Adjusts the SampleHold amount."/>
-        <Component type="ScriptLabel" id="Label_DegradeSampleHoldValue" x="362.0"
-                   y="172.0" parentComponent="Panel_DegradeSettings" width="61.0"
-                   height="28.0" text="1.0" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_DegradeSampleHold" x="347.0" y="157.0"
+        <Component type="ScriptLabel" id="Label_DegradeSampleHoldValue" x="104.0"
+                   y="236.0" parentComponent="Panel_DegradeSettings" width="61.0"
+                   height="28.0" text="1.0" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DegradeSampleHold" x="104.0" y="220.0"
                    parentComponent="Panel_DegradeSettings" width="86.0" height="28.0"
-                   text="Sample Hold" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptButton" id="Button_RandomizeFXDegradeBitDepth" x="81.0"
-                   y="98.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
+                   text="Sample Hold" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDegradeBitDepth" x="104.0"
+                   y="76.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXSampleHold" x="213.0"
-                   y="98.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXSampleHold" x="104.0"
+                   y="206.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       </Component>
-      <Component type="ScriptPanel" id="Panel_AmpSettings" x="197" y="87" parentComponent="Panel_FX"
-                 width="600" height="300" itemColour="3372220416" itemColour2="3372220416"
-                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
-                 visible="0">
-        <Component type="ScriptLabel" id="Label_AmpGain" x="197.0" y="197.0" parentComponent="Panel_AmpSettings"
-                   width="80.0" height="28.0" text="Drive" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_AmpGainValue" x="208.0" y="211.0"
+      <Component type="ScriptPanel" id="Panel_AmpSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_AmpGain" x="104.0" y="180.0" parentComponent="Panel_AmpSettings"
+                   width="80.0" height="28.0" text="Drive" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpGainValue" x="104.0" y="196.0"
                    parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
-                   text="0.0%" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_AmpTitle" x="236" y="8" parentComponent="Panel_AmpSettings"
-                   text="AMP" editable="0" width="128" height="28"/>
-        <Component type="ScriptSlider" id="Slider_AmpGain" x="179.0" y="200.0" parentComponent="Panel_AmpSettings"
+                   text="0.0%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpTitle" x="236.0" y="8.0" parentComponent="Panel_AmpSettings"
+                   text="AMP" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_AmpGain" x="44.0" y="180.0" parentComponent="Panel_AmpSettings"
                    text="" max="100.0" middlePosition="50.0" stepSize="1.0" isPluginParameter="1"
                    pluginParameterName="Amp_Gain" numStrips="127.0" width="48.0"
                    height="48.0" tooltip="Adjusts the amount of Drive going into the Amplifier."/>
-        <Component type="ScriptButton" id="Button_AmpCabBypass" x="381.0" y="203.0"
+        <Component type="ScriptButton" id="Button_AmpCabBypass" x="246.0" y="253.0"
                    parentComponent="Panel_AmpSettings" text="LAFButtonBypass" width="10.0"
                    height="10.0" itemColour="3355443" bgColour="16777215" isPluginParameter="1"
                    pluginParameterName="Amp_EnableCab" enableMidiLearn="0" tooltip="Bypasses the Cabinet IR."/>
-        <Component type="ScriptSlider" id="Slider_AmpEQLow" x="213.0" y="143.0"
-                   parentComponent="Panel_AmpSettings" text="" max="8.0" middlePosition="0.0"
-                   stepSize="1.0" isPluginParameter="1" pluginParameterName="Amp_EQLow"
-                   numStrips="127.0" width="48.0" height="48.0" min="-8.0" tooltip="Adjusts the Low EQ Shelf (in dB)."/>
-        <Component type="ScriptLabel" id="Label_AmpEQLowValue" x="200.0" y="116.0"
+        <Component type="ScriptSlider" id="Slider_AmpEQLow" x="44.0" y="90.0" parentComponent="Panel_AmpSettings"
+                   text="" max="8.0" middlePosition="0.0" stepSize="1.0" isPluginParameter="1"
+                   pluginParameterName="Amp_EQLow" numStrips="127.0" width="48.0"
+                   height="48.0" min="-8.0" tooltip="Adjusts the Low EQ Shelf (in dB)."/>
+        <Component type="ScriptLabel" id="Label_AmpEQLowValue" x="40.0" y="58.0"
                    parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
                    text="0.0dB" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_AmpEQLow" x="190.0" y="103.0" parentComponent="Panel_AmpSettings"
+        <Component type="ScriptLabel" id="Label_AmpEQLow" x="30.0" y="45.0" parentComponent="Panel_AmpSettings"
                    width="80.0" height="28.0" text="Low" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptSlider" id="Slider_AmpEQHigh" x="356.0" y="143.0"
+        <Component type="ScriptSlider" id="Slider_AmpEQHigh" x="204.0" y="90.0"
                    parentComponent="Panel_AmpSettings" text="" max="8.0" middlePosition="0.0"
                    stepSize="1.0" isPluginParameter="1" pluginParameterName="Amp_EQHigh"
                    numStrips="127.0" width="48.0" height="48.0" min="-8.0" tooltip="Adjusts the High EQ shelf (in dB)."/>
-        <Component type="ScriptSlider" id="Slider_AmpEQMid" x="284.0" y="143.0"
-                   parentComponent="Panel_AmpSettings" text="" max="8.0" middlePosition="0.0"
-                   stepSize="1.0" isPluginParameter="1" pluginParameterName="Amp_EQMid"
-                   numStrips="127.0" width="48.0" height="48.0" min="-8.0" tooltip="Adjusts the Mid Band Gain (in dB)."/>
-        <Component type="ScriptLabel" id="Label_AmpCabBypass" x="388.0" y="194.0"
+        <Component type="ScriptSlider" id="Slider_AmpEQMid" x="124.0" y="90.0" parentComponent="Panel_AmpSettings"
+                   text="" max="8.0" middlePosition="0.0" stepSize="1.0" isPluginParameter="1"
+                   pluginParameterName="Amp_EQMid" numStrips="127.0" width="48.0"
+                   height="48.0" min="-8.0" tooltip="Adjusts the Mid Band Gain (in dB)."/>
+        <Component type="ScriptLabel" id="Label_AmpCabBypass" x="253.0" y="244.0"
                    parentComponent="Panel_AmpSettings" width="40.0" height="28.0"
                    text="Cab" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptSlider" id="Slider_AmpOutput" x="273.0" y="200.0"
+        <Component type="ScriptSlider" id="Slider_AmpOutput" x="164.0" y="180.0"
                    parentComponent="Panel_AmpSettings" text="" max="36.0" middlePosition="-32.0"
                    stepSize="1.0" isPluginParameter="1" pluginParameterName="Amp_Output"
                    numStrips="127.0" width="48.0" height="48.0" min="-100.0" tooltip="Adjusts the Output Gain of the Amplifier."/>
-        <Component type="ScriptLabel" id="Label_AmpOutputValue" x="307.0" y="211.0"
+        <Component type="ScriptLabel" id="Label_AmpOutputValue" x="224.0" y="196.0"
                    parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
-                   text="0.0dB" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_AmpOutput" x="297.0" y="197.0" parentComponent="Panel_AmpSettings"
-                   width="80.0" height="28.0" text="Output" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_AmpEQMid" x="261.0" y="103.0" parentComponent="Panel_AmpSettings"
+                   text="0.0dB" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpOutput" x="224.0" y="180.0" parentComponent="Panel_AmpSettings"
+                   width="80.0" height="28.0" text="Output" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpEQMid" x="111.0" y="45.0" parentComponent="Panel_AmpSettings"
                    width="80.0" height="28.0" text="Mid" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_AmpEQMidValue" x="271.0" y="116.0"
+        <Component type="ScriptLabel" id="Label_AmpEQMidValue" x="121.0" y="58.0"
                    parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
                    text="0.0dB" editable="0" saveInPreset="1"/>
-        <Component type="ScriptLabel" id="Label_AmpEQHigh" x="333.0" y="103.0" parentComponent="Panel_AmpSettings"
+        <Component type="ScriptLabel" id="Label_AmpEQHigh" x="193.0" y="45.0" parentComponent="Panel_AmpSettings"
                    width="80.0" height="28.0" text="High" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptLabel" id="Label_AmpEQHighValue" x="343.0" y="116.0"
+        <Component type="ScriptLabel" id="Label_AmpEQHighValue" x="203.0" y="58.0"
                    parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
                    text="0.0dB" editable="0" saveInPreset="1"/>
-        <Component type="ScriptComboBox" id="ComboBox_AmpCabSelect" x="240.0" y="250.0"
+        <Component type="ScriptComboBox" id="ComboBox_AmpCabSelect" x="44.0" y="253.0"
                    max="14" parentComponent="Panel_AmpSettings" items="Cab 1.wav&#10;Cab 2.wav&#10;Cab 3.wav&#10;Cab 4.wav&#10;Cab 5.wav&#10;Cab 6.wav&#10;Cab 7.wav&#10;Cab 8.wav&#10;Cab 9.wav&#10;Cab 10.wav&#10;Cab 11.wav&#10;Cab 12.wav&#10;Cab 13.wav&#10;Cab 14.wav"
                    text="Cab Select" isPluginParameter="1" pluginParameterName="Amp_CabSelect"
-                   tooltip="Select a Cabinet Impulse Response (IR)."/>
-        <Component type="ScriptButton" id="Button_AmpHQ" x="381.0" y="222.0" parentComponent="Panel_AmpSettings"
+                   tooltip="Select a Cabinet Impulse Response (IR)." width="160"
+                   height="30"/>
+        <Component type="ScriptButton" id="Button_AmpHQ" x="246.0" y="272.0" parentComponent="Panel_AmpSettings"
                    text="LAFButtonBypass" width="10.0" height="10.0" itemColour="3355443"
                    bgColour="16777215" isPluginParameter="1" pluginParameterName="Amp_HQ"
                    processorId="Amp" parameterId="Oversample" enableMidiLearn="0"
                    tooltip="Toggles Oversampling."/>
-        <Component type="ScriptLabel" id="Label_AmpHQ" x="388.0" y="214.0" parentComponent="Panel_AmpSettings"
+        <Component type="ScriptLabel" id="Label_AmpHQ" x="253.0" y="264.0" parentComponent="Panel_AmpSettings"
                    width="40.0" height="28.0" text="HQ" editable="0" fontStyle="Bold"/>
-        <Component type="ScriptButton" id="Button_RandomizeFXAmpLow" x="82.0" y="44.0"
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpLow" x="90.0" y="55.0"
                    parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXAmpMid" x="152.0" y="44.0"
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpMid" x="170.0" y="55.0"
                    parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXAmpHigh" x="226.0"
-                   y="44.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpHigh" x="254.0"
+                   y="55.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXAmpDrive" x="88.0"
-                   y="129.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpDrive" x="104.0"
+                   y="166.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXAmpOutput" x="194.0"
-                   y="129.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpOutput" x="224.0"
+                   y="166.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_RandomizeFXAmpCabinet" x="204.0"
-                   y="181.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpCabinet" x="222.0"
+                   y="253.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
                    width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-        <Component type="ScriptButton" id="Button_AmpComboBoxUp" x="349.0" y="258.0"
+        <Component type="ScriptButton" id="Button_AmpComboBoxUp" x="185.0" y="260.0"
                    parentComponent="Panel_AmpSettings" width="10.0" height="7.0"
                    text="LAFButtonUpArrow" isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>
-        <Component type="ScriptButton" id="Button_AmpComboBoxDown" x="349.0" y="267.0"
+        <Component type="ScriptButton" id="Button_AmpComboBoxDown" x="185.0" y="269.0"
                    parentComponent="Panel_AmpSettings" width="10.0" height="7.0"
                    text="LAFButtonDownArrow" isMomentary="1" enableMidiLearn="0"
                    saveInPreset="0"/>

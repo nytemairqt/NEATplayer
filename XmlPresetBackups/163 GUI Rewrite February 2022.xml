@@ -37,7 +37,7 @@
             <Control type="ScriptButton" id="Button_EQBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_DriveSettings" value="0"/>
             <Control type="ScriptButton" id="Button_DriveTubeDriveEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_CompSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_CompSettings" value="0"/>
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="0.0"/>
@@ -47,7 +47,7 @@
             <Control type="ScriptButton" id="Button_DelayEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserSettings" value="0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DegradeSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_DegradeSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_DegradeEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_AmpSettings" value="0"/>
             <Control type="ScriptButton" id="Button_AmpEnable" value="0.0"/>
