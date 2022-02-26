@@ -68,6 +68,8 @@ const var Button_PhaserSettings = Content.getComponent("Button_PhaserSettings");
 const var Button_DegradeSettings = Content.getComponent("Button_DegradeSettings");
 const var Button_AmpSettings = Content.getComponent("Button_AmpSettings");
 
+const var Label_FXTitle = Content.getComponent("Label_FXTitle");
+
 const var ComboBox_DriveOversample1 = Content.getComponent("ComboBox_DriveOversample1");
 const var ComboBox_FilterMode = Content.getComponent("ComboBox_FilterMode");
 
@@ -173,6 +175,8 @@ inline function positionFXPanel()
 	{
 		listFXLabels[i].setPosition((listFXPanels[i].get("width") / 2) - (listFXLabels[i].get("width") / 2), 8, listFXLabels[i].get("width"), listFXLabels[i].get("height"));
 	}
+
+	Label_FXTitle.set("x", (Panel_FX.get("width") / 2) - (Label_FXTitle.get("width") / 2));
 }
 
 

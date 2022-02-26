@@ -21,6 +21,34 @@ const var Label_MovementEnvBReleaseValue = Content.getComponent("Label_MovementE
 const var Button_MovementSettings = Content.getComponent("Button_MovementSettings");
 const var Panel_MovementSettings = Content.getComponent("Panel_MovementSettings");
 
+const var Label_PanelXYTooltipX = Content.getComponent("Label_PanelXYTooltipX");
+const var Label_PanelXYTooltipY = Content.getComponent("Label_PanelXYTooltipY");
+
+const var Label_MovementEnvelopeTitle = Content.getComponent("Label_MovementEnvelopeTitle");
+const var Label_MovementTitle = Content.getComponent("Label_MovementTitle");
+const var Label_MovementChaosTitle = Content.getComponent("Label_MovementChaosTitle");
+
+//Positioning Elements
+
+inline function positionMovementPanels()
+{
+    local padding = 6;
+
+    Panel_Movement.setPosition(0, 0, Panel_BG.get("width"), Panel_BG.get("height"));
+    Panel_MovementXYPad.setPosition((Panel_Movement.get("width") / 2) - (Panel_MovementXYPad.get("width") / 2) - padding - padding, 60, Panel_Movement.get("width") * 0.4, Panel_Movement.get("width") * 0.3);
+    Panel_MovementSettings.setPosition(60, 40, Panel_Movement.get("width") - 120, Panel_Movement.get("height") - 120);
+
+    Slider_MovementXInvisible.setPosition(Panel_MovementXYPad.get("x"), (Panel_MovementXYPad.get("y") + Panel_MovementXYPad.get("height") + padding), Panel_MovementXYPad.get("width"), padding);
+    Slider_MovementYInvisible.setPosition(Panel_MovementXYPad.get("x") + Panel_MovementXYPad.get("width") + padding, Panel_MovementXYPad.get("y"), padding, Panel_MovementXYPad.get("height"));
+
+    Label_MovementEnvelopeTitle.set("x", (Panel_Movement.get("width") * 0.275) / 2 - (Label_MovementEnvelopeTitle.get("width") / 2));
+    Label_MovementTitle.set("x", Panel_Movement.get("width") / 2 - (Label_MovementTitle.get("width") / 2));
+
+
+}
+
+positionMovementPanels();
+
 //Display Panel
 
 inline function onButton_MoveDisplayControl(component, value)
@@ -44,11 +72,11 @@ Content.getComponent("Button_MoveDisplay").setControlCallback(onButton_MoveDispl
 Panel_Movement.setPaintRoutine(function(g)
 {
     g.setColour(0xFB111111);
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0);
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
 	g.setColour(Colours.grey);
-	g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0, 2.0);
-	g.drawLine(this.getWidth() * 0.72, this.getWidth() * 0.72, 15, this.getHeight() - 15, 0.5);
-	g.drawLine(this.getWidth() * 0.31, this.getWidth() * 0.31, 15, this.getHeight() - 15, 0.5);
+
+    g.drawLine(this.getWidth() * 0.275, this.getWidth() * 0.275, 15, this.getHeight() - 15, 1.0);
+    g.drawLine(this.getWidth() * 0.725, this.getWidth() * 0.725, 15, this.getHeight() - 15, 1.0);
 });
 
 //Settings Panel

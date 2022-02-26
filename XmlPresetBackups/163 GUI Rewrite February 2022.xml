@@ -10,7 +10,7 @@
           <ChildProcessors/>
           <Content>
             <Control type="ScriptButton" id="Button_RandomizationButtonsVisibility"
-                     value="1.0"/>
+                     value="0.0"/>
             <Control type="ScriptButton" id="Button_AchromicPickAttack" value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicReleaseNoise" value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicNoiseGate" value="0.0"/>
@@ -31,25 +31,25 @@
             <Control type="ScriptButton" id="Button_GloomReleaseNoise" value="0.0"/>
             <Control type="ScriptButton" id="Button_CloudburstAcousticNoises" value="0.0"/>
             <Control type="ScriptButton" id="Button_PortalIgnoreArpVelocity" value="0.0"/>
-            <Control type="ScriptButton" id="Button_FilterSettings" value="0"/>
-            <Control type="ScriptButton" id="Button_FilterBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_EQSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_FilterSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_FilterBypass" value="1.0"/>
+            <Control type="ScriptButton" id="Button_EQSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_EQBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DriveSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_DriveSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_DriveTubeDriveEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_CompSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_CompSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_ReverbSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_WidthSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_WidthSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DelaySettings" value="0"/>
+            <Control type="ScriptButton" id="Button_DelaySettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_PhaserSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_PhaserSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DegradeSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_DegradeSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_DegradeEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_AmpSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_AmpSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_AmpEnable" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompThreshold" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompAttack" value="50.0"/>
@@ -65,9 +65,9 @@
             <Control type="ScriptLabel" id="Label_CompReleaseValue" value="50ms"/>
             <Control type="ScriptLabel" id="Label_FilterFreqValue" value="20000Hz"/>
             <Control type="ScriptSlider" id="Slider_FilterFreq" value="20000.0"/>
-            <Control type="ScriptSlider" id="Slider_FilterQ" value="0.3600000143051147"/>
+            <Control type="ScriptSlider" id="Slider_FilterQ" value="0.4000000059604645"/>
             <Control type="ScriptComboBox" id="ComboBox_FilterMode" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_FilterQValue" value="0.36"/>
+            <Control type="ScriptLabel" id="Label_FilterQValue" value="0.40"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterFreq" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterQ" value="1.0"/>
             <Control type="ScriptLabel" id="Label_DriveWaveShaperGainValue" value="0db"/>
@@ -92,23 +92,23 @@
             <Control type="ScriptButton" id="Button_RandomizeFXReverbDamping" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbWidth" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbMix" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1/8T"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1/8T"/>
-            <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.25"/>
-            <Control type="ScriptSlider" id="Slider_DelayFeedbackLeft" value="0.25"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1/8"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1/8"/>
+            <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.2599999904632568"/>
+            <Control type="ScriptSlider" id="Slider_DelayFeedbackLeft" value="0.2599999904632568"/>
             <Control type="ScriptSlider" id="Slider_DelayMix" value="0.2000000029802322"/>
             <Control type="ScriptButton" id="Button_DelayLink" value="1.0"/>
             <Control type="ScriptButton" id="Button_DelaySync" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_DelayFeedbackRightValue" value="25%"/>
-            <Control type="ScriptLabel" id="Label_DelayFeedbackLeftValue" value="25%"/>
+            <Control type="ScriptLabel" id="Label_DelayFeedbackRightValue" value="26%"/>
+            <Control type="ScriptLabel" id="Label_DelayFeedbackLeftValue" value="26%"/>
             <Control type="ScriptLabel" id="Label_DelayMixValue" value="20%"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeL" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeR" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayMix" value="1.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="9.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="9.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="8.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="8.0"/>
             <Control type="ScriptButton" id="Button_StutterLFOSync" value="1.0"/>
             <Control type="ScriptLabel" id="Label_WidthAmountValue" value="100%"/>
             <Control type="ScriptSlider" id="Slider_WidthAmount" value="100.0"/>
@@ -217,7 +217,7 @@
             <Control type="ScriptSlider" id="Slider_SamplerCPan" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPitchCoarse" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPitchFine" value="0.0"/>
-            <Control type="ScriptButton" id="Button_SamplerAReverse" value="1.0"/>
+            <Control type="ScriptButton" id="Button_SamplerAReverse" value="0.0"/>
             <Control type="ScriptButton" id="Button_SamplerBReverse" value="0.0"/>
             <Control type="ScriptButton" id="Button_SamplerCReverse" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAPitchCoarse"
@@ -247,7 +247,7 @@
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A1" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeADSRAttack4" value="0.0"/>
             <Control type="ScriptPanel" id="Panel_MovementXYPad" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_ChaosType" value="1.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_ChaosType" value="2.0"/>
             <Control type="ScriptSlider" id="Slider_MovementXInvisible" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_MovementYInvisible" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_MovementChaosIntensity" value="25.0"/>
@@ -262,12 +262,12 @@
             <Control type="ScriptSlider" id="Slider_MovementEnvBSustain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBRelease" value="1000.0"/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="-1.0"
-                     data="128....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD"/>
+                     data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="-1.0"
-                     data="128............................................................................................................................................................................"/>
+                     data="64......................................................................................."/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1.0"
-                     data="128....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD"/>
-            <Control type="ScriptSlider" id="Slider_ArpSteps" value="32.0"/>
+                     data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
+            <Control type="ScriptSlider" id="Slider_ArpSteps" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
@@ -291,7 +291,7 @@
             <Control type="ScriptSlider" id="Slider_OutputGain" value="1.0"/>
             <Control type="ScriptButton" id="Button_CloseCustomSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PortamentoBypass" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_PortamentoTime" value="0.0"/>
+            <Control type="ScriptSlider" id="Slider_PortamentoTime" value="250.0"/>
           </Content>
           <UIData Source="163 GUI Rewrite February 2022UIData"/>
         </Processor>
@@ -300,7 +300,7 @@
           <Content>
             <Control type="ScriptButton" id="BypassButton" value="0.0"/>
             <Control type="ScriptButton" id="ResetButton" value="0.0"/>
-            <Control type="ScriptSlider" id="NumStepSlider" value="32.0"/>
+            <Control type="ScriptSlider" id="NumStepSlider" value="16.0"/>
             <Control type="ScriptSlider" id="StepReset" value="0.0"/>
             <Control type="ScriptSlider" id="StepSkipSlider" value="1.0"/>
             <Control type="ScriptButton" id="SortKeysButton" value="1.0"/>
@@ -309,9 +309,9 @@
             <Control type="ScriptSlider" id="OctaveRange" value="0.0"/>
             <Control type="ScriptSlider" id="Shuffle" value="0.0"/>
             <Control type="ScriptButton" id="EnableTie" value="1.0"/>
-            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="128............................................................................................................................................................................"/>
-            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="128....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD"/>
-            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="128....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD"/>
+            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="64......................................................................................."/>
+            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
+            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
             <Control type="ScriptComboBox" id="ChannelSelector" value="2.0"/>
             <Control type="ScriptComboBox" id="OutputChannelSelector" value="1.0"/>
             <Control type="ScriptComboBox" id="MPEStartChannel" value="1.0"/>
@@ -343,8 +343,8 @@
     </Processor>
     <Processor Type="EffectChain" ID="FX" Bypassed="0">
       <ChildProcessors>
-        <Processor Type="PolyphonicFilter" ID="Filter1" Bypassed="1" Gain="0.0"
-                   Frequency="20000.0" Q="0.3600000143051147" Mode="6.0" Quality="1.0"
+        <Processor Type="PolyphonicFilter" ID="Filter1" Bypassed="0" Gain="0.0"
+                   Frequency="20000.0" Q="0.4000000059604645" Mode="6.0" Quality="1.0"
                    BipolarIntensity="0.0">
           <ChildProcessors>
             <Processor Type="ModulatorChain" ID="Frequency Modulation" Bypassed="0"
@@ -489,9 +489,10 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="9.0" DelayTimeRight="9.0"
-                   FeedbackLeft="0.25" FeedbackRight="0.25" LowPassFreq="20000.0"
-                   HiPassFreq="40.0" Mix="0.2000000029802322" TempoSync="1.0">
+        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="8.0" DelayTimeRight="8.0"
+                   FeedbackLeft="0.2599999904632568" FeedbackRight="0.2599999904632568"
+                   LowPassFreq="20000.0" HiPassFreq="40.0" Mix="0.2000000029802322"
+                   TempoSync="1.0">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
@@ -621,7 +622,7 @@
                Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
                SamplerRepeatMode="3.0" RRGroupAmount="16.0" PitchTracking="1.0"
-               OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="1.0"
+               OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
                Group7Table="" SampleMapID="{EXP::Atlas}Atlas_SampleMap">

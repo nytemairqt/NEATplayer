@@ -217,8 +217,6 @@ inline function setRandomizationButtonTooltips()
 
 //setRandomizationButtonTooltips();
 
-
-
 //Create individual functions for buttons.
 
 
@@ -837,11 +835,6 @@ inline function randomFX()
     }
 }
 
-
-//Randomize Panel
-
-const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
-
 //Open the panel
 
 inline function onButton_OpenRandomizePanelControl(component, value)
@@ -966,7 +959,7 @@ inline function createRandomButton(name, count)
         {     
             g.fillAll(colours.darkgrey);
             g.setColour(colours.darkgrey);
-            g.fillRoundedRectangle([0,0,this.getWidth(),this.getHeight()], 4.0);
+            g.fillRoundedRectangle([0,0,this.getWidth(),this.getHeight()], 2.0);
             g.setColour(Colours.white);
             g.setFont("Arial", 11);
             g.drawAlignedText(this.data.name, [0, 0, this.getWidth(), this.getHeight()], "centred");
@@ -984,7 +977,7 @@ inline function createRandomButton(name, count)
                 this.setPaintRoutine(function(g)
                 {     
                     g.setColour(Colours.darkgrey);
-                    g.fillRoundedRectangle([0,0,this.getWidth(),this.getHeight()], 4.0);
+                    g.fillRoundedRectangle([0,0,this.getWidth(),this.getHeight()], 2.0);
                     g.setColour(Colours.white);
                     g.setFont("Arial", 11);
                     g.drawAlignedText(this.data.name, [0, 0, this.getWidth(), this.getHeight()], "centred");
@@ -996,7 +989,7 @@ inline function createRandomButton(name, count)
                 {     
                     g.fillAll(colours.darkgrey);
                     g.setColour(colours.darkgrey);
-                    g.fillRoundedRectangle([0,0,this.getWidth(),this.getHeight()], 4.0);
+                    g.fillRoundedRectangle([0,0,this.getWidth(),this.getHeight()], 2.0);
                     g.setColour(Colours.white);
                     g.setFont("Arial", 11);
                     g.drawAlignedText(this.data.name, [0, 0, this.getWidth(), this.getHeight()], "centred");
@@ -1010,7 +1003,7 @@ inline function createRandomButton(name, count)
     Content.setPropertiesFromJSON(name, 
 	{
 		"width": Panel_RandomizeContainer.getWidth(),
-		"height": (Panel_RandomizeContainer.getHeight() / 5) - 1,
+		"height": (Panel_RandomizeContainer.getHeight() / 7) - 1,
 		"allowCallbacks": "Clicks & Hover",
 		"opaque": 0,
 		"saveInPreset": 0,

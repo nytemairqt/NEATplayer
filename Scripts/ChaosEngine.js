@@ -536,7 +536,7 @@ inline function onSlider_MovementChaosRateControl(component, value)
         else if (value > 10 && value < 15)
             Label_ChaosRateValue.set("text", "Fast");
         else 
-            Label_ChaosRateValue.set("text", "!!!");
+            Label_ChaosRateValue.set("text", "Very Fast");
         
 };
 

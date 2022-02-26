@@ -62,17 +62,17 @@ inline function positionArpPanel()
     SliderPack_ArpLength.set("width", Panel_Arp.get("width") * 0.7);
 
     SliderPack_ArpNotes.set("height", Panel_Arp.get("height") * 0.4);
-    SliderPack_ArpVelocity.set("height", Panel_Arp.get("height") * 0.22);
-    SliderPack_ArpLength.set("height", Panel_Arp.get("height") * 0.22);
+    SliderPack_ArpVelocity.set("height", Panel_Arp.get("height") * 0.20);
+    SliderPack_ArpLength.set("height", Panel_Arp.get("height") * 0.20);
 
     SliderPack_ArpNotes.set("x", sliderPackXPosition);
     SliderPack_ArpNotes.set("y", 30);
 
     SliderPack_ArpVelocity.set("x", sliderPackXPosition);
-    SliderPack_ArpVelocity.set("y", SliderPack_ArpNotes.get("y") + SliderPack_ArpNotes.get("height") + padding);
+    SliderPack_ArpVelocity.set("y", SliderPack_ArpNotes.get("y") + SliderPack_ArpNotes.get("height") + (padding * 4));
 
     SliderPack_ArpLength.set("x", sliderPackXPosition);
-    SliderPack_ArpLength.set("y", SliderPack_ArpVelocity.get("y") + SliderPack_ArpVelocity.get("height") + padding);  
+    SliderPack_ArpLength.set("y", SliderPack_ArpVelocity.get("y") + SliderPack_ArpVelocity.get("height") + (padding * 4));  
 
     //Setting Button Sizes & Positions
 

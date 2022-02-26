@@ -84,6 +84,23 @@ var keyboardOctave = 0;
 var keyboardLowKey = 0;
 var keyboardHighKey = 128;
 
+
+//Randomize Panel
+
+const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
+
+//Position Randomization Panel
+
+inline function positionRandomizationPanel()
+{
+    Panel_RandomizeContainer.set("width", 60);
+    Panel_RandomizeContainer.set("height", 280);
+    Panel_RandomizeContainer.set("x", (Panel_Sample.get("x") + Panel_Sample.get("width")) - Panel_RandomizeContainer.get("width") - 2);
+    Panel_RandomizeContainer.set("y", (Panel_Sample.get("height") / 2) - (Panel_RandomizeContainer.get("height") / 2));
+}
+
+positionRandomizationPanel();
+
 //Position Keyboard
 
 inline function positionKeyboard()
@@ -168,11 +185,11 @@ inline function positionMainPanels()
 
 inline function positionExtraPanels()
 {
-    Panel_CustomSettings.setPosition(Panel_BG.get("x"), Panel_BG.get("y"), Panel_BG.get("width"), Panel_BG.get("height"));    
-    Panel_InstallLibraries.setPosition(Panel_BG.get("x"), Panel_BG.get("y"), Panel_BG.get("width"), Panel_BG.get("height"));    
+    Panel_CustomSettings.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
+    Panel_InstallLibraries.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
 }
 
-//positionExtraPanels();
+positionExtraPanels();
 
 //Tooltips
 
@@ -192,7 +209,7 @@ Panel_TooltipDescriptions.setTimerCallback(function()
 	 this.repaint();
 });
 
-Panel_TooltipDescriptions.startTimer(250);
+Panel_TooltipDescriptions.startTimer(180);
 
 //Expansion Viewport
 

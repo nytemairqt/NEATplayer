@@ -1,5 +1,3 @@
-//Cloudburst
-
 inline function clearSamplers()
 {
     SamplerA.asSampler().clearSampleMap();

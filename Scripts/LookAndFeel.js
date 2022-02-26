@@ -68,6 +68,20 @@ const var settingsCogwheelData = [ 110,109,182,243,138,66,225,186,155,66,98,0,0,
 119,190,135,65,108,98,16,166,66,123,20,189,65,108,225,186,155,66,39,49,244,65,98,80,77,161,66,0,0,10,66,76,55,165,66,96,101,28,66,207,247,166,66,168,70,48,66,108,0,0,184,66,221,36,53,66,108,0,0,184,66,35,219,90,66,108,207,247,166,66,88,185,95,66,98,76,
 55,165,66,160,154,115,66,80,77,161,66,0,0,131,66,225,186,155,66,182,243,138,66,108,98,16,166,66,225,186,152,66,108,225,186,152,66,98,16,166,66,108,182,243,138,66,225,186,155,66,99,101,0,0 ];
 
+const var randomizationButtonDiceShape = [110,109,0,0,144,65,16,88,107,65,108,0,0,128,64,16,88,59,65,109,0,0,128,64,16,88,59,65,108,0,0,64,65,33,176,150,64,109,170,241,68,65,205,204,140,64,108,164,112,197,65,121,233,222,64,109,164,112,197,65,121,233,222,64,108,0,0,144,65,16,88,107,65,109,0,0,
+128,64,16,88,59,65,108,106,188,204,64,8,172,189,65,109,0,0,144,65,16,88,107,65,108,0,0,160,65,8,172,213,65,109,82,184,197,65,217,206,223,64,108,0,0,208,65,8,172,149,65,109,53,94,210,64,8,172,189,65,108,16,88,158,65,8,172,213,65,109,10,215,207,65,215,
+163,150,65,108,0,0,160,65,8,172,213,65,101,0,0];
+
+const var randomizationButtonDiceDots = [ 110,109,12,2,207,64,254,212,122,65,98,152,110,206,64,0,0,112,65,233,38,217,64,51,51,109,65,80,141,243,64,211,77,110,65,98,27,47,7,65,139,108,111,65,82,184,24,65,66,96,128,65,82,184,24,65,0,0,135,65,98,82,184,24,65,178,157,141,65,70,182,15,65,141,151,
+142,65,86,14,3,65,8,172,141,65,98,109,231,235,64,70,182,140,65,20,174,207,64,61,10,132,65,12,2,207,64,254,212,122,65,99,109,102,102,42,65,57,180,232,64,98,49,8,42,65,76,55,217,64,2,43,57,65,188,116,199,64,102,102,70,65,180,200,198,64,98,172,28,84,65,
+172,28,198,64,205,204,98,65,10,215,199,64,49,8,98,65,205,204,216,64,98,121,233,96,65,115,104,241,64,88,57,86,65,152,110,250,64,154,153,71,65,223,79,253,64,98,127,106,58,65,109,231,255,64,121,233,42,65,45,178,253,64,102,102,42,65,57,180,232,64,99,109,
+205,204,112,65,131,192,52,65,98,152,110,112,65,12,2,45,65,104,145,127,65,197,32,36,65,102,102,134,65,193,202,35,65,98,137,65,141,65,188,116,35,65,221,36,148,65,225,122,36,65,76,55,148,65,205,204,44,65,98,223,79,148,65,0,0,56,65,223,79,142,65,154,153,
+61,65,0,0,135,65,61,10,63,65,98,115,104,128,65,4,86,64,65,223,79,113,65,125,63,63,65,205,204,112,65,131,192,52,65,99,109,41,92,29,65,227,165,153,65,98,111,18,29,65,88,57,148,65,35,219,35,65,125,63,145,65,86,14,49,65,205,204,145,65,98,201,118,62,65,53,
+94,146,65,254,212,78,65,238,124,155,65,254,212,78,65,172,28,162,65,98,254,212,78,65,106,188,168,65,4,86,68,65,127,106,170,65,252,169,55,65,250,126,169,65,98,92,143,42,65,68,139,168,65,45,178,29,65,150,67,160,65,41,92,29,65,227,165,153,65,99,109,190,159,
+181,65,188,116,117,65,98,23,217,186,65,43,135,114,65,35,219,188,65,86,14,119,65,145,237,189,65,98,16,130,65,98,25,4,191,65,57,180,136,65,143,194,184,65,223,79,147,65,4,86,178,65,145,237,148,65,98,121,233,171,65,68,139,150,65,59,223,169,65,127,106,146,
+65,88,57,169,65,86,14,140,65,98,80,141,168,65,201,118,133,65,125,63,175,65,12,2,121,65,190,159,181,65,188,116,117,65,99,109,0,0,80,65,8,172,181,65,98,70,182,79,65,125,63,176,65,43,135,84,65,125,63,172,65,94,186,97,65,205,204,172,65,98,209,34,111,65,53,
+94,173,65,90,100,128,65,121,233,180,65,90,100,128,65,43,135,187,65,98,90,100,128,65,233,38,194,65,233,38,123,65,10,215,197,65,250,126,110,65,133,235,196,65,98,90,100,97,65,195,245,195,65,4,86,80,65,186,73,188,65,0,0,80,65,8,172,181,65,99,101,0,0];
+
 Panel_BG.setPaintRoutine(function(g)
 {
 	 g.setColour(Colours.grey);
@@ -207,6 +221,37 @@ laf.registerFunction("drawToggleButton", function(g, obj)
 	                g.drawAlignedText("x", obj.area, "centred");
 	            }
     break;
+
+    case "LAFOpenRandomizationPanel":
+        g.setColour(0xFB111111);
+        g.fillRoundedRectangle(obj.area, 2.0);
+        if (obj.value)
+        {
+            if (obj.over)
+            {
+                g.setColour(Colours.white);
+            }
+            else
+            {
+                g.setColour(Colours.lightgrey);
+            }
+        }
+        else
+        {
+            if (obj.over)
+            {
+                g.setColour(Colours.white);
+            }
+            else
+            {
+                g.setColour(Colours.lightgrey);
+            }
+        }
+        path.loadFromData(randomizationButtonDiceShape);        
+        g.drawPath(path, [obj.area[0] + 4.0, obj.area[1] + 4.0, obj.area[2] - 8.0, obj.area[3] - 8.0], 1.0);
+        path.loadFromData(randomizationButtonDiceDots);
+        g.fillPath(path, [obj.area[0] + 6.0, obj.area[1] + 6.0, obj.area[2] - 12.0, obj.area[3] - 12.0]);
+    break;
     
     case "LAFButtonChangePage":
     if (obj.value)
@@ -275,20 +320,16 @@ laf.registerFunction("drawToggleButton", function(g, obj)
             {
                 g.setColour(0xFB111111);
                 g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 3.0, 1.0);
                 g.setColour(Colours.white);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1);                
+                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);                
             }
             
             else
             {
                 g.setColour(0xFB111111);
                 g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 3.0, 1.0);
                 g.setColour(Colours.lightgrey);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1);                
+                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);                
             }
         }
         else
@@ -297,20 +338,16 @@ laf.registerFunction("drawToggleButton", function(g, obj)
             {
                 g.setColour(0xFB111111);
                 g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 3.0, 1.0);
                 g.setColour(Colours.lightgrey);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1);
+                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);
             }
             
             else
             {
                 g.setColour(0xFB111111);
                 g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 3.0, 1.0);
                 g.setColour(Colours.darkgrey);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1);                
+                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);                
             }            
         }
     break;
@@ -382,18 +419,18 @@ if (obj.over)
             if (obj.over)
             {
                 g.setColour(Colours.white);
-                g.drawPath(path, reduced(obj, 3.0), 4);
+                g.drawPath(path, reduced(obj, 6.0), 3);
                 path.clear();
-                path.loadFromData(arpResetButtonFillData);
-                g.fillPath(path, [obj.area[0] + 1, obj.area[1] + 1, obj.area[2] - 8, obj.area[3] - 8]);
+                path.loadFromData(arpResetButtonFillData);        
+                g.fillPath(path, [obj.area[0] + 4, obj.area[1] + 4, obj.area[2] - 14, obj.area[3] - 14]);
             }
             else
             {             
                 g.setColour(Colours.lightgrey);
-                g.drawPath(path, reduced(obj, 3.0), 4);
+                g.drawPath(path, reduced(obj, 6.0), 3);
                 path.clear();
-                path.loadFromData(arpResetButtonFillData);
-                g.fillPath(path, [obj.area[0] + 1, obj.area[1] + 1, obj.area[2] - 8, obj.area[3] - 8]);               
+                path.loadFromData(arpResetButtonFillData);          
+                g.fillPath(path, [obj.area[0] + 4, obj.area[1] + 4, obj.area[2] - 14, obj.area[3] - 14]);             
             } 
     break;
     
@@ -681,44 +718,21 @@ if (obj.over)
     break;
     
     case "LAFButtonSettingsCogwheel":
-        if (obj.value)
+        if (obj.over)
         {
-            if (obj.over)
-            {
-                g.setColour(Colours.white);
-                path.loadFromData(settingsCogwheelData);
-                g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);
-                g.fillEllipse([3, 3, obj.area[2] - 6, obj.area[3] - 6]);
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                path.loadFromData(settingsCogwheelData);
-                g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);
-                g.fillEllipse([3, 3, obj.area[2] - 6, obj.area[3] - 6]);
-            }
+            g.setColour(Colours.darkgrey);
+            g.fillRoundedRectangle(obj.area, 2.0);
         }
         else
         {
-            if (obj.over)
-            {
-                g.setColour(Colours.grey);
-                path.loadFromData(settingsCogwheelData);
-                g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);
-                g.fillEllipse([3, 3, obj.area[2] - 6, obj.area[3] - 6]);
-            }
-            else
-            {
-                g.setColour(Colours.darkgrey);
-                path.loadFromData(settingsCogwheelData);
-                g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);
-                g.fillEllipse([3, 3, obj.area[2] - 6, obj.area[3] - 6]);
-            }
+            g.setColour(0xFB111111);
+            g.fillRoundedRectangle(obj.area, 2.0);
         }
+        g.setColour(Colours.darkgrey);
+        g.drawRoundedRectangle(obj.area, 2.0, 1.0);
+        g.setColour(Colours.white);
+        g.setFont("Arial", 14.0);
+        g.drawAlignedText("Connection Settings", obj.area, "centred");
                 
     break;
 
@@ -745,6 +759,11 @@ sliderRing2.addArc([0.0, 0.0, 1.0, 1.0], -Math.PI*0.75, Math.PI * 0.75);
 inline function reduced(obj, amount)
 {
     return [amount, amount, obj.area[2] - 2*amount, obj.area[3] - 2* amount];
+}
+
+inline function shrunk(obj, amount)
+{
+    return [obj.area[0] + amount, obj.area[1] + amount, obj.area[2] - 2 * amount, obj.area[3] - 2 * amount];
 }
 
 laf.registerFunction("drawRotarySlider", function(g, obj)
@@ -833,7 +852,8 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
         g.setColour(Colours.darkgrey);
         g.drawRoundedRectangle(obj.area, 4.0, .75);
         g.setColour(Colours.lightgrey);
-        g.drawRoundedRectangle([Math.range(obj.area[2] * obj.valueNormalized, 2, 192), obj.area[3] / 2 - 2, 6, 4], 1.0, 1.0);
+        //g.drawRoundedRectangle([Math.range(obj.area[2] * obj.valueNormalized, 2, 192), obj.area[3] / 2 - 2, 6, 4], 1.0, 1.0);
+        g.drawRoundedRectangle([Math.range(obj.area[2] * obj.valueNormalized, 3, obj.area[2] - 6), obj.area[3] / 2 - 2, 6, 4], 1.0, 1.0);
         break;
         
         case "LAFSliderMovementY":
@@ -842,7 +862,7 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
         g.setColour(Colours.darkgrey);
         g.drawRoundedRectangle(obj.area, 4.0, .75);
         g.setColour(Colours.lightgrey);
-        g.drawRoundedRectangle([obj.area[2] / 2 - 2, Math.range(obj.area[3] - obj.area[3] * obj.valueNormalized, 2, 142), 4, 6], 1.0, 1.0);
+        g.drawRoundedRectangle([obj.area[2] / 2 - 2, Math.range(obj.area[3] - obj.area[3] * obj.valueNormalized, 3, obj.area[3] - 6), 4, 6], 1.0, 1.0);
         break;
     }
 });
