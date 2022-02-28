@@ -222,6 +222,23 @@ laf.registerFunction("drawToggleButton", function(g, obj)
 	            }
     break;
 
+    case "LAFButtonCloseRandomizationPanel":
+        g.setColour(0xFB111111);
+        g.fillEllipse(obj.area);
+        if (obj.over)
+                {
+                    g.setColour(Colours.white);
+                    g.setFont("Arial", 14.0);
+                    g.drawAlignedText("x", obj.area, "centred");
+                }
+                else
+                {
+                    g.setColour(Colours.lightgrey);
+                    g.setFont("Arial", 14.0);
+                    g.drawAlignedText("x", obj.area, "centred");
+                }
+    break;
+
     case "LAFOpenRandomizationPanel":
         g.setColour(0xFB111111);
         g.fillRoundedRectangle(obj.area, 2.0);

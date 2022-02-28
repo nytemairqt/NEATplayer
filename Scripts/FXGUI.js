@@ -811,6 +811,8 @@ inline function onSlider_StutterLFORateControl(component, value)
         LFOModulator2.setAttribute(LFOModulator2.Frequency, value);
         Label_StutterLFORateValue.set("text", syncTimes[value]);
     }
+
+    Panel_WidthImage.repaint();
 };
 
 Content.getComponent("Slider_StutterLFORate").setControlCallback(onSlider_StutterLFORateControl);
@@ -823,6 +825,8 @@ inline function onSlider_StutterLFORateFreeControl(component, value)
         LFOModulator2.setAttribute(LFOModulator2.Frequency, value);
         Label_StutterLFORateValue.set("text", value + "Hz");
     }
+
+    Panel_WidthImage.repaint();
 };
 
 Content.getComponent("Slider_StutterLFORateFree").setControlCallback(onSlider_StutterLFORateFreeControl);
@@ -874,6 +878,8 @@ inline function onSlider_WidthAmountControl(component, value)
 {
     Width.setAttribute(Width.Width, value);
     Label_WidthAmountValue.set("text", Math.round(value) + "%");
+
+    Panel_WidthImage.repaint();
 };
 
 Content.getComponent("Slider_WidthAmount").setControlCallback(onSlider_WidthAmountControl);
@@ -1264,3 +1270,22 @@ Panel_DegradeImage.setPaintRoutine(function(g)
 	}
 });
 
+//Width
+
+Panel_WidthImage.setPaintRoutine(function(g)
+{
+	g.setColour(Colours.white);
+
+	g.drawTriangle([this.getWidth() * Slider_WidthAmount.getValueNormalized(), 0, this.getWidth() * Slider_WidthAmount.getValueNormalized(), this.getHeight()], Math.toRadians(180), 1.0);
+
+
+	//Stutter Check Sync
+		if (Button_StutterLFOSync.getValue() == 1)    
+    	{
+
+    	}
+    	else
+    	{
+
+    	}
+});

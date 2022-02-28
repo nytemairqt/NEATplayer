@@ -192,6 +192,8 @@ const var randomizationButtonsComboBoxes = [Content.getComponent("Button_Randomi
                                             Content.getComponent("Button_RandomizeSamplerBComboBox"),
                                             Content.getComponent("Button_RandomizeSamplerCComboBox")];
 
+
+
 //Set Tooltips for ALL Randomization Buttons.
 
 inline function setRandomizationButtonTooltips()
@@ -840,6 +842,7 @@ inline function randomFX()
 inline function onButton_OpenRandomizePanelControl(component, value)
 {
     Panel_RandomizeContainer.set("visible", value);    
+    Button_CloseRandomizationPanel.set("visible", value);
 };
 
 Content.getComponent("Button_OpenRandomizePanel").setControlCallback(onButton_OpenRandomizePanelControl);

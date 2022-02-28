@@ -92,6 +92,8 @@ var keyboardHighKey = 128;
 
 const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
 
+const var Button_CloseRandomizationPanel = Content.getComponent("Button_CloseRandomizationPanel");
+
 //Position Randomization Panel
 
 inline function positionRandomizationPanel()
@@ -102,7 +104,18 @@ inline function positionRandomizationPanel()
     Panel_RandomizeContainer.set("y", (Panel_Sample.get("height") / 2) - (Panel_RandomizeContainer.get("height") / 2));
 }
 
-positionRandomizationPanel();
+//positionRandomizationPanel();
+
+//Close Panel
+
+inline function onButton_CloseRandomizationPanelControl(component, value)
+{
+    Button_OpenRandomizePanel.setValue(0);
+    Button_OpenRandomizePanel.changed();
+};
+
+Content.getComponent("Button_CloseRandomizationPanel").setControlCallback(onButton_CloseRandomizationPanelControl);
+
 
 //Position Keyboard
 
