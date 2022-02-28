@@ -1,5 +1,7 @@
 //------------------------------------------------------------FX
 
+include("ampImageData.js");
+
 const var Panel_FX = Content.getComponent("Panel_FX");
 
 const var Button_DriveTubeDriveEnable = Content.getComponent("Button_DriveTubeDriveEnable");
@@ -184,6 +186,19 @@ inline function positionFXPanel()
 
 //FX Panel
 
+//Close Button
+
+inline function onButton_CloseFXPanelControl(component, value)
+{
+	if (value)
+	{
+		Button_FXDisplay.setValue(0);
+		Panel_FX.showControl(0);
+	}
+};
+
+Content.getComponent("Button_CloseFXPanel").setControlCallback(onButton_CloseFXPanelControl);
+
 inline function onButton_FXDisplayControl(component, value)
 {
     //We don't want any .changed() calls because it makes it cyclic.
@@ -281,6 +296,8 @@ inline function onSlider_CompThresholdControl(component, value)
 {
 	Compressor.setAttribute(Compressor.Threshold, value);
 	Label_CompThresholdValue.set("text", Math.round(value) + "dB");
+
+	Panel_CompImage.repaint();
 };
 
 Content.getComponent("Slider_CompThreshold").setControlCallback(onSlider_CompThresholdControl);
@@ -305,6 +322,8 @@ inline function onSlider_CompRatioControl(component, value)
 {
 	Compressor.setAttribute(Compressor.Ratio, value);
 	Label_CompRatioValue.set("text", value + ":1");
+
+	Panel_CompImage.repaint();
 };
 
 Content.getComponent("Slider_CompRatio").setControlCallback(onSlider_CompRatioControl);
@@ -313,6 +332,8 @@ inline function onSlider_CompMakeupControl(component, value)
 {
 	Compressor.setAttribute(Compressor.Makeup, value);
 	Label_CompMakeupValue.set("text", Math.round(value) + "dB");
+
+	Panel_CompImage.repaint();
 };
 
 Content.getComponent("Slider_CompMakeup").setControlCallback(onSlider_CompMakeupControl);
@@ -372,6 +393,8 @@ inline function onSlider_DriveWaveshaperGainControl(component, value)
 {
     ShapeFX1.setAttribute(ShapeFX1.Gain, value);
     Label_DriveWaveShaperGainValue.set("text", Math.round(value) + "db");
+
+    Panel_DriveImage.repaint();
 };
 
 Content.getComponent("Slider_DriveWaveshaperGain").setControlCallback(onSlider_DriveWaveshaperGainControl);
@@ -380,6 +403,8 @@ inline function onSlider_DriveTubeGainControl(component, value)
 {
     TubeDrive.setAttribute(TubeDrive.Gain, value);
     Label_DriveTubeGainValue.set("text", Math.round(value) + "db");
+
+    Panel_DriveImage.repaint();
 };
 
 Content.getComponent("Slider_DriveTubeGain").setControlCallback(onSlider_DriveTubeGainControl);
@@ -456,6 +481,8 @@ inline function onSlider_DegradeBitDepthControl(component, value)
 {
 	Degrade.setAttribute(Degrade.BitDepth, value);
 	Label_DegradeBitDepthValue.set("text", Math.round(value));
+
+	Panel_DegradeImage.repaint();
 };
 
 Content.getComponent("Slider_DegradeBitDepth").setControlCallback(onSlider_DegradeBitDepthControl);
@@ -464,6 +491,8 @@ inline function onSlider_DegradeSampleHoldControl(component, value)
 {
 	Degrade.setAttribute(Degrade.SampleHold, value);
 	Label_DegradeSampleHoldValue.set("text", value);
+
+	Panel_DegradeImage.repaint();	
 };
 
 Content.getComponent("Slider_DegradeSampleHold").setControlCallback(onSlider_DegradeSampleHoldControl);
@@ -924,6 +953,8 @@ inline function onSlider_AmpGainControl(component, value)
 	//Gain
 	Amp.setAttribute(Amp.Gain, value);
 	Label_AmpGainValue.set("text", value + "%");
+
+	Panel_AmpImage.repaint();
 };
 
 Content.getComponent("Slider_AmpGain").setControlCallback(onSlider_AmpGainControl);
@@ -943,6 +974,8 @@ inline function onComboBox_AmpCabSelectControl(component, value)
 {
     local fullCabName = "{PROJECT_FOLDER}Cab " + Math.round(value) + ".wav";
 	Amp_Cab.setFile(fullCabName);
+
+	Panel_AmpImage.repaint();
 };
 
 Content.getComponent("ComboBox_AmpCabSelect").setControlCallback(onComboBox_AmpCabSelectControl);
@@ -1002,6 +1035,7 @@ inline function onButton_AmpEnableControl(component, value)
 	Amp_CorrectiveEQ.setBypassed(1-value);
     Button_AmpCabBypass.setValue(value);
     Button_AmpCabBypass.changed();	
+
 };
 
 Content.getComponent("Button_AmpEnable").setControlCallback(onButton_AmpEnableControl);
@@ -1023,6 +1057,210 @@ inline function onButton_AmpCabBypassControl(component, value)
         Button_AmpCabBypass.changed();
     }   
    
+   Panel_AmpImage.repaint();
 };
 
 Content.getComponent("Button_AmpCabBypass").setControlCallback(onButton_AmpCabBypassControl);
+
+//Panel Image LAFs
+
+const var Panel_CompImage = Content.getComponent("Panel_CompImage");
+const var Panel_AmpImage = Content.getComponent("Panel_AmpImage");
+const var Panel_DriveImage = Content.getComponent("Panel_DriveImage");
+const var Panel_DegradeImage = Content.getComponent("Panel_DegradeImage");
+const var Panel_WidthImage = Content.getComponent("Panel_WidthImage");
+const var Panel_PhaserImage = Content.getComponent("Panel_PhaserImage");
+const var Panel_ReverbImage = Content.getComponent("Panel_ReverbImage");
+const var Panel_DelayImage = Content.getComponent("Panel_DelayImage");
+
+const var pathFXPanel = Content.createPath();
+
+//Compressor
+
+var compThresholdDraw;
+
+Panel_CompImage.setPaintRoutine(function(g)
+{
+
+	compThresholdDraw = (1-Slider_CompThreshold.getValueNormalized()) * this.getHeight();
+
+	//Input Rectangle
+	g.setColour(Colours.lightgrey);
+
+	if (Slider_CompThreshold.getValue() > -48)
+		g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6), this.getHeight() - (this.getHeight() / 2), this.getWidth() / 3, this.getHeight() / 2 - 1], 2.0, 2.0);
+	else
+		g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6), compThresholdDraw, this.getWidth() / 3, this.getHeight() - compThresholdDraw - 1], 2.0, 2.0);
+
+
+	//Threshold Rectangle
+	g.setColour(Colours.lightblue);
+	g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 8), 0, this.getWidth() / 4, compThresholdDraw - 1], 2.0, 2.0);
+
+	g.setColour(0x1D99F1FF);
+	g.fillRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 8), 0, this.getWidth() / 4, compThresholdDraw - 1], 2.0);
+
+	//Ratio Lines
+
+	g.setColour(Colours.lightblue);
+	for (i=1; i<Slider_CompRatio.getValue(); i++)
+		g.drawLine((this.getWidth() / 2) - (this.getWidth() / 7) + 2, ((this.getWidth() / 2) + this.getWidth() / 7) - 4, ((1-Slider_CompThreshold.getValueNormalized()) * this.getHeight() / Slider_CompRatio.getValue() * i), ((1-Slider_CompThreshold.getValueNormalized()) * this.getHeight() / Slider_CompRatio.getValue() * i), 1.0);
+
+
+	//OutputGain
+	g.setColour(0x11BFBFBF);
+	g.fillRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6) + 2, this.getHeight() * (1-Slider_CompMakeup.getValueNormalized()), this.getWidth() / 3 - 4, this.getHeight() * Slider_CompMakeup.getValueNormalized()], 2.0);
+	g.setColour(Colours.grey);
+	g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6) + 2, this.getHeight() * (1-Slider_CompMakeup.getValueNormalized()), this.getWidth() / 3 - 4, this.getHeight() * Slider_CompMakeup.getValueNormalized()], 2.0, 1.0);
+
+	//Mix
+	//Change Colour
+});
+
+//Amp
+
+Panel_AmpImage.setPaintRoutine(function(g)
+{
+	g.setColour(Colours.white);
+	pathFXPanel.loadFromData(ampHeadData);
+	g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), 30, this.getWidth() * .5, this.getHeight() * .2], 1.0);
+
+	if (Slider_AmpGain.getValueNormalized() > .33 && Slider_AmpGain.getValueNormalized() < .66)
+		{
+			pathFXPanel.loadFromData(ampFlamesHalfData);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.3), 16, this.getWidth() * .63, this.getHeight() * .26], 1.0);
+		}
+	if (Slider_AmpGain.getValueNormalized() > .66)
+		{
+			pathFXPanel.loadFromData(ampFlamesFullData);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), 0, this.getWidth() * .8, this.getHeight() * .36], 1.0);
+		}
+
+	if (Button_AmpCabBypass.getValue())
+		g.setColour(Colours.white);
+	else
+		g.setColour(Colours.darkgrey);
+
+	switch (ComboBox_AmpCabSelect.getValue())
+	{
+		case 1: 
+			pathFXPanel.loadFromData(cabData01);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), this.getHeight() * .2 + 32, this.getWidth() * .8, this.getHeight() * .8 - 33], 1.0);
+		break;
+
+		case 2: 
+			pathFXPanel.loadFromData(cabData02);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35), this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .7 - 16], 1.0);
+		break;
+
+		case 3: 
+			pathFXPanel.loadFromData(cabData03);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 12, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .55 - 8], 1.0);
+		break;
+
+		case 4: 
+			pathFXPanel.loadFromData(cabData04);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.275), this.getHeight() * .2 + 32, this.getWidth() * .55, this.getHeight() * .8 - 33], 1.0);
+		break;
+
+		case 5: 
+			pathFXPanel.loadFromData(cabData05);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 16, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .45 - 8], 1.0);
+		break;
+
+		case 6: 
+			pathFXPanel.loadFromData(cabData06);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .4 - 8], 1.0);
+		break;
+
+		case 7: 
+			pathFXPanel.loadFromData(cabData07);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .45 - 8], 1.0);
+		break;
+
+		case 8: 
+			pathFXPanel.loadFromData(cabData01);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), this.getHeight() * .2 + 32, this.getWidth() * .8, this.getHeight() * .8 - 33], 1.0);
+		break;
+
+		case 9: 
+			pathFXPanel.loadFromData(cabData02);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35), this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .7 - 16], 1.0);
+		break;
+
+		case 10: 
+			pathFXPanel.loadFromData(cabData03);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 12, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .55 - 8], 1.0);
+		break;
+
+		case 11: 
+			pathFXPanel.loadFromData(cabData04);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.275), this.getHeight() * .2 + 32, this.getWidth() * .55, this.getHeight() * .8 - 33], 1.0);
+		break;
+
+		case 12: 
+			pathFXPanel.loadFromData(cabData05);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 16, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .45 - 8], 1.0);
+		break;
+
+		case 13: 
+			pathFXPanel.loadFromData(cabData06);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .4 - 8], 1.0);
+		break;
+
+		case 14: 
+			pathFXPanel.loadFromData(cabData07);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .45 - 8], 1.0);
+		break;
+	}
+
+	
+});
+
+//Drive
+
+Panel_DriveImage.setPaintRoutine(function(g)
+{
+	//Diode
+	g.setColour(Colours.white);
+	pathFXPanel.loadFromData(driveDiodeData);
+	g.drawPath(pathFXPanel, [this.getWidth() * .2, this.getHeight() * .1, this.getWidth() * .6, this.getHeight() * .2], 1.0);
+
+	//Tubes
+	g.setColour(Colours.white);
+	pathFXPanel.loadFromData(driveTubeData);
+	g.drawPath(pathFXPanel, [this.getWidth() * .2, (this.getHeight() * .1) + this.getWidth() * .5, this.getWidth() * .2, this.getHeight() * .4], 1.0);
+	g.drawPath(pathFXPanel, [this.getWidth() * .6, (this.getHeight() * .1) + this.getWidth() * .5, this.getWidth() * .2, this.getHeight() * .4], 1.0);
+
+	//Sparks
+
+	
+	if (Slider_DriveWaveshaperGain.getValueNormalized() > .35 )
+	{
+		pathFXPanel.loadFromData(driveDiodeSparksData);
+		g.fillPath(pathFXPanel, [this.getWidth() * .25, 0, this.getWidth() * .5, this.getHeight() * .4]);
+	}
+
+	if (Slider_DriveTubeGain.getValueNormalized() > .35)
+	{
+		pathFXPanel.loadFromData(driveTubeSparksData);
+		g.fillPath(pathFXPanel, [this.getWidth() * .1, this.getHeight() * .7, this.getWidth() * .8, this.getHeight() * .25]);
+	}
+});
+
+//Degrade
+
+var degradePointsx = [.2, .58, .69, .26, .72, .8, .76, .66, .25, .44, .51, .07, .27, .17, .45, .38, .72, .69, .48, .23, .42];
+var degradePointsY = [.44, .62, .11, .88, .46, .33, .56, .82, .27, .14, .22, .45, .39, .58, .37, .66, .78, .29, .56, .67, .83];
+var degradeColours = [Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue];
+
+Panel_DegradeImage.setPaintRoutine(function(g)
+{
+
+	for (i=0; i<degradePointsx.length; i++)
+	{
+		g.setColour(degradeColours[i]);
+		g.drawRoundedRectangle([degradePointsx[i] * this.getWidth(), degradePointsY[i] * this.getHeight(), 16 + (Slider_DegradeSampleHold.getValue() * .35), 16], Math.range(Slider_DegradeBitDepth.getValue() - 4, 0.0, 9.0), 1.0);
+	}
+});
+

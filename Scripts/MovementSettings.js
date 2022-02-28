@@ -67,6 +67,19 @@ inline function onButton_MoveDisplayControl(component, value)
 
 Content.getComponent("Button_MoveDisplay").setControlCallback(onButton_MoveDisplayControl);
 
+//Close Button
+
+inline function onButton_CloseMovementPanelControl(component, value)
+{
+    if (value)
+    {
+        Button_MoveDisplay.setValue(0);
+        Panel_Movement.showControl(0);
+    }
+};
+
+Content.getComponent("Button_CloseMovementPanel").setControlCallback(onButton_CloseMovementPanelControl);
+
 //Paint Routine
 
 Panel_Movement.setPaintRoutine(function(g)

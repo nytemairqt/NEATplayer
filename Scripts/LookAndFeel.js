@@ -248,9 +248,9 @@ laf.registerFunction("drawToggleButton", function(g, obj)
             }
         }
         path.loadFromData(randomizationButtonDiceShape);        
-        g.drawPath(path, [obj.area[0] + 4.0, obj.area[1] + 4.0, obj.area[2] - 8.0, obj.area[3] - 8.0], 1.0);
+        g.drawPath(path, [obj.area[0] + 6.0, obj.area[1] + 4.0, obj.area[2] - 12.0, obj.area[3] - 8.0], 1.0);
         path.loadFromData(randomizationButtonDiceDots);
-        g.fillPath(path, [obj.area[0] + 6.0, obj.area[1] + 6.0, obj.area[2] - 12.0, obj.area[3] - 12.0]);
+        g.fillPath(path, [obj.area[0] + 8.0, obj.area[1] + 6.0, obj.area[2] - 16.0, obj.area[3] - 12.0]);
     break;
     
     case "LAFButtonChangePage":
@@ -435,21 +435,27 @@ if (obj.over)
     break;
     
     case "LAFArpInvertButton":
+
+    var leftTrianglePosition = (obj.area[2] * 0.25) - (obj.area[2] * 0.2);
+    var triangleWidth = (obj.area[2] / 3) / 2;
+    var rightTrianglePosition = (obj.area[2] * 0.75) - (obj.area[2] * 0.2);
+    var triangleYOffset = (obj.area[3] * 0.33) / 2;
+
         if (obj.over)
             {              
                 g.setColour(Colours.white);
-                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 4, obj.area[3] - 4, 2.0);
-                g.fillTriangle([3, 0, obj.area[2] / 2, obj.area[3] - 8], Math.toRadians(0));
-                g.fillTriangle([3, obj.area[3] - 4, obj.area[2] / 2, obj.area[3] - 8], Math.toRadians(180));
             }
             
             else
             {                
                 g.setColour(Colours.lightgrey);
-                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 4, obj.area[3] - 4, 2.0);
-                g.fillTriangle([3, 0, obj.area[2] / 2, obj.area[3] - 8], Math.toRadians(0));
-                g.fillTriangle([3, obj.area[3] - 4, obj.area[2] / 2, obj.area[3] - 8], Math.toRadians(180));
+
             } 
+        g.fillTriangle([leftTrianglePosition, 0 + triangleYOffset, obj.area[2] * 0.33, obj.area[3] * 0.33], Math.toRadians(0));
+        g.drawLine(leftTrianglePosition + triangleWidth, leftTrianglePosition + triangleWidth, 10, obj.area[3] - 4, 2.0);
+
+        g.fillTriangle([rightTrianglePosition, obj.area[3] * 0.66 - triangleYOffset, obj.area[2] / 3, obj.area[3] * 0.33], Math.toRadians(180));
+        g.drawLine(rightTrianglePosition + triangleWidth, rightTrianglePosition + triangleWidth, triangleYOffset, obj.area[3] - 10, 2.0);
     break;
     
     case "LAFArpMinorButton":
@@ -823,10 +829,7 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
         
         case "LAFSliderOutputGain":
         g.setColour(Colours.lightgrey);
-        if (obj.valueNormalized > .95)
-            g.fillEllipse([(obj.area[2] * .90), 0, 8, 8]);
-        else
-            g.fillEllipse([(obj.area[2] * .95) * obj.valueNormalized, 0, 8, 8]);
+        g.fillRoundedRectangle([(obj.area[2] * 0.98) * obj.valueNormalized, 0, 2, obj.area[3]], 2.0);
         break;
         
         case "LAF_SliderPDQBassVel":
@@ -949,6 +952,8 @@ laf.registerFunction("drawNumberTag", function(g, obj)
 
 //Alert Window Popups
 
+/*
+
 laf.registerFunction("drawAlertWindowIcon", function(g, obj)
 {
     if(obj.type == "Question")
@@ -963,3 +968,5 @@ laf.registerFunction("drawAlertWindowIcon", function(g, obj)
             g.fillPath(path, [obj.area[0], obj.area[1] + 14, obj.area[2] - 40, obj.area[3] - 56]);  
     }
 });
+
+*/

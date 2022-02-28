@@ -55,6 +55,9 @@ const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeS
 
 const var Panel_Sample = Content.getComponent("Panel_Sample");
 
+const var windowButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+const var windowPanels = [Panel_CustomSettings, Panel_InstallLibraries, FloatingTile_PresetBrowser, Viewport_ExpansionsHolder, Panel_Sample, Panel_FX, Panel_Arp, Panel_Movement];
+
 
 //Zoom UI Button
 

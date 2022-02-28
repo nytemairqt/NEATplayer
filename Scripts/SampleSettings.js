@@ -190,6 +190,20 @@ Panel_Sample.setPaintRoutine(function(g)
 	g.drawLine(this.getWidth() / 3 * 2, this.getWidth() / 3 * 2, 0, this.getHeight(), 1.0);
 });
 
+//Close Button
+
+inline function onButton_CloseSamplePanelControl(component, value)
+{
+	if (value)
+	{
+		Button_SampleDisplay.setValue(0);
+		Panel_Sample.showControl(0);
+	}
+};
+
+Content.getComponent("Button_CloseSamplePanel").setControlCallback(onButton_CloseSamplePanelControl);
+
+
 //================================================================================================
 
 //POSITIONING CONTROLS

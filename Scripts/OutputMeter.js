@@ -6,11 +6,11 @@
 const var LEVELING_UNIT = Synth.getEffect("Simple Gain1");
 const var SimpleGain1 = Synth.getEffect("Simple Gain1");
 
-const var LEVELING_Container = Content.addPanel("LEVELING_Container", 320, 3);
+const var LEVELING_Container = Content.addPanel("LEVELING_Container", 320, 5);
 
 Content.setPropertiesFromJSON("LEVELING_Container", {
    "width": 100,
-    "height": 18,
+    "height": 16,
    "itemColour": "0x00FFFFFF",
     "itemColour2": "0x00FFFFFF",
     "textColour": "0x00FFFFFF",
@@ -36,8 +36,8 @@ namespace VuMeter
 		local widget = Content.addPanel(name, x, y);
     
 		Content.setPropertiesFromJSON(name, {
-		"width": 96,
-		"height": 12,
+		"width": 160,
+		"height": 16,
 		"itemColour": 0xCCBEF5F9,
 		"itemColour2": 4279505940,
 		"bgColour": 4279505940,
@@ -54,21 +54,19 @@ namespace VuMeter
 		widget.setPaintRoutine(function(g)
 		{
 			g.fillAll(this.get("bgColour"));
-			
-			g.setColour(this.get("itemColour"));
+
+			g.setColour(Colours.lightblue);
     	
-			var lsize = parseInt(this.data.lvalue * (this.getWidth()-4));
-			var rsize = parseInt(this.data.rvalue * (this.getWidth()-4));
+			var lsize = parseInt(this.data.lvalue * (this.getWidth() * Slider_OutputGain.getValue()));
+			var rsize = parseInt(this.data.rvalue * (this.getWidth() * Slider_OutputGain.getValue()));
+
+			var barHeight = 4;
+
+			var lPosition = this.getHeight() * 0.33 - (barHeight / 2);
+			var rPosition = this.getHeight() * 0.66 - (barHeight / 2);
     	
-			g.fillRect([2, 2, lsize, (this.getHeight()-4)/2-1]);
-			g.fillRect([2, 4, rsize, (this.getHeight()-4)/2-1]);
-    	
-			g.setColour(this.get("itemColour2"));
-    	
-			for(i = 1; i < this.getHeight()-1; i = i + 3)
-			{
-				g.fillRect([1, i, this.getWidth()-2, 1]);
-			}
+			g.fillRect([2, lPosition, lsize, barHeight]);
+			g.fillRect([2, rPosition, rsize, barHeight]);
 		});
     
 		widget.setTimerCallback(function()
@@ -104,7 +102,7 @@ const var OutputGain = Synth.getEffect("OutputGain");
 inline function positionOutputSliderContainer()
 {
 	local x = Button_OpenAppData.getGlobalPositionX() + Button_OpenAppData.getWidth() + padding;
-	local y = Button_OpenAppData.getGlobalPositionY();
+	local y = 7;
 	local w = 160;
 	local h = 16;
 

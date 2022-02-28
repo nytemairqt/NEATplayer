@@ -113,6 +113,19 @@ inline function onButton_ArpDisplayControl(component, value)
 
 Content.getComponent("Button_ArpDisplay").setControlCallback(onButton_ArpDisplayControl);
 
+//Close Button
+
+inline function onButton_CloseArpPanelControl(component, value)
+{
+    if (value)
+    {
+        Button_ArpDisplay.setValue(0);
+        Panel_Arp.showControl(0);
+    }
+};
+
+Content.getComponent("Button_CloseArpPanel").setControlCallback(onButton_CloseArpPanelControl);
+
 //Paint Routine
 
 Panel_Arp.setPaintRoutine(function(g)
