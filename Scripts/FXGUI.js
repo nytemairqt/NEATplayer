@@ -823,7 +823,7 @@ inline function onSlider_StutterLFORateFreeControl(component, value)
     {
         LFOModulator1.setAttribute(LFOModulator1.Frequency, value);
         LFOModulator2.setAttribute(LFOModulator2.Frequency, value);
-        Label_StutterLFORateValue.set("text", value + "Hz");
+        Label_StutterLFORateValue.set("text", Math.round(value) + "Hz");
     }
 
     Panel_WidthImage.repaint();
@@ -887,7 +887,7 @@ Content.getComponent("Slider_WidthAmount").setControlCallback(onSlider_WidthAmou
 inline function onSlider_WidthGainControl(component, value)
 {
     Width.setAttribute(Width.Gain, value);
-    Label_WidthGainValue.set("text", value + "db");
+    Label_WidthGainValue.set("text", Math.round(value) + "db");
 };
 
 Content.getComponent("Slider_WidthGain").setControlCallback(onSlider_WidthGainControl);
@@ -1085,6 +1085,7 @@ const var pathFXPanel = Content.createPath();
 
 var compThresholdDraw;
 
+
 Panel_CompImage.setPaintRoutine(function(g)
 {
 
@@ -1274,18 +1275,33 @@ Panel_DegradeImage.setPaintRoutine(function(g)
 
 Panel_WidthImage.setPaintRoutine(function(g)
 {
+	//Width
 	g.setColour(Colours.white);
+	g.drawLine(this.getWidth() / 2, this.getWidth() / 2, 0, this.getHeight(), 1.0);
 
-	g.drawTriangle([this.getWidth() * Slider_WidthAmount.getValueNormalized(), 0, this.getWidth() * Slider_WidthAmount.getValueNormalized(), this.getHeight()], Math.toRadians(180), 1.0);
+	g.drawTriangle([(this.getWidth() / 2) - ((this.getWidth() / 2) * Slider_WidthAmount.getValueNormalized()), 20, this.getWidth() * Slider_WidthAmount.getValueNormalized(), this.getHeight() - 40], Math.toRadians(180), 1.0);
 
+	//Stutter
+
+	var stutterNumSteps;
+	var stutterStepHeight = 4;
 
 	//Stutter Check Sync
 		if (Button_StutterLFOSync.getValue() == 1)    
     	{
-
+    		stutterNumSteps = Math.round(Slider_StutterLFORate.getValueNormalized() * 10);
     	}
     	else
     	{
-
+    		stutterNumSteps = Math.round(Slider_StutterLFORateFree.getValueNormalized() * 10);
     	}
+
+
+    for (i=0; i<stutterNumSteps; i++)
+    {
+    	g.setColour(0xFF030303);
+    	g.fillRoundedRectangle([0, this.getHeight() * (i / 10), this.getWidth(), stutterStepHeight], 2.0);
+    	g.setColour(Colours.darkgrey);
+    	g.drawRoundedRectangle([0, this.getHeight() * (i / 10), this.getWidth(), stutterStepHeight], 2.0, 1.0);
+    }
 });

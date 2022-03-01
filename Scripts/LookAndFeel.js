@@ -2,6 +2,7 @@ const laf = Engine.createGlobalScriptLookAndFeel();
 
 const var path = Content.createPath();
 
+/*
 function LAFFXButton()
 {
     g.drawLine(0, 6, 0, 0, 1.0);
@@ -13,6 +14,7 @@ function LAFFXButton()
     g.drawLine(obj.area[2], obj.area[2] - 6, obj.area[3], obj.area[3], 1.0);
     g.drawLine(obj.area[2], obj.area[2], obj.area[3], obj.area[3] - 6, 1.0);
 }
+*/
 
 const var randomizationButtonData = [110,109,215,163,32,65,0,0,0,65,108,10,215,31,66,0,0,0,65,98,16,88,36,66,0,0,0,65,0,0,40,66,190,159,14,65,0,0,40,66,215,163,32,65,108,0,0,40,66,10,215,31,66,98,0,0,40,66,16,88,36,66,16,88,36,66,0,0,40,66,10,215,31,66,0,0,40,66,108,215,163,32,65,0,0,40,
 66,98,190,159,14,65,0,0,40,66,0,0,0,65,16,88,36,66,0,0,0,65,10,215,31,66,108,0,0,0,65,215,163,32,65,98,0,0,0,65,190,159,14,65,190,159,14,65,0,0,0,65,215,163,32,65,0,0,0,65,99,101,0,0];
@@ -106,46 +108,25 @@ laf.registerFunction("drawToggleButton", function(g, obj)
     switch (obj.text)
     {
     case "LAFButtonRandomize":
-    g.setColour(0xFF131313);
-    g.fillRoundedRectangle(obj.area, 2);
-    
-    //set area 
-    if (obj.value)       
-        {
-            if (obj.over)
+        g.setColour(0xFF131313);
+        g.fillRoundedRectangle(obj.area, 2);
+        if (obj.value)       
             {
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 2, 1);
-                path.loadFromData(randomizationButtonFillData);
-                g.fillPath(path, [a[0] + 2, a[1] + 2, a[2] - 4, a[3] - 4]);
-                
+                if (obj.over)
+                    g.setColour(Colours.white);
+                else
+                    g.setColour(Colours.lightgrey);
             }
-            else
+        else 
             {
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 2, 1); 
-                path.loadFromData(randomizationButtonFillData);
-                g.fillPath(path, [a[0] + 2, a[1] + 2, a[2] - 4, a[3] - 4]);
+                if (obj.over)
+                    g.setColour(Colours.grey);
+                else
+                    g.setColour(Colours.darkgrey);
             }
-        }
-    else 
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 2, 1);
-                path.loadFromData(randomizationButtonFillData);
-                g.fillPath(path, [a[0] + 2, a[1] + 2, a[2] - 4, a[3] - 4]);
-            }
-            else
-            {
-                g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 2, 1); 
-                path.loadFromData(randomizationButtonFillData);
-                g.fillPath(path, [a[0] + 2, a[1] + 2, a[2] - 4, a[3] - 4]);
-            }
-        }
-
+        g.drawRoundedRectangle(obj.area, 2, 1); 
+        path.loadFromData(randomizationButtonFillData);
+        g.fillPath(path, [a[0] + 2, a[1] + 2, a[2] - 4, a[3] - 4]);
     break;
     
     case "LAFButtonBypass":
@@ -153,27 +134,15 @@ laf.registerFunction("drawToggleButton", function(g, obj)
         g.fillEllipse(obj.area);     
         if (obj.value)
             if (obj.over)
-            {
                 g.setColour(Colours.lightgrey);
-                g.fillEllipse([a[0]+1, a[1]+1, a[2]-2, a[3]-2]);
-            }
             else
-            {
                 g.setColour(Colours.lightblue);
-                g.fillEllipse([a[0]+1, a[1]+1, a[2]-2, a[3]-2]);
-            }
         else 
             if (obj.over)
-            {
                 g.setColour(Colours.grey);
-                g.fillEllipse([a[0]+1, a[1]+1, a[2]-2, a[3]-2]);
-            }
             else
-            {
-                g.setColour(Colours.darkgrey);
-                g.fillEllipse([a[0]+1, a[1]+1, a[2]-2, a[3]-2]);
-            }        
-
+                g.setColour(Colours.darkgrey);        
+            g.fillEllipse([a[0]+1, a[1]+1, a[2]-2, a[3]-2]);
     break;    
     
     case "LAFButtonFXSettings":
@@ -182,61 +151,45 @@ laf.registerFunction("drawToggleButton", function(g, obj)
         if (obj.value)
         {
             if (obj.over)
-            {
                 g.setColour(Colours.white);
-                LAFFXButton();
-            }
             else
-            {
                 g.setColour(Colours.lightgrey);
-                LAFFXButton();
-            }
         }
         else
         {
             if (obj.over)
-            {
                 g.setColour(Colours.grey);
-                LAFFXButton();
-            }
             else
-            {
                 g.setColour(Colours.darkgrey);
-                LAFFXButton();
-            }
         }
+        g.drawLine(0, 6, 0, 0, 1.0);
+        g.drawLine(0, 0, 0, 6, 1.0);
+        g.drawLine(obj.area[2], obj.area[2] - 6, 0, 0, 1.0);
+        g.drawLine(obj.area[2], obj.area[2], 0, 6, 1.0);
+        g.drawLine(0, 6, obj.area[3], obj.area[3], 1.0);
+        g.drawLine(0, 0, obj.area[3], obj.area[3] - 6, 1.0);
+        g.drawLine(obj.area[2], obj.area[2] - 6, obj.area[3], obj.area[3], 1.0);
+        g.drawLine(obj.area[2], obj.area[2], obj.area[3], obj.area[3] - 6, 1.0);
     break;  
     
     case "LAFButtonClose":
 	    if (obj.over)
-	            {
-	                g.setColour(Colours.white);
-	                g.setFont("Arial", 14.0);
-	                g.drawAlignedText("x", obj.area, "centred");
-	            }
-	            else
-	            {
-	                g.setColour(Colours.lightgrey);
-	                g.setFont("Arial", 14.0);
-	                g.drawAlignedText("x", obj.area, "centred");
-	            }
+            g.setColour(Colours.white);
+        else
+            g.setColour(Colours.lightgrey);
+        g.setFont("Arial", 14.0);
+        g.drawAlignedText("x", obj.area, "centred");
     break;
 
     case "LAFButtonCloseRandomizationPanel":
         g.setColour(0xFB111111);
         g.fillEllipse(obj.area);
         if (obj.over)
-                {
-                    g.setColour(Colours.white);
-                    g.setFont("Arial", 14.0);
-                    g.drawAlignedText("x", obj.area, "centred");
-                }
-                else
-                {
-                    g.setColour(Colours.lightgrey);
-                    g.setFont("Arial", 14.0);
-                    g.drawAlignedText("x", obj.area, "centred");
-                }
+            g.setColour(Colours.white);
+        else
+            g.setColour(Colours.lightgrey);
+        g.setFont("Arial", 14.0);
+        g.drawAlignedText("x", obj.area, "centred");
     break;
 
     case "LAFOpenRandomizationPanel":
@@ -245,24 +198,16 @@ laf.registerFunction("drawToggleButton", function(g, obj)
         if (obj.value)
         {
             if (obj.over)
-            {
                 g.setColour(Colours.white);
-            }
             else
-            {
                 g.setColour(Colours.lightgrey);
-            }
         }
         else
         {
             if (obj.over)
-            {
                 g.setColour(Colours.white);
-            }
             else
-            {
                 g.setColour(Colours.lightgrey);
-            }
         }
         path.loadFromData(randomizationButtonDiceShape);        
         g.drawPath(path, [obj.area[0] + 6.0, obj.area[1] + 4.0, obj.area[2] - 12.0, obj.area[3] - 8.0], 1.0);
@@ -274,160 +219,57 @@ laf.registerFunction("drawToggleButton", function(g, obj)
     if (obj.value)
         {
             if (obj.over)
-            {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }
             else
-            {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }
         }
     else 
         {
             if (obj.over)
-            {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }
             else
-            {
                 g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }
         }
+    g.fillRoundedRectangle(obj.area, 2.0);
     break;  
     
     case "LAFButtonSetup":
     if (obj.value)
         {
             if (obj.over)
-            {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }
             else
-            {
-                g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }  
+                g.setColour(Colours.darkgrey); 
         }
     else
         {
             if (obj.over)
-            {
                 g.setColour(Colours.darkgrey);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }
             else
-            {
                 g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 2.0);
-            }  
         }
-          
+    g.fillRoundedRectangle(obj.area, 2.0);     
     break;  
     
     case "LAFButtonRandomizeVisibility":
-        path.loadFromData(randomizationButtonsVisibilityData);    
+        path.loadFromData(randomizationButtonsVisibilityData);   
+        g.setColour(0xFB111111);
+        g.fillRoundedRectangle(obj.area, 3.0); 
         if (obj.value)
         {
             if (obj.over)
-            {
-                g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.white);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);                
-            }
-            
+                g.setColour(Colours.white);            
             else
-            {
-                g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.lightgrey);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);                
-            }
+                g.setColour(0xFB111111);              
         }
         else
         {
             if (obj.over)
-            {
                 g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.lightgrey);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);
-            }
-            
             else
-            {
-                g.setColour(0xFB111111);
-                g.fillRoundedRectangle(obj.area, 3.0);
-                g.setColour(Colours.darkgrey);
-                g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);                
-            }            
+                g.setColour(Colours.darkgrey);         
         }
-    break;
-    
-    case "LAFButtonZoom":
-    //Need value for + or -
-    if (obj.value)
-        {
-if (obj.over)
-            {
-                //Circles
-                g.setColour(Colours.lightgrey);
-                g.fillEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16]);
-                g.setColour(Colours.darkgrey);
-                g.drawEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16], 2);
-                //Handle
-                g.drawLine(obj.area[0] + 16, obj.area[2] - 7, obj.area[1] + 16, obj.area[3] - 7, 2.0);
-                //Minus sign
-                g.drawLine(obj.area[0] + 6, obj.area[0] + 14, obj.area[1] + 10, obj.area[1] + 10, 2.0);
-            }
-            else
-            {
-                //Circles
-                g.setColour(Colours.lightgrey);
-                g.fillEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16]);
-                g.setColour(0xFB363636);
-                g.drawEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16], 2);
-                //Handle
-                g.drawLine(obj.area[0] + 16, obj.area[2] - 7, obj.area[1] + 16, obj.area[3] - 7, 2.0);
-                //Minus sign
-                g.drawLine(obj.area[0] + 6, obj.area[0] + 14, obj.area[1] + 10, obj.area[1] + 10, 2.0);
-            }
-        }
-    else 
-        {
-            if (obj.over)
-            {
-                //Circles
-                g.setColour(Colours.lightgrey);
-                g.fillEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16]);
-                g.setColour(Colours.darkgrey);
-                g.drawEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16], 2);
-                //Handle
-                g.drawLine(obj.area[0] + 16, obj.area[2] - 7, obj.area[1] + 16, obj.area[3] - 7, 2.0);
-                //Plus sign
-                g.drawLine(obj.area[0] + 6, obj.area[0] + 14, obj.area[1] + 10, obj.area[1] + 10, 2.0);
-                g.drawLine(obj.area[0] + 10, obj.area[0] + 10, obj.area[1] + 6, obj.area[1] + 14, 2.0);
-            }
-            else
-            {
-                //Circles
-                g.setColour(Colours.lightgrey);
-                g.fillEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16]);
-                g.setColour(0xFB363636);
-                g.drawEllipse([obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 16, obj.area[3] - 16], 2);
-                //Handle
-                g.drawLine(obj.area[0] + 16, obj.area[2] - 7, obj.area[1] + 16, obj.area[3] - 7, 2.0);
-                //Plus sign
-                g.drawLine(obj.area[0] + 6, obj.area[0] + 14, obj.area[1] + 10, obj.area[1] + 10, 2.0);
-                g.drawLine(obj.area[0] + 10, obj.area[0] + 10, obj.area[1] + 6, obj.area[1] + 14, 2.0);
-            }
-        }
-        
+    g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);
     break; 
     
     case "LAFArpResetButton":
@@ -452,22 +294,15 @@ if (obj.over)
     break;
     
     case "LAFArpInvertButton":
+        var leftTrianglePosition = (obj.area[2] * 0.25) - (obj.area[2] * 0.2);
+        var triangleWidth = (obj.area[2] / 3) / 2;
+        var rightTrianglePosition = (obj.area[2] * 0.75) - (obj.area[2] * 0.2);
+        var triangleYOffset = (obj.area[3] * 0.33) / 2;
 
-    var leftTrianglePosition = (obj.area[2] * 0.25) - (obj.area[2] * 0.2);
-    var triangleWidth = (obj.area[2] / 3) / 2;
-    var rightTrianglePosition = (obj.area[2] * 0.75) - (obj.area[2] * 0.2);
-    var triangleYOffset = (obj.area[3] * 0.33) / 2;
-
-        if (obj.over)
-            {              
-                g.setColour(Colours.white);
-            }
-            
-            else
-            {                
-                g.setColour(Colours.lightgrey);
-
-            } 
+        if (obj.over)           
+            g.setColour(Colours.white);
+        else               
+            g.setColour(Colours.lightgrey);
         g.fillTriangle([leftTrianglePosition, 0 + triangleYOffset, obj.area[2] * 0.33, obj.area[3] * 0.33], Math.toRadians(0));
         g.drawLine(leftTrianglePosition + triangleWidth, leftTrianglePosition + triangleWidth, 10, obj.area[3] - 4, 2.0);
 
@@ -476,72 +311,28 @@ if (obj.over)
     break;
     
     case "LAFArpMinorButton":
-	path.clear();
-	path.loadFromData(arpButtonMinor);    
-    if (obj.over)
-            {
-				g.setColour(Colours.white);
-				g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);               
-                g.drawPath(path, obj.area, 1.0);
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);               
-                g.drawPath(path, obj.area, 1.0);
-            }
+    	path.clear();
+    	path.loadFromData(arpButtonMinor);    
+        if (obj.over)
+			g.setColour(Colours.white);
+        else
+            g.setColour(Colours.lightgrey);
+        g.fillPath(path, obj.area);
+        g.setColour(0xE4060606);               
+        g.drawPath(path, obj.area, 1.0);
     break;
     
     case "LAFArpMajorButton":
-	path.clear();
-	path.loadFromData(arpButtonMajor);    
-    if (obj.over)
-            {
-				g.setColour(Colours.white);
-				g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);               
-                g.drawPath(path, obj.area, 1.0);
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                g.fillPath(path, obj.area);
-                g.setColour(0xE4060606);               
-                g.drawPath(path, obj.area, 1.0);
-            }
+    	path.clear();
+    	path.loadFromData(arpButtonMajor);    
+        if (obj.over)
+			g.setColour(Colours.white);
+        else
+            g.setColour(Colours.lightgrey);
+        g.fillPath(path, obj.area);
+        g.setColour(0xE4060606);               
+        g.drawPath(path, obj.area, 1.0);        
     break;
- 
-    case "LAFButtonKeyboardUp":
-        if (obj.over)
-        {
-            g.setColour(Colours.white);
-            g.fillTriangle(obj.area, 0.0);
-        }
-
-        else
-        {
-            g.setColour(Colours.lightgrey);
-            g.fillTriangle(obj.area, 0.0);
-        }
-    break;   
-    
-    case "LAFButtonKeyboardDown":
-        if (obj.over)
-        {
-            g.setColour(Colours.white);
-            g.rotate(Math.toRadians(180.0), [obj.area[2] / 2, obj.area[3] / 2]);
-            g.fillTriangle(obj.area, 0.0);
-        }
-
-        else
-        {
-            g.setColour(Colours.lightgrey);
-            g.rotate(Math.toRadians(180.0), [obj.area[2] / 2, obj.area[3] / 2]);
-            g.fillTriangle(obj.area, 0.0); 
-        }
-    break;       
     
     case "LAF_ButtonAppData":
         if (obj.over)
@@ -570,193 +361,72 @@ if (obj.over)
     
     case "LAFButtonUpArrow":
         if (obj.over)
-        {
             g.setColour(Colours.white);
-            g.fillTriangle(obj.area, 0);
-        }
         else
-        {
             g.setColour(Colours.lightgrey);
-            g.fillTriangle(obj.area, 0);
-        }
+        g.fillTriangle(obj.area, 0);
     break;
     
     case "LAFButtonDownArrow":
         if (obj.over)
-        {
             g.setColour(Colours.white);
-            g.fillTriangle(obj.area, Math.toRadians(180));
-        }
         else
-        {
             g.setColour(Colours.lightgrey);
-            g.fillTriangle(obj.area, Math.toRadians(180));
-        }
+        g.fillTriangle(obj.area, Math.toRadians(180));
     break;
     
     case "LAFButtonSamplerBypass":
         if (obj.value)
         {
             if (obj.over)
-            {
                 g.setColour(Colours.white);
-                path.clear();
-                path.loadFromData(samplerPowerButtonData);
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
-                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
-            }
             else
-            {
                 g.setColour(Colours.lightgrey);
-                path.clear();
-                path.loadFromData(samplerPowerButtonData);
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
-                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
-            }
         }
         else
         {
             if (obj.over)
-            {
                 g.setColour(Colours.grey);
-                path.clear();
-                path.loadFromData(samplerPowerButtonData);
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
-                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
-            }
             else
-            {
                 g.setColour(Colours.darkgrey);
-                path.clear();
-                path.loadFromData(samplerPowerButtonData);
-                g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
-                g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
-            }
         }
+        path.clear();
+        path.loadFromData(samplerPowerButtonData);
+        g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
+        g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
     break;
     
     case "LAFButtonSamplerReverse":
         if (obj.value)
         {
             if (obj.over)
-            {
                 g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 2.0, .5);
-                g.setFont("Arial", 9.0);
-                g.drawAlignedText("REV", obj.area, "centred");
-            }
             else
-            {
                 g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 2.0, .5);
-                g.setFont("Arial", 9.0);
-                g.drawAlignedText("REV", obj.area, "centred");
-            }
         }
         else
         {
             if (obj.over)
-            {
                 g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 2.0, .5);
-                g.setFont("Arial", 9.0);
-                g.drawAlignedText("REV", obj.area, "centred");
-            }
             else
-            {
                 g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 2.0, .5);
-                g.setFont("Arial", 9.0);
-                g.drawAlignedText("REV", obj.area, "centred");
-            }
         }
-    break;
-    
-    case "LAFButtonMacroAssignA":
-        g.setFont("Arial", 12);
-        if (obj.value)
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("X", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("X", obj.area, "centred");
-            }
-        }
-        else
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("X", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("X", obj.area, "centred");
-            }
-        }
-    break;
-    
-    case "LAFButtonMacroAssignB":
-        g.setFont("Arial", 12);
-        if (obj.value)
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("Y", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.lightgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("Y", obj.area, "centred");
-            }
-        }
-        else
-        {
-            if (obj.over)
-            {
-                g.setColour(Colours.grey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("Y", obj.area, "centred");
-            }
-            else
-            {
-                g.setColour(Colours.darkgrey);
-                g.drawRoundedRectangle(obj.area, 4.0, 1);
-                g.drawAlignedText("Y", obj.area, "centred");
-            }
-        }
+        g.drawRoundedRectangle(obj.area, 2.0, .5);
+        g.setFont("Arial", 9.0);
+        g.drawAlignedText("REV", obj.area, "centred");        
     break;
     
     case "LAFButtonSettingsCogwheel":
         if (obj.over)
-        {
             g.setColour(Colours.darkgrey);
-            g.fillRoundedRectangle(obj.area, 2.0);
-        }
         else
-        {
             g.setColour(0xFB111111);
-            g.fillRoundedRectangle(obj.area, 2.0);
-        }
+        g.fillRoundedRectangle(obj.area, 2.0);
         g.setColour(Colours.darkgrey);
         g.drawRoundedRectangle(obj.area, 2.0, 1.0);
         g.setColour(Colours.white);
         g.setFont("Arial", 14.0);
         g.drawAlignedText("Connection Settings", obj.area, "centred");
-                
     break;
 
     default:
@@ -782,11 +452,6 @@ sliderRing2.addArc([0.0, 0.0, 1.0, 1.0], -Math.PI*0.75, Math.PI * 0.75);
 inline function reduced(obj, amount)
 {
     return [amount, amount, obj.area[2] - 2*amount, obj.area[3] - 2* amount];
-}
-
-inline function shrunk(obj, amount)
-{
-    return [obj.area[0] + amount, obj.area[1] + amount, obj.area[2] - 2 * amount, obj.area[3] - 2 * amount];
 }
 
 laf.registerFunction("drawRotarySlider", function(g, obj)
@@ -887,6 +552,7 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
     }
 });
 
+
 laf.registerFunction("drawPopupMenuBackground", function(g, obj)
 {
     g.setColour(0xFF222222);
@@ -966,6 +632,7 @@ laf.registerFunction("drawNumberTag", function(g, obj)
     }
     
 });
+
 
 //Alert Window Popups
 

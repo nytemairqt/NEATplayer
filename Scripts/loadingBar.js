@@ -15,6 +15,7 @@ loadingBar.setPaintRoutine(function(g)
     g.drawAlignedText(this.data.text, [0, 0, 100, 20], "centred");
 });
 
+
 loadingBar.setTimerCallback(function()
 {
     this.data.progress = Engine.getPreloadProgress();

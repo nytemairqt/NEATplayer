@@ -2,6 +2,7 @@
 const expHandler = Engine.createExpansionHandler();
 reg nest = {};
 
+
 inline function onButton_InstallLibraryControl(component, value)
 {
    if (value)
@@ -34,7 +35,9 @@ inline function onButton_InstallLibraryControl(component, value)
 
 Content.getComponent("Button_InstallLibrary").setControlCallback(onButton_InstallLibraryControl);
 
+
 var hrList = [];
+
 
 inline function onButton_BulkInstallControl(component, value)
 {

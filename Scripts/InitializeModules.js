@@ -12,5 +12,5 @@ const var Panel_AchromicSettings = Content.getComponent("Panel_AchromicSettings"
 //const var Panel_BG = Content.getComponent("Panel_BG");
 //const var Image_BG = Content.getComponent("Image_BG");
 
-Image_BG.setAlpha(0);
+//Image_BG.setAlpha(0);
 

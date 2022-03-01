@@ -47,7 +47,7 @@ inline function positionMovementPanels()
 
 }
 
-positionMovementPanels();
+//positionMovementPanels();
 
 //Display Panel
 

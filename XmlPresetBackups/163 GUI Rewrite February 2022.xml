@@ -35,13 +35,13 @@
             <Control type="ScriptButton" id="Button_FilterBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_EQSettings" value="0"/>
             <Control type="ScriptButton" id="Button_EQBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DriveSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_DriveSettings" value="0"/>
             <Control type="ScriptButton" id="Button_DriveTubeDriveEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_CompSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_CompSettings" value="0"/>
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ReverbSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="1.0"/>
-            <Control type="ScriptButton" id="Button_WidthSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_WidthSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_DelaySettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="1.0"/>
@@ -61,11 +61,11 @@
             <Control type="ScriptSlider" id="Slider_CompThreshold" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompAttack" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_CompRelease" value="50.0"/>
-            <Control type="ScriptSlider" id="Slider_CompRatio" value="2.0"/>
+            <Control type="ScriptSlider" id="Slider_CompRatio" value="4.0"/>
             <Control type="ScriptSlider" id="Slider_CompMakeup" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompMix" value="1.0"/>
             <Control type="ScriptLabel" id="Label_CompThresholdValue" value="0dB"/>
-            <Control type="ScriptLabel" id="Label_CompRatioValue" value="2.0:1"/>
+            <Control type="ScriptLabel" id="Label_CompRatioValue" value="4.0:1"/>
             <Control type="ScriptLabel" id="Label_CompMakeupValue" value="0dB"/>
             <Control type="ScriptLabel" id="Label_CompAttackValue" value="50ms"/>
             <Control type="ScriptLabel" id="Label_CompMixValue" value="100%"/>
@@ -109,10 +109,10 @@
             <Control type="ScriptLabel" id="Label_WidthAmountValue" value="100%"/>
             <Control type="ScriptSlider" id="Slider_WidthAmount" value="100.0"/>
             <Control type="ScriptSlider" id="Slider_WidthGain" value="0.0"/>
-            <Control type="ScriptLabel" id="Label_WidthGainValue" value="0.0db"/>
-            <Control type="ScriptSlider" id="Slider_StutterLFORate" value="11.0"/>
+            <Control type="ScriptLabel" id="Label_WidthGainValue" value="0db"/>
+            <Control type="ScriptSlider" id="Slider_StutterLFORate" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_StutterLFORateFree" value="3.0"/>
-            <Control type="ScriptLabel" id="Label_StutterLFORateValue" value="1/16"/>
+            <Control type="ScriptLabel" id="Label_StutterLFORateValue" value="1/1"/>
             <Control type="ScriptSlider" id="Slider_StutterLFOAmount" value="0.0"/>
             <Control type="ScriptLabel" id="Label_StutterLFOAmountValue" value="0%"/>
             <Control type="ScriptButton" id="Button_StutterLFOPreFX" value="0.0"/>
@@ -143,23 +143,23 @@
             <Control type="ScriptButton" id="Button_RandomizeFXReverbDamping" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbWidth" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbMix" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1/8"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1/8"/>
-            <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.2599999904632568"/>
-            <Control type="ScriptSlider" id="Slider_DelayFeedbackLeft" value="0.2599999904632568"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1/4"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1/4"/>
+            <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.25"/>
+            <Control type="ScriptSlider" id="Slider_DelayFeedbackLeft" value="0.25"/>
             <Control type="ScriptSlider" id="Slider_DelayMix" value="0.2000000029802322"/>
             <Control type="ScriptButton" id="Button_DelayLink" value="1.0"/>
             <Control type="ScriptButton" id="Button_DelaySync" value="1.0"/>
-            <Control type="ScriptLabel" id="Label_DelayFeedbackRightValue" value="26%"/>
-            <Control type="ScriptLabel" id="Label_DelayFeedbackLeftValue" value="26%"/>
+            <Control type="ScriptLabel" id="Label_DelayFeedbackRightValue" value="25%"/>
+            <Control type="ScriptLabel" id="Label_DelayFeedbackLeftValue" value="25%"/>
             <Control type="ScriptLabel" id="Label_DelayMixValue" value="20%"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeL" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeR" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayMix" value="1.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="8.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="8.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="5.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="5.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXAmpBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDrive" value="0.0"/>
@@ -177,7 +177,7 @@
             <Control type="ScriptSlider" id="Slider_SamplerAAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerADecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerASustain" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerARelease" value="1000.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerARelease" value="5.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAAttack" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerADecay" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerASustain" value="0.0"/>
@@ -291,7 +291,7 @@
             <Control type="ScriptSlider" id="Slider_OutputGain" value="1.0"/>
             <Control type="ScriptButton" id="Button_CloseCustomSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PortamentoBypass" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_PortamentoTime" value="250.0"/>
+            <Control type="ScriptSlider" id="Slider_PortamentoTime" value="50.0"/>
           </Content>
           <UIData Source="163 GUI Rewrite February 2022UIData"/>
         </Processor>
@@ -323,7 +323,7 @@
     </Processor>
     <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
       <ChildProcessors>
-        <Processor Type="LFO" ID="LFO Modulator1" Bypassed="1" Intensity="0.0" Frequency="11.0"
+        <Processor Type="LFO" ID="LFO Modulator1" Bypassed="1" Intensity="0.0" Frequency="0.0"
                    FadeIn="1000.0" WaveformType="4.0" Legato="0.0" TempoSync="1.0"
                    SmoothingTime="5.0" LoopEnabled="1.0" PhaseOffset="0.0" CustomWaveform=""
                    StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
@@ -489,10 +489,9 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Delay" ID="Delay1" Bypassed="0" DelayTimeLeft="8.0" DelayTimeRight="8.0"
-                   FeedbackLeft="0.2599999904632568" FeedbackRight="0.2599999904632568"
-                   LowPassFreq="20000.0" HiPassFreq="40.0" Mix="0.2000000029802322"
-                   TempoSync="1.0">
+        <Processor Type="Delay" ID="Delay1" Bypassed="0" DelayTimeLeft="5.0" DelayTimeRight="5.0"
+                   FeedbackLeft="0.25" FeedbackRight="0.25" LowPassFreq="20000.0"
+                   HiPassFreq="40.0" Mix="0.2000000029802322" TempoSync="1.0">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
@@ -501,7 +500,7 @@
           <ChildProcessors>
             <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="LFO" ID="LFO Modulator2" Bypassed="0" Intensity="0.0" Frequency="11.0"
+                <Processor Type="LFO" ID="LFO Modulator2" Bypassed="0" Intensity="0.0" Frequency="0.0"
                            FadeIn="1000.0" WaveformType="4.0" Legato="0.0" TempoSync="1.0"
                            SmoothingTime="5.0" LoopEnabled="0.0" PhaseOffset="0.0" CustomWaveform=""
                            StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
@@ -635,7 +634,7 @@
             <Processor Type="AHDSR" ID="SamplerA_AHDSR" Bypassed="0" Monophonic="0.0"
                        Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
                        Attack="5.0" AttackLevel="0.0" Hold="10.0" Decay="1500.0" Sustain="0.0"
-                       Release="1000.0" EcoMode="1.0">
+                       Release="5.0" EcoMode="1.0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                   <ChildProcessors/>

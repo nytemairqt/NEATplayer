@@ -24,14 +24,27 @@ const var Button_ArpDisplay = Content.getComponent("Button_ArpDisplay");
 const var Button_MoveDisplay = Content.getComponent("Button_MoveDisplay");
 const var Button_OpenRandomizePanel = Content.getComponent("Button_OpenRandomizePanel");
 
+const var Panel_TooltipDescriptions = Content.getComponent("Panel_TooltipDescriptions");
+
 const var Button_Zoom = Content.getComponent("Button_Zoom");
 const var FloatingTile_Keyboard = Content.getComponent("FloatingTile_Keyboard");
 const var FloatingTile_ResourceUsage = Content.getComponent("FloatingTile_ResourceUsage");
 
+const var Button_KeyboardOctaveUp = Content.getComponent("Button_KeyboardOctaveUp");
+const var Button_KeyboardOctaveDown = Content.getComponent("Button_KeyboardOctaveDown");
+
+const var Label_KeyboardOctave = Content.getComponent("Label_KeyboardOctave");
+
+var keyboardOctave = 0;
+var keyboardLowKey = 0;
+var keyboardHighKey = 128;
+
+const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
+const var Button_CloseRandomizationPanel = Content.getComponent("Button_CloseRandomizationPanel");
+
 const var Button_OpenAppData = Content.getComponent("Button_OpenAppData");
 
 const var pageButtonListTop = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser];
-
 const var pageButtonListBottom = [Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
 
 const var Label_PageArray = [Content.getComponent("Label_CustomSettingsButton"),
@@ -59,6 +72,7 @@ const var windowButtons = [Button_CustomSettings, Button_AddLibrary, Button_Open
 const var windowPanels = [Panel_CustomSettings, Panel_InstallLibraries, FloatingTile_PresetBrowser, Viewport_ExpansionsHolder, Panel_Sample, Panel_FX, Panel_Arp, Panel_Movement];
 
 
+
 //Zoom UI Button
 
 inline function onButton_ZoomControl(component, value)
@@ -75,24 +89,6 @@ inline function onButton_ZoomControl(component, value)
 
 
 Content.getComponent("Button_Zoom").setControlCallback(onButton_ZoomControl);
-
-//Custom Keyboard
-
-const var Button_KeyboardOctaveUp = Content.getComponent("Button_KeyboardOctaveUp");
-const var Button_KeyboardOctaveDown = Content.getComponent("Button_KeyboardOctaveDown");
-
-const var Label_KeyboardOctave = Content.getComponent("Label_KeyboardOctave");
-
-var keyboardOctave = 0;
-var keyboardLowKey = 0;
-var keyboardHighKey = 128;
-
-
-//Randomize Panel
-
-const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
-
-const var Button_CloseRandomizationPanel = Content.getComponent("Button_CloseRandomizationPanel");
 
 //Position Randomization Panel
 
@@ -205,11 +201,11 @@ inline function positionExtraPanels()
     Panel_InstallLibraries.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
 }
 
-positionExtraPanels();
+//positionExtraPanels();
 
 //Tooltips
 
-const var Panel_TooltipDescriptions = Content.getComponent("Panel_TooltipDescriptions");
+
 
 Panel_TooltipDescriptions.setPaintRoutine(function(g)
 {
@@ -283,6 +279,8 @@ FloatingTile_Keyboard.setContentData({
     "MPEStartChannel": 2,
     "MPEEndChannel": 16
 });
+
+
 
 inline function onButton_KeyboardOctaveUpControl(component, value)
 {
