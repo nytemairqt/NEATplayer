@@ -10,7 +10,7 @@
           <ChildProcessors/>
           <Content>
             <Control type="ScriptButton" id="Button_RandomizationButtonsVisibility"
-                     value="0.0"/>
+                     value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicPickAttack" value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicReleaseNoise" value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicNoiseGate" value="0.0"/>
@@ -41,15 +41,15 @@
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="1.0"/>
-            <Control type="ScriptButton" id="Button_WidthSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_WidthSettings" value="0"/>
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DelaySettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DelaySettings" value="0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="1.0"/>
-            <Control type="ScriptButton" id="Button_PhaserSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_PhaserSettings" value="0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DegradeSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DegradeSettings" value="0"/>
             <Control type="ScriptButton" id="Button_DegradeEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_AmpSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_AmpSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_AmpEnable" value="0.0"/>
             <Control type="ScriptLabel" id="Label_FilterFreqValue" value="20000Hz"/>
             <Control type="ScriptSlider" id="Slider_FilterFreq" value="20000.0"/>
@@ -61,11 +61,11 @@
             <Control type="ScriptSlider" id="Slider_CompThreshold" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompAttack" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_CompRelease" value="50.0"/>
-            <Control type="ScriptSlider" id="Slider_CompRatio" value="4.0"/>
+            <Control type="ScriptSlider" id="Slider_CompRatio" value="2.0"/>
             <Control type="ScriptSlider" id="Slider_CompMakeup" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_CompMix" value="1.0"/>
             <Control type="ScriptLabel" id="Label_CompThresholdValue" value="0dB"/>
-            <Control type="ScriptLabel" id="Label_CompRatioValue" value="4.0:1"/>
+            <Control type="ScriptLabel" id="Label_CompRatioValue" value="2.0:1"/>
             <Control type="ScriptLabel" id="Label_CompMakeupValue" value="0dB"/>
             <Control type="ScriptLabel" id="Label_CompAttackValue" value="50ms"/>
             <Control type="ScriptLabel" id="Label_CompMixValue" value="100%"/>
@@ -110,23 +110,23 @@
             <Control type="ScriptSlider" id="Slider_WidthAmount" value="100.0"/>
             <Control type="ScriptSlider" id="Slider_WidthGain" value="0.0"/>
             <Control type="ScriptLabel" id="Label_WidthGainValue" value="0db"/>
-            <Control type="ScriptSlider" id="Slider_StutterLFORate" value="0.0"/>
+            <Control type="ScriptSlider" id="Slider_StutterLFORate" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_StutterLFORateFree" value="3.0"/>
-            <Control type="ScriptLabel" id="Label_StutterLFORateValue" value="1/1"/>
+            <Control type="ScriptLabel" id="Label_StutterLFORateValue" value="1/16"/>
             <Control type="ScriptSlider" id="Slider_StutterLFOAmount" value="0.0"/>
             <Control type="ScriptLabel" id="Label_StutterLFOAmountValue" value="0%"/>
             <Control type="ScriptButton" id="Button_StutterLFOPreFX" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXWidenerWidth" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXStutterRate" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXStutterAmount" value="0.0"/>
-            <Control type="ScriptLabel" id="Label_PhaserRateAAmount" value="1500Hz"/>
-            <Control type="ScriptSlider" id="Slider_PhaserRateA" value="1500.0"/>
-            <Control type="ScriptSlider" id="Slider_PhaserRateB" value="1500.0"/>
-            <Control type="ScriptSlider" id="Slider_PhaserMix" value="0.2000000029802322"/>
+            <Control type="ScriptLabel" id="Label_PhaserRateAAmount" value="21Hz"/>
+            <Control type="ScriptSlider" id="Slider_PhaserRateA" value="21.0"/>
+            <Control type="ScriptSlider" id="Slider_PhaserRateB" value="162.0"/>
+            <Control type="ScriptSlider" id="Slider_PhaserMix" value="0.7799999713897705"/>
             <Control type="ScriptSlider" id="Slider_PhaserFeedback" value="0.2000000029802322"/>
-            <Control type="ScriptLabel" id="Label_PhaserRateBAmount" value="1500Hz"/>
+            <Control type="ScriptLabel" id="Label_PhaserRateBAmount" value="162Hz"/>
             <Control type="ScriptLabel" id="Label_PhaserFeedbackAmount" value="20%"/>
-            <Control type="ScriptLabel" id="Label_PhaserMixAmount" value="20%"/>
+            <Control type="ScriptLabel" id="Label_PhaserMixAmount" value="78%"/>
             <Control type="ScriptButton" id="Button_RandomizeFXPhaserRateA" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXPhaserRateB" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" value="1.0"/>
@@ -176,8 +176,8 @@
             <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerADecay" value="1500.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerASustain" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerARelease" value="5.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerASustain" value="-100.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerARelease" value="1000.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAAttack" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerADecay" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerASustain" value="0.0"/>
@@ -211,7 +211,7 @@
             <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetC" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerCRelease" value="1000.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerCRelease" value="7133.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCRelease" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCGain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPan" value="0.0"/>
@@ -222,7 +222,7 @@
             <Control type="ScriptButton" id="Button_SamplerCReverse" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAPitchCoarse"
                      value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerAPitchFine" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerAPitchFine" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAPan" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAGain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBPitchCoarse"
@@ -244,6 +244,9 @@
                      value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCSampleStart"
                      value="0.0"/>
+            <Control type="ScriptButton" id="Button_SamplerAShowADSR" value="0.0"/>
+            <Control type="ScriptButton" id="Button_SamplerBShowADSR" value="0.0"/>
+            <Control type="ScriptButton" id="Button_SamplerCShowADSR" value="0.0"/>
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A1" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeADSRAttack4" value="0.0"/>
             <Control type="ScriptPanel" id="Panel_MovementXYPad" value="0.0"/>
@@ -271,7 +274,7 @@
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ArpBypass" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ArpBypass" value="1.0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpNotes" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="1.0"/>
@@ -295,7 +298,7 @@
           </Content>
           <UIData Source="163 GUI Rewrite February 2022UIData"/>
         </Processor>
-        <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="1">
+        <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="0">
           <ChildProcessors/>
           <Content>
             <Control type="ScriptButton" id="BypassButton" value="0.0"/>
@@ -323,7 +326,7 @@
     </Processor>
     <Processor Type="ModulatorChain" ID="GainModulation" Bypassed="0" Intensity="1.0">
       <ChildProcessors>
-        <Processor Type="LFO" ID="LFO Modulator1" Bypassed="1" Intensity="0.0" Frequency="0.0"
+        <Processor Type="LFO" ID="LFO Modulator1" Bypassed="1" Intensity="0.0" Frequency="11.0"
                    FadeIn="1000.0" WaveformType="4.0" Legato="0.0" TempoSync="1.0"
                    SmoothingTime="5.0" LoopEnabled="1.0" PhaseOffset="0.0" CustomWaveform=""
                    StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
@@ -463,8 +466,8 @@
           </ChildProcessors>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="PhaseFX" ID="Phase FX1" Bypassed="1" Frequency1="1500.0"
-                   Frequency2="1500.0" Feedback="0.2000000029802322" Mix="0.2000000029802322">
+        <Processor Type="PhaseFX" ID="Phase FX1" Bypassed="1" Frequency1="21.0"
+                   Frequency2="162.0" Feedback="0.2000000029802322" Mix="0.7799999713897705">
           <ChildProcessors>
             <Processor Type="ModulatorChain" ID="Phase Modulation" Bypassed="0" Intensity="1.0">
               <ChildProcessors/>
@@ -500,7 +503,7 @@
           <ChildProcessors>
             <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
               <ChildProcessors>
-                <Processor Type="LFO" ID="LFO Modulator2" Bypassed="0" Intensity="0.0" Frequency="0.0"
+                <Processor Type="LFO" ID="LFO Modulator2" Bypassed="0" Intensity="0.0" Frequency="11.0"
                            FadeIn="1000.0" WaveformType="4.0" Legato="0.0" TempoSync="1.0"
                            SmoothingTime="5.0" LoopEnabled="0.0" PhaseOffset="0.0" CustomWaveform=""
                            StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
@@ -620,11 +623,11 @@
     <Processor Type="StreamingSampler" ID="SamplerA" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
-               SamplerRepeatMode="3.0" RRGroupAmount="3.0" PitchTracking="1.0"
+               SamplerRepeatMode="3.0" RRGroupAmount="15.0" PitchTracking="1.0"
                OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-               Group7Table="" SampleMapID="{EXP::Cloudburst}Cloudburst_SampleMap">
+               Group7Table="" SampleMapID="{EXP::Found Keys}FoundKeysSampleMap">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -633,8 +636,8 @@
           <ChildProcessors>
             <Processor Type="AHDSR" ID="SamplerA_AHDSR" Bypassed="0" Monophonic="0.0"
                        Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                       Attack="5.0" AttackLevel="0.0" Hold="10.0" Decay="1500.0" Sustain="0.0"
-                       Release="5.0" EcoMode="1.0">
+                       Attack="5.0" AttackLevel="0.0" Hold="10.0" Decay="1500.0" Sustain="-100.0"
+                       Release="1000.0" EcoMode="1.0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                   <ChildProcessors/>
@@ -653,7 +656,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerA_Velocity" Bypassed="1" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerA_Velocity" Bypassed="0" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>
@@ -720,11 +723,11 @@
     <Processor Type="StreamingSampler" ID="SamplerB" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
-               SamplerRepeatMode="3.0" RRGroupAmount="16.0" PitchTracking="1.0"
+               SamplerRepeatMode="3.0" RRGroupAmount="15.0" PitchTracking="1.0"
                OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-               Group7Table="" SampleMapID="">
+               Group7Table="" SampleMapID="{EXP::Found Keys}FoundKeysSampleMap">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -753,7 +756,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="1" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="0" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>
@@ -820,11 +823,11 @@
     <Processor Type="StreamingSampler" ID="SamplerC" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="256.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="256.0"
-               SamplerRepeatMode="3.0" RRGroupAmount="16.0" PitchTracking="1.0"
+               SamplerRepeatMode="3.0" RRGroupAmount="15.0" PitchTracking="1.0"
                OneShot="0.0" CrossfadeGroups="0.0" Purged="0.0" Reversed="0.0"
                NumChannels="1" UseStaticMatrix="0.0" Group0Table="" Group1Table=""
                Group2Table="" Group3Table="" Group4Table="" Group5Table="" Group6Table=""
-               Group7Table="" SampleMapID="">
+               Group7Table="" SampleMapID="{EXP::Found Keys}FoundKeysSampleMap">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -834,7 +837,7 @@
             <Processor Type="AHDSR" ID="SamplerC_AHDSR" Bypassed="0" Monophonic="0.0"
                        Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
                        Attack="5.0" AttackLevel="0.0" Hold="10.0" Decay="1500.0" Sustain="0.0"
-                       Release="1000.0" EcoMode="1.0">
+                       Release="7133.0" EcoMode="1.0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                   <ChildProcessors/>
@@ -853,7 +856,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerC_Velocity" Bypassed="1" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerC_Velocity" Bypassed="0" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>

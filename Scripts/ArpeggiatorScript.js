@@ -1,5 +1,8 @@
 //Arp Stuff
 
+const var Panel_Arp = Content.getComponent("Panel_Arp");
+const var Button_ArpDisplay = Content.getComponent("Button_ArpDisplay");
+
 const var Button_ArpModeUpArrow = Content.getComponent("Button_ArpModeUpArrow");
 const var Button_ArpModeDownArrow = Content.getComponent("Button_ArpModeDownArrow");
 
@@ -7,8 +10,6 @@ const var Arp_ModeComboBox = Content.getComponent("Arp_ModeComboBox");
 
 const var majorNotes = [0, 2, 4, 5, 7, 9, 11, 12];
 const var minorNotes = [0, 2, 3, 5, 7, 8, 10, 12];
-
-const var Panel_Arp = Content.getComponent("Panel_Arp");
 
 var wasArpOn = 0;
 
@@ -102,13 +103,10 @@ positionArpPanel();
 
 inline function onButton_ArpDisplayControl(component, value)
 {
-    Panel_FX.showControl(0);
-    Button_FXDisplay.setValue(0);
-    Panel_Sample.showControl(0);
-    Button_SampleDisplay.setValue(0);
-    Panel_Movement.showControl(0);
-    Button_MoveDisplay.setValue(0);
-	Panel_Arp.showControl(value);
+    if (value)
+        closePanels(Button_ArpDisplay);
+
+    Panel_Arp.showControl(value);
 };
 
 Content.getComponent("Button_ArpDisplay").setControlCallback(onButton_ArpDisplayControl);
@@ -118,10 +116,7 @@ Content.getComponent("Button_ArpDisplay").setControlCallback(onButton_ArpDisplay
 inline function onButton_CloseArpPanelControl(component, value)
 {
     if (value)
-    {
-        Button_ArpDisplay.setValue(0);
-        Panel_Arp.showControl(0);
-    }
+        closePanels("none");
 };
 
 Content.getComponent("Button_CloseArpPanel").setControlCallback(onButton_CloseArpPanelControl);

@@ -1,48 +1,31 @@
-//Page Buttons
+//Main Interface
 
 const var Panel_BG = Content.getComponent("Panel_BG");
 const var Image_BG = Content.getComponent("Image_BG");
-const var Viewport_ExpansionsHolder = Content.getComponent("Viewport_ExpansionsHolder");
-const var Panel_CustomSettings = Content.getComponent("Panel_CustomSettings");
-const var Panel_InstallLibraries = Content.getComponent("Panel_InstallLibraries");
 
-const var FloatingTile_PresetBrowser = Content.getComponent("FloatingTile_PresetBrowser");
+//Interface Extras
 
 const var pageButtonWidth = 120;
 const var pageButtonHeight = 24;
-
 const var padding = 6;
 
-const var Button_AddLibrary = Content.getComponent("Button_AddLibrary");
-const var Button_OpenPresetBrowser = Content.getComponent("Button_OpenPresetBrowser");
-const var Button_CustomSettings = Content.getComponent("Button_CustomSettings");
+//Keyboard
 
-const var Button_OpenExpansions = Content.getComponent("Button_OpenExpansions");
-const var Button_SampleDisplay = Content.getComponent("Button_SampleDisplay");
-const var Button_FXDisplay = Content.getComponent("Button_FXDisplay");
-const var Button_ArpDisplay = Content.getComponent("Button_ArpDisplay");
-const var Button_MoveDisplay = Content.getComponent("Button_MoveDisplay");
-const var Button_OpenRandomizePanel = Content.getComponent("Button_OpenRandomizePanel");
-
-const var Panel_TooltipDescriptions = Content.getComponent("Panel_TooltipDescriptions");
-
-const var Button_Zoom = Content.getComponent("Button_Zoom");
 const var FloatingTile_Keyboard = Content.getComponent("FloatingTile_Keyboard");
 const var FloatingTile_ResourceUsage = Content.getComponent("FloatingTile_ResourceUsage");
-
-const var Button_KeyboardOctaveUp = Content.getComponent("Button_KeyboardOctaveUp");
-const var Button_KeyboardOctaveDown = Content.getComponent("Button_KeyboardOctaveDown");
-
-const var Label_KeyboardOctave = Content.getComponent("Label_KeyboardOctave");
 
 var keyboardOctave = 0;
 var keyboardLowKey = 0;
 var keyboardHighKey = 128;
 
-const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
-const var Button_CloseRandomizationPanel = Content.getComponent("Button_CloseRandomizationPanel");
+//To be deleted...
 
-const var Button_OpenAppData = Content.getComponent("Button_OpenAppData");
+const var Button_Zoom = Content.getComponent("Button_Zoom");
+
+const var Button_KeyboardOctaveUp = Content.getComponent("Button_KeyboardOctaveUp");
+const var Button_KeyboardOctaveDown = Content.getComponent("Button_KeyboardOctaveDown");
+
+const var Label_KeyboardOctave = Content.getComponent("Label_KeyboardOctave");
 
 const var pageButtonListTop = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser];
 const var pageButtonListBottom = [Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
@@ -64,54 +47,6 @@ const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeS
                                          Content.getComponent("Button_RandomizeSamplerAPitchFine"),
                                          Content.getComponent("Button_RandomizeSamplerAPan"),
                                          Content.getComponent("Button_RandomizeSamplerAGain")];
-                             
-
-const var Panel_Sample = Content.getComponent("Panel_Sample");
-
-const var windowButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
-const var windowPanels = [Panel_CustomSettings, Panel_InstallLibraries, FloatingTile_PresetBrowser, Viewport_ExpansionsHolder, Panel_Sample, Panel_FX, Panel_Arp, Panel_Movement];
-
-
-
-//Zoom UI Button
-
-inline function onButton_ZoomControl(component, value)
-{
-	if (value)
-    {
-        Settings.setZoomLevel(1.5);
-    }
-    else 
-    {
-        Settings.setZoomLevel(1.0);
-    }	    
-};
-
-
-Content.getComponent("Button_Zoom").setControlCallback(onButton_ZoomControl);
-
-//Position Randomization Panel
-
-inline function positionRandomizationPanel()
-{
-    Panel_RandomizeContainer.set("width", 60);
-    Panel_RandomizeContainer.set("height", 280);
-    Panel_RandomizeContainer.set("x", (Panel_Sample.get("x") + Panel_Sample.get("width")) - Panel_RandomizeContainer.get("width") - 2);
-    Panel_RandomizeContainer.set("y", (Panel_Sample.get("height") / 2) - (Panel_RandomizeContainer.get("height") / 2));
-}
-
-//positionRandomizationPanel();
-
-//Close Panel
-
-inline function onButton_CloseRandomizationPanelControl(component, value)
-{
-    Button_OpenRandomizePanel.setValue(0);
-    Button_OpenRandomizePanel.changed();
-};
-
-Content.getComponent("Button_CloseRandomizationPanel").setControlCallback(onButton_CloseRandomizationPanelControl);
-
 
 //Position Keyboard
 
@@ -122,8 +57,6 @@ inline function positionKeyboard()
 	
 	FloatingTile_Keyboard.setPosition(x, y, FloatingTile_Keyboard.getWidth(), 60);
 }
-
-//positionKeyboard();
 
 //Position Buttons
 
@@ -142,8 +75,6 @@ inline function positionButtons()
 		pageButtonListBottom[p].setPosition(x + (pageButtonWidth * p) + (padding * p), FloatingTile_Keyboard.getGlobalPositionY() - pageButtonHeight - padding, pageButtonWidth, pageButtonHeight);
 	}
 }
-
-//positionButtons();
 
 //Position Main Panel
 
@@ -171,10 +102,6 @@ inline function positionPanelBG(offset)
 	FloatingTile_PresetBrowser.setPosition(Panel_BG.get("x"), Panel_BG.get("y"), Panel_BG.get("width"), Panel_BG.get("height"));
 }
 
-//positionPanelBG(false);
-
-//Image_BG.setPosition(0, 0, Panel_BG.getWidth(), Panel_BG.getHeight()); //Set Image Size
-
 //Panels
 
 inline function positionMainPanels()
@@ -191,43 +118,13 @@ inline function positionMainPanels()
 	FloatingTile_ResourceUsage.set("FontSize", 13);
 }
 
-//positionMainPanels();
-
-//Extra Panels
-
 inline function positionExtraPanels()
 {
     Panel_CustomSettings.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
-    Panel_InstallLibraries.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
+    //Panel_InstallLibraries.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
 }
 
-//positionExtraPanels();
-
-//Tooltips
-
-
-
-Panel_TooltipDescriptions.setPaintRoutine(function(g)
-{
-	var tooltipDescription = Content.getCurrentTooltip();
-	
-	g.setColour(Colours.lightgrey);
-	g.setFont("Arial", 12.0);
-	g.drawAlignedText(tooltipDescription, [0, 0, this.getWidth(), this.getHeight()], "right");
-});
-
-Panel_TooltipDescriptions.setTimerCallback(function()
-{
-	 this.repaint();
-});
-
-Panel_TooltipDescriptions.startTimer(180);
-
-//Expansion Viewport
-
-Viewport_ExpansionsHolder.setPosition(Panel_BG.getGlobalPositionX(), Panel_BG.getGlobalPositionY(), 195, Panel_BG.getHeight());
-
-//Position Labels (Yuck)
+//Position Labels
 
 inline function positionLabels()
 {
@@ -242,8 +139,6 @@ inline function positionLabels()
 	Label_PageArray[7].setPosition(pageButtonListBottom[4].getGlobalPositionX() + padding, pageButtonListBottom[4].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
 }
 
-//positionLabels();
-
 //Position AppData Button
 
 inline function positionAppDataButton()
@@ -255,8 +150,6 @@ inline function positionAppDataButton()
 
 	Button_OpenAppData.setPosition(x, y, w, h);	
 }
-
-//positionAppDataButton();
 
 
 //Extra Keyboard Stuff
@@ -279,8 +172,6 @@ FloatingTile_Keyboard.setContentData({
     "MPEStartChannel": 2,
     "MPEEndChannel": 16
 });
-
-
 
 inline function onButton_KeyboardOctaveUpControl(component, value)
 {

@@ -1,5 +1,10 @@
 //Randomize Everything
 
+const var Button_OpenRandomizePanel = Content.getComponent("Button_OpenRandomizePanel");
+
+const var Panel_RandomizeContainer = Content.getComponent("Panel_RandomizeContainer");
+const var Button_CloseRandomizationPanel = Content.getComponent("Button_CloseRandomizationPanel");
+
 const var randomizationControls = [SliderPack_ArpNotes, 
 SliderPack_ArpVelocity, 
 SliderPack_ArpLength,
@@ -301,7 +306,7 @@ inline function randomSamplerExtras()
     //Pitch Fine
         if (randomizationButtonsSamplerExtras[2].getValue())
         {    
-            Slider_SamplerAPitchFine.setValue(Math.randInt(-100, 100));
+            Slider_SamplerAPitchFine.setValue(Math.randInt(-15, 15));
             Slider_SamplerAPitchFine.changed();
         }
     
@@ -337,7 +342,7 @@ inline function randomSamplerExtras()
     //Pitch Fine
         if (randomizationButtonsSamplerExtras[7].getValue())
         {    
-            Slider_SamplerBPitchFine.setValue(Math.randInt(-100, 100));
+            Slider_SamplerBPitchFine.setValue(Math.randInt(-15, 15));
             Slider_SamplerBPitchFine.changed();
         }
     
@@ -373,7 +378,7 @@ inline function randomSamplerExtras()
     //Pitch Fine
         if (randomizationButtonsSamplerExtras[12].getValue())
         {    
-            Slider_SamplerCPitchFine.setValue(Math.randInt(-100, 100));
+            Slider_SamplerCPitchFine.setValue(Math.randInt(-15, 15));
             Slider_SamplerCPitchFine.changed();
         }
     
@@ -1067,4 +1072,23 @@ inline function onButton_RandomizationButtonsVisibilityControl(component, value)
 };
 
 Content.getComponent("Button_RandomizationButtonsVisibility").setControlCallback(onButton_RandomizationButtonsVisibilityControl);
- 
+
+//Position Randomization Panel
+
+inline function positionRandomizationPanel()
+{
+    Panel_RandomizeContainer.set("width", 60);
+    Panel_RandomizeContainer.set("height", 280);
+    Panel_RandomizeContainer.set("x", (Panel_Sample.get("x") + Panel_Sample.get("width")) - Panel_RandomizeContainer.get("width") - 2);
+    Panel_RandomizeContainer.set("y", (Panel_Sample.get("height") / 2) - (Panel_RandomizeContainer.get("height") / 2));
+}
+
+//Close Panel
+
+inline function onButton_CloseRandomizationPanelControl(component, value)
+{
+    Button_OpenRandomizePanel.setValue(0);
+    Button_OpenRandomizePanel.changed();
+};
+
+Content.getComponent("Button_CloseRandomizationPanel").setControlCallback(onButton_CloseRandomizationPanelControl);

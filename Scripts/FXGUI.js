@@ -1,10 +1,9 @@
 //------------------------------------------------------------FX
 
-include("ampImageData.js");
+include("fxImageData.js");
 
 const var Panel_FX = Content.getComponent("Panel_FX");
-
-const var Button_DriveTubeDriveEnable = Content.getComponent("Button_DriveTubeDriveEnable");
+const var Button_FXDisplay = Content.getComponent("Button_FXDisplay");
 
 const var ShapeFX1 = Synth.getEffect("Shape FX1");
 const var TubeDrive = Synth.getEffect("TubeDrive");
@@ -15,6 +14,8 @@ const var PhaseFX1 = Synth.getEffect("Phase FX1");
 const var Degrade = Synth.getEffect("Degrade");
 const var SimpleReverb1 = Synth.getEffect("Simple Reverb1");
 const var Delay1 = Synth.getEffect("Delay1");
+
+const var Button_DriveTubeDriveEnable = Content.getComponent("Button_DriveTubeDriveEnable");
 
 const var LFOGain = Synth.getEffect("LFOGain");
 
@@ -149,6 +150,9 @@ const var listRandomizationButtonsFXBypass = [Content.getComponent("Button_Rando
                                           Content.getComponent("Button_RandomizeFXReverbBypass"),
                                           Content.getComponent("Button_RandomizeFXDelayBypass")];
 
+
+const var FXImageLineWidth = 1.25;
+
 inline function positionFXPanel()
 {
 	local padding = 6;
@@ -190,24 +194,16 @@ inline function positionFXPanel()
 
 inline function onButton_CloseFXPanelControl(component, value)
 {
-	if (value)
-	{
-		Button_FXDisplay.setValue(0);
-		Panel_FX.showControl(0);
-	}
+    if (value)
+            closePanels("none");
 };
 
 Content.getComponent("Button_CloseFXPanel").setControlCallback(onButton_CloseFXPanelControl);
 
 inline function onButton_FXDisplayControl(component, value)
 {
-    //We don't want any .changed() calls because it makes it cyclic.
-    Panel_Sample.showControl(0);
-    Button_SampleDisplay.setValue(0);
-    Panel_Arp.showControl(0);
-    Button_ArpDisplay.setValue(0);
-    Panel_Movement.showControl(0);
-    Button_MoveDisplay.setValue(0);
+    if (value)
+        closePanels(Button_FXDisplay);
 	Panel_FX.showControl(value);   
 };
 
@@ -431,6 +427,8 @@ inline function onSlider_PhaserRateAControl(component, value)
 {
 	PhaseFX1.setAttribute(PhaseFX1.Frequency1, value);
 	Label_PhaserRateAAmount.set("text", Math.round(value) + "Hz");
+
+    Panel_PhaserImage.repaint();
 };
 
 Content.getComponent("Slider_PhaserRateA").setControlCallback(onSlider_PhaserRateAControl);
@@ -439,6 +437,8 @@ inline function onSlider_PhaserRateBControl(component, value)
 {
 	PhaseFX1.setAttribute(PhaseFX1.Frequency2, value);
 	Label_PhaserRateBAmount.set("text", Math.round(value) + "Hz");
+
+    Panel_PhaserImage.repaint();
 };
 
 Content.getComponent("Slider_PhaserRateB").setControlCallback(onSlider_PhaserRateBControl);
@@ -447,6 +447,8 @@ inline function onSlider_PhaserFeedbackControl(component, value)
 {
 	PhaseFX1.setAttribute(PhaseFX1.Feedback, value);
 	Label_PhaserFeedbackAmount.set("text", Math.round(value * 100) + "%");
+
+    Panel_PhaserImage.repaint();
 };
 
 Content.getComponent("Slider_PhaserFeedback").setControlCallback(onSlider_PhaserFeedbackControl);
@@ -523,6 +525,8 @@ inline function onSlider_ReverbSizeControl(component, value)
 {
 	SimpleReverb1.setAttribute(SimpleReverb1.RoomSize, value);
 	Label_ReverbSizeValue.set("text", Math.round(value * 100) + "%");
+
+    Panel_ReverbImage.repaint();
 };
 
 Content.getComponent("Slider_ReverbSize").setControlCallback(onSlider_ReverbSizeControl);
@@ -531,6 +535,8 @@ inline function onSlider_ReverbWidthControl(component, value)
 {
 	SimpleReverb1.setAttribute(SimpleReverb1.Width, value);
 	Label_ReverbWidthValue.set("text", Math.round(value * 100) + "%");
+
+    Panel_ReverbImage.repaint();
 };
 
 Content.getComponent("Slider_ReverbWidth").setControlCallback(onSlider_ReverbWidthControl);
@@ -539,6 +545,8 @@ inline function onSlider_ReverbDampingControl(component, value)
 {
 	SimpleReverb1.setAttribute(SimpleReverb1.Damping, value);
 	Label_ReverbDampingValue.set("text", Math.round(value * 100) + "%");
+
+    Panel_ReverbImage.repaint();
 };
 
 Content.getComponent("Slider_ReverbDamping").setControlCallback(onSlider_ReverbDampingControl);
@@ -547,6 +555,8 @@ inline function onSlider_ReverbMixControl(component, value)
 {
 	SimpleReverb1.setAttribute(SimpleReverb1.WetLevel, value);
 	Label_ReverbMixValue.set("text", Math.round(value * 100) + "%");
+
+    Panel_ReverbImage.repaint();
 };
 
 Content.getComponent("Slider_ReverbMix").setControlCallback(onSlider_ReverbMixControl);
@@ -574,6 +584,8 @@ inline function setDelayTimeLeft(value)
     
     else
         Delay1.setAttribute(Delay1.DelayTimeLeft, value);    
+
+    Panel_DelayImage.repaint();
 }
 
 inline function setDelayTimeRight(value)
@@ -583,6 +595,8 @@ inline function setDelayTimeRight(value)
     
     else
         Delay1.setAttribute(Delay1.DelayTimeRight, value);    
+
+    Panel_DelayImage.repaint();
 }
 
 inline function onSlider_DelayFeedbackLeftControl(component, value)
@@ -595,6 +609,8 @@ inline function onSlider_DelayFeedbackLeftControl(component, value)
         Delay1.setAttribute(Delay1.FeedbackRight, value);  
         Label_DelayFeedbackRightValue.set("text", Math.round(value * 100) + "%");
     };
+
+    Panel_DelayImage.repaint();
 };
 
 Content.getComponent("Slider_DelayFeedbackLeft").setControlCallback(onSlider_DelayFeedbackLeftControl);
@@ -609,6 +625,8 @@ inline function onSlider_DelayFeedbackRightControl(component, value)
         Delay1.setAttribute(Delay1.FeedbackLeft, value);  
         Label_DelayFeedbackLeftValue.set("text", Math.round(value * 100) + "%");
     };
+
+    Panel_DelayImage.repaint();
 };
 
 Content.getComponent("Slider_DelayFeedbackRight").setControlCallback(onSlider_DelayFeedbackRightControl);
@@ -617,6 +635,8 @@ inline function onSlider_DelayMixControl(component, value)
 {
     Delay1.setAttribute(Delay1.Mix, value);
     Label_DelayMixValue.set("text", Math.round(value * 100) + "%");
+
+    Panel_DelayImage.repaint();
 };
 
 Content.getComponent("Slider_DelayMix").setControlCallback(onSlider_DelayMixControl);
@@ -650,6 +670,8 @@ inline function onSlider_DelayTimeLeftControl(component, value)
             Label_DelayTimeRightValue.set("text", Math.round(value) + "ms");
         }
     }
+
+    Panel_DelayImage.repaint();
 };
 
 Content.getComponent("Slider_DelayTimeLeft").setControlCallback(onSlider_DelayTimeLeftControl);
@@ -678,12 +700,11 @@ inline function onSlider_DelayTimeRightControl(component, value)
             Label_DelayTimeLeftValue.set("text", Math.round(value) + "ms");
         }
     }
+
+    Panel_DelayImage.repaint();
 };
 
 Content.getComponent("Slider_DelayTimeRight").setControlCallback(onSlider_DelayTimeRightControl);
-
-
-
 
 inline function setDelayTimeSlidersToSynced()
 {
@@ -754,6 +775,8 @@ inline function onButton_DelaySyncControl(component, value)
         delaySyncTimer.startTimer(60);
         //===
     };  
+
+    Panel_DelayImage.repaint();
 };
 
 Content.getComponent("Button_DelaySync").setControlCallback(onButton_DelaySyncControl);
@@ -836,6 +859,8 @@ inline function onSlider_StutterLFOAmountControl(component, value)
 	LFOModulator1.setIntensity(value);
 	LFOModulator2.setIntensity(value);
 	Label_StutterLFOAmountValue.set("text", Math.round(value * 100) + "%");
+
+    Panel_WidthImage.repaint();
 };
 
 Content.getComponent("Slider_StutterLFOAmount").setControlCallback(onSlider_StutterLFOAmountControl);
@@ -1095,14 +1120,14 @@ Panel_CompImage.setPaintRoutine(function(g)
 	g.setColour(Colours.lightgrey);
 
 	if (Slider_CompThreshold.getValue() > -48)
-		g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6), this.getHeight() - (this.getHeight() / 2), this.getWidth() / 3, this.getHeight() / 2 - 1], 2.0, 2.0);
+		g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6), this.getHeight() - (this.getHeight() / 2), this.getWidth() / 3, this.getHeight() / 2 - 1], 2.0, FXImageLineWidth);
 	else
-		g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6), compThresholdDraw, this.getWidth() / 3, this.getHeight() - compThresholdDraw - 1], 2.0, 2.0);
+		g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6), compThresholdDraw, this.getWidth() / 3, this.getHeight() - compThresholdDraw - 1], 2.0, FXImageLineWidth);
 
 
 	//Threshold Rectangle
 	g.setColour(Colours.lightblue);
-	g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 8), 0, this.getWidth() / 4, compThresholdDraw - 1], 2.0, 2.0);
+	g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 8), 0, this.getWidth() / 4, compThresholdDraw - 1], 2.0, FXImageLineWidth);
 
 	g.setColour(0x1D99F1FF);
 	g.fillRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 8), 0, this.getWidth() / 4, compThresholdDraw - 1], 2.0);
@@ -1111,14 +1136,14 @@ Panel_CompImage.setPaintRoutine(function(g)
 
 	g.setColour(Colours.lightblue);
 	for (i=1; i<Slider_CompRatio.getValue(); i++)
-		g.drawLine((this.getWidth() / 2) - (this.getWidth() / 7) + 2, ((this.getWidth() / 2) + this.getWidth() / 7) - 4, ((1-Slider_CompThreshold.getValueNormalized()) * this.getHeight() / Slider_CompRatio.getValue() * i), ((1-Slider_CompThreshold.getValueNormalized()) * this.getHeight() / Slider_CompRatio.getValue() * i), 1.0);
+		g.drawLine((this.getWidth() / 2) - (this.getWidth() / 7) + 2, ((this.getWidth() / 2) + this.getWidth() / 7) - 4, ((1-Slider_CompThreshold.getValueNormalized()) * this.getHeight() / Slider_CompRatio.getValue() * i), ((1-Slider_CompThreshold.getValueNormalized()) * this.getHeight() / Slider_CompRatio.getValue() * i), FXImageLineWidth);
 
 
 	//OutputGain
 	g.setColour(0x11BFBFBF);
 	g.fillRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6) + 2, this.getHeight() * (1-Slider_CompMakeup.getValueNormalized()), this.getWidth() / 3 - 4, this.getHeight() * Slider_CompMakeup.getValueNormalized()], 2.0);
 	g.setColour(Colours.grey);
-	g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6) + 2, this.getHeight() * (1-Slider_CompMakeup.getValueNormalized()), this.getWidth() / 3 - 4, this.getHeight() * Slider_CompMakeup.getValueNormalized()], 2.0, 1.0);
+	g.drawRoundedRectangle([(this.getWidth() / 2) - (this.getWidth() / 6) + 2, this.getHeight() * (1-Slider_CompMakeup.getValueNormalized()), this.getWidth() / 3 - 4, this.getHeight() * Slider_CompMakeup.getValueNormalized()], 2.0, FXImageLineWidth);
 
 	//Mix
 	//Change Colour
@@ -1130,17 +1155,17 @@ Panel_AmpImage.setPaintRoutine(function(g)
 {
 	g.setColour(Colours.white);
 	pathFXPanel.loadFromData(ampHeadData);
-	g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), 30, this.getWidth() * .5, this.getHeight() * .2], 1.0);
+	g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), 32, this.getWidth() * .5, this.getHeight() * .2], FXImageLineWidth);
 
 	if (Slider_AmpGain.getValueNormalized() > .33 && Slider_AmpGain.getValueNormalized() < .66)
 		{
 			pathFXPanel.loadFromData(ampFlamesHalfData);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.3), 16, this.getWidth() * .63, this.getHeight() * .26], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.3), 16, this.getWidth() * .63, this.getHeight() * .26], FXImageLineWidth);
 		}
 	if (Slider_AmpGain.getValueNormalized() > .66)
 		{
 			pathFXPanel.loadFromData(ampFlamesFullData);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), 0, this.getWidth() * .8, this.getHeight() * .36], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.387), 0, this.getWidth() * .75, this.getHeight() * .33], FXImageLineWidth);
 		}
 
 	if (Button_AmpCabBypass.getValue())
@@ -1152,72 +1177,72 @@ Panel_AmpImage.setPaintRoutine(function(g)
 	{
 		case 1: 
 			pathFXPanel.loadFromData(cabData01);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), this.getHeight() * .2 + 32, this.getWidth() * .8, this.getHeight() * .8 - 33], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), this.getHeight() * .2 + 34, this.getWidth() * .8, this.getHeight() * .8 - 35], FXImageLineWidth);
 		break;
 
 		case 2: 
 			pathFXPanel.loadFromData(cabData02);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35), this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .7 - 16], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35), this.getHeight() * .2 + 34, this.getWidth() * .7, this.getHeight() * .7 - 18], FXImageLineWidth);
 		break;
 
 		case 3: 
 			pathFXPanel.loadFromData(cabData03);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 12, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .55 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 12, this.getHeight() * .2 + 34, this.getWidth() * .7, this.getHeight() * .55 - 10], FXImageLineWidth);
 		break;
 
 		case 4: 
 			pathFXPanel.loadFromData(cabData04);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.275), this.getHeight() * .2 + 32, this.getWidth() * .55, this.getHeight() * .8 - 33], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.275), this.getHeight() * .2 + 34, this.getWidth() * .55, this.getHeight() * .8 - 35], FXImageLineWidth);
 		break;
 
 		case 5: 
 			pathFXPanel.loadFromData(cabData05);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 16, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .45 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 16, this.getHeight() * .2 + 34, this.getWidth() * .7, this.getHeight() * .45 - 10], FXImageLineWidth);
 		break;
 
 		case 6: 
 			pathFXPanel.loadFromData(cabData06);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .4 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 34, this.getWidth() * .5, this.getHeight() * .4 - 10], FXImageLineWidth);
 		break;
 
 		case 7: 
 			pathFXPanel.loadFromData(cabData07);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .45 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 34, this.getWidth() * .5, this.getHeight() * .45 - 10], FXImageLineWidth);
 		break;
 
 		case 8: 
 			pathFXPanel.loadFromData(cabData01);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), this.getHeight() * .2 + 32, this.getWidth() * .8, this.getHeight() * .8 - 33], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.4), this.getHeight() * .2 + 34, this.getWidth() * .8, this.getHeight() * .8 - 35], FXImageLineWidth);
 		break;
 
 		case 9: 
 			pathFXPanel.loadFromData(cabData02);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35), this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .7 - 16], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35), this.getHeight() * .2 + 34, this.getWidth() * .7, this.getHeight() * .7 - 18], FXImageLineWidth);
 		break;
 
 		case 10: 
 			pathFXPanel.loadFromData(cabData03);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 12, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .55 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 12, this.getHeight() * .2 + 34, this.getWidth() * .7, this.getHeight() * .55 - 10], FXImageLineWidth);
 		break;
 
 		case 11: 
 			pathFXPanel.loadFromData(cabData04);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.275), this.getHeight() * .2 + 32, this.getWidth() * .55, this.getHeight() * .8 - 33], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.275), this.getHeight() * .2 + 34, this.getWidth() * .55, this.getHeight() * .8 - 35], FXImageLineWidth);
 		break;
 
 		case 12: 
 			pathFXPanel.loadFromData(cabData05);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 16, this.getHeight() * .2 + 32, this.getWidth() * .7, this.getHeight() * .45 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.35) + 16, this.getHeight() * .2 + 34, this.getWidth() * .7, this.getHeight() * .45 - 10], FXImageLineWidth);
 		break;
 
 		case 13: 
 			pathFXPanel.loadFromData(cabData06);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .4 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 34, this.getWidth() * .5, this.getHeight() * .4 - 10], FXImageLineWidth);
 		break;
 
 		case 14: 
 			pathFXPanel.loadFromData(cabData07);
-			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 32, this.getWidth() * .5, this.getHeight() * .45 - 8], 1.0);
+			g.drawPath(pathFXPanel, [this.getWidth() / 2 - (this.getWidth() * 0.25), this.getHeight() * .2 + 34, this.getWidth() * .5, this.getHeight() * .45 - 10], FXImageLineWidth);
 		break;
 	}
 
@@ -1231,13 +1256,13 @@ Panel_DriveImage.setPaintRoutine(function(g)
 	//Diode
 	g.setColour(Colours.white);
 	pathFXPanel.loadFromData(driveDiodeData);
-	g.drawPath(pathFXPanel, [this.getWidth() * .2, this.getHeight() * .1, this.getWidth() * .6, this.getHeight() * .2], 1.0);
+	g.drawPath(pathFXPanel, [this.getWidth() * .2, this.getHeight() * .1, this.getWidth() * .6, this.getHeight() * .2], FXImageLineWidth);
 
 	//Tubes
 	g.setColour(Colours.white);
 	pathFXPanel.loadFromData(driveTubeData);
-	g.drawPath(pathFXPanel, [this.getWidth() * .2, (this.getHeight() * .1) + this.getWidth() * .5, this.getWidth() * .2, this.getHeight() * .4], 1.0);
-	g.drawPath(pathFXPanel, [this.getWidth() * .6, (this.getHeight() * .1) + this.getWidth() * .5, this.getWidth() * .2, this.getHeight() * .4], 1.0);
+	g.drawPath(pathFXPanel, [this.getWidth() * .2, (this.getHeight() * .1) + this.getHeight() * .3, this.getWidth() * .2, this.getHeight() * .4], FXImageLineWidth);
+	g.drawPath(pathFXPanel, [this.getWidth() * .6, (this.getHeight() * .1) + this.getHeight() * .3, this.getWidth() * .2, this.getHeight() * .4], FXImageLineWidth);
 
 	//Sparks
 
@@ -1251,7 +1276,7 @@ Panel_DriveImage.setPaintRoutine(function(g)
 	if (Slider_DriveTubeGain.getValueNormalized() > .35)
 	{
 		pathFXPanel.loadFromData(driveTubeSparksData);
-		g.fillPath(pathFXPanel, [this.getWidth() * .1, this.getHeight() * .7, this.getWidth() * .8, this.getHeight() * .25]);
+		g.fillPath(pathFXPanel, [this.getWidth() * .1, this.getHeight() * .5, this.getWidth() * .8, this.getHeight() * .25]);
 	}
 });
 
@@ -1267,7 +1292,7 @@ Panel_DegradeImage.setPaintRoutine(function(g)
 	for (i=0; i<degradePointsx.length; i++)
 	{
 		g.setColour(degradeColours[i]);
-		g.drawRoundedRectangle([degradePointsx[i] * this.getWidth(), degradePointsY[i] * this.getHeight(), 16 + (Slider_DegradeSampleHold.getValue() * .35), 16], Math.range(Slider_DegradeBitDepth.getValue() - 4, 0.0, 9.0), 1.0);
+		g.drawRoundedRectangle([degradePointsx[i] * this.getWidth(), degradePointsY[i] * this.getHeight(), 16 + (Slider_DegradeSampleHold.getValue() * .35), 16], Math.range(Slider_DegradeBitDepth.getValue() - 4, 0.0, 9.0), FXImageLineWidth);
 	}
 });
 
@@ -1277,9 +1302,9 @@ Panel_WidthImage.setPaintRoutine(function(g)
 {
 	//Width
 	g.setColour(Colours.white);
-	g.drawLine(this.getWidth() / 2, this.getWidth() / 2, 0, this.getHeight(), 1.0);
+	g.drawLine(this.getWidth() / 2, this.getWidth() / 2, 0, this.getHeight(), 1.5);
 
-	g.drawTriangle([(this.getWidth() / 2) - ((this.getWidth() / 2) * Slider_WidthAmount.getValueNormalized()), 20, this.getWidth() * Slider_WidthAmount.getValueNormalized(), this.getHeight() - 40], Math.toRadians(180), 1.0);
+	g.drawTriangle([(this.getWidth() / 2) - ((this.getWidth() / 2) * Slider_WidthAmount.getValueNormalized()), 20, this.getWidth() * Slider_WidthAmount.getValueNormalized(), this.getHeight() - 40], Math.toRadians(180), FXImageLineWidth);
 
 	//Stutter
 
@@ -1299,9 +1324,113 @@ Panel_WidthImage.setPaintRoutine(function(g)
 
     for (i=0; i<stutterNumSteps; i++)
     {
-    	g.setColour(0xFF030303);
+        g.setColour(Colours.withAlpha(0xFF030303, Slider_StutterLFOAmount.getValueNormalized()));
     	g.fillRoundedRectangle([0, this.getHeight() * (i / 10), this.getWidth(), stutterStepHeight], 2.0);
-    	g.setColour(Colours.darkgrey);
-    	g.drawRoundedRectangle([0, this.getHeight() * (i / 10), this.getWidth(), stutterStepHeight], 2.0, 1.0);
+        g.setColour(Colours.withAlpha(Colours.darkgrey, Slider_StutterLFOAmount.getValueNormalized()));
+    	g.drawRoundedRectangle([0, this.getHeight() * (i / 10), this.getWidth(), stutterStepHeight], 2.0, FXImageLineWidth);
     }
+});
+
+//Phaser
+
+var phaserSineWidthL;
+var phaserSineWidthR;
+
+Panel_PhaserImage.setPaintRoutine(function(g)
+{   
+
+    Console.print(Slider_PhaserRateA.getValueNormalized());
+
+    phaserSineWidthL = this.getWidth() * (1-Slider_PhaserRateA.getValueNormalized());
+    phaserSineWidthL = Math.range(phaserSineWidthL, 0, this.getWidth() * .6);
+
+    phaserSineWidthR = this.getWidth() * (1-Slider_PhaserRateB.getValueNormalized());
+    phaserSineWidthR = Math.range(phaserSineWidthR, 0, this.getWidth() * .6);
+
+    g.setColour(Colours.white);
+    pathFXPanel.loadFromData(phaserData);
+    g.drawPath(pathFXPanel, [this.getWidth() * 0.1, this.getHeight() * .2, phaserSineWidthL, this.getHeight() * .6], FXImageLineWidth);
+
+    g.setColour(Colours.withAlpha(Colours.white, Slider_PhaserFeedback.getValueNormalized() * .5));
+    g.fillPath(pathFXPanel, [this.getWidth() * 0.1, this.getHeight() * .2, phaserSineWidthL, this.getHeight() * .6]);
+
+    g.setColour(Colours.lightblue);
+    g.drawPath(pathFXPanel, [this.getWidth() * .3, this.getHeight() * .2, phaserSineWidthR, this.getHeight() * .6], FXImageLineWidth);
+
+    g.setColour(Colours.withAlpha(Colours.lightblue, Slider_PhaserFeedback.getValueNormalized() * .5));
+    g.fillPath(pathFXPanel, [this.getWidth() * .3, this.getHeight() * .2, phaserSineWidthR, this.getHeight() * .6]);
+});
+
+//Reverb
+
+var reverbNumCircles;
+
+Panel_ReverbImage.setPaintRoutine(function(g)
+{
+    reverbNumCircles = (1-Slider_ReverbDamping.getValueNormalized());
+    reverbNumCircles = Math.round(reverbNumCircles * 10);
+
+    g.setColour(Colours.withAlpha(Colours.white, .4));
+
+    for (i=0; i<10; i++)
+    {
+        g.drawRoundedRectangle([0, 0, this.getWidth() * ((0.1 * Slider_ReverbWidth.getValueNormalized()) * i), this.getHeight() * ((0.1 * Slider_ReverbSize.getValueNormalized()) * i)], 2.0, FXImageLineWidth);
+    }
+
+    g.setColour(Colours.white);
+
+    for (i=0; i<reverbNumCircles; i++)
+    {
+        g.drawRoundedRectangle([0, 0, this.getWidth() * ((0.1 * Slider_ReverbWidth.getValueNormalized()) * i), this.getHeight() * ((0.1 * Slider_ReverbSize.getValueNormalized()) * i)], 2.0, FXImageLineWidth);
+    }
+
+    g.setColour(Colours.withAlpha(Colours.lightblue, Slider_ReverbMix.getValueNormalized() * .4));
+    g.fillRoundedRectangle([0, 0, this.getWidth() * (0.1 * Slider_ReverbWidth.getValueNormalized() * (reverbNumCircles - 1)), this.getHeight() * (0.1 * Slider_ReverbSize.getValueNormalized() * (reverbNumCircles - 1))], 2.0);
+});
+
+//Delay
+
+var delayCircleRadius = 15;
+var delayNumCirclesL;
+var delayNumCirclesR;
+
+var delayGapL;
+var delayGapR;
+
+Panel_DelayImage.setPaintRoutine(function(g)
+{
+    delayNumCirclesL = Math.round(Slider_DelayFeedbackLeft.getValue() * 10);
+    delayNumCirclesR = Math.round(Slider_DelayFeedbackRight.getValue() * 10);
+
+    if (Button_DelaySync.getValue())
+    {
+        delayGapL = Slider_DelayTimeLeft.getValue();
+        delayGapL = (this.getWidth() + 60) / delayGapL;
+
+        delayGapR = Slider_DelayTimeRight.getValue();
+        delayGapR = (this.getWidth() + 60) / delayGapR;
+    }
+    else
+    {
+        delayGapL = Math.round(Slider_DelayTimeLeft.getValueNormalized() * 100);
+        delayGapR = Math.round(Slider_DelayTimeRight.getValueNormalized() * 100);
+    }
+
+    g.setColour(Colours.white);
+
+    g.drawEllipse([(this.getWidth() * .1), 20, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
+    g.drawEllipse([(this.getWidth() * .1), 80, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
+
+    g.setColour(Colours.withAlpha(Colours.white, Slider_DelayMix.getValue()));
+
+    for (i=1; i<delayNumCirclesL; i++)
+    {
+        g.drawEllipse([((this.getWidth() * .1) + delayGapL * i), 20, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
+    }
+
+    for (i=1; i<delayNumCirclesR; i++)
+    {
+        g.drawEllipse([((this.getWidth() * .1) + delayGapR * i), 80, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
+    }
+
 });

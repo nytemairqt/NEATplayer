@@ -2,6 +2,11 @@
 
 //Declarations
 
+const var Button_SampleDisplay = Content.getComponent("Button_SampleDisplay");
+const var Label_SamplePage = Content.getComponent("Label_SamplePage");
+
+const var Panel_Sample = Content.getComponent("Panel_Sample");
+
 //Samplers
 
 const var SamplerA = Synth.getChildSynth("SamplerA");
@@ -170,13 +175,10 @@ const var Label_SamplerCTitle = Content.getComponent("Label_SamplerCTitle");
 
 inline function onButton_SampleDisplayControl(component, value)
 {
+    if (value)
+        closePanels(Button_SampleDisplay);
+
 	Panel_Sample.showControl(value);
-    Button_FXDisplay.setValue(0);
-    Button_ArpDisplay.setValue(0);
-	Panel_FX.showControl(0);   
-	Panel_Arp.showControl(0);
-	Panel_Movement.showControl(0);
-    Button_MoveDisplay.setValue(0);
 };
 
 Content.getComponent("Button_SampleDisplay").setControlCallback(onButton_SampleDisplayControl);
@@ -195,10 +197,7 @@ Panel_Sample.setPaintRoutine(function(g)
 inline function onButton_CloseSamplePanelControl(component, value)
 {
 	if (value)
-	{
-		Button_SampleDisplay.setValue(0);
-		Panel_Sample.showControl(0);
-	}
+        closePanels("none");
 };
 
 Content.getComponent("Button_CloseSamplePanel").setControlCallback(onButton_CloseSamplePanelControl);
@@ -562,6 +561,19 @@ inline function onSlider_SamplerAPitchFineControl(component, value)
 Content.getComponent("Slider_SamplerAPitchFine").setControlCallback(onSlider_SamplerAPitchFineControl);
 
 
+//Show ADSR
+
+inline function onButton_SamplerAShowADSRControl(component, value)
+{
+    AHDSR_SamplerA.showControl(value);
+    Slider_SampleOffsetA.showControl(1-value);
+    AudioWaveform_SamplerA.showControl(1-value);
+};
+
+Content.getComponent("Button_SamplerAShowADSR").setControlCallback(onButton_SamplerAShowADSRControl);
+
+
+
 //Audio WaveForm
 
 //Sample Selection A
@@ -606,11 +618,6 @@ Content.getComponent("Slider_SampleOffsetA").setControlCallback(onSlider_SampleO
 
 inline function onSlider_SamplerAAttackControl(component, value)
 {
-	AHDSR_SamplerA.showControl(1);
-	timerAHDSRSamplerA.startTimer(1000);
-	Slider_SampleOffsetA.showControl(0);
-	AudioWaveform_SamplerA.showControl(0);
-	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Attack, value);
 	Label_SamplerAAttackValue.set("text", Math.round(value) + "ms");
 };
@@ -620,11 +627,6 @@ Content.getComponent("Slider_SamplerAAttack").setControlCallback(onSlider_Sample
 
 inline function onSlider_SamplerADecayControl(component, value)
 {
-	AHDSR_SamplerA.showControl(1);
-	timerAHDSRSamplerA.startTimer(1000);
-	Slider_SampleOffsetA.showControl(0);
-	AudioWaveform_SamplerA.showControl(0);
-	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Decay, value);
 	Label_SamplerADecayValue.set("text", Math.round(value) + "ms");
 };
@@ -633,11 +635,6 @@ Content.getComponent("Slider_SamplerADecay").setControlCallback(onSlider_Sampler
 
 inline function onSlider_SamplerASustainControl(component, value)
 {
-	AHDSR_SamplerA.showControl(1);
-	timerAHDSRSamplerA.startTimer(1000);
-	Slider_SampleOffsetA.showControl(0);
-	AudioWaveform_SamplerA.showControl(0);
-	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Sustain, value);
 	Label_SamplerASustainValue.set("text", Math.round(value) + "dB");
 };
@@ -646,28 +643,12 @@ Content.getComponent("Slider_SamplerASustain").setControlCallback(onSlider_Sampl
 
 inline function onSlider_SamplerAReleaseControl(component, value)
 {
-	AHDSR_SamplerA.showControl(1);
-	timerAHDSRSamplerA.startTimer(1000);
-	Slider_SampleOffsetA.showControl(0);
-	AudioWaveform_SamplerA.showControl(0);
-	
 	SamplerA_AHDSR.setAttribute(SamplerA_AHDSR.Release, value);
 	Label_SamplerAReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerARelease").setControlCallback(onSlider_SamplerAReleaseControl);
 
-
-//Display Timers
-
-const var timerAHDSRSamplerA = Engine.createTimerObject();
-
-timerAHDSRSamplerA.setTimerCallback(function()
-{
-    AHDSR_SamplerA.showControl(0);
-    Slider_SampleOffsetA.showControl(1);
-	AudioWaveform_SamplerA.showControl(1);
-});
 
 //Reverse Sample Switch
 
@@ -727,6 +708,17 @@ inline function onSlider_SamplerBPitchFineControl(component, value)
 
 Content.getComponent("Slider_SamplerBPitchFine").setControlCallback(onSlider_SamplerBPitchFineControl);
 
+//Show ADSR
+
+inline function onButton_SamplerBShowADSRControl(component, value)
+{
+    AHDSR_SamplerB.showControl(value);
+    Slider_SampleOffsetB.showControl(1-value);
+    AudioWaveform_SamplerB.showControl(1-value);
+};
+
+Content.getComponent("Button_SamplerBShowADSR").setControlCallback(onButton_SamplerBShowADSRControl);
+
 
 //Audio WaveForm
 
@@ -742,7 +734,6 @@ Content.getComponent("ComboBox_SamplerB").setControlCallback(onComboBox_SamplerB
 
 //Sample Start Offset B
 
-
 inline function onSlider_SampleOffsetBControl(component, value)
 {
 	SamplerB_SampleStart.setIntensity(1-value);
@@ -754,11 +745,6 @@ Content.getComponent("Slider_SampleOffsetB").setControlCallback(onSlider_SampleO
 
 inline function onSlider_SamplerBAttackControl(component, value)
 {
-	AHDSR_SamplerB.showControl(1);
-	timerAHDSRSamplerB.startTimer(1000);
-	Slider_SampleOffsetB.showControl(0);
-	AudioWaveform_SamplerB.showControl(0);
-	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Attack, value);
 	Label_SamplerBAttackValue.set("text", Math.round(value) + "ms");
 };
@@ -768,11 +754,6 @@ Content.getComponent("Slider_SamplerBAttack").setControlCallback(onSlider_Sample
 
 inline function onSlider_SamplerBDecayControl(component, value)
 {
-	AHDSR_SamplerB.showControl(1);
-	timerAHDSRSamplerB.startTimer(1000);
-	Slider_SampleOffsetB.showControl(0);
-	AudioWaveform_SamplerB.showControl(0);
-	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Decay, value);
 	Label_SamplerBDecayValue.set("text", Math.round(value) + "ms");
 };
@@ -781,11 +762,6 @@ Content.getComponent("Slider_SamplerBDecay").setControlCallback(onSlider_Sampler
 
 inline function onSlider_SamplerBSustainControl(component, value)
 {
-	AHDSR_SamplerB.showControl(1);
-	timerAHDSRSamplerB.startTimer(1000);
-	Slider_SampleOffsetB.showControl(0);
-	AudioWaveform_SamplerB.showControl(0);
-	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Sustain, value);
 	Label_SamplerBSustainValue.set("text", Math.round(value) + "dB");
 };
@@ -794,28 +770,12 @@ Content.getComponent("Slider_SamplerBSustain").setControlCallback(onSlider_Sampl
 
 inline function onSlider_SamplerBReleaseControl(component, value)
 {
-	AHDSR_SamplerB.showControl(1);
-	timerAHDSRSamplerB.startTimer(1000);
-	Slider_SampleOffsetB.showControl(0);
-	AudioWaveform_SamplerB.showControl(0);
-	
 	SamplerB_AHDSR.setAttribute(SamplerB_AHDSR.Release, value);
 	Label_SamplerBReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerBRelease").setControlCallback(onSlider_SamplerBReleaseControl);
 
-
-//Display Timers
-
-const var timerAHDSRSamplerB = Engine.createTimerObject();
-
-timerAHDSRSamplerB.setTimerCallback(function()
-{
-    AHDSR_SamplerB.showControl(0);
-    Slider_SampleOffsetB.showControl(1);
-	AudioWaveform_SamplerB.showControl(1);
-});
 
 //Reverse Sample Switch
 
@@ -876,6 +836,17 @@ inline function onSlider_SamplerCPitchFineControl(component, value)
 
 Content.getComponent("Slider_SamplerCPitchFine").setControlCallback(onSlider_SamplerCPitchFineControl);
 
+//Show ADSR
+
+inline function onButton_SamplerCShowADSRControl(component, value)
+{
+    AHDSR_SamplerC.showControl(value);
+    Slider_SampleOffsetC.showControl(1-value);
+    AudioWaveform_SamplerC.showControl(1-value);
+};
+
+Content.getComponent("Button_SamplerCShowADSR").setControlCallback(onButton_SamplerCShowADSRControl);
+
 
 //Audio WaveForm
 
@@ -903,11 +874,6 @@ Content.getComponent("Slider_SampleOffsetC").setControlCallback(onSlider_SampleO
 
 inline function onSlider_SamplerCAttackControl(component, value)
 {
-	AHDSR_SamplerC.showControl(1);
-	timerAHDSRSamplerC.startTimer(1000);
-	Slider_SampleOffsetC.showControl(0);
-	AudioWaveform_SamplerC.showControl(0);
-	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Attack, value);
 	Label_SamplerCAttackValue.set("text", Math.round(value) + "ms");
 };
@@ -917,11 +883,6 @@ Content.getComponent("Slider_SamplerCAttack").setControlCallback(onSlider_Sample
 
 inline function onSlider_SamplerCDecayControl(component, value)
 {
-	AHDSR_SamplerC.showControl(1);
-	timerAHDSRSamplerC.startTimer(1000);
-	Slider_SampleOffsetC.showControl(0);
-	AudioWaveform_SamplerC.showControl(0);
-	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Decay, value);
 	Label_SamplerCDecayValue.set("text", Math.round(value) + "ms");
 };
@@ -930,11 +891,6 @@ Content.getComponent("Slider_SamplerCDecay").setControlCallback(onSlider_Sampler
 
 inline function onSlider_SamplerCSustainControl(component, value)
 {
-	AHDSR_SamplerC.showControl(1);
-	timerAHDSRSamplerC.startTimer(1000);
-	Slider_SampleOffsetC.showControl(0);
-	AudioWaveform_SamplerC.showControl(0);
-	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Sustain, value);
 	Label_SamplerCSustainValue.set("text", Math.round(value) + "dB");
 };
@@ -943,28 +899,12 @@ Content.getComponent("Slider_SamplerCSustain").setControlCallback(onSlider_Sampl
 
 inline function onSlider_SamplerCReleaseControl(component, value)
 {
-	AHDSR_SamplerC.showControl(1);
-	timerAHDSRSamplerC.startTimer(1000);
-	Slider_SampleOffsetC.showControl(0);
-	AudioWaveform_SamplerC.showControl(0);
-	
 	SamplerC_AHDSR.setAttribute(SamplerC_AHDSR.Release, value);
 	Label_SamplerCReleaseValue.set("text", Math.round(value) + "ms");
 };
 
 Content.getComponent("Slider_SamplerCRelease").setControlCallback(onSlider_SamplerCReleaseControl);
 
-
-//Display Timers
-
-const var timerAHDSRSamplerC = Engine.createTimerObject();
-
-timerAHDSRSamplerC.setTimerCallback(function()
-{
-    AHDSR_SamplerC.showControl(0);
-    Slider_SampleOffsetC.showControl(1);
-	AudioWaveform_SamplerC.showControl(1);
-});
 
 //Reverse Sample Switch
 

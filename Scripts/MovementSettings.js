@@ -1,13 +1,11 @@
 //Declarations
 
 const var Panel_Movement = Content.getComponent("Panel_Movement");
-const var Panel_MovementXYPad = Content.getComponent("Panel_MovementXYPad");
+const var Button_MoveDisplay = Content.getComponent("Button_MoveDisplay");
 
+const var Panel_MovementXYPad = Content.getComponent("Panel_MovementXYPad");
 const var Slider_MovementYInvisible = Content.getComponent("Slider_MovementYInvisible");
 const var Slider_MovementXInvisible = Content.getComponent("Slider_MovementXInvisible");
-
-const var AHDSR_Macro5 = Synth.getModulator("AHDSR_Macro5");
-const var AHDSR_Macro6 = Synth.getModulator("AHDSR_Macro6");
 
 const var Label_MovementEnvAAttackValue = Content.getComponent("Label_MovementEnvAAttackValue");
 const var Label_MovementEnvADecayValue = Content.getComponent("Label_MovementEnvADecayValue");
@@ -18,8 +16,8 @@ const var Label_MovementEnvBDecayValue = Content.getComponent("Label_MovementEnv
 const var Label_MovementEnvBSustainValue = Content.getComponent("Label_MovementEnvBSustainValue");
 const var Label_MovementEnvBReleaseValue = Content.getComponent("Label_MovementEnvBReleaseValue");
 
-const var Button_MovementSettings = Content.getComponent("Button_MovementSettings");
-const var Panel_MovementSettings = Content.getComponent("Panel_MovementSettings");
+const var AHDSR_Macro5 = Synth.getModulator("AHDSR_Macro5");
+const var AHDSR_Macro6 = Synth.getModulator("AHDSR_Macro6");
 
 const var Label_PanelXYTooltipX = Content.getComponent("Label_PanelXYTooltipX");
 const var Label_PanelXYTooltipY = Content.getComponent("Label_PanelXYTooltipY");
@@ -27,6 +25,11 @@ const var Label_PanelXYTooltipY = Content.getComponent("Label_PanelXYTooltipY");
 const var Label_MovementEnvelopeTitle = Content.getComponent("Label_MovementEnvelopeTitle");
 const var Label_MovementTitle = Content.getComponent("Label_MovementTitle");
 const var Label_MovementChaosTitle = Content.getComponent("Label_MovementChaosTitle");
+
+//Advanced Connections
+
+const var Button_MovementSettings = Content.getComponent("Button_MovementSettings");
+const var Panel_MovementSettings = Content.getComponent("Panel_MovementSettings");
 
 //Positioning Elements
 
@@ -47,20 +50,12 @@ inline function positionMovementPanels()
 
 }
 
-//positionMovementPanels();
-
 //Display Panel
 
 inline function onButton_MoveDisplayControl(component, value)
 {
-    Button_FXDisplay.setValue(0);
-    Panel_FX.showControl(0);   
-    
-    Button_ArpDisplay.setValue(0);
-    Panel_Arp.showControl(0);
-    
-    Panel_Sample.showControl(0);
-    Button_SampleDisplay.setValue(0);
+    if (value)
+        closePanels(Button_MoveDisplay);
 	
 	Panel_Movement.showControl(value);
 };
@@ -72,10 +67,7 @@ Content.getComponent("Button_MoveDisplay").setControlCallback(onButton_MoveDispl
 inline function onButton_CloseMovementPanelControl(component, value)
 {
     if (value)
-    {
-        Button_MoveDisplay.setValue(0);
-        Panel_Movement.showControl(0);
-    }
+        closePanels("none");
 };
 
 Content.getComponent("Button_CloseMovementPanel").setControlCallback(onButton_CloseMovementPanelControl);

@@ -39,8 +39,7 @@
   <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="994.0"
              height="474.0" borderRadius="2.0">
     <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
-               text="Image" width="994.0" height="474.0" fileName="{PROJECT_FOLDER}bg_cloudburst.jpg"
-               alpha="0.0"/>
+               text="Image" width="994.0" height="474.0" fileName="{PROJECT_FOLDER}bg_foundkeys.jpg"/>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
                parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"
                itemColour2="3456106496" borderRadius="2.0" bgColour="16777215"
@@ -381,12 +380,10 @@
                    text="0.40" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptButton" id="Button_RandomizeFXFilterFreq" x="90.0"
                    y="228.0" parentComponent="Panel_FilterSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXFilterQ" x="230.0"
                    y="228.0" parentComponent="Panel_FilterSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       </Component>
       <Component type="ScriptPanel" id="Panel_EQSettings" x="197.0" y="87.0" parentComponent="Panel_FX"
                  width="600.0" height="300.0" itemColour="3372220416" itemColour2="3372220416"
@@ -444,7 +441,7 @@
                    alignment="left"/>
         <Component type="ScriptLabel" id="Label_CompRatioValue" x="240.0" y="106.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
-                   text="4.0:1" editable="0" saveInPreset="1" alignment="left"/>
+                   text="2.0:1" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptLabel" id="Label_CompMakeup" x="240.0" y="159.0"
                    parentComponent="Panel_CompSettings" width="61.0" height="28.0"
                    text="Makeup" editable="0" fontStyle="Bold" alignment="left"/>
@@ -476,7 +473,7 @@
       <Component type="ScriptPanel" id="Panel_AmpSettings" x="197.0" y="87.0"
                  parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
                  itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
-                 textColour="16777215" visible="0">
+                 textColour="16777215">
         <Component type="ScriptLabel" id="Label_AmpGain" x="104.0" y="180.0" parentComponent="Panel_AmpSettings"
                    width="80.0" height="28.0" text="Drive" editable="0" fontStyle="Bold"
                    alignment="left"/>
@@ -514,9 +511,9 @@
                    parentComponent="Panel_AmpSettings" width="40.0" height="28.0"
                    text="Cab" editable="0" fontStyle="Bold"/>
         <Component type="ScriptSlider" id="Slider_AmpOutput" x="164.0" y="180.0"
-                   parentComponent="Panel_AmpSettings" text="" max="36.0" middlePosition="-32.0"
+                   parentComponent="Panel_AmpSettings" text="" max="36.0" middlePosition="0.0"
                    stepSize="1.0" isPluginParameter="1" pluginParameterName="Amp_Output"
-                   numStrips="127.0" width="48.0" height="48.0" min="-100.0" tooltip="Adjusts the Output Gain of the Amplifier."/>
+                   numStrips="127.0" width="48.0" height="48.0" min="-60.0" tooltip="Adjusts the Output Gain of the Amplifier."/>
         <Component type="ScriptLabel" id="Label_AmpOutputValue" x="224.0" y="196.0"
                    parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
                    text="0.0dB" editable="0" saveInPreset="1" alignment="left"/>
@@ -547,28 +544,22 @@
                    width="40.0" height="28.0" text="HQ" editable="0" fontStyle="Bold"/>
         <Component type="ScriptButton" id="Button_RandomizeFXAmpLow" x="90.0" y="55.0"
                    parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXAmpMid" x="170.0" y="55.0"
                    parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXAmpHigh" x="254.0"
                    y="55.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXAmpDrive" x="104.0"
                    y="166.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXAmpOutput" x="224.0"
                    y="166.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXAmpCabinet" x="222.0"
                    y="253.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_AmpComboBoxUp" x="185.0" y="260.0"
                    parentComponent="Panel_AmpSettings" width="10.0" height="7.0"
                    text="LAFButtonUpArrow" isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>
@@ -576,8 +567,8 @@
                    parentComponent="Panel_AmpSettings" width="10.0" height="7.0"
                    text="LAFButtonDownArrow" isMomentary="1" enableMidiLearn="0"
                    saveInPreset="0"/>
-        <Component type="ScriptPanel" id="Panel_AmpImage" x="370.0" y="80.0" width="180.0"
-                   height="180.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
+        <Component type="ScriptPanel" id="Panel_AmpImage" x="320.0" y="30.0" width="270.0"
+                   height="250.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
                    parentComponent="Panel_AmpSettings"/>
       </Component>
       <Component type="ScriptPanel" id="Panel_DriveSettings" x="197.0" y="87.0"
@@ -627,14 +618,12 @@
                    text="Oversampling" editable="0" fontStyle="Bold" alignment="left"/>
         <Component type="ScriptButton" id="Button_RandomizeFXDriveWaveShaperGain"
                    x="104.0" y="76.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXDriveTubeDriveGain"
-                   x="104.0" y="206.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
-        <Component type="ScriptPanel" id="Panel_DriveImage" x="350.0" y="80.0" width="180.0"
-                   height="180.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
+                   x="104.0" y="185.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_DriveImage" x="330.0" y="30.0" width="280.0"
+                   height="290.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
                    parentComponent="Panel_DriveSettings"/>
       </Component>
       <Component type="ScriptPanel" id="Panel_DegradeSettings" x="197.0" y="87.0"
@@ -668,20 +657,18 @@
                    text="Sample Hold" editable="0" fontStyle="Bold" alignment="left"/>
         <Component type="ScriptButton" id="Button_RandomizeFXDegradeBitDepth" x="104.0"
                    y="76.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXSampleHold" x="104.0"
                    y="206.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
-        <Component type="ScriptPanel" id="Panel_DegradeImage" x="270.0" y="0.0"
-                   width="330.0" height="300.0" borderRadius="0.0" bgColour="16777215"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_DegradeImage" x="340.0" y="50.0"
+                   width="220.0" height="210.0" borderRadius="0.0" bgColour="16777215"
                    textColour="16777215" parentComponent="Panel_DegradeSettings"/>
       </Component>
       <Component type="ScriptPanel" id="Panel_WidthSettings" x="197.0" y="87.0"
                  parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
                  itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
-                 textColour="16777215">
+                 textColour="16777215" visible="0">
         <Component type="ScriptLabel" id="Label_StutterLFOSync" x="177.0" y="260.0"
                    parentComponent="Panel_WidthSettings" width="80.0" height="28.0"
                    text="Sync" editable="0" fontStyle="Bold"/>
@@ -723,7 +710,7 @@
                    max="40.0" tooltip="Adjusts the Stutter Rate (in Hz)." visible="0"/>
         <Component type="ScriptLabel" id="Label_StutterLFORateValue" x="104.0" y="215.0"
                    parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
-                   text="1/1" editable="0" saveInPreset="1" alignment="left"/>
+                   text="1/16" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptLabel" id="Label_StutterLFORate" x="104.0" y="199.0"
                    parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
                    text="Rate" editable="0" fontStyle="Bold" alignment="left"/>
@@ -749,16 +736,13 @@
                    text="Pre FX" editable="0" fontStyle="Bold"/>
         <Component type="ScriptButton" id="Button_RandomizeFXWidenerWidth" x="104.0"
                    y="76.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXStutterRate" x="104.0"
                    y="185.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXStutterAmount" x="240.0"
                    y="185.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptLabel" id="Label_WidthTitle1" x="240.0" y="8.0" parentComponent="Panel_WidthSettings"
                    text="UTILITY" editable="0" width="128.0" height="28.0" fontStyle="Regular"/>
         <Component type="ScriptPanel" id="Panel_WidthImage" x="350.0" y="80.0" width="180.0"
@@ -771,7 +755,7 @@
                  textColour="16777215" visible="0">
         <Component type="ScriptLabel" id="Label_PhaserRateAAmount" x="104.0" y="106.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="1500Hz" editable="0" saveInPreset="1" alignment="left"/>
+                   text="21Hz" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptLabel" id="Label_PhaserRateA" x="104.0" y="90.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
                    text="Rate A" editable="0" fontStyle="Bold" alignment="left"/>
@@ -802,7 +786,7 @@
                    text="Rate B" editable="0" fontStyle="Bold" alignment="left"/>
         <Component type="ScriptLabel" id="Label_PhaserRateBAmount" x="104.0" y="194.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="1500Hz" editable="0" saveInPreset="1" alignment="left"/>
+                   text="162Hz" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptLabel" id="Label_PhaserFeedback" x="240.0" y="90.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
                    text="Feedback" editable="0" fontStyle="Bold" alignment="left"/>
@@ -814,25 +798,21 @@
                    alignment="left"/>
         <Component type="ScriptLabel" id="Label_PhaserMixAmount" x="240.0" y="194.0"
                    parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
-                   text="20%" editable="0" saveInPreset="1" alignment="left"/>
+                   text="78%" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateA" x="104.0"
                    y="76.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateB" x="104.0"
                    y="165.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" x="240.0"
                    y="76.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXPhaserMix" x="240.0"
                    y="165.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
-        <Component type="ScriptPanel" id="Panel_PhaserImage" x="350.0" y="80.0"
-                   width="180.0" height="180.0" borderRadius="0.0" bgColour="16777215"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_PhaserImage" x="320.0" y="80.0"
+                   width="270.0" height="180.0" borderRadius="0.0" bgColour="16777215"
                    textColour="16777215" parentComponent="Panel_PhaserSettings"/>
       </Component>
       <Component type="ScriptPanel" id="Panel_ReverbSettings" x="197.0" y="87.0"
@@ -883,22 +863,18 @@
                    text="20%" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptButton" id="Button_RandomizeFXReverbSize" x="104.0"
                    y="76.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXReverbDamping" x="240.0"
                    y="76.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXReverbWidth" x="104.0"
                    y="165.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXReverbMix" x="240.0"
                    y="165.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
-        <Component type="ScriptPanel" id="Panel_ReverbImage" x="350.0" y="80.0"
-                   width="180.0" height="180.0" borderRadius="0.0" bgColour="16777215"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_ReverbImage" x="350.0" y="70.0"
+                   width="220.0" height="220.0" borderRadius="0.0" bgColour="16777215"
                    textColour="16777215" parentComponent="Panel_ReverbSettings"/>
       </Component>
       <Component type="ScriptPanel" id="Panel_DelaySettings" x="197.0" y="87.0"
@@ -922,11 +898,13 @@
         <Component type="ScriptSlider" id="Slider_DelayFeedbackRight" x="180.0"
                    y="159.0" parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
                    pluginParameterName="Delay_FeedbackRight" numStrips="127.0" width="48.0"
-                   height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Right Channel."/>
+                   height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Right Channel."
+                   middlePosition="0.5"/>
         <Component type="ScriptSlider" id="Slider_DelayFeedbackLeft" x="44.0" y="159.0"
                    parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
                    pluginParameterName="Delay_FeedbackLeft" numStrips="127.0" width="48.0"
-                   height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Left Channel."/>
+                   height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Left Channel."
+                   middlePosition="0.5"/>
         <Component type="ScriptSlider" id="Slider_DelayMix" x="180.0" y="229.0"
                    parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
                    pluginParameterName="Delay_Mix" numStrips="127.0" width="48.0"
@@ -963,24 +941,19 @@
                    width="80.0" height="28.0" text="Tempo Sync" editable="0" fontStyle="Bold"/>
         <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeL" x="104.0"
                    y="76.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeR" x="240.0"
                    y="76.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" x="104.0"
                    y="145.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" x="240.0"
                    y="145.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptButton" id="Button_RandomizeFXDelayMix" x="240.0"
                    y="215.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
-                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                   visible="0"/>
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
         <Component type="ScriptSlider" id="Slider_DelayTimeLeft" x="44.0" y="90.0"
                    parentComponent="Panel_DelaySettings" text="" width="48.0" height="48.0"
                    max="18" stepSize="1" middlePosition="9.0" defaultValue="5.0"
@@ -989,42 +962,34 @@
                    parentComponent="Panel_DelaySettings" text="" width="48.0" height="48.0"
                    max="18" stepSize="1" middlePosition="9.0" defaultValue="5.0"
                    isMetaParameter="1" tooltip="Adjusts the Delay Time of the Right Channel."/>
-        <Component type="ScriptPanel" id="Panel_DelayImage" x="350.0" y="80.0" width="180.0"
+        <Component type="ScriptPanel" id="Panel_DelayImage" x="310.0" y="89.0" width="260.0"
                    height="180.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
                    parentComponent="Panel_DelaySettings"/>
       </Component>
       <Component type="ScriptButton" id="Button_RandomizeFXFilterBypass" x="27.0"
                  y="106.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeFXAmpBypass" x="27.0"
                  y="256.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeFXDrive" x="27.0" y="306.0"
                  parentComponent="Panel_FX" text="LAFButtonRandomize" width="10.0"
-                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeFXWidenerBypass" x="957.0"
                  y="107.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeFXPhaserBypass" x="957.0"
                  y="156.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeFXDegradeBypass" x="27.0"
                  y="356.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeFXReverbBypass" x="957.0"
                  y="208.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeFXDelayBypass" x="957.0"
                  y="258.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_CloseFXPanel" x="978.0" y="1.0"
                  parentComponent="Panel_FX" width="14.0" height="14.0" text="LAFButtonClose"
                  saveInPreset="0" isMomentary="1" enableMidiLearn="0"/>
@@ -1063,10 +1028,11 @@
                  middlePosition="0.5" tooltip="Adjusts the Sample Start Offset of this Sampler."
                  mouseSensitivity="1.210000038146973"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerA" x="90.66666412353516"
-                 y="41.0" text="Cloudburst" width="150.0" height="28.0" itemColour="4212199697"
+                 y="41.0" text="Select" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
-                 max="0"/>
+                 items="&#10;Without&#10;Trauma&#10;Xenophone&#10;Fading&#10;White Walls&#10;Dread Flute&#10;Paramount&#10;Purest&#10;Undefined&#10;Ghost&#10;Radar&#10;Priest&#10;Cord&#10;Shatter&#10;Belief"
+                 max="15"/>
       <Component type="ScriptFloatingTile" id="AHDSR_SamplerA" x="10.0" y="75.0"
                  parentComponent="Panel_Sample" ContentType="AHDSRGraph" bgColour="0"
                  itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerA_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
@@ -1090,10 +1056,10 @@
                  width="48.0" height="20.0" fontStyle="Regular" text="1500ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerASustainValue" x="175.0"
-                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="-100dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerAReleaseValue" x="242.0"
-                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="5ms"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="1000ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptSlider" id="Slider_SamplerAAttack" x="43.0" y="260.0"
                  parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
@@ -1124,20 +1090,16 @@
                  tooltip="Adjusts the Release value of this Sampler's ADSR."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerAAttack" x="91.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerADecay" x="157.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerASustain" x="223.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerARelease" x="290.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_SamplerABypass" x="6.0" y="6.0"
                  parentComponent="Panel_Sample" width="16.0" height="16.0" text="LAFButtonSamplerBypass"
                  processorId="SamplerA" parameterId="Enabled" enableMidiLearn="0"
@@ -1174,12 +1136,10 @@
                  tooltip="Toggles the Sampler Bypass."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBAttack" x="422.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBDecay" x="488.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptSlider" id="Slider_SamplerBDecay" x="440.0" y="260.0"
                  parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
                  textColour="16777215" itemColour2="1118481" itemColour="3355443"
@@ -1204,8 +1164,7 @@
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBSustain" x="555.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptLabel" id="Label_SamplerBDecayValue" x="440.0" y="329.0"
                  width="48.0" height="20.0" fontStyle="Regular" text="1500ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
@@ -1216,10 +1175,11 @@
                  y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerB" x="422.0" y="41.0"
-                 text="unused" width="150.0" height="28.0" itemColour="4212199697"
+                 text="Select" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
-                 max="0"/>
+                 items="&#10;Without&#10;Trauma&#10;Xenophone&#10;Fading&#10;White Walls&#10;Dread Flute&#10;Paramount&#10;Purest&#10;Undefined&#10;Ghost&#10;Radar&#10;Priest&#10;Cord&#10;Shatter&#10;Belief"
+                 max="15"/>
       <Component type="ScriptLabel" id="Label_SamplerBPan" x="507.0" y="419.0"
                  width="48.0" height="20.0" fontStyle="Bold" text="Pan" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
@@ -1248,8 +1208,7 @@
                  textColour="4294951115" width="311.0" height="110.0" visible="0"/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBRelease" x="621.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptSlider" id="Slider_SamplerBPitchFine" x="440.0" y="370.0"
                  parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
                  min="-100.0" max="100.0" middlePosition="0.0" stepSize="1.0"
@@ -1299,12 +1258,10 @@
                  tooltip="Toggles the Sampler Bypass."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCDecay" x="820.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCAttack" x="753.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptSlider" id="Slider_SamplerCAttack" x="705.0" y="260.0"
                  parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
                  textColour="16777215" itemColour2="1118481" itemColour="3355443"
@@ -1326,8 +1283,7 @@
                  numStrips="127.0" stepSize="1.0" tooltip="Adjusts the Sustain value of this Sampler's ADSR."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCSustain" x="886.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptLabel" id="Label_SamplerCDecay" x="772.0" y="309.0"
                  width="48.0" height="20.0" fontStyle="Bold" text="Decay" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
@@ -1338,10 +1294,11 @@
                  width="48.0" height="20.0" fontStyle="Bold" text="Sustain" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerC" x="753.3333129882813"
-                 y="41.0" text="unused" width="150.0" height="28.0" itemColour="4212199697"
+                 y="41.0" text="Select" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
-                 max="0"/>
+                 items="&#10;Without&#10;Trauma&#10;Xenophone&#10;Fading&#10;White Walls&#10;Dread Flute&#10;Paramount&#10;Purest&#10;Undefined&#10;Ghost&#10;Radar&#10;Priest&#10;Cord&#10;Shatter&#10;Belief"
+                 max="15"/>
       <Component type="ScriptLabel" id="Label_SamplerCAttackValue" x="705.0" y="329.0"
                  width="48.0" height="20.0" fontStyle="Regular" text="5ms" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
@@ -1370,8 +1327,7 @@
                  numStrips="127.0" stepSize="1.0" defaultValue="1000.0" tooltip="Adjusts the Release value of this Sampler's ADSR."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCRelease" x="952.0"
                  y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptLabel" id="Label_SamplerCPitchCoarse" x="705.0" y="419.0"
                  width="48.0" height="20.0" fontStyle="Bold" text="Pitch" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
@@ -1385,7 +1341,7 @@
                  width="48.0" height="20.0" fontStyle="Bold" text="Release" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCReleaseValue" x="904.0"
-                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="1000ms"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="7133ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerCGain" x="904.0" y="419.0"
                  width="48.0" height="20.0" fontStyle="Bold" text="Gain" parentComponent="Panel_Sample"
@@ -1450,82 +1406,64 @@
                  saveInPreset="0"/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerAPitchCoarse"
                  x="91.0" y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerAPitchFine" x="157.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerAPan" x="223.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerAGain" x="290.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBPitchCoarse"
                  x="422.0" y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBPitchFine" x="488.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBPan" x="555.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBGain" x="621.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCPitchCoarse"
                  x="753.0" y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCPitchFine" x="820.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCPan" x="886.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCGain" x="952.0"
                  y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerAComboBox" x="246.0"
                  y="41.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBComboBox" x="578.0"
                  y="41.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCComboBox" x="909.0"
                  y="41.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerASampleStart"
                  x="305.0" y="59.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerBSampleStart"
                  x="636.0" y="59.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeSamplerCSampleStart"
                  x="967.0" y="59.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledB" x="331.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
-                 itemColour2="3942645760"/>
+                 itemColour2="3942645760" visible="0"/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledC" x="662.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
-                 itemColour2="3942645760"/>
+                 itemColour2="3942645760" visible="0"/>
       <Component type="ScriptLabel" id="Label_SamplerBTitle" x="447.0" y="-1.0"
                  width="100.0" height="30.0" fontStyle="Bold" text="SAMPLER B"
                  parentComponent="Panel_Sample" editable="0"/>
@@ -1535,6 +1473,13 @@
       <Component type="ScriptButton" id="Button_CloseSamplePanel" x="978.0" y="1.0"
                  parentComponent="Panel_Sample" width="14.0" height="14.0" text="LAFButtonClose"
                  isMomentary="1" saveInPreset="0" enableMidiLearn="0"/>
+      <Component type="ScriptButton" id="Button_SamplerAShowADSR" x="17.0" y="47.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" text="LAFButtonSamplerBypass"
+                 enableMidiLearn="0"/>
+      <Component type="ScriptButton" id="Button_SamplerBShowADSR" x="347.0" y="47.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" text="LAFButtonSamplerBypass"/>
+      <Component type="ScriptButton" id="Button_SamplerCShowADSR" x="677.0" y="47.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" text="LAFButtonSamplerBypass"/>
     </Component>
     <Component type="ScriptPanel" id="Panel_Movement" x="0.0" y="0.0" width="994.0"
                height="474.0" parentComponent="Panel_BG" bgColour="3825600006"
@@ -1916,34 +1861,27 @@
                  parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
                  saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Lengths."/>
-      <Component type="ScriptButton" id="Button_RandomizeArpNotes" x="887.0" y="16.0"
+      <Component type="ScriptButton" id="Button_RandomizeArpNotes" x="946.0" y="16.0"
                  parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
-                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
-      <Component type="ScriptButton" id="Button_RandomizeArpVelocity" x="887.0"
-                 y="226.0" parentComponent="Panel_Arp" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
-      <Component type="ScriptButton" id="Button_RandomizeArpLength" x="887.0"
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpVelocity" x="946.0"
+                 y="228.0" parentComponent="Panel_Arp" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpLength" x="946.0"
                  y="347.0" parentComponent="Panel_Arp" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeArpSteps" x="192.0" y="57.0"
                  parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
-                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeArpSpeed" x="192.0" y="131.0"
                  parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
-                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeArpOctaves" x="192.0"
                  y="205.0" parentComponent="Panel_Arp" text="LAFButtonRandomize"
-                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_RandomizeArpSwing" x="192.0" y="279.0"
                  parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
-                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."
-                 visible="0"/>
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
       <Component type="ScriptButton" id="Button_ArpSustain" x="242.0" y="437.0"
                  parentComponent="Panel_Arp" text="LAFButtonBypass" width="8.0"
                  height="8.0" bgColour="16777215" itemColour="3355443" itemColour2="1118481"
@@ -2002,16 +1940,21 @@
                  tooltip="Randomizes all Selected Module Parameters."/>
     </Component>
     <Component type="ScriptButton" id="Button_CloseRandomizationPanel" x="978.0"
-               y="91.0" parentComponent="Panel_BG" width="14.0" height="14.0"
+               y="88.0" parentComponent="Panel_BG" width="14.0" height="14.0"
                text="LAFButtonCloseRandomizationPanel" isMomentary="1" enableMidiLearn="0"
                saveInPreset="0" visible="0"/>
-  </Component>
-  <Component type="ScriptedViewport" id="Viewport_ExpansionsHolder" x="3"
-             y="33" width="195" height="474" autoHide="0" scrollBarThickness="9.79798"
-             visible="0">
-    <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="0" y="3"
-               width="186" height="955" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
-               bgColour="9700870" itemColour="4278190080" itemColour2="4278190080"/>
+    <Component type="ScriptedViewport" id="Viewport_ExpansionsHolder" x="0.0"
+               y="0.0" width="994.0" height="474.0" autoHide="0" scrollBarThickness="9.79798"
+               parentComponent="Panel_BG" visible="0">
+      <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="0.0" y="0.0"
+                 width="994.0" height="900.0" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
+                 bgColour="9700870" itemColour="4278190080" itemColour2="4278190080">
+        <Component type="ScriptButton" id="Button_CloseExpansions" x="978.0" y="1.0"
+                   parentComponent="Panel_ExpansionsItemHolder" text="LAFButtonClose"
+                   width="14.0" height="14.0" isMomentary="1" enableMidiLearn="0"
+                   saveInPreset="0"/>
+      </Component>
+    </Component>
   </Component>
   <Component type="ScriptFloatingTile" id="FloatingTile_Keyboard" x="72.0"
              y="540.0" ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
@@ -2086,8 +2029,9 @@
                editable="0" parentComponent="Panel_InstallLibraries" enabled="0"
                visible="0"/>
     <Component type="ScriptButton" id="Button_InstallLibrary" x="257.0" y="117.0"
-               text="LAFButtonSetup" saveInPreset="0" isMomentary="1" numStrips="6.0"
-               width="150.0" height="150.0" enableMidiLearn="0" parentComponent="Panel_InstallLibraries"/>
+               text="LAFButtonInstallLibrary" saveInPreset="0" isMomentary="1"
+               numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
+               parentComponent="Panel_InstallLibraries"/>
     <Component type="ScriptLabel" id="Label_InstallLibrary" x="297.0" y="77.0"
                width="80.0" height="28.0" text="Install Library" fontSize="12.0"
                editable="0" parentComponent="Panel_InstallLibraries"/>
@@ -2095,12 +2039,13 @@
                parentComponent="Panel_InstallLibraries" numStrips="6.0" width="14.0"
                height="14.0" isMomentary="1" text="LAFButtonClose" enableMidiLearn="0"/>
     <Component type="ScriptButton" id="Button_BulkInstall" x="537.0" y="117.0"
-               text="LAFButtonSetup" saveInPreset="0" isMomentary="1" numStrips="6.0"
-               width="150.0" height="150.0" enableMidiLearn="0" parentComponent="Panel_InstallLibraries"/>
-    <Component type="ScriptLabel" id="Label_InstallLibrary1" x="577.0" y="77.0"
+               text="LAFButtonBulkInstall" saveInPreset="0" isMomentary="1"
+               numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
+               parentComponent="Panel_InstallLibraries"/>
+    <Component type="ScriptLabel" id="Label_BulkInstall" x="577.0" y="77.0"
                width="80.0" height="28.0" text="Bulk Install" fontSize="12.0"
                editable="0" parentComponent="Panel_InstallLibraries"/>
-    <Component type="ScriptLabel" id="Label_InstallLibrary2" x="474.0" y="7.0"
+    <Component type="ScriptLabel" id="Label_InstallLibraryTitle" x="474.0" y="7.0"
                width="80.0" height="28.0" text="Install" fontSize="14.0" editable="0"
                parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
     <Component type="ScriptLabel" id="Label_InstallLibraryDescription" x="187.0"
@@ -2183,7 +2128,7 @@
              enableMidiLearn="0" saveInPreset="0" tooltip="Opens the Settings panel."/>
   <Component type="ScriptLabel" id="Label_CustomSettingsButton" x="7.0" y="9.0"
              width="108.0" height="12.0" text="Settings" fontSize="12.0" editable="0"/>
-  <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="560.0" y="603.0"
+  <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="560.0" y="604.0"
              width="440.0" height="18.0" borderRadius="2.0" bgColour="16777215"
              textColour="16777215"/>
 </ContentProperties>

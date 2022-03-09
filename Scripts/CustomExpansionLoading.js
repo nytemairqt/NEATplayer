@@ -51,8 +51,10 @@ inline function clearGUI()
     Panel_PDQBassSettings.set("visible", 0);
     Panel_GloomExtras.set("visible", 0);
     
+    /*
     Button_SampleDisplay.setValue(0);
     Panel_Sample.showControl(0);
+    */
     
     Panel_SamplerDisabledB.showControl(0);
     Panel_SamplerDisabledC.showControl(0);

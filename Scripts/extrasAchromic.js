@@ -1,5 +1,7 @@
 //Achromic Functions
 
+const var Panel_AchromicSettings = Content.getComponent("Panel_AchromicSettings");
+
 const var Button_AchromicPickAttack = Content.getComponent("Button_AchromicPickAttack");
 const var Button_AchromicReleaseNoise = Content.getComponent("Button_AchromicReleaseNoise");
 const var Button_AchromicNoiseGate = Content.getComponent("Button_AchromicNoiseGate");

@@ -1,6 +1,6 @@
 
-const var Panel_ExpansionsItemHolder = Content.getComponent("Panel_ExpansionsItemHolder");
 const var loadingBar = Content.addPanel("loadingBar", 0, 0);
+reg currentlyLoading = false;
 
 loadingBar.data.colour = Colours.black;
 
@@ -30,11 +30,13 @@ loadingBar.setLoadingCallback(function(isPreloading)
 {
 	if(isPreloading)
     {       
+        currentlyLoading = true;
         this.data.colour = 0xD5E6E6E6;
         this.startTimer(50);
     }
     else
     {       
+        currentlyLoading = false;
         this.stopTimer();
         this.data.colour = 0x00000000;
         this.data.text = "";

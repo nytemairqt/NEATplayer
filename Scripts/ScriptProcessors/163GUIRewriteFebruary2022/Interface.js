@@ -4,25 +4,82 @@ const var frontInterfaceHeight = 620;
 Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 
 include("Init Layout.js");
+include("libraryInstallation.js");
+include("SampleSettings.js");
+include("FXGUI.js");
+include("ArpeggiatorScript.js");
+include("MovementSettings.js");
+include("ChaosEngine.js");
+include("RandomizeEverything.js");
+include("librarySelect.js");
+include("presetBrowser.js");
+include("interfaceExtras.js");
+
 include("LookAndFeel.js");
 include("CustomFunctions.js");
-include("ArpeggiatorScript.js");
 include("CustomExpansionLoading.js");
-include("SampleSettings.js");
-include("MovementSettings.js");
-include("FXGUI.js");
 include("loadingBar.js");
 include("InitializeModules.js");
 include("OutputMeter.js");
-include("RandomizeEverything.js");
+
 include("extrasOracle2.js");
 include("extrasAchromic.js");
 include("extrasPortal.js");
 include("extrasCloudburstAcoustic.js");
 include("extrasGloom.js");
 include("PDQBass_Extras.js");
-include("ChaosEngine.js");
-include("expansionInstallation.js");
+
+//Push Panel Buttons
+
+var panelButtons = [];
+
+inline function closePanels(keepOpen)
+{
+    switch (keepOpen)
+    {
+        case "none": 
+            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_CustomSettings:
+            panelButtons = [Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_AddLibrary:
+            panelButtons = [Button_CustomSettings, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_OpenPresetBrowser:
+            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_OpenExpansions:
+            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_SampleDisplay:
+            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_FXDisplay:
+            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_ArpDisplay:
+            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_MoveDisplay];
+        break;
+
+        case Button_MoveDisplay:
+            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay];
+        break;                                                     
+    }
+
+    for (p in panelButtons)
+    {
+        p.setValue(0);
+        p.changed();
+    }
+}
 
 Engine.setFrontendMacros(["X Pos", "X Neg", "Y Pos", "Y Neg", "Env A", "Env B", "Velocity", "Random"]);
 
@@ -33,13 +90,7 @@ audiofiles.sortNatural();
 
 const var syncTimes = ["1/1", "1/2D", "1/2", "1/2T", "1/4D", "1/4", "1/4T", "1/8D", "1/8", "1/8T", "1/16D", "1/16", "1/16T", "1/32D", "1/32", "1/32T", "1/64D", "1/64", "1/64T"];
 
-//Initialize Expansions.
-
-const var Button_SetSamplesFolder = Content.getComponent("Button_SetSamplesFolder");
-const var Button_InstallLibrary = Content.getComponent("Button_InstallLibrary");
-const var Button_CloseSetFolder = Content.getComponent("Button_CloseSetFolder");
-//const var Panel_CustomSettings = Content.getComponent("Panel_CustomSettings");
-
+/*
 //Expansion shit
 
 var currentExpansion; 
@@ -142,107 +193,15 @@ var expansionDirectory = FileSystem.getFolder(FileSystem.Samples);
 var selectExpansionFile = "";
 reg hr;
 
-const var Panel_ChangeSampleFolder = Content.getComponent("Panel_ChangeSampleFolder");
-
-Panel_ChangeSampleFolder.showControl(0);
-
 expHandler.setAllowedExpansionTypes([expHandler.FileBased, 
                                      expHandler.Intermediate, 
                                      expHandler.Encrypted]);
-//Preset Browser
 
-
-const var Button_PresetBrowserClose = Content.getComponent("Button_PresetBrowserClose");
-
-FloatingTile_PresetBrowser.showControl(0);
-
-inline function onButton_OpenPresetBrowserControl(component, value)
-{
-	FloatingTile_PresetBrowser.showControl(value);
-	Button_PresetBrowserClose.showControl(value);
-};
-
-Content.getComponent("Button_OpenPresetBrowser").setControlCallback(onButton_OpenPresetBrowserControl);                                                                                                    
-
-
-inline function onButton_PresetBrowserCloseControl(component, value)
-{
-    if (value)
-    {
-	    Button_OpenPresetBrowser.setValue(0);
-	    Button_OpenPresetBrowser.changed();
-    }
-	    
-};
-
-Content.getComponent("Button_PresetBrowserClose").setControlCallback(onButton_PresetBrowserCloseControl);
-
-
-//Set Sample Folder Button
-
-inline function onButton_SetSamplesFolderControl(component, value)
-{
-    Panel_ChangeSampleFolder.showControl(value);
-};
-
-Content.getComponent("Button_SetSamplesFolder").setControlCallback(onButton_SetSamplesFolderControl);
-
-
-inline function onButton_CloseSetFolderControl(component, value)
-{
-	if (value)
-    {
-        Panel_ChangeSampleFolder.showControl(0);
-        Button_SetSamplesFolder.setValue(0);
-    };
-};
-
-Content.getComponent("Button_CloseSetFolder").setControlCallback(onButton_CloseSetFolderControl);
-
-//Install Library Button
-
-const var Button_CloseInstallPanel = Content.getComponent("Button_CloseInstallPanel");
-const var Button_BulkInstall = Content.getComponent("Button_BulkInstall");
-
-inline function onButton_CloseInstallPanelControl(component, value)
-{
-	Button_AddLibrary.setValue(0);
-	Button_AddLibrary.changed();
-};
-
-Content.getComponent("Button_CloseInstallPanel").setControlCallback(onButton_CloseInstallPanelControl);
-
-
-inline function onButton_AddLibraryControl(component, value)
-{
-	Panel_InstallLibraries.showControl(value);
-};
-
-Content.getComponent("Button_AddLibrary").setControlCallback(onButton_AddLibraryControl);
+*/
 
 //Install Single
 
 var installDirectory = expansionDirectory;
-
-//Expansion Selection Navigation.
-
-
-
-inline function onButton_OpenExpansionsControl(component, value)
-{
-    if (value)
-    {
-		positionPanelBG(true);  
-		Viewport_ExpansionsHolder.showControl(true);	    
-    }
-	else
-    {
-		positionPanelBG(false);
-		Viewport_ExpansionsHolder.showControl(false);
-    }
-};
-
-Content.getComponent("Button_OpenExpansions").setControlCallback(onButton_OpenExpansionsControl);
 
 //Open AppData Button
 
@@ -455,72 +414,6 @@ inline function onStop(isPlaying)
 };
 
 th.setOnTransportChange(true, onStop);
-
-//DEBUG
-
-const var Button_ClearSamplers = Content.getComponent("Button_ClearSamplers");
-const var Button_CheckExpansion = Content.getComponent("Button_CheckExpansion");
-
-inline function onButton_ClearSamplersControl(component, value)
-{
-    if (value)
-        clearSamplers();
-};
-
-Content.getComponent("Button_ClearSamplers").setControlCallback(onButton_ClearSamplersControl);
-
-
-inline function onButton_CheckExpansionControl(component, value)
-{
-    if (value)
-    Console.print("Current Expansion: " + currentExpansion);
-};
-
-Content.getComponent("Button_CheckExpansion").setControlCallback(onButton_CheckExpansionControl);
-
-//Custom Settings
-
-inline function onButton_CustomSettingsControl(component, value)
-{
-	Panel_CustomSettings.showControl(value);
-};
-
-Content.getComponent("Button_CustomSettings").setControlCallback(onButton_CustomSettingsControl);
-
-inline function onButton_CloseCustomSettingsControl(component, value)
-{
-	if (value)
-    {
-	    Panel_CustomSettings.showControl(0);
-	    Button_CustomSettings.setValue(0);
-    }
-};
-
-Content.getComponent("Button_CloseCustomSettings").setControlCallback(onButton_CloseCustomSettingsControl);
-
-//Portamento
-
-reg lastNote = -1;
-reg retrigger = -1;
-reg eventId;
-reg lastTuning = 0;
-
-const var Button_PortamentoBypass = Content.getComponent("Button_PortamentoBypass");
-const var Slider_PortamentoTime = Content.getComponent("Slider_PortamentoTime");
-const var Label_PortamentoTimeValue = Content.getComponent("Label_PortamentoTimeValue");
-
-
-inline function onSlider_PortamentoTimeControl(component, value)
-{
-	Label_PortamentoTimeValue.set("text", value + "ms");
-};
-
-Content.getComponent("Slider_PortamentoTime").setControlCallback(onSlider_PortamentoTimeControl);
-
-for (c in Panel_BG.getChildPanelList())
-{
-    Console.print(c);
-}
 
 //clearEverything();
 

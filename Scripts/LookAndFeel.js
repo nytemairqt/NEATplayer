@@ -1,8 +1,13 @@
 const laf = Engine.createGlobalScriptLookAndFeel();
 
+laf.loadImage("{PROJECT_FOLDER}randomizationButtonDice.png", "randomizationButtonDiceImage"); 
+laf.loadImage("{PROJECT_FOLDER}randomizationVisibility.png", "randomizationButtonVisibilityImage"); 
+
+laf.loadImage("{PROJECT_FOLDER}installSingleExpansionButton.png", "installSingleExpansionImage"); 
+laf.loadImage("{PROJECT_FOLDER}installBulkExpansionButton.png", "bulkInstallImage"); 
+
 const var path = Content.createPath();
 
-/*
 function LAFFXButton()
 {
     g.drawLine(0, 6, 0, 0, 1.0);
@@ -14,7 +19,6 @@ function LAFFXButton()
     g.drawLine(obj.area[2], obj.area[2] - 6, obj.area[3], obj.area[3], 1.0);
     g.drawLine(obj.area[2], obj.area[2], obj.area[3], obj.area[3] - 6, 1.0);
 }
-*/
 
 const var randomizationButtonData = [110,109,215,163,32,65,0,0,0,65,108,10,215,31,66,0,0,0,65,98,16,88,36,66,0,0,0,65,0,0,40,66,190,159,14,65,0,0,40,66,215,163,32,65,108,0,0,40,66,10,215,31,66,98,0,0,40,66,16,88,36,66,16,88,36,66,0,0,40,66,10,215,31,66,0,0,40,66,108,215,163,32,65,0,0,40,
 66,98,190,159,14,65,0,0,40,66,0,0,0,65,16,88,36,66,0,0,0,65,10,215,31,66,108,0,0,0,65,215,163,32,65,98,0,0,0,65,190,159,14,65,190,159,14,65,0,0,0,65,215,163,32,65,0,0,0,65,99,101,0,0];
@@ -195,24 +199,22 @@ laf.registerFunction("drawToggleButton", function(g, obj)
     case "LAFOpenRandomizationPanel":
         g.setColour(0xFB111111);
         g.fillRoundedRectangle(obj.area, 2.0);
+        g.drawImage("randomizationButtonDiceImage", [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 0, 0); 
         if (obj.value)
         {
             if (obj.over)
-                g.setColour(Colours.white);
+                g.setColour(Colours.withAlpha(Colours.black, 0.05));
             else
-                g.setColour(Colours.lightgrey);
+                g.setColour(Colours.withAlpha(Colours.black, 0));      
         }
         else
         {
             if (obj.over)
-                g.setColour(Colours.white);
+                g.setColour(Colours.withAlpha(Colours.black, 0.1));
             else
-                g.setColour(Colours.lightgrey);
+                g.setColour(Colours.withAlpha(Colours.black, 0.3));         
         }
-        path.loadFromData(randomizationButtonDiceShape);        
-        g.drawPath(path, [obj.area[0] + 6.0, obj.area[1] + 4.0, obj.area[2] - 12.0, obj.area[3] - 8.0], 1.0);
-        path.loadFromData(randomizationButtonDiceDots);
-        g.fillPath(path, [obj.area[0] + 8.0, obj.area[1] + 6.0, obj.area[2] - 16.0, obj.area[3] - 12.0]);
+    g.fillRoundedRectangle(obj.area, 0);
     break;
     
     case "LAFButtonChangePage":
@@ -250,26 +252,48 @@ laf.registerFunction("drawToggleButton", function(g, obj)
         }
     g.fillRoundedRectangle(obj.area, 2.0);     
     break;  
+
+    case "LAFButtonInstallLibrary":
+        g.setColour(0xFB111111);
+        g.fillRoundedRectangle(obj.area, 2.0);   
+        g.drawImage("installSingleExpansionImage", obj.area, 0, 0);
+        if (obj.over)
+            g.setColour(Colours.withAlpha(Colours.white, 0.03));
+        else
+            g.setColour(Colours.withAlpha(Colours.white, 0));
+        g.fillRoundedRectangle(obj.area, 2.0);
+    break;  
+
+    case "LAFButtonBulkInstall":
+        g.setColour(0xFB111111);
+        g.fillRoundedRectangle(obj.area, 2.0);   
+        g.drawImage("bulkInstallImage", obj.area, 0, 0);
+        if (obj.over)
+            g.setColour(Colours.withAlpha(Colours.white, 0.03));
+        else
+            g.setColour(Colours.withAlpha(Colours.white, 0));
+        g.fillRoundedRectangle(obj.area, 2.0);    
+    break;  
     
-    case "LAFButtonRandomizeVisibility":
-        path.loadFromData(randomizationButtonsVisibilityData);   
+    case "LAFButtonRandomizeVisibility":    
         g.setColour(0xFB111111);
         g.fillRoundedRectangle(obj.area, 3.0); 
+        g.drawImage("randomizationButtonVisibilityImage", [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 0, 0);
         if (obj.value)
         {
             if (obj.over)
-                g.setColour(Colours.white);            
+                g.setColour(Colours.withAlpha(Colours.black, 0.05));
             else
-                g.setColour(0xFB111111);              
+                g.setColour(Colours.withAlpha(Colours.black, 0));      
         }
         else
         {
             if (obj.over)
-                g.setColour(0xFB111111);
+                g.setColour(Colours.withAlpha(Colours.black, 0.1));
             else
-                g.setColour(Colours.darkgrey);         
+                g.setColour(Colours.withAlpha(Colours.black, 0.3));         
         }
-    g.drawPath(path, [obj.area[0] + 3, obj.area[1], obj.area[2] - 6, obj.area[3]], 1.5);
+    g.fillRoundedRectangle(obj.area, 0);
     break; 
     
     case "LAFArpResetButton":
