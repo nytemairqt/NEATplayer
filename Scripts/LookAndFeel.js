@@ -6,6 +6,9 @@ laf.loadImage("{PROJECT_FOLDER}randomizationVisibility.png", "randomizationButto
 laf.loadImage("{PROJECT_FOLDER}installSingleExpansionButton.png", "installSingleExpansionImage"); 
 laf.loadImage("{PROJECT_FOLDER}installBulkExpansionButton.png", "bulkInstallImage"); 
 
+laf.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOff.png", "samplerShowADSRButtonOff"); 
+laf.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOn.png", "samplerShowADSRButtonOn"); 
+
 const var path = Content.createPath();
 
 function LAFFXButton()
@@ -419,23 +422,71 @@ laf.registerFunction("drawToggleButton", function(g, obj)
         g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
         g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 0, obj.area[3] / 2, 2.0);
     break;
+
+    case "LAFButtonSamplerShowADSR":
+        g.setColour(0xFB111111);
+        g.fillRoundedRectangle(obj.area, 2.0);
+        if (obj.value)
+        {
+            g.setColour(Colours.white);
+            g.drawImage("samplerShowADSRButtonOff", obj.area, 0, 0);
+            if (obj.over)
+            {
+                g.setColour(Colours.withAlpha(Colours.black, 0.05));
+            }
+            else
+            {
+                g.setColour(Colours.withAlpha(Colours.black, 0.00));
+            }
+        }
+        else
+        {
+            g.setColour(Colours.white);
+            g.drawImage("samplerShowADSRButtonOn", obj.area, 0, 0);
+            if (obj.over)
+            {
+                g.setColour(Colours.withAlpha(Colours.black, 0.05));
+            }
+            else
+            {
+                g.setColour(Colours.withAlpha(Colours.black, 0.00));
+            }
+        }
+        g.fillRoundedRectangle(obj.area, 2.0);
+    break;
     
     case "LAFButtonSamplerReverse":
         if (obj.value)
         {
             if (obj.over)
+            {
                 g.setColour(Colours.white);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
+                g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
+                g.fillRoundedRectangle(obj.area, 2.0);
+            }
             else
+            {
                 g.setColour(Colours.lightgrey);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
+                g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
+                g.fillRoundedRectangle(obj.area, 2.0);
+            }
         }
         else
         {
             if (obj.over)
+            {
                 g.setColour(Colours.grey);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
+            }
             else
+            {
                 g.setColour(Colours.darkgrey);
+                g.drawRoundedRectangle(obj.area, 2.0, .5);
+            }
         }
-        g.drawRoundedRectangle(obj.area, 2.0, .5);
+        g.setColour(Colours.white);
         g.setFont("Arial", 9.0);
         g.drawAlignedText("REV", obj.area, "centred");        
     break;
@@ -520,58 +571,58 @@ laf.registerFunction("drawRotarySlider", function(g, obj)
         
         case "LAFSliderPan":
         
-        //base
-        g.setColour(obj.hover ? 0xFFc2c2c2 : 0xFFAAAAAA);
-        g.fillRoundedRectangle([0, 0, obj.area[2], obj.area[3]], 1.0);
-        
-        
-        g.setColour(0xFF333333);
-        g.fillRoundedRectangle([(obj.area[2] * .95) * obj.valueNormalized - 1, 0, 6, obj.area[3]], 0);
-        
-        //value dragger
-        g.setColour(Colours.grey);
-        g.fillRoundedRectangle([(obj.area[2] * .95) * obj.valueNormalized, 0, 4, obj.area[3]], 0);
+            //base
+            g.setColour(obj.hover ? 0xFFc2c2c2 : 0xFFAAAAAA);
+            g.fillRoundedRectangle([0, 0, obj.area[2], obj.area[3]], 1.0);
+            
+            
+            g.setColour(0xFF333333);
+            g.fillRoundedRectangle([(obj.area[2] * .95) * obj.valueNormalized - 1, 0, 6, obj.area[3]], 0);
+            
+            //value dragger
+            g.setColour(Colours.grey);
+            g.fillRoundedRectangle([(obj.area[2] * .95) * obj.valueNormalized, 0, 4, obj.area[3]], 0);
         break;
         
         case "LAFSliderOutputGain":
-        g.setColour(Colours.lightgrey);
-        g.fillRoundedRectangle([(obj.area[2] * 0.98) * obj.valueNormalized, 0, 2, obj.area[3]], 2.0);
+            g.setColour(Colours.lightgrey);
+            g.fillRoundedRectangle([(obj.area[2] * 0.98) * obj.valueNormalized, 0, 2, obj.area[3]], 2.0);
         break;
         
         case "LAF_SliderPDQBassVel":
-        g.setColour(Colours.white);
-        g.fillRoundedRectangle(obj.area, 2.0);
-        g.setColour(0xFB111111);
-        g.setFont("Arial", 12);
-        g.drawAlignedText(Math.round(obj.value), obj.area, "centred");
+            g.setColour(Colours.white);
+            g.fillRoundedRectangle(obj.area, 2.0);
+            g.setColour(0xFB111111);
+            g.setFont("Arial", 12);
+            g.drawAlignedText(Math.round(obj.value), obj.area, "centred");
         break;
         
         case "LAFSliderOracleSampleOffset":
-        g.setColour(Colours.grey);
-        g.drawRoundedRectangle(obj.area, 2.0, 1.0);
-        g.setColour(Colours.lightblue);
-        g.drawLine(obj.area[2] * obj.valueNormalized, obj.area[2] * obj.valueNormalized, 0, obj.area[3], 1.0);
-        g.setColour(0xB11A1A1A);        
-        g.fillRoundedRectangle([0, 0, obj.area[2] * obj.valueNormalized, obj.area[3]], 2.0);
+            g.setColour(Colours.grey);
+            g.drawRoundedRectangle(obj.area, 2.0, 1.0);
+            g.setColour(Colours.lightblue);
+            g.drawLine(obj.area[2] * obj.valueNormalized, obj.area[2] * obj.valueNormalized, 0, obj.area[3], 1.0);
+            g.setColour(0xB11A1A1A);        
+            g.fillRoundedRectangle([0, 0, obj.area[2] * obj.valueNormalized, obj.area[3]], 2.0);
         break;
         
         case "LAFSliderMovementX":
-        g.setColour(0xFB111111);
-        g.fillRoundedRectangle(obj.area, 4.0);
-        g.setColour(Colours.darkgrey);
-        g.drawRoundedRectangle(obj.area, 4.0, .75);
-        g.setColour(Colours.lightgrey);
-        //g.drawRoundedRectangle([Math.range(obj.area[2] * obj.valueNormalized, 2, 192), obj.area[3] / 2 - 2, 6, 4], 1.0, 1.0);
-        g.drawRoundedRectangle([Math.range(obj.area[2] * obj.valueNormalized, 3, obj.area[2] - 6), obj.area[3] / 2 - 2, 6, 4], 1.0, 1.0);
+            g.setColour(0xFB111111);
+            g.fillRoundedRectangle(obj.area, 4.0);
+            g.setColour(Colours.darkgrey);
+            g.drawRoundedRectangle(obj.area, 4.0, .75);
+            g.setColour(Colours.lightgrey);
+            //g.drawRoundedRectangle([Math.range(obj.area[2] * obj.valueNormalized, 2, 192), obj.area[3] / 2 - 2, 6, 4], 1.0, 1.0);
+            g.drawRoundedRectangle([Math.range(obj.area[2] * obj.valueNormalized, 3, obj.area[2] - 6), obj.area[3] / 2 - 2, 6, 4], 1.0, 1.0);
         break;
         
         case "LAFSliderMovementY":
-        g.setColour(0xFB111111);
-        g.fillRoundedRectangle(obj.area, 4.0);
-        g.setColour(Colours.darkgrey);
-        g.drawRoundedRectangle(obj.area, 4.0, .75);
-        g.setColour(Colours.lightgrey);
-        g.drawRoundedRectangle([obj.area[2] / 2 - 2, Math.range(obj.area[3] - obj.area[3] * obj.valueNormalized, 3, obj.area[3] - 6), 4, 6], 1.0, 1.0);
+            g.setColour(0xFB111111);
+            g.fillRoundedRectangle(obj.area, 4.0);
+            g.setColour(Colours.darkgrey);
+            g.drawRoundedRectangle(obj.area, 4.0, .75);
+            g.setColour(Colours.lightgrey);
+            g.drawRoundedRectangle([obj.area[2] / 2 - 2, Math.range(obj.area[3] - obj.area[3] * obj.valueNormalized, 3, obj.area[3] - 6), 4, 6], 1.0, 1.0);
         break;
     }
 });
@@ -660,8 +711,6 @@ laf.registerFunction("drawNumberTag", function(g, obj)
 
 //Alert Window Popups
 
-/*
-
 laf.registerFunction("drawAlertWindowIcon", function(g, obj)
 {
     if(obj.type == "Question")
@@ -669,12 +718,10 @@ laf.registerFunction("drawAlertWindowIcon", function(g, obj)
             g.setColour(Colours.lightgrey);
             path.clear();
             path.loadFromData(openAppDataFolderButtonFillDataBack);
-            g.fillPath(path, [obj.area[0], obj.area[1], obj.area[2] - 40, obj.area[3] - 48]);
+            g.fillPath(path, [obj.area[0], obj.area[1] + 4, obj.area[2] - 40, obj.area[3] - 56]);
             path.clear();
             g.setColour(Colours.white);
             path.loadFromData(openAppDataFolderButtonFillDataFront);
-            g.fillPath(path, [obj.area[0], obj.area[1] + 14, obj.area[2] - 40, obj.area[3] - 56]);  
+            g.fillPath(path, [obj.area[0], obj.area[1] + 16, obj.area[2] - 40, obj.area[3] - 64]);  
     }
 });
-
-*/

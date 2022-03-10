@@ -4,15 +4,29 @@ reg currentlyLoading = false;
 
 loadingBar.data.colour = Colours.black;
 
-loadingBar.setPosition(300 - loadingBar.getWidth() / 2, 145, 100, 20);
+loadingBar.set("width", 300);
+loadingBar.set("height", 40);
+loadingBar.set("x", (Panel_BG.getWidth() / 2) - (loadingBar.getWidth() / 2));
+loadingBar.set("y", (Panel_BG.getHeight() / 2) - (loadingBar.getHeight() / 2));
 
 loadingBar.data.colour = 0x00000000;
+loadingBar.data.colourFill = 0x00000000;
+loadingBar.data.colourBorder = 0x00000000;
 loadingBar.data.text = "";
+
+const var loadingBarTextWidth = 200;
+const var loadingBarTextHeight = 40;
 
 loadingBar.setPaintRoutine(function(g)
 {
-    g.fillAll(this.data.colour);
-    g.drawAlignedText(this.data.text, [0, 0, 100, 20], "centred");
+    g.setColour(this.data.colour);
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
+    g.setColour(this.data.colourFill);
+    g.fillRoundedRectangle([0, 0, this.getWidth() * (this.data.progress * 0.01), this.getHeight()], 2.0);
+    g.setColour(this.data.colourBorder);
+    g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2, 1);
+    g.setColour(Colours.white);
+    g.drawAlignedText(this.data.text, [(this.getWidth() / 2) - (loadingBarTextWidth / 2), (this.getHeight() / 2) - (loadingBarTextHeight / 2), loadingBarTextWidth, loadingBarTextHeight], "centred");    
 });
 
 
@@ -31,7 +45,9 @@ loadingBar.setLoadingCallback(function(isPreloading)
 	if(isPreloading)
     {       
         currentlyLoading = true;
-        this.data.colour = 0xD5E6E6E6;
+        this.data.colour = Colours.withAlpha(Colours.black, 0.9);
+        this.data.colourFill = Colours.withAlpha(Colours.lightblue, 0.6);
+        this.data.colourBorder = Colours.white;
         this.startTimer(50);
     }
     else
@@ -39,6 +55,8 @@ loadingBar.setLoadingCallback(function(isPreloading)
         currentlyLoading = false;
         this.stopTimer();
         this.data.colour = 0x00000000;
+        this.data.colourBorder = 0x00000000;
+        this.data.colourFill = 0x00000000;
         this.data.text = "";
     }
         
