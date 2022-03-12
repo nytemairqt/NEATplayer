@@ -39,6 +39,9 @@ reg lastTuning = 0;
 const var Button_PortamentoBypass = Content.getComponent("Button_PortamentoBypass");
 const var Slider_PortamentoTime = Content.getComponent("Slider_PortamentoTime");
 const var Label_PortamentoTimeValue = Content.getComponent("Label_PortamentoTimeValue");
+const var Button_ExclusiveReverse = Content.getComponent("Button_ExclusiveReverse");
+
+
 
 inline function onSlider_PortamentoTimeControl(component, value)
 {

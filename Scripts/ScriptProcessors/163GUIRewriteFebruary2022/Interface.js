@@ -194,7 +194,7 @@ function expCallback()
         default:
     };    
     
-    expHandler.getCurrentExpansion().setAllowDuplicateSamples(false);
+    expHandler.getCurrentExpansion().setAllowDuplicateSamples(true);
 }
 
 expHandler.setExpansionCallback(expCallback);

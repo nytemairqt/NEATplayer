@@ -44,23 +44,23 @@
   <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="994.0"
              height="474.0" borderRadius="2.0">
     <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
-               text="Image" width="994.0" height="474.0" fileName="{PROJECT_FOLDER}bg_portal.jpg"/>
+               text="Image" width="994.0" height="474.0" fileName="{PROJECT_FOLDER}bg_achromic.jpg"/>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
                parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"
                itemColour2="3456106496" borderRadius="2.0" bgColour="16777215"
-               textColour="16777215" visible="0">
+               textColour="16777215">
       <Component type="ScriptButton" id="Button_AchromicPickAttack" x="9.0" y="9.0"
                  parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHPickAttack"
-                 defaultValue="1.0" tooltip="Enables pick attack sounds."/>
+                 defaultValue="1.0" tooltip="Enables pick attack sounds." isPluginParameter="1"/>
       <Component type="ScriptButton" id="Button_AchromicReleaseNoise" x="9.0"
                  y="26.0" parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHReleaseNoise"
-                 defaultValue="1.0" tooltip="Enables release fret noises."/>
+                 defaultValue="1.0" tooltip="Enables release fret noises." isPluginParameter="1"/>
       <Component type="ScriptButton" id="Button_AchromicNoiseGate" x="9.0" y="43.0"
                  parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHGateEnabled"
-                 tooltip="Enables noise gate."/>
+                 tooltip="Enables noise gate." isPluginParameter="1"/>
       <Component type="ScriptLabel" id="Label_AchromicPickAttack" x="22.0" y="0.0"
                  parentComponent="Panel_AchromicSettings" width="80.0" height="28.0"
                  text="Attack" alignment="left" editable="0" fontSize="14.0"/>
@@ -73,7 +73,7 @@
       <Component type="ScriptButton" id="Button_AchromicForceDownpick" x="9.0"
                  y="60.0" parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHForceDownpick"
-                 tooltip="Forces downpick when enabled."/>
+                 tooltip="Forces downpick when enabled." isPluginParameter="1"/>
       <Component type="ScriptLabel" id="Label_AchromicForceDownpick" x="22.0"
                  y="51.0" parentComponent="Panel_AchromicSettings" width="80.0"
                  height="28.0" text="Downpick" alignment="left" editable="0" fontSize="14.0"/>
@@ -217,7 +217,7 @@
     <Component type="ScriptPanel" id="Panel_PortalVelocity" x="17.0" y="425.0"
                parentComponent="Panel_BG" width="150.0" height="28.0" itemColour="2583691264"
                itemColour2="2583691264" borderRadius="2.0" bgColour="16777215"
-               textColour="16777215">
+               textColour="16777215" visible="0">
       <Component type="ScriptButton" id="Button_PortalIgnoreArpVelocity" x="10.0"
                  y="8.0" parentComponent="Panel_PortalVelocity" itemColour="3355443"
                  bgColour="16777215" text="LAFButtonBypass" width="10.0" height="10.0"
@@ -1050,7 +1050,7 @@
                  middlePosition="0.5" tooltip="Adjusts the Sample Start Offset of this Sampler."
                  mouseSensitivity="1.210000038146973"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerA" x="90.66666412353516"
-                 y="41.0" text="Portal" width="150.0" height="28.0" itemColour="4212199697"
+                 y="41.0" text="Guitar 1" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
                  max="0"/>
@@ -1196,7 +1196,7 @@
                  y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerB" x="422.0" y="41.0"
-                 text="unused" width="150.0" height="28.0" itemColour="4212199697"
+                 text="Guitar 2" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
                  max="0"/>
@@ -1488,7 +1488,7 @@
                  tooltip="Switches between Waveform and ADSR Display."/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledB" x="331.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
-                 itemColour2="3942645760"/>
+                 itemColour2="3942645760" visible="0"/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledC" x="662.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
                  itemColour2="3942645760"/>
@@ -1800,14 +1800,14 @@
       <Component type="ScriptLabel" id="Label_Arp" x="382.5" y="-1.0" width="229.0"
                  height="28.0" fontStyle="Bold" text="ARP" parentComponent="Panel_Arp"
                  editable="0"/>
-      <Component type="ScriptSliderPack" id="SliderPack_ArpVelocity" x="262.8000106811523"
+      <Component type="ScriptSliderPack" id="SliderPack_ArpVelocity" x="262.8000000000001"
                  y="243.6" parentComponent="Panel_Arp" processorId="Arpeggiator1"
                  SliderPackIndex="1" height="94.80000000000001" width="695.8"
                  tooltip="Set specific Velocity values here for the Arpeggiator to play."/>
-      <Component type="ScriptSliderPack" id="SliderPack_ArpNotes" x="262.8000106811523"
+      <Component type="ScriptSliderPack" id="SliderPack_ArpNotes" x="262.8000000000001"
                  y="30" parentComponent="Panel_Arp" processorId="Arpeggiator1"
                  height="189.6" width="695.8" tooltip="Set specific Note values here for the Arpeggiator to play."/>
-      <Component type="ScriptSliderPack" id="SliderPack_ArpLength" x="262.8000106811523"
+      <Component type="ScriptSliderPack" id="SliderPack_ArpLength" x="262.8000000000001"
                  y="362.4" parentComponent="Panel_Arp" processorId="Arpeggiator1"
                  SliderPackIndex="2" height="94.80000000000001" width="695.8"
                  tooltip="Set specific Note Length values here for the Arpeggiator to play."/>
@@ -1872,15 +1872,15 @@
                  defaultValue="0.0" bgColour="16777215" tooltip="Select an Arpeggiator Mode."/>
       <Component type="ScriptButton" id="Button_ArpNotesReset" x="963.0" y="90.0"
                  parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpVelocityReset" x="964.0" y="244.0"
                  parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Velocities."/>
       <Component type="ScriptButton" id="Button_ArpLengthReset" x="964.0" y="357.0"
                  parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Lengths."/>
       <Component type="ScriptButton" id="Button_RandomizeArpNotes" x="946.0" y="16.0"
                  parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
@@ -1914,15 +1914,15 @@
                  editable="0" alignment="right"/>
       <Component type="ScriptButton" id="Button_ArpNotesMajor" x="963.0" y="60.0"
                  parentComponent="Panel_Arp" text="LAFArpMajorButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Generate a random Major note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpNotesMinor" x="963.0" y="30.0"
                  parentComponent="Panel_Arp" text="LAFArpMinorButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Generate a random Minor note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpNotesInvert" x="963.0" y="117.0"
-                 parentComponent="Panel_Arp" text="LAFArpInvertButton" width="23.40000152587891"
-                 height="23.40000152587891" numStrips="6.0" isMomentary="1" enableMidiLearn="0"
+                 parentComponent="Panel_Arp" text="LAFArpInvertButton" width="23.40000000000001"
+                 height="23.40000000000001" numStrips="6.0" isMomentary="1" enableMidiLearn="0"
                  saveInPreset="0" tooltip="Invert the current Note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpModeUpArrow" x="206.0" y="364.0"
                  parentComponent="Panel_Arp" text="LAFButtonUpArrow" height="6.0"
@@ -1970,7 +1970,7 @@
       <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="0.0" y="0.0"
                  width="983.0" height="900.0" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
                  bgColour="9700870" itemColour="4278190080" itemColour2="4278190080"
-                 borderSize="0.0" tooltip="Enables Pick Attack sounds.">
+                 borderSize="0.0">
         <Component type="ScriptButton" id="Button_CloseExpansions" x="971.0" y="1.0"
                    parentComponent="Panel_ExpansionsItemHolder" text="LAFButtonClose"
                    width="14.0" height="14.0" isMomentary="1" enableMidiLearn="0"
@@ -2094,8 +2094,7 @@
              enableMidiLearn="0" processorId="OutputGain" parameterId="Gain"
              tooltip="Adjusts the Output Gain." itemColour="3355443" bgColour="16777215"/>
   <Component type="ScriptPanel" id="Panel_CustomSettings" x="1.0" y="31.0"
-             width="998.0" height="478.0" itemColour="4026531840" itemColour2="4026531840"
-             visible="0">
+             width="998.0" height="478.0" itemColour="4026531840" itemColour2="4026531840">
     <Component type="ScriptButton" id="Button_CloseCustomSettings" x="978.0"
                y="1.0" parentComponent="Panel_CustomSettings" numStrips="6.0"
                width="14.0" height="14.0" isMomentary="1" text="LAFButtonClose"
@@ -2142,7 +2141,20 @@
                parentComponent="Panel_CustomSettings" editable="0"/>
     <Component type="ScriptComboBox" id="ComboBox_MIDIDevices" x="59.0" y="239.0"
                parentComponent="Panel_CustomSettings" width="250.0" height="40.0"
-               text="Select" items="&#10;None&#10;Oxygen 49" max="2"/>
+               text="Select" items="&#10;None"/>
+    <Component type="ScriptPanel" id="Panel_SettingsPortamento1" x="169" y="39.0"
+               parentComponent="Panel_CustomSettings" width="135" height="70"
+               borderRadius="2.0">
+      <Component type="ScriptButton" id="Button_ExclusiveReverse" x="25.0" y="46.0"
+                 parentComponent="Panel_SettingsPortamento1" text="LAFButtonBypass"
+                 width="10.0" height="10.0" tooltip="Enables Portamento." enableMidiLearn="0"/>
+    </Component>
+    <Component type="ScriptLabel" id="Label_SamplerReverseTitle" x="169" y="41.0"
+               width="137.0" height="28.0" fontStyle="Bold" text="EXCLUSIVE REVERSE"
+               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_SampleExclusiveReverse" x="219.0"
+               y="75.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
+               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
   </Component>
   <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="490.0" y="604.0"
              width="440.0" height="18.0" borderRadius="2.0" bgColour="16777215"
