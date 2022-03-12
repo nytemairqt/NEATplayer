@@ -25,16 +25,7 @@ inline function onButton_PresetBrowserCloseControl(component, value)
 {
 
     if (value)
-        closePanels("none");
-
-    /*
-    if (value)
-    {
-        Button_OpenPresetBrowser.setValue(0);
-        Button_OpenPresetBrowser.changed();
-    }
-    */
-        
+        closePanels("none");        
 };
 
 Content.getComponent("Button_PresetBrowserClose").setControlCallback(onButton_PresetBrowserCloseControl);

@@ -3,6 +3,10 @@ const var frontInterfaceHeight = 620;
 
 Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 
+const var audiofiles = Engine.loadAudioFilesIntoPool();
+
+audiofiles.sortNatural();
+
 include("Init Layout.js");
 include("libraryInstallation.js");
 include("SampleSettings.js");
@@ -84,120 +88,8 @@ inline function closePanels(keepOpen)
 Engine.setFrontendMacros(["X Pos", "X Neg", "Y Pos", "Y Neg", "Env A", "Env B", "Velocity", "Random"]);
 
 colourKeysReset();
-const var audiofiles = Engine.loadAudioFilesIntoPool();
-
-audiofiles.sortNatural();
 
 const var syncTimes = ["1/1", "1/2D", "1/2", "1/2T", "1/4D", "1/4", "1/4T", "1/8D", "1/8", "1/8T", "1/16D", "1/16", "1/16T", "1/32D", "1/32", "1/32T", "1/64D", "1/64", "1/64T"];
-
-/*
-//Expansion shit
-
-var currentExpansion; 
-
-const var expansionNames = [];
-
-expansionNames.push("No Expansion");
-
-for (e in expHandler.getExpansionList())
-    expansionNames.push(e.getProperties().Name);
-
-const var expButton = [];
-
-const var expButtonHeight = 55;
-Panel_ExpansionsItemHolder.set("height", 20);
-Panel_ExpansionsItemHolder.setPosition(0, 3, 186, 20);
-
-const var expPanelTitle = Panel_ExpansionsItemHolder.addChildPanel();
-expPanelTitle.setPosition(0, 0, Panel_ExpansionsItemHolder.getWidth(), 20);
-expPanelTitle.setPaintRoutine(function(g)
-{
-    g.fillAll(0x1B1B1B);
-    g.setFont("Arial", 12.0);
-    g.setColour(Colours.white);
-    g.drawAlignedText("- Libraries -", [0 , 0, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
-});
-    
-for (i=1; i<expansionNames.length; i++)
-{
-    Panel_ExpansionsItemHolder.set("height", 20 + expansionNames.length * expButtonHeight - expButtonHeight);
-    expButton[i] = Panel_ExpansionsItemHolder.addChildPanel();
-    expButton[i].setPosition(0, 20 + i * expButtonHeight - expButtonHeight, Panel_ExpansionsItemHolder.getWidth(), expButtonHeight);
-    expButton[i].loadImage("{PROJECT_FOLDER}" + expansionNames[i] + "_button_base.png", "panel_" + expansionNames[i]); 
-    expButton[i].data.imagefile = "panel_" + expansionNames[i]; 
-    expButton[i].data.expansionName = expansionNames[i];
-    expButton[i].set("allowCallbacks", "Clicks & Hover");
-    expButton[i].setPaintRoutine(function(g) 
-    {
-        g.drawImage(this.data.imagefile, [2, 1, 185, expButtonHeight], 0, 0); 
-    });
-    
-    expButton[i].setLoadingCallback(function(isPreloading)
-    {
-        if(isPreloading)
-        {       
-            this.data.preload = true;
-        }
-        else
-        {       
-            this.data.preload = false;
-        }
-    });      
-    
-    expButton[i].setMouseCallback(function(event)
-    {
-        if (event.clicked)
-        {
-            //Here we add the safety check.
-            
-            if (this.data.preload == false)
-            {
-                expHandler.setCurrentExpansion(this.data.expansionName);   
-                load+this.data.expansionName;
-                this.setPaintRoutine(function(g) 
-                {
-                    g.drawImage(this.data.imagefile, [2, 1, 185, expButtonHeight], 0, 110); 
-                });
-                Button_OpenExpansions.setValue(0);
-                Button_OpenExpansions.changed();
-            }
-        }
-        
-        else if (event.mouseUp)
-            this.setPaintRoutine(function(g) 
-            {
-                g.drawImage(this.data.imagefile, [2, 1, 185, expButtonHeight], 0, 0); 
-            });                  
-            
-        else if (event.hover)
-            this.setPaintRoutine(function(g) 
-            {
-                g.drawImage(this.data.imagefile, [2, 1, 185, expButtonHeight], 0, 220); 
-            });    
-            
-        else
-            this.setPaintRoutine(function(g) 
-            {
-                g.drawImage(this.data.imagefile, [2, 1, 185, expButtonHeight], 0, 0); 
-            });         
-    });    
-};
-
-currentExpansion = expHandler.getCurrentExpansion();
-currentExpansion = currentExpansion.Name;
-
-var backgroundImage = "";
-var panelImage = "";
-
-var expansionDirectory = FileSystem.getFolder(FileSystem.Samples);
-var selectExpansionFile = "";
-reg hr;
-
-expHandler.setAllowedExpansionTypes([expHandler.FileBased, 
-                                     expHandler.Intermediate, 
-                                     expHandler.Encrypted]);
-
-*/
 
 //Install Single
 
@@ -425,6 +317,7 @@ th.setOnTransportChange(true, onStop);
 
 function onNoteOn()
 {
+    Console.print(currentExpansion);
     local e = Message.getNoteNumber();
     local v = Message.getVelocity();
     Console.print("Note: " + e + " Velocity: " + v);
@@ -1101,6 +994,8 @@ function onNoteOn()
 	    break;
         
         case "CloudburstAcoustic":
+            SamplerA.asSampler().enableRoundRobin(true);
+            SamplerB.asSampler().enableRoundRobin(true);
             if (e > 0 && e <= 15)
             {
                 Message.ignoreEvent(e);
@@ -1117,6 +1012,10 @@ function onNoteOn()
                     Synth.playNote(playedNote, vel);
                 }
             }
+        break;
+
+        case "Cloudburst":
+            SamplerA.asSampler().enableRoundRobin(true);
         break;
         
         case "Aetheric":
@@ -1371,6 +1270,7 @@ function onNoteOn()
         break;
         
         case "Gloom":
+            SamplerA.asSampler().enableRoundRobin(true);
             if (e > 0 && e <= 5)
             {
                 Message.ignoreEvent(e);
@@ -1500,7 +1400,7 @@ function onNoteOn()
             else
             {
                 SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(1);
+                SamplerA.asSampler().setActiveGroup(0);
                 SamplerA.asSampler().enableRoundRobin(true);
                 restoreKeysDefault(e);     
             }
@@ -1528,7 +1428,7 @@ function onNoteOn()
             else
             {
                 SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(1);
+                SamplerA.asSampler().setActiveGroup(0);
                 SamplerA.asSampler().enableRoundRobin(true);
                 restoreKeysDefault(e);     
             }          
@@ -1557,7 +1457,7 @@ function onNoteOn()
             else
             {
                 SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(1);
+                SamplerA.asSampler().setActiveGroup(0);
                 SamplerA.asSampler().enableRoundRobin(true);
                 restoreKeysBlue(e);
                 restoreKeysYellow(e);     
@@ -1571,11 +1471,11 @@ function onNoteOn()
             if (num < 1)
         {
             SamplerA.asSampler().enableRoundRobin(false);
-            SamplerA.asSampler().setActiveGroup(1);
+            SamplerA.asSampler().setActiveGroup(0);
             SamplerB.asSampler().enableRoundRobin(false);
-            SamplerB.asSampler().setActiveGroup(1);
+            SamplerB.asSampler().setActiveGroup(0);
             SamplerC.asSampler().enableRoundRobin(false);
-            SamplerC.asSampler().setActiveGroup(1);   
+            SamplerC.asSampler().setActiveGroup(0);   
             SamplerA.asSampler().enableRoundRobin(true);
             SamplerB.asSampler().enableRoundRobin(true);
             SamplerC.asSampler().enableRoundRobin(true);

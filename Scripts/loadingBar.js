@@ -7,7 +7,7 @@ loadingBar.data.colour = Colours.black;
 loadingBar.set("width", 300);
 loadingBar.set("height", 40);
 loadingBar.set("x", (Panel_BG.getWidth() / 2) - (loadingBar.getWidth() / 2));
-loadingBar.set("y", (Panel_BG.getHeight() / 2) - (loadingBar.getHeight() / 2));
+loadingBar.set("y", (Panel_BG.getHeight() / 2) - loadingBar.getHeight() + 60);
 
 loadingBar.data.colour = 0x00000000;
 loadingBar.data.colourFill = 0x00000000;

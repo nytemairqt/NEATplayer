@@ -1,5 +1,6 @@
 const laf = Engine.createGlobalScriptLookAndFeel();
 
+
 laf.loadImage("{PROJECT_FOLDER}randomizationButtonDice.png", "randomizationButtonDiceImage"); 
 laf.loadImage("{PROJECT_FOLDER}randomizationVisibility.png", "randomizationButtonVisibilityImage"); 
 
@@ -8,6 +9,7 @@ laf.loadImage("{PROJECT_FOLDER}installBulkExpansionButton.png", "bulkInstallImag
 
 laf.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOff.png", "samplerShowADSRButtonOff"); 
 laf.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOn.png", "samplerShowADSRButtonOn"); 
+
 
 const var path = Content.createPath();
 

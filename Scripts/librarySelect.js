@@ -2,13 +2,10 @@
 
 var currentExpansion; 
 
-
 const var Viewport_ExpansionsHolder = Content.getComponent("Viewport_ExpansionsHolder"); 
 const var Button_OpenExpansions = Content.getComponent("Button_OpenExpansions"); 
 const var Panel_ExpansionsItemHolder = Content.getComponent("Panel_ExpansionsItemHolder");
 const var Button_CloseExpansions = Content.getComponent("Button_CloseExpansions");
-
-
 
 const var expansionNames = [];
 
@@ -22,8 +19,6 @@ const var expButton = [];
 const var expButtonPadding = 19;
 const var expButtonHeight = 176;
 const var expButtonSize = 176;
-//Panel_ExpansionsItemHolder.set("height", 20);
-//Panel_ExpansionsItemHolder.setPosition(0, 3, 186, 20);
 
 const var expPanelTitle = Panel_ExpansionsItemHolder.addChildPanel();
 expPanelTitle.setPosition(0, 0, Panel_ExpansionsItemHolder.getWidth(), 20);
@@ -37,9 +32,7 @@ expPanelTitle.setPaintRoutine(function(g)
     
 for (i=1; i<expansionNames.length; i++)
 {
-    //Panel_ExpansionsItemHolder.set("height", 20 + expansionNames.length * expButtonHeight - expButtonHeight);
     expButton[i] = Panel_ExpansionsItemHolder.addChildPanel();
-    //expButton[i].setPosition(0, 20 + i * expButtonHeight - expButtonHeight, Panel_ExpansionsItemHolder.getWidth(), expButtonHeight);
     expButton[i].set("width", expButtonSize);
     expButton[i].set("height", expButtonSize);
 
@@ -69,12 +62,10 @@ for (i=1; i<expansionNames.length; i++)
         expButton[i].set('y', 99999);   
     }
 
-    //expButton[i].loadImage("{PROJECT_FOLDER}" + expansionNames[i] + "_button_base.png", "panel_" + expansionNames[i]); 
-    //expButton[i].data.imagefile = "panel_" + expansionNames[i]; 
-
-
-
     //Load Image
+
+    
+
     expButton[i].loadImage("{PROJECT_FOLDER}" + expansionNames[i] + "_button.jpg", "panel_" + expansionNames[i]); 
     expButton[i].data.imagefile = "panel_" + expansionNames[i]; 
     expButton[i].data.expansionName = expansionNames[i];
@@ -113,11 +104,6 @@ for (i=1; i<expansionNames.length; i++)
                 this.setPaintRoutine(function(g) 
                 {
                     g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0); 
-                    /*
-                    g.setColour(Colours.white);
-                    g.setFont("Arial", 12.0);
-                    g.drawAlignedText(this.data.expansionName, [0, 0, this.getWidth(), this.getHeight()], "centred");
-                    */
                 });
                 Button_OpenExpansions.setValue(0);
                 Button_OpenExpansions.changed();
@@ -128,12 +114,6 @@ for (i=1; i<expansionNames.length; i++)
             this.setPaintRoutine(function(g) 
             {
                 g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0); 
-                /*
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0, 1.0);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText(this.data.expansionName, [0, 0, this.getWidth(), this.getHeight()], "centred"); 
-                */
             });                  
             
         else if (event.hover)
@@ -142,24 +122,12 @@ for (i=1; i<expansionNames.length; i++)
                 g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0); 
                 g.setColour(Colours.withAlpha(Colours.black, 0.1));
                 g.fillRoundedRectangle([0, 0, expButtonHeight, expButtonHeight], 0);
-                /*
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0, 1.0);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText(this.data.expansionName, [0, 0, this.getWidth(), this.getHeight()], "centred");                
-                */
             });    
             
         else
             this.setPaintRoutine(function(g) 
             {
                 g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0);
-                /* 
-                g.setColour(Colours.white);
-                g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0, 1.0);
-                g.setFont("Arial", 12.0);
-                g.drawAlignedText(this.data.expansionName, [0, 0, this.getWidth(), this.getHeight()], "centred");                 
-                */
             });         
     });    
 };

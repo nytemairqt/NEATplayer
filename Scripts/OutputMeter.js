@@ -96,13 +96,13 @@ namespace VuMeter
 
 //OUTPUT SLIDER
 
-const var outputSliderContainer = Content.addPanel("outputSliderContainer", 300, 10);
+const var outputSliderContainer = Content.addPanel("outputSliderContainer", 300, 11);
 const var OutputGain = Synth.getEffect("OutputGain");
 
 inline function positionOutputSliderContainer()
 {
 	local x = Button_OpenAppData.getGlobalPositionX() + Button_OpenAppData.getWidth() + padding;
-	local y = 8;
+	local y = 9;
 	local w = 160;
 	local h = 16;
 

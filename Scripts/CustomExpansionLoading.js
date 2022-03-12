@@ -51,11 +51,6 @@ inline function clearGUI()
     Panel_PDQBassSettings.set("visible", 0);
     Panel_GloomExtras.set("visible", 0);
     
-    /*
-    Button_SampleDisplay.setValue(0);
-    Panel_Sample.showControl(0);
-    */
-    
     Panel_SamplerDisabledB.showControl(0);
     Panel_SamplerDisabledC.showControl(0);
     
@@ -156,11 +151,9 @@ inline function loadBloom()
     ComboBox_SamplerA.addItem("Bloom");
     ComboBox_SamplerA.addItem("Flourish");
     
-    if (ComboBox_SamplerA.getValue() == 0)
-    {
-        ComboBox_SamplerA.setValue(1);
-        ComboBox_SamplerA.changed();
-    }
+    ComboBox_SamplerA.setValue(1);
+    ComboBox_SamplerA.changed();
+
         
     switch (ComboBox_SamplerA.getValue())
     {
@@ -544,6 +537,9 @@ inline function loadOracle()
     
     SamplerA.asSampler().loadSampleMap("{EXP::Oracle}Oracle_SampleMap");
     SamplerA.asSampler().enableRoundRobin(false);
+
+    ComboBox_SamplerA.setValue(1);
+    ComboBox_SamplerA.changed();
     
     SamplerA_Velocity.setBypassed(false);
     
@@ -556,6 +552,8 @@ inline function loadOracle()
     
     Panel_SamplerDisabledB.showControl(1);
     Panel_SamplerDisabledC.showControl(1);
+
+
     
     ComboBox_SamplerA.addItem("Bridge");
     ComboBox_SamplerA.addItem("Middle");

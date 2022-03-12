@@ -40,13 +40,42 @@ const var Button_PortamentoBypass = Content.getComponent("Button_PortamentoBypas
 const var Slider_PortamentoTime = Content.getComponent("Slider_PortamentoTime");
 const var Label_PortamentoTimeValue = Content.getComponent("Label_PortamentoTimeValue");
 
-
 inline function onSlider_PortamentoTimeControl(component, value)
 {
 	Label_PortamentoTimeValue.set("text", value + "ms");
 };
 
 Content.getComponent("Slider_PortamentoTime").setControlCallback(onSlider_PortamentoTimeControl);
+
+//MIDI Devices
+
+const var midiDevices = Settings.getMidiInputDevices();
+
+const var ComboBox_MIDIDevices = Content.getComponent("ComboBox_MIDIDevices");
+
+ComboBox_MIDIDevices.set("items", "");
+
+ComboBox_MIDIDevices.addItem("None");
+
+for (m in midiDevices)
+	ComboBox_MIDIDevices.addItem(m);
+
+inline function onComboBox_MIDIDevicesControl(component, value)
+{
+	local newValue = Math.round(value);
+	for (m in midiDevices)
+	{
+		Settings.toggleMidiInput(m, false);		
+	}
+
+	if (newValue > 1)
+	{
+		Settings.toggleMidiInput(midiDevices[newValue - 2], true);
+		Console.print(Settings.isMidiInputEnabled(midiDevices[newValue - 2]));
+	}	
+};
+
+Content.getComponent("ComboBox_MIDIDevices").setControlCallback(onComboBox_MIDIDevicesControl);
 
 //Open AppData Button
 
@@ -72,6 +101,14 @@ Panel_TooltipDescriptions.setPaintRoutine(function(g)
 Panel_TooltipDescriptions.setTimerCallback(function()
 {
 	 this.repaint();
+
+	 //Hides the Loading Bar if it gets stuck
+
+	 if (currentlyLoading == false)
+	 {
+	 	loadingBar.data.colour = 0x00000000;
+	 	loadingBar.repaint();
+ 	 }
 });
 
 Panel_TooltipDescriptions.startTimer(180);
