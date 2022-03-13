@@ -578,13 +578,19 @@ inline function loadAetheric()
     Sampler_Other.setBypassed(0);
     Sampler_Other.asSampler().loadSampleMap("{EXP::Aetheric}AethericAmbiances_SampleMap");
 
+    /*
     SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap");
-    SamplerA.asSampler().enableRoundRobin(false);
+    
     
     SamplerB.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap");
     SamplerB.asSampler().enableRoundRobin(false);
     
     SamplerC.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap");
+    SamplerC.asSampler().enableRoundRobin(false);
+    */
+
+    SamplerA.asSampler().enableRoundRobin(false);
+    SamplerB.asSampler().enableRoundRobin(false);
     SamplerC.asSampler().enableRoundRobin(false);
     
     SamplerA_Velocity.setBypassed(false);
@@ -637,6 +643,10 @@ inline function loadAetheric()
         ComboBox_SamplerB.addItem(p);
         ComboBox_SamplerC.addItem(p);
     }
+
+    SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(ComboBox_SamplerA.getValue()));
+    SamplerB.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(ComboBox_SamplerB.getValue()));
+    SamplerC.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(ComboBox_SamplerC.getValue()));
     
     resolveComboBoxes(); 
     restoreArp();    

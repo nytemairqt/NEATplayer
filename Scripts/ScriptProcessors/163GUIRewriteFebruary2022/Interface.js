@@ -194,7 +194,7 @@ function expCallback()
         default:
     };    
     
-    expHandler.getCurrentExpansion().setAllowDuplicateSamples(true);
+    expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
 }
 
 expHandler.setExpansionCallback(expCallback);
@@ -1020,9 +1020,11 @@ function onNoteOn()
         
         case "Aetheric":
             disableRoundRobin();
+            /*
             SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
             SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
             SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
+            */
         break;
         
         case "Atlas":

@@ -157,13 +157,17 @@ inline function onButton_ArpBypassControl(component, value)
 	Arpeggiator1.setBypassed(1-value);
 	
 	//To get Achromic working
-	SamplerA.asSampler().enableRoundRobin(value);
-    SamplerB.asSampler().enableRoundRobin(value);
-    
-    if (!value)
+
+    if (currentExpansion == "Achromic")
     {
-        SamplerA.asSampler().setActiveGroup(1);
-        SamplerB.asSampler().setActiveGroup(2);       
+      	SamplerA.asSampler().enableRoundRobin(value);
+        SamplerB.asSampler().enableRoundRobin(value);
+        
+        if (!value)
+        {
+            SamplerA.asSampler().setActiveGroup(1);
+            SamplerB.asSampler().setActiveGroup(2);       
+        }
     }
 };
 

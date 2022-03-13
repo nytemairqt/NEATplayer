@@ -35,7 +35,8 @@ loadingBar.setTimerCallback(function()
     this.data.progress = Engine.getPreloadProgress();
     this.data.progress = this.data.progress * 100;
     this.data.progress = Math.round(this.data.progress);
-    this.data.text = "Loading: " + this.data.progress + "%";
+    //this.data.text = "Loading: " + this.data.progress + "%";
+    this.data.text = Engine.getPreloadMessage() + " " + this.data.progress + "%";
     this.repaint();    
 });
 

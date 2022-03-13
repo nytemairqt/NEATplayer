@@ -29,6 +29,17 @@ inline function onButton_CloseCustomSettingsControl(component, value)
 
 Content.getComponent("Button_CloseCustomSettings").setControlCallback(onButton_CloseCustomSettingsControl);
 
+//Exclusive Reverse
+
+const var Button_ExclusiveReverse = Content.getComponent("Button_ExclusiveReverse");
+
+inline function onButton_ExclusiveReverseControl(component, value)
+{
+	//Engine.setAllowDuplicateSamples(1-value);
+};
+
+Content.getComponent("Button_ExclusiveReverse").setControlCallback(onButton_ExclusiveReverseControl);
+
 //Portamento
 
 reg lastNote = -1;
@@ -39,9 +50,6 @@ reg lastTuning = 0;
 const var Button_PortamentoBypass = Content.getComponent("Button_PortamentoBypass");
 const var Slider_PortamentoTime = Content.getComponent("Slider_PortamentoTime");
 const var Label_PortamentoTimeValue = Content.getComponent("Label_PortamentoTimeValue");
-const var Button_ExclusiveReverse = Content.getComponent("Button_ExclusiveReverse");
-
-
 
 inline function onSlider_PortamentoTimeControl(component, value)
 {

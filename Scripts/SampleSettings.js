@@ -600,6 +600,11 @@ inline function onComboBox_SamplerAControl(component, value)
             break;
         }
     }
+
+    if (currentExpansion == "Aetheric")
+    {
+        SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
+    }
 };
 
 Content.getComponent("ComboBox_SamplerA").setControlCallback(onComboBox_SamplerAControl);
@@ -727,7 +732,10 @@ Content.getComponent("Button_SamplerBShowADSR").setControlCallback(onButton_Samp
 
 inline function onComboBox_SamplerBControl(component, value)
 {
-	//AudioWaveform_SamplerB.set("sampleIndex", value);
+    if (currentExpansion == "Aetheric")
+    {
+        SamplerB.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
+    }
 };
 
 Content.getComponent("ComboBox_SamplerB").setControlCallback(onComboBox_SamplerBControl);
@@ -852,10 +860,12 @@ Content.getComponent("Button_SamplerCShowADSR").setControlCallback(onButton_Samp
 
 //Sample Selection C
 
-
 inline function onComboBox_SamplerCControl(component, value)
 {
-	//AudioWaveform_SamplerC.set("sampleIndex", value);
+    if (currentExpansion == "Aetheric")
+    {
+        SamplerC.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
+    }
 };
 
 Content.getComponent("ComboBox_SamplerC").setControlCallback(onComboBox_SamplerCControl);
