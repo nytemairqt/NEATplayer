@@ -578,17 +578,6 @@ inline function loadAetheric()
     Sampler_Other.setBypassed(0);
     Sampler_Other.asSampler().loadSampleMap("{EXP::Aetheric}AethericAmbiances_SampleMap");
 
-    /*
-    SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap");
-    
-    
-    SamplerB.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap");
-    SamplerB.asSampler().enableRoundRobin(false);
-    
-    SamplerC.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap");
-    SamplerC.asSampler().enableRoundRobin(false);
-    */
-
     SamplerA.asSampler().enableRoundRobin(false);
     SamplerB.asSampler().enableRoundRobin(false);
     SamplerC.asSampler().enableRoundRobin(false);
