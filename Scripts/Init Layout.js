@@ -11,6 +11,7 @@ These force the binary to include all of our images.
 
 const var extraImageContainer = Content.addPanel("Panel_ImageContainer", 999, 999);
 
+
 const var extraImagePanels = [Content.getComponent("Panel_ImageLoader01"),
                               Content.getComponent("Panel_ImageLoader02"),
                               Content.getComponent("Panel_ImageLoader03"),
@@ -77,6 +78,79 @@ for (i=0; i<extraImagePanels.length; i++)
     });
 
     extraImagePanels[i].set("visible", false);
+}
+
+//Force Include Button Images (for MacOS)
+
+
+const var extraButtonContainer = Content.addPanel("Panel_ButtonContainer", 999, 999);
+
+const var extraButtonPanels = [Content.getComponent("Panel_ButtonLoader01"),
+                              Content.getComponent("Panel_ButtonLoader02"),
+                              Content.getComponent("Panel_ButtonLoader03"),
+                              Content.getComponent("Panel_ButtonLoader04"),
+                              Content.getComponent("Panel_ButtonLoader05"),
+                              Content.getComponent("Panel_ButtonLoader06"),
+                              Content.getComponent("Panel_ButtonLoader07"),
+                              Content.getComponent("Panel_ButtonLoader08"),
+                              Content.getComponent("Panel_ButtonLoader09"),
+                              Content.getComponent("Panel_ButtonLoader010"),
+                              Content.getComponent("Panel_ButtonLoader011"),
+                              Content.getComponent("Panel_ButtonLoader012"),
+                              Content.getComponent("Panel_ButtonLoader013"),
+                              Content.getComponent("Panel_ButtonLoader014"),
+                              Content.getComponent("Panel_ButtonLoader015"),
+                              Content.getComponent("Panel_ButtonLoader016"),
+                              Content.getComponent("Panel_ButtonLoader017")];
+
+const var buttonImageNames = ["{PROJECT_FOLDER}Achromic_button.jpg",
+                          "{PROJECT_FOLDER}Aetheric_button.jpg",
+                          "{PROJECT_FOLDER}Atlas_button.jpg",  
+                          "{PROJECT_FOLDER}Blackout_button.jpg",
+                          "{PROJECT_FOLDER}Blackout2_button.jpg",
+                          "{PROJECT_FOLDER}Bloom_button.jpg",
+                          "{PROJECT_FOLDER}Cloudburst_button.jpg",
+                          "{PROJECT_FOLDER}CloudburstAcoustic_button.jpg",
+                          "{PROJECT_FOLDER}Endure_button.jpg",
+                          "{PROJECT_FOLDER}FoundKeys_button.jpg",
+                          "{PROJECT_FOLDER}Gloom_button.jpg",
+                          "{PROJECT_FOLDER}MachineTribes_button.jpg",
+                          "{PROJECT_FOLDER}Oracle_button.jpg",
+                          "{PROJECT_FOLDER}Oracle2_button.jpg",
+                          "{PROJECT_FOLDER}PDQBass_button.jpg",
+                          "{PROJECT_FOLDER}Portal_button.jpg",                        
+                          "{PROJECT_FOLDER}Prismatic_button.jpg"];
+
+const var buttonImagePrettyNames = [
+                          "Achromic_button.jpg",
+                          "Aetheric_button.jpg",
+                          "Atlas_button.jpg",  
+                          "Blackout_button.jpg",
+                          "Blackout2_button.jpg",
+                          "Bloom_button.jpg",
+                          "Cloudburst_button.jpg",
+                          "CloudburstAcoustic_button.jpg",
+                          "Endure_button.jpg",
+                          "FoundKeys_button.jpg",
+                          "Gloom_button.jpg",
+                          "MachineTribes_button.jpg",
+                          "Oracle_button.jpg",
+                          "Oracle2_button.jpg",
+                          "PDQBass_button.jpg",
+                          "Portal_button.jpg",                        
+                          "Prismatic_button.jpg"];
+
+
+for (i=0; i<extraButtonPanels.length; i++)
+{
+    extraButtonPanels[i].loadImage(buttonImageNames[i], buttonImagePrettyNames[i]);
+
+    extraButtonPanels[i].setPaintRoutine(function(g)
+    {
+        g.drawImage(buttonImagePrettyNames[i], [0, 0, this.getWidth(), this.getHeight()], 0, 0);
+    });
+
+    //extraButtonPanels[i].set("visible", true);
 }
 
 //Interface Extras

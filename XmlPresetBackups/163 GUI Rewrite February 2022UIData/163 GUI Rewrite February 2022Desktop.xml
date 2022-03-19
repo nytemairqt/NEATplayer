@@ -1801,14 +1801,14 @@
       <Component type="ScriptLabel" id="Label_Arp" x="382.5" y="-1.0" width="229.0"
                  height="28.0" fontStyle="Bold" text="ARP" parentComponent="Panel_Arp"
                  editable="0"/>
-      <Component type="ScriptSliderPack" id="SliderPack_ArpVelocity" x="262.8000000000001"
+      <Component type="ScriptSliderPack" id="SliderPack_ArpVelocity" x="262.8000106811523"
                  y="243.6" parentComponent="Panel_Arp" processorId="Arpeggiator1"
                  SliderPackIndex="1" height="94.80000000000001" width="695.8"
                  tooltip="Set specific Velocity values here for the Arpeggiator to play."/>
-      <Component type="ScriptSliderPack" id="SliderPack_ArpNotes" x="262.8000000000001"
+      <Component type="ScriptSliderPack" id="SliderPack_ArpNotes" x="262.8000106811523"
                  y="30" parentComponent="Panel_Arp" processorId="Arpeggiator1"
                  height="189.6" width="695.8" tooltip="Set specific Note values here for the Arpeggiator to play."/>
-      <Component type="ScriptSliderPack" id="SliderPack_ArpLength" x="262.8000000000001"
+      <Component type="ScriptSliderPack" id="SliderPack_ArpLength" x="262.8000106811523"
                  y="362.4" parentComponent="Panel_Arp" processorId="Arpeggiator1"
                  SliderPackIndex="2" height="94.80000000000001" width="695.8"
                  tooltip="Set specific Note Length values here for the Arpeggiator to play."/>
@@ -1873,15 +1873,15 @@
                  defaultValue="0.0" bgColour="16777215" tooltip="Select an Arpeggiator Mode."/>
       <Component type="ScriptButton" id="Button_ArpNotesReset" x="963.0" y="90.0"
                  parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpVelocityReset" x="964.0" y="244.0"
                  parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Velocities."/>
       <Component type="ScriptButton" id="Button_ArpLengthReset" x="964.0" y="357.0"
                  parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Lengths."/>
       <Component type="ScriptButton" id="Button_RandomizeArpNotes" x="946.0" y="16.0"
                  parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
@@ -1915,15 +1915,15 @@
                  editable="0" alignment="right"/>
       <Component type="ScriptButton" id="Button_ArpNotesMajor" x="963.0" y="60.0"
                  parentComponent="Panel_Arp" text="LAFArpMajorButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Generate a random Major note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpNotesMinor" x="963.0" y="30.0"
                  parentComponent="Panel_Arp" text="LAFArpMinorButton" isMomentary="1"
-                 saveInPreset="0" width="23.40000000000001" height="23.40000000000001"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
                  numStrips="6.0" enableMidiLearn="0" tooltip="Generate a random Minor note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpNotesInvert" x="963.0" y="117.0"
-                 parentComponent="Panel_Arp" text="LAFArpInvertButton" width="23.40000000000001"
-                 height="23.40000000000001" numStrips="6.0" isMomentary="1" enableMidiLearn="0"
+                 parentComponent="Panel_Arp" text="LAFArpInvertButton" width="23.40000152587891"
+                 height="23.40000152587891" numStrips="6.0" isMomentary="1" enableMidiLearn="0"
                  saveInPreset="0" tooltip="Invert the current Note Sequence."/>
       <Component type="ScriptButton" id="Button_ArpModeUpArrow" x="206.0" y="364.0"
                  parentComponent="Panel_Arp" text="LAFButtonUpArrow" height="6.0"
@@ -2215,6 +2215,59 @@
                visible="0"/>
     <Component type="ScriptPanel" id="Panel_ImageLoader017" x="-839.0" y="-389.0"
                width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+  </Component>
+  <Component type="ScriptPanel" id="Panel_ButtonContainer" x="999.0" y="999.0">
+    <Component type="ScriptPanel" id="Panel_ButtonLoader01" x="-999.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader02" x="-989.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader03" x="-979.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader04" x="-969.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader05" x="-959.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader06" x="-949.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader07" x="-939.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader08" x="-929.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader09" x="-919.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader010" x="-909.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader011" x="-899.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader012" x="-889.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader013" x="-879.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader014" x="-869.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader015" x="-859.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader016" x="-849.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader017" x="-839.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
                visible="0"/>
   </Component>
 </ContentProperties>
