@@ -103,6 +103,7 @@ const var extraButtonPanels = [Content.getComponent("Panel_ButtonLoader01"),
                               Content.getComponent("Panel_ButtonLoader016"),
                               Content.getComponent("Panel_ButtonLoader017")];
 
+
 const var buttonImageNames = ["{PROJECT_FOLDER}Achromic_button.jpg",
                           "{PROJECT_FOLDER}Aetheric_button.jpg",
                           "{PROJECT_FOLDER}Atlas_button.jpg",  
@@ -112,7 +113,6 @@ const var buttonImageNames = ["{PROJECT_FOLDER}Achromic_button.jpg",
                           "{PROJECT_FOLDER}Cloudburst_button.jpg",
                           "{PROJECT_FOLDER}CloudburstAcoustic_button.jpg",
                           "{PROJECT_FOLDER}Endure_button.jpg",
-                          "{PROJECT_FOLDER}FoundKeys_button.jpg",
                           "{PROJECT_FOLDER}Gloom_button.jpg",
                           "{PROJECT_FOLDER}MachineTribes_button.jpg",
                           "{PROJECT_FOLDER}Oracle_button.jpg",
@@ -131,7 +131,6 @@ const var buttonImagePrettyNames = [
                           "Cloudburst_button.jpg",
                           "CloudburstAcoustic_button.jpg",
                           "Endure_button.jpg",
-                          "FoundKeys_button.jpg",
                           "Gloom_button.jpg",
                           "MachineTribes_button.jpg",
                           "Oracle_button.jpg",
@@ -145,13 +144,25 @@ for (i=0; i<extraButtonPanels.length; i++)
 {
     extraButtonPanels[i].loadImage(buttonImageNames[i], buttonImagePrettyNames[i]);
 
+    /*
     extraButtonPanels[i].setPaintRoutine(function(g)
     {
         g.drawImage(buttonImagePrettyNames[i], [0, 0, this.getWidth(), this.getHeight()], 0, 0);
     });
+    */
 
-    //extraButtonPanels[i].set("visible", true);
+    extraButtonPanels[i].set("visible", false);
 }
+
+
+extraButtonPanels[16].loadImage("{PROJECT_FOLDER}Found Keys_button.jpg", "FoundKeys_button.jpg");
+/*
+extraButtonPanels[16].setPaintRoutine(function(g)
+{
+    g.drawImage("FoundKeys_button.jpg", [0, 0, this.getWidth(), this.getHeight()], 0, 0);
+});
+*/
+
 
 //Interface Extras
 

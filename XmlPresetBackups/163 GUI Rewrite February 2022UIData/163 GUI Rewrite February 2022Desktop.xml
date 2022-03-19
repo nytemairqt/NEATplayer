@@ -2217,7 +2217,7 @@
                width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
                visible="0"/>
   </Component>
-  <Component type="ScriptPanel" id="Panel_ButtonContainer" x="999.0" y="999.0">
+  <Component type="ScriptPanel" id="Panel_ButtonContainer" x="999" y="999">
     <Component type="ScriptPanel" id="Panel_ButtonLoader01" x="-999.0" y="-389.0"
                width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
                visible="0"/>

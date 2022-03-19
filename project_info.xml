@@ -4,7 +4,7 @@
   <Name value="NEAT Player"/>
   <Version value="1.0.0"/>
   <Description value=""/>
-  <BundleIdentifier value="com.myCompany.product"/>
+  <BundleIdentifier value="com.iamlamprey.neatplayer"/>
   <PluginCode value="Neat"/>
   <EmbedAudioFiles value="1"/>
   <EmbedImageFiles value="1"/>
@@ -21,7 +21,7 @@
   <AAXCategoryFX value="AAX_ePlugInCategory_Modulation"/>
   <SupportMonoFX value="No"/>
   <EnableMidiInputFX value="No"/>
-  <VST3Support value="1"/>
+  <VST3Support value="0"/>
   <UseRawFrontend value="No"/>
   <ExpansionType value="Encrypted"/>
   <EncryptionKey value="xoutfull1"/>

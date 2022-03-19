@@ -317,7 +317,6 @@ th.setOnTransportChange(true, onStop);
 
 function onNoteOn()
 {
-    Console.print(currentExpansion);
     local e = Message.getNoteNumber();
     local v = Message.getVelocity();
     Console.print("Note: " + e + " Velocity: " + v);

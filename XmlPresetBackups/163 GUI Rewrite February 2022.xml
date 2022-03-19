@@ -31,11 +31,11 @@
             <Control type="ScriptButton" id="Button_GloomReleaseNoise" value="0.0"/>
             <Control type="ScriptButton" id="Button_CloudburstAcousticNoises" value="1.0"/>
             <Control type="ScriptButton" id="Button_PortalIgnoreArpVelocity" value="1.0"/>
-            <Control type="ScriptButton" id="Button_FilterSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_FilterSettings" value="0"/>
             <Control type="ScriptButton" id="Button_FilterBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_EQSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_EQSettings" value="0"/>
             <Control type="ScriptButton" id="Button_EQBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DriveSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DriveSettings" value="0"/>
             <Control type="ScriptButton" id="Button_DriveTubeDriveEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_CompSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
@@ -72,7 +72,7 @@
             <Control type="ScriptLabel" id="Label_CompReleaseValue" value="50ms"/>
             <Control type="ScriptLabel" id="Label_AmpGainValue" value="0.0%"/>
             <Control type="ScriptSlider" id="Slider_AmpGain" value="0.0"/>
-            <Control type="ScriptButton" id="Button_AmpCabBypass" value="0.0"/>
+            <Control type="ScriptButton" id="Button_AmpCabBypass" value="0"/>
             <Control type="ScriptSlider" id="Slider_AmpEQLow" value="0.0"/>
             <Control type="ScriptLabel" id="Label_AmpEQLowValue" value="0.0dB"/>
             <Control type="ScriptSlider" id="Slider_AmpEQHigh" value="0.0"/>
