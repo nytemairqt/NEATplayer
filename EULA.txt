@@ -6,8 +6,6 @@ Title, copyright, intellectual property rights and distribution rights of NEAT P
 
 This agreement constitutes a license for use only, and is not in any way a transfer of ownership rights to NEAT Player or associated explansions (.hr1 files). 
 
-NEAT Player may not be modified, reverse-engineered, or de-compiled in any manner through current or future available technologies.
-
 Failure to comply with any of the terms under the License section will be considered a material breach of this agreement.
 
 NEAT Player is licensed, not sold to you. This license is personal and non-transferrable. As an owner of the software the following apply:
@@ -21,7 +19,7 @@ You cannot:
 
 Make multiple copies of NEAT Player, in whole or in part (.hr1 files), with the intent to re-distribute, sell, or give them away - this includes making available any of the content available on a network (such as a file-sharing service or website);
 
-Re-use or re-purpose any of the NEAT Player content, including any associated expansions (.hr1 files) for use in another virtual instrument, sample library, sound pack etc.
+Re-use or re-purpose any of the NEAT Player Libraries, including any associated archive files (.hr1 files), audio files or images for use in another virtual instrument, sample library, sound pack etc.
 
 RESPONSIBILITY
 
