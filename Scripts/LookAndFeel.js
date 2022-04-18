@@ -138,6 +138,29 @@ laf.registerFunction("drawToggleButton", function(g, obj)
         g.fillPath(path, [a[0] + 2, a[1] + 2, a[2] - 4, a[3] - 4]);
     break;
     
+    case "LAFButtonUpdate":
+			if (obj.value)
+			    {
+			        if (obj.over)
+			            g.setColour(Colours.darkgrey);
+			        else
+			            g.setColour(Colours.darkgrey);
+			    }
+			else 
+			    {
+			        if (obj.over)
+			            g.setColour(Colours.darkgrey);
+			        else
+			            g.setColour(0xFB111111);
+			    }
+			g.fillRoundedRectangle(obj.area, 2.0);    
+			g.setColour(Colours.lightblue);
+			g.drawRoundedRectangle(obj.area, 2.0, 2.0);
+			g.setColour(Colours.white);
+			g.setFont("Arial", 14.0);
+			g.drawAlignedText("Update", obj.area, "centred");
+        break;    
+    
     case "LAFButtonBypass":
         g.setColour(Colours.grey);
         g.fillEllipse(obj.area);     
