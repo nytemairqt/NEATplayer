@@ -11,7 +11,7 @@ var responseArray;
 var responseAsString;
 
 Server.callWithGET("/pages/neat-player-latest-version", "", function(status, response)
-{	
+{		
 	responseArray = response.split(" ");
 	
 	responseAsString = responseArray.indexOf("Version:");
@@ -20,10 +20,12 @@ Server.callWithGET("/pages/neat-player-latest-version", "", function(status, res
 	
 	latestVersion = latestVersion.replace(latestVersion.substring(4, 6), "");
 	
+	latestVersion = Math.range(latestVersion, 0.00, 9.99);
+	
 	if (currentVersion < latestVersion)
 		Button_UpdateAvailable.set("visible", true);
 	else
-		Button_UpdateAvailable.set("visible", false);	
+		Button_UpdateAvailable.set("visible", false);
 });
 
 

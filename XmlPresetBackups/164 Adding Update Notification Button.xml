@@ -295,7 +295,6 @@
             <Control type="ScriptButton" id="Button_CloseCustomSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PortamentoBypass" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_PortamentoTime" value="50.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_MIDIDevices" value="1.0"/>
             <Control type="ScriptButton" id="Button_ExclusiveReverse" value="0.0"/>
           </Content>
           <UIData Source="164 Adding Update Notification ButtonUIData"/>

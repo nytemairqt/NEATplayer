@@ -60,9 +60,18 @@ Content.getComponent("Slider_PortamentoTime").setControlCallback(onSlider_Portam
 
 //MIDI Devices
 
-const var midiDevices = Settings.getMidiInputDevices();
-
 const var ComboBox_MIDIDevices = Content.getComponent("ComboBox_MIDIDevices");
+const var Label_MIDIDevicesTitle = Content.getComponent("Label_MIDIDevicesTitle");
+
+
+
+ComboBox_MIDIDevices.showControl(false);
+Label_MIDIDevicesTitle.showControl(false);
+
+//Uncomment the following for Standalone versions.
+/*
+
+const var midiDevices = Settings.getMidiInputDevices();
 
 ComboBox_MIDIDevices.set("items", "");
 
@@ -87,6 +96,7 @@ inline function onComboBox_MIDIDevicesControl(component, value)
 };
 
 Content.getComponent("ComboBox_MIDIDevices").setControlCallback(onComboBox_MIDIDevicesControl);
+*/
 
 //Open AppData Button
 
