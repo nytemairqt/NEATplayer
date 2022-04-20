@@ -6,13 +6,13 @@ const var Button_UpdateAvailable = Content.getComponent("Button_UpdateAvailable"
 
 const var Label_CurrentVersion = Content.getComponent("Label_CurrentVersion");
 
-const var currentVersion = 0.12;
+const var currentVersion = 0.13;
 var latestVersion;
 
 var responseArray;
 var responseAsString;
 
-Server.callWithGET("/pages/neat-player-latest-version", "", function(status, response)
+Server.callWithGET("/pages/neat-player", "", function(status, response)
 {		
 	responseArray = response.split(" ");
 	
