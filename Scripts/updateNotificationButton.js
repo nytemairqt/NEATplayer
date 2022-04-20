@@ -4,6 +4,8 @@ Server.setBaseURL("https://www.iamlamprey.com");
 
 const var Button_UpdateAvailable = Content.getComponent("Button_UpdateAvailable");
 
+const var Label_CurrentVersion = Content.getComponent("Label_CurrentVersion");
+
 const var currentVersion = 0.12;
 var latestVersion;
 
@@ -36,3 +38,5 @@ inline function onButton_UpdateAvailableControl(component, value)
 };
 
 Content.getComponent("Button_UpdateAvailable").setControlCallback(onButton_UpdateAvailableControl);
+
+Label_CurrentVersion.set("text", "Current Version: v" + currentVersion);

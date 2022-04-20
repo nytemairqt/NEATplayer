@@ -2095,8 +2095,7 @@
              enableMidiLearn="0" processorId="OutputGain" parameterId="Gain"
              tooltip="Adjusts the Output Gain." itemColour="3355443" bgColour="16777215"/>
   <Component type="ScriptPanel" id="Panel_CustomSettings" x="1.0" y="31.0"
-             width="998.0" height="478.0" itemColour="4026531840" itemColour2="4026531840"
-             visible="0">
+             width="998.0" height="478.0" itemColour="4026531840" itemColour2="4026531840">
     <Component type="ScriptButton" id="Button_CloseCustomSettings" x="978.0"
                y="1.0" parentComponent="Panel_CustomSettings" numStrips="6.0"
                width="14.0" height="14.0" isMomentary="1" text="LAFButtonClose"
@@ -2158,6 +2157,8 @@
     <Component type="ScriptLabel" id="Label_SampleExclusiveReverse" x="219.0"
                y="75.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
                parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_CurrentVersion" x="7.0" y="449.0"
+               parentComponent="Panel_CustomSettings" text="Current Version: v0.12"/>
   </Component>
   <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="490.0" y="604.0"
              width="440.0" height="18.0" borderRadius="2.0" bgColour="16777215"

@@ -8,6 +8,7 @@ const var audiofiles = Engine.loadAudioFilesIntoPool();
 audiofiles.sortNatural();
 
 include("Init Layout.js");
+include("updateNotificationButton.js");
 include("libraryInstallation.js");
 include("SampleSettings.js");
 include("FXGUI.js");
@@ -33,7 +34,6 @@ include("extrasCloudburstAcoustic.js");
 include("extrasGloom.js");
 include("PDQBass_Extras.js");
 
-include("updateNotificationButton.js");
 
 //Push Panel Buttons
 

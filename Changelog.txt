@@ -1,0 +1,11 @@
+v0.13:
+
+-Added an update notification system.
+	-If a new version of NEAT Player is available, a button will appear to take you to the download page.
+	-From here on, you'll only receive emails about major updates or changes, smaller bug-fix updates will be notified inside the app to avoid cluttering everyones inboxes.
+	-Requires internet access to be able to check for updates, the plugin will still function normally offline.
+-Added a label to display current version in the Settings Panel.
+-Fixed a crash related to MIDI devices when loading the plugin with a MIDI Keyboard or Controller connected.
+-Hidden the MIDI Devices panel for Plugin versions, it only needs to be there for the Standalone.
+-Fixed a SaveInPreset issue. 
+-Minor fixes and optimizations.
