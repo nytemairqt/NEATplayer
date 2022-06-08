@@ -64,6 +64,18 @@ inline function clearGUI()
     Button_PDQBassForceDownpick.set("isPluginParameter", 0);
 }
 
+//Constructor Kit
+
+inline function loadConstructor()
+{
+	Image_BG.setAlpha(0);
+
+	clearSamplers();
+	clearGUI();
+	colourKeysReset();
+	restoreArp();
+}
+
 //Cloudburst
 
 inline function loadCloudburst()

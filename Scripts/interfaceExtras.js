@@ -122,14 +122,6 @@ Panel_TooltipDescriptions.setPaintRoutine(function(g)
 Panel_TooltipDescriptions.setTimerCallback(function()
 {
 	 this.repaint();
-
-	 //Hides the Loading Bar if it gets stuck
-
-	 if (currentlyLoading == false)
-	 {
-	 	loadingBar.data.colour = 0x00000000;
-	 	loadingBar.repaint();
- 	 }
 });
 
 Panel_TooltipDescriptions.startTimer(180);

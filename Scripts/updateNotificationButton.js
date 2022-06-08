@@ -24,19 +24,58 @@ Server.callWithGET("/pages/neat-player", "", function(status, response)
 	
 	latestVersion = Math.range(latestVersion, 0.00, 9.99);
 	
+	/*
 	if (currentVersion < latestVersion)
 		Button_UpdateAvailable.set("visible", true);
 	else
 		Button_UpdateAvailable.set("visible", false);
+	*/
+	
+	Button_UpdateAvailable.set("visible", true);
 });
 
 
 inline function onButton_UpdateAvailableControl(component, value)
 {
 	if (value)
+	{
 		Engine.openWebsite("https://www.iamlamprey.com/pages/neat-player");
+		Panel_PatchNotes.set("visible", false);
+	}
 };
 
 Content.getComponent("Button_UpdateAvailable").setControlCallback(onButton_UpdateAvailableControl);
 
 Label_CurrentVersion.set("text", "Current Version: v" + currentVersion);
+
+//Patch Notes Mouseover Panel
+
+const var Panel_PatchNotes = Content.getComponent("Panel_PatchNotes");
+
+//Patch Notes Main Panel 
+
+var patchNotes = "";
+
+Server.callWithGET("/pages//neat-player-changelog", "", function(status, response)
+{		
+	patchNotes = response.substring(response.indexOf("main-page-title page-title h0"), response.indexOf("PREVIOUS VERSIONS"));
+
+	patchNotes = patchNotes.replace("<li>", "");
+	patchNotes = patchNotes.replace("</li>", "");
+	patchNotes = patchNotes.replace("</ul>", "");
+	patchNotes = patchNotes.replace("<ul>", "");
+	patchNotes = patchNotes.replace("<p>", "");
+	patchNotes = patchNotes.replace(patchNotes.substring(0, 90), "");	
+	patchNotes = patchNotes.replace("<br>", "");
+	
+});
+
+Panel_PatchNotes.setPaintRoutine(function(g)
+{
+	g.setColour(0xFB111111);
+	g.fillRoundedRectangle(this.getLocalBounds(2), 2.0);
+	g.setColour(Colours.white);
+	g.setFont("Arial", 14.0);
+	g.drawAlignedText("Changelog", [(this.getWidth() / 2) - 80, 10, 160, 20], "centred");
+	g.drawMultiLineText(patchNotes, [20, 80], this.getWidth() - 40, "topLeft", 0.0);
+});

@@ -29,6 +29,73 @@ expPanelTitle.setPaintRoutine(function(g)
     g.setColour(Colours.white);
     g.drawAlignedText("- Libraries -", [0 , 0, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
 });
+
+//Constructor Expansion
+
+const var constructorButton = Panel_ExpansionsItemHolder.addChildPanel();
+
+constructorButton.set("allowCallbacks", "Clicks & Hover");
+
+constructorButton.set("width", expButtonSize);
+constructorButton.set("height", expButtonSize);
+constructorButton.set("x", expButtonPadding);
+constructorButton.set("y", expButtonPadding);
+
+constructorButton.loadImage("{PROJECT_FOLDER}Construct_button.jpg", "constructButton");
+
+constructorButton.data.expansionName = "No Expansion";
+
+
+constructorButton.setPaintRoutine(function(g)
+{
+	g.setColour(Colours.white);
+    g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0, 1.0);
+    g.setFont("Arial", 12.0);    
+    g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
+});
+
+constructorButton.setMouseCallback(function(event)
+{
+	if (event.clicked)
+        {
+            //Safety Check
+            loadConstructor();
+            expHandler.setCurrentExpansion("No Expansion");
+            /*
+            expHandler.setCurrentExpansion(this.data.expansionName);
+            load+this.data.expansionName;
+            */
+            this.setPaintRoutine(function(g) 
+            {
+                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0);  
+            });
+            Button_OpenExpansions.setValue(0);
+            Button_OpenExpansions.changed();
+            
+        }
+        
+        else if (event.mouseUp)
+            this.setPaintRoutine(function(g) 
+            {
+                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
+            });                  
+            
+        else if (event.hover)
+            this.setPaintRoutine(function(g) 
+            {
+                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
+                g.setColour(Colours.withAlpha(Colours.black, 0.1));
+                g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
+            });    
+            
+        else
+            this.setPaintRoutine(function(g) 
+            {
+                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
+            }); 
+});
+    
+//Expansion Buttons    
     
 for (i=1; i<expansionNames.length; i++)
 {
@@ -36,24 +103,24 @@ for (i=1; i<expansionNames.length; i++)
     expButton[i].set("width", expButtonSize);
     expButton[i].set("height", expButtonSize);
 
-    if (i <= 5)
+    if (i <= 4)
     {
-        expButton[i].set("x", (expButtonPadding * i) + (expButtonHeight * (i - 1)));
+        expButton[i].set("x", (expButtonPadding * (i + 1)) + (expButtonSize * (i)));
         expButton[i].set('y', expButtonPadding);
     }
-    else if (i >= 6 && i <= 10)
+    else if (i >= 5 && i <= 9)
     {
-        expButton[i].set("x", (expButtonPadding * (i-5)) + (expButtonHeight * ((i-5) - 1)));
+        expButton[i].set("x", (expButtonPadding * (i-5)) + (expButtonSize * ((i-5) - 1)));
         expButton[i].set('y', (expButtonPadding * 2 + expButtonSize));
     }
-    else if (i >= 11 && i <= 15)
+    else if (i >= 10 && i <= 14)
     {
-        expButton[i].set("x", (expButtonPadding * (i-10)) + (expButtonHeight * ((i-10) - 1)));
+        expButton[i].set("x", (expButtonPadding * (i-10)) + (expButtonSize * ((i-10) - 1)));
         expButton[i].set('y', (expButtonPadding * 3 + (expButtonSize * 2)));
     }
-    else if (i >= 16 && i <= 20)
+    else if (i >= 15 && i <= 19)
     {
-        expButton[i].set("x", (expButtonPadding * (i-15)) + (expButtonHeight * ((i-15) - 1)));
+        expButton[i].set("x", (expButtonPadding * (i-15)) + (expButtonSize * ((i-15) - 1)));
         expButton[i].set('y', (expButtonPadding * 4 + (expButtonSize * 3)));
     }
     else
@@ -76,7 +143,7 @@ for (i=1; i<expansionNames.length; i++)
         g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0, 1.0);
         g.setFont("Arial", 12.0);
         g.drawAlignedText(this.data.expansionName, [0, 0, this.getWidth(), this.getHeight()], "centred");        
-        g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0); 
+        g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
     });
     
     expButton[i].setLoadingCallback(function(isPreloading)
@@ -103,7 +170,7 @@ for (i=1; i<expansionNames.length; i++)
                 load+this.data.expansionName;
                 this.setPaintRoutine(function(g) 
                 {
-                    g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0); 
+                    g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
                 });
                 Button_OpenExpansions.setValue(0);
                 Button_OpenExpansions.changed();
@@ -113,21 +180,21 @@ for (i=1; i<expansionNames.length; i++)
         else if (event.mouseUp)
             this.setPaintRoutine(function(g) 
             {
-                g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0); 
+                g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
             });                  
             
         else if (event.hover)
             this.setPaintRoutine(function(g) 
             {
-                g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0); 
+                g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
                 g.setColour(Colours.withAlpha(Colours.black, 0.1));
-                g.fillRoundedRectangle([0, 0, expButtonHeight, expButtonHeight], 0);
+                g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
             });    
             
         else
             this.setPaintRoutine(function(g) 
             {
-                g.drawImage(this.data.imagefile, [0, 0, expButtonHeight, expButtonHeight], 0, 0);
+                g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0);
             });         
     });    
 };
