@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Network ID="OutputGain">
+<Network ID="OutputGain" Version="0.0.0">
   <Node FactoryPath="container.chain" ID="OutputGain" Bypassed="0" ShowParameters="1">
     <Nodes>
       <Node ID="gain" FactoryPath="core.gain" Bypassed="0">

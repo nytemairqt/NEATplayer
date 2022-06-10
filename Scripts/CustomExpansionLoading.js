@@ -839,9 +839,6 @@ inline function loadOracle2()
     
     resolveComboBoxes();
         
-    //Button_SampleDisplay.showControl(1);
-
-    //Label_SamplePage.showControl(1);
     restoreArp();    
 };
 

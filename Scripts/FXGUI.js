@@ -1338,9 +1338,6 @@ var phaserSineWidthR;
 
 Panel_PhaserImage.setPaintRoutine(function(g)
 {   
-
-    Console.print(Slider_PhaserRateA.getValueNormalized());
-
     phaserSineWidthL = this.getWidth() * (1-Slider_PhaserRateA.getValueNormalized());
     phaserSineWidthL = Math.range(phaserSineWidthL, 0, this.getWidth() * .6);
 

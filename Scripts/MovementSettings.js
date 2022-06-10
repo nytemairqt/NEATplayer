@@ -2,6 +2,7 @@
 
 const var Panel_Movement = Content.getComponent("Panel_Movement");
 const var Button_MoveDisplay = Content.getComponent("Button_MoveDisplay");
+const var Button_MovementSettingsClose = Content.getComponent("Button_MovementSettingsClose");
 
 const var Panel_MovementXYPad = Content.getComponent("Panel_MovementXYPad");
 const var Slider_MovementYInvisible = Content.getComponent("Slider_MovementYInvisible");
@@ -25,6 +26,9 @@ const var Label_PanelXYTooltipY = Content.getComponent("Label_PanelXYTooltipY");
 const var Label_MovementEnvelopeTitle = Content.getComponent("Label_MovementEnvelopeTitle");
 const var Label_MovementTitle = Content.getComponent("Label_MovementTitle");
 const var Label_MovementChaosTitle = Content.getComponent("Label_MovementChaosTitle");
+
+const var Button_ChaosTypeUp = Content.getComponent("Button_ChaosTypeUp");
+const var Button_ChaosTypeDown = Content.getComponent("Button_ChaosTypeDown");
 
 //Advanced Connections
 
@@ -172,70 +176,6 @@ inline function onSlider_MovementYInvisibleControl(component, value)
 };
 
 Content.getComponent("Slider_MovementYInvisible").setControlCallback(onSlider_MovementYInvisibleControl);
-
-//Quick Map
-
-inline function onButton_MacroAssignGainXControl(component, value)
-{
-    //Definitely not set("macroControl")...
-    //Definitely not addToMacroControl...
-    
-	if (value)
-    {
-	    
-    }
-};
-
-Content.getComponent("Button_MacroAssignGainX").setControlCallback(onButton_MacroAssignGainXControl);
-
-inline function onButton_MacroAssignGainYControl(component, value)
-{
-	//Add your custom logic here...
-};
-
-Content.getComponent("Button_MacroAssignGainY").setControlCallback(onButton_MacroAssignGainYControl);
-
-inline function onButton_MacroAssignModXControl(component, value)
-{
-	//Add your custom logic here...
-};
-
-Content.getComponent("Button_MacroAssignModX").setControlCallback(onButton_MacroAssignModXControl);
-
-inline function onButton_MacroAssignModYControl(component, value)
-{
-	//Add your custom logic here...
-};
-
-Content.getComponent("Button_MacroAssignModY").setControlCallback(onButton_MacroAssignModYControl);
-
-inline function onButton_MacroAssignFXXControl(component, value)
-{
-	//Add your custom logic here...
-};
-
-Content.getComponent("Button_MacroAssignFXX").setControlCallback(onButton_MacroAssignFXXControl);
-
-inline function onButton_MacroAssignFXYControl(component, value)
-{
-	//Add your custom logic here...
-};
-
-Content.getComponent("Button_MacroAssignFXY").setControlCallback(onButton_MacroAssignFXYControl);
-
-inline function onButton_MacroAssignFilterXControl(component, value)
-{
-	//Add your custom logic here...
-};
-
-Content.getComponent("Button_MacroAssignFilterX").setControlCallback(onButton_MacroAssignFilterXControl);
-
-inline function onButton_MacroAssignFilterYControl(component, value)
-{
-	//Add your custom logic here...
-};
-
-Content.getComponent("Button_MacroAssignFilterY").setControlCallback(onButton_MacroAssignFilterYControl);
 
 //=====================================================
 //Envelopes

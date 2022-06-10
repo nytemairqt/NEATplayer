@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Network ID="Tubedrive">
+<Network ID="Tubedrive" Version="0.0.0">
   <Node FactoryPath="container.chain" ID="Tubedrive" Bypassed="0" ShowParameters="1">
     <Nodes>
       <Node ID="split" FactoryPath="container.split" Bypassed="0">
@@ -92,6 +92,7 @@
                   <Parameter MinValue="0.0" MaxValue="1.0" SkewFactor="0.3010300099849701"
                              ID="Smoothing" Value="0.009999999776482582"/>
                   <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="0.0"/>
+                  <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Enabled" Value="1.0"/>
                 </Parameters>
               </Node>
             </Nodes>

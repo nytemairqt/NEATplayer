@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Network ID="Compressor">
+<Network ID="Compressor" Version="0.0.0">
   <Node FactoryPath="container.chain" ID="Compressor" Bypassed="0" ShowParameters="1">
     <Nodes>
       <Node ID="xfader" FactoryPath="control.xfader" Bypassed="0">

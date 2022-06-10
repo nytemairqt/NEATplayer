@@ -13,8 +13,6 @@ const var Button_PDQBassForceDownpick = Content.getComponent("Button_PDQBassForc
 
 const var Button_PDQBassProcessed = Content.getComponent("Button_PDQBassProcessed");
 
-
-
 //Velocity Controls
 
 const var Slider_PDQBassVelocityMin = Content.getComponent("Slider_PDQBassVelocityMin");
@@ -31,6 +29,19 @@ const var Slider_PDQBassAPVelMax = Content.getComponent("Slider_PDQBassAPVelMax"
 
 const var Slider_PDQBassSLVelMin = Content.getComponent("Slider_PDQBassSLVelMin");
 const var Slider_PDQBassSLVelMax = Content.getComponent("Slider_PDQBassSLVelMax");
+
+//Local LAF
+
+Slider_PDQBassVelocityMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassVelocityMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassPMVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassPMVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassFVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassFVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassAPVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassAPVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassSLVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassSLVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
 
 //Proc or DI
 

@@ -3,6 +3,10 @@
 const var Panel_BG = Content.getComponent("Panel_BG");
 const var Image_BG = Content.getComponent("Image_BG");
 
+//Top Bar Stuff
+
+const var Button_CloseCustomSettings = Content.getComponent("Button_CloseCustomSettings");
+
 //Extra Image Panels
 
 /*
@@ -144,24 +148,10 @@ for (i=0; i<extraButtonPanels.length; i++)
 {
     extraButtonPanels[i].loadImage(buttonImageNames[i], buttonImagePrettyNames[i]);
 
-    /*
-    extraButtonPanels[i].setPaintRoutine(function(g)
-    {
-        g.drawImage(buttonImagePrettyNames[i], [0, 0, this.getWidth(), this.getHeight()], 0, 0);
-    });
-    */
-
     extraButtonPanels[i].set("visible", false);
 }
 
-
 extraButtonPanels[16].loadImage("{PROJECT_FOLDER}Found Keys_button.jpg", "FoundKeys_button.jpg");
-/*
-extraButtonPanels[16].setPaintRoutine(function(g)
-{
-    g.drawImage("FoundKeys_button.jpg", [0, 0, this.getWidth(), this.getHeight()], 0, 0);
-});
-*/
 
 
 //Interface Extras
@@ -182,15 +172,6 @@ var keyboardHighKey = 128;
 const var pageButtonListTop = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser];
 const var pageButtonListBottom = [Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
 
-const var Label_PageArray = [Content.getComponent("Label_CustomSettingsButton"),
-                             Content.getComponent("Label_AddLibrary"),
-                             Content.getComponent("Label_OpenPresetBrowser"),
-                             Content.getComponent("Label_OpenExpansions"),
-                             Content.getComponent("Label_SamplePage"),
-                             Content.getComponent("Label_FXPage"),
-                             Content.getComponent("Label_ArpDisplay"),
-                             Content.getComponent("Label_MoveDisplay")];
-
 const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerAAttack"),
                                          Content.getComponent("Button_RandomizeSamplerADecay"),
                                          Content.getComponent("Button_RandomizeSamplerASustain"),
@@ -199,110 +180,6 @@ const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeS
                                          Content.getComponent("Button_RandomizeSamplerAPitchFine"),
                                          Content.getComponent("Button_RandomizeSamplerAPan"),
                                          Content.getComponent("Button_RandomizeSamplerAGain")];
-
-//Position Keyboard
-
-inline function positionKeyboard()
-{
-	local x = frontInterfaceWidth / 2 - FloatingTile_Keyboard.getWidth() / 2;
-	local y = frontInterfaceHeight - FloatingTile_Keyboard.getHeight(); 
-	
-	FloatingTile_Keyboard.setPosition(x, y, FloatingTile_Keyboard.getWidth(), 60);
-}
-
-//Position Buttons
-
-inline function positionButtons()
-{
-	for (p = 0; p<pageButtonListTop.length; p++)
-	{
-		pageButtonListTop[p].setPosition((padding * p) + pageButtonWidth * p+1, 3, pageButtonWidth, pageButtonHeight);
-	}
-	
-	for (p = 0; p<pageButtonListBottom.length; p++)
-	{
-		local totalWidth  = pageButtonListBottom.length * pageButtonWidth + padding;
-		local x = frontInterfaceWidth / 2 - totalWidth / 2 - padding;
-		
-		pageButtonListBottom[p].setPosition(x + (pageButtonWidth * p) + (padding * p), FloatingTile_Keyboard.getGlobalPositionY() - pageButtonHeight - padding, pageButtonWidth, pageButtonHeight);
-	}
-}
-
-//Position Main Panel
-
-var panelBGPos = [padding, pageButtonHeight + 6, frontInterfaceWidth - padding, 460];
-var panelBGPosOffset = [195, pageButtonHeight + padding, frontInterfaceWidth - padding, 460];
-
-inline function positionPanelBG(offset)
-{
-	
-	local y = pageButtonListTop[0].getGlobalPositionY() + pageButtonHeight + padding;
-	local w = frontInterfaceWidth - padding; 
-	local h = pageButtonListBottom[0].getGlobalPositionY() - (pageButtonHeight + padding * 2);
-	
-
-	if (offset)
-	{
-		Panel_BG.setPosition(195, y, w, h);
-	}
-	
-	else
-	{
-		Panel_BG.setPosition(padding / 2, y, w, h);
-	}
-	
-	FloatingTile_PresetBrowser.setPosition(Panel_BG.get("x"), Panel_BG.get("y"), Panel_BG.get("width"), Panel_BG.get("height"));
-}
-
-//Panels
-
-inline function positionMainPanels()
-{
-	local x = 0;
-	local y = 0;
-	local w = Panel_BG.getWidth();
-	local h = Panel_BG.getHeight();
-	
-	Panel_Sample.setPosition(x, y, w, h);
-	
-	FloatingTile_ResourceUsage.setPosition(Panel_BG.get("width") - FloatingTile_ResourceUsage.get("width"), 0, 180, 30);
-	
-	FloatingTile_ResourceUsage.set("FontSize", 13);
-}
-
-inline function positionExtraPanels()
-{
-    Panel_CustomSettings.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
-    //Panel_InstallLibraries.setPosition(Panel_BG.get("x") - 2, Panel_BG.get("y") - 2, Panel_BG.get("width") + 4, Panel_BG.get("height") + 4);    
-}
-
-//Position Labels
-
-inline function positionLabels()
-{
-	Label_PageArray[0].setPosition(pageButtonListTop[0].getGlobalPositionX() + padding, pageButtonListTop[0].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-	Label_PageArray[1].setPosition(pageButtonListTop[1].getGlobalPositionX() + padding, pageButtonListTop[1].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-	Label_PageArray[2].setPosition(pageButtonListTop[2].getGlobalPositionX() + padding, pageButtonListTop[2].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-	
-	Label_PageArray[3].setPosition(pageButtonListBottom[0].getGlobalPositionX() + padding, pageButtonListBottom[0].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-	Label_PageArray[4].setPosition(pageButtonListBottom[1].getGlobalPositionX() + padding, pageButtonListBottom[1].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-	Label_PageArray[5].setPosition(pageButtonListBottom[2].getGlobalPositionX() + padding, pageButtonListBottom[2].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-	Label_PageArray[6].setPosition(pageButtonListBottom[3].getGlobalPositionX() + padding, pageButtonListBottom[3].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-	Label_PageArray[7].setPosition(pageButtonListBottom[4].getGlobalPositionX() + padding, pageButtonListBottom[4].getGlobalPositionY() + padding, pageButtonWidth - padding * 2, pageButtonHeight - padding * 2);
-}
-
-//Position AppData Button
-
-inline function positionAppDataButton()
-{
-	local x = pageButtonListTop[2].getGlobalPositionX() + pageButtonWidth + padding;
-	local y = pageButtonListTop[2].getGlobalPositionY() + padding / 2;
-	local w = pageButtonHeight * 1.25;
-	local h = pageButtonHeight * .9;
-
-	Button_OpenAppData.setPosition(x, y, w, h);	
-}
-
 
 //Extra Keyboard Stuff
 

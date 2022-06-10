@@ -3,7 +3,6 @@
 //Declarations
 
 const var Button_SampleDisplay = Content.getComponent("Button_SampleDisplay");
-const var Label_SamplePage = Content.getComponent("Label_SamplePage");
 
 const var Panel_Sample = Content.getComponent("Panel_Sample");
 
@@ -75,12 +74,16 @@ const var ComboBox_SamplerA = Content.getComponent("ComboBox_SamplerA");
 const var AudioWaveform_SamplerA = Content.getComponent("AudioWaveform_SamplerA");
 const var Slider_SampleOffsetA = Content.getComponent("Slider_SampleOffsetA");
 
+const var Button_SamplerALoop = Content.getComponent("Button_SamplerALoop");
+const var Panel_SamplerALoopEdit = Content.getComponent("Panel_SamplerALoopEdit");
+
 const var Slider_SamplerAAttack = Content.getComponent("Slider_SamplerAAttack");
 const var Slider_SamplerADecay = Content.getComponent("Slider_SamplerADecay");
 const var Slider_SamplerASustain = Content.getComponent("Slider_SamplerASustain");
 const var Slider_SamplerARelease = Content.getComponent("Slider_SamplerARelease");
 
 const var AHDSR_SamplerA = Content.getComponent("AHDSR_SamplerA");
+const var Button_SamplerAShowADSR = Content.getComponent("Button_SamplerAShowADSR");
 
 const var Label_SamplerAAttackValue = Content.getComponent("Label_SamplerAAttackValue");
 const var Label_SamplerADecayValue = Content.getComponent("Label_SamplerADecayValue");
@@ -96,6 +99,7 @@ const var randomizeComboBoxA = Content.getComponent("Button_RandomizeSamplerACom
 const var randomizeSampleStartA = Content.getComponent("Button_RandomizeSamplerASampleStart");
 
 const var Label_SamplerATitle = Content.getComponent("Label_SamplerATitle");
+
 
 //Sampler B
 
@@ -113,12 +117,16 @@ const var ComboBox_SamplerB = Content.getComponent("ComboBox_SamplerB");
 const var AudioWaveform_SamplerB = Content.getComponent("AudioWaveform_SamplerB");
 const var Slider_SampleOffsetB = Content.getComponent("Slider_SampleOffsetB");
 
+const var Button_SamplerBLoop = Content.getComponent("Button_SamplerBLoop");
+const var Panel_SamplerBLoopEdit = Content.getComponent("Panel_SamplerBLoopEdit");
+
 const var Slider_SamplerBAttack = Content.getComponent("Slider_SamplerBAttack");
 const var Slider_SamplerBDecay = Content.getComponent("Slider_SamplerBDecay");
 const var Slider_SamplerBSustain = Content.getComponent("Slider_SamplerBSustain");
 const var Slider_SamplerBRelease = Content.getComponent("Slider_SamplerBRelease");
 
 const var AHDSR_SamplerB = Content.getComponent("AHDSR_SamplerB");
+const var Button_SamplerBShowADSR = Content.getComponent("Button_SamplerBShowADSR");
 
 const var Label_SamplerBAttackValue = Content.getComponent("Label_SamplerBAttackValue");
 const var Label_SamplerBDecayValue = Content.getComponent("Label_SamplerBDecayValue");
@@ -150,12 +158,16 @@ const var ComboBox_SamplerC = Content.getComponent("ComboBox_SamplerC");
 const var AudioWaveform_SamplerC = Content.getComponent("AudioWaveform_SamplerC");
 const var Slider_SampleOffsetC = Content.getComponent("Slider_SampleOffsetC");
 
+const var Button_SamplerCLoop = Content.getComponent("Button_SamplerCLoop");
+const var Panel_SamplerCLoopEdit = Content.getComponent("Panel_SamplerCLoopEdit");
+
 const var Slider_SamplerCAttack = Content.getComponent("Slider_SamplerCAttack");
 const var Slider_SamplerCDecay = Content.getComponent("Slider_SamplerCDecay");
 const var Slider_SamplerCSustain = Content.getComponent("Slider_SamplerCSustain");
 const var Slider_SamplerCRelease = Content.getComponent("Slider_SamplerCRelease");
 
 const var AHDSR_SamplerC = Content.getComponent("AHDSR_SamplerC");
+const var Button_SamplerCShowADSR = Content.getComponent("Button_SamplerCShowADSR");
 
 const var Label_SamplerCAttackValue = Content.getComponent("Label_SamplerCAttackValue");
 const var Label_SamplerCDecayValue = Content.getComponent("Label_SamplerCDecayValue");
@@ -201,314 +213,6 @@ inline function onButton_CloseSamplePanelControl(component, value)
 };
 
 Content.getComponent("Button_CloseSamplePanel").setControlCallback(onButton_CloseSamplePanelControl);
-
-
-//================================================================================================
-
-//POSITIONING CONTROLS
-
-const var samplerASlidersTop=[Slider_SamplerAAttack, Slider_SamplerADecay, Slider_SamplerASustain, Slider_SamplerARelease];
-
-const var samplerASlidersBottom=[Slider_SamplerAPitchCoarse, Slider_SamplerAPitchFine, Slider_SamplerAPan, Slider_SamplerAGain];
-
-const var samplerALabels = [Content.getComponent("Label_SamplerAAttack"),
-                            Content.getComponent("Label_SamplerADecay"),
-                            Content.getComponent("Label_SamplerASustain"),
-                            Content.getComponent("Label_SamplerARelease"),
-                            Content.getComponent("Label_SamplerAPitchCoarse"),
-                            Content.getComponent("Label_SamplerAPitchFine"),
-                            Content.getComponent("Label_SamplerAPan"),
-                            Content.getComponent("Label_SamplerAGain")];
-                            
-const var samplerBLabels = [Content.getComponent("Label_SamplerBAttack"),
-                            Content.getComponent("Label_SamplerBDecay"),
-                            Content.getComponent("Label_SamplerBSustain"),
-                            Content.getComponent("Label_SamplerBRelease"),
-                            Content.getComponent("Label_SamplerBPitchCoarse"),
-                            Content.getComponent("Label_SamplerBPitchFine"),
-                            Content.getComponent("Label_SamplerBPan"),
-                            Content.getComponent("Label_SamplerBGain")];
-
-const var samplerCLabels = [Content.getComponent("Label_SamplerCAttack"),
-                            Content.getComponent("Label_SamplerCDecay"),
-                            Content.getComponent("Label_SamplerCSustain"),
-                            Content.getComponent("Label_SamplerCRelease"),
-                            Content.getComponent("Label_SamplerCPitchCoarse"),
-                            Content.getComponent("Label_SamplerCPitchFine"),
-                            Content.getComponent("Label_SamplerCPan"),
-                            Content.getComponent("Label_SamplerCGain")];
-                            
-const var samplerARandomizationButtons = [Content.getComponent("Button_RandomizeSamplerAAttack"),
-                                         Content.getComponent("Button_RandomizeSamplerADecay"),
-                                         Content.getComponent("Button_RandomizeSamplerASustain"),
-                                         Content.getComponent("Button_RandomizeSamplerARelease"),
-                                         Content.getComponent("Button_RandomizeSamplerAPitchCoarse"),
-                                         Content.getComponent("Button_RandomizeSamplerAPitchFine"),
-                                         Content.getComponent("Button_RandomizeSamplerAPan"),
-                                         Content.getComponent("Button_RandomizeSamplerAGain")];
-                                         
-const var samplerBRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerBAttack"),
-                                         Content.getComponent("Button_RandomizeSamplerBDecay"),
-                                         Content.getComponent("Button_RandomizeSamplerBSustain"),
-                                         Content.getComponent("Button_RandomizeSamplerBRelease"),
-                                         Content.getComponent("Button_RandomizeSamplerBPitchCoarse"),
-                                         Content.getComponent("Button_RandomizeSamplerBPitchFine"),
-                                         Content.getComponent("Button_RandomizeSamplerBPan"),
-                                         Content.getComponent("Button_RandomizeSamplerBGain")];
-                                         
-const var samplerCRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerCAttack"),
-                                         Content.getComponent("Button_RandomizeSamplerCDecay"),
-                                         Content.getComponent("Button_RandomizeSamplerCSustain"),
-                                         Content.getComponent("Button_RandomizeSamplerCRelease"),
-                                         Content.getComponent("Button_RandomizeSamplerCPitchCoarse"),
-                                         Content.getComponent("Button_RandomizeSamplerCPitchFine"),
-                                         Content.getComponent("Button_RandomizeSamplerCPan"),
-                                         Content.getComponent("Button_RandomizeSamplerCGain")];                            
-                            
-
-const var samplerAValues = [Label_SamplerAAttackValue, Label_SamplerADecayValue, Label_SamplerASustainValue, Label_SamplerAReleaseValue, Label_SamplerAPitchCoarseValue, Label_SamplerAPitchFineValue, Label_SamplerAPanValue, Label_SamplerAGainValue];
-
-const var samplerBValues = [Label_SamplerBAttackValue, Label_SamplerBDecayValue, Label_SamplerBSustainValue, Label_SamplerBReleaseValue, Label_SamplerBPitchCoarseValue, Label_SamplerBPitchFineValue, Label_SamplerBPanValue, Label_SamplerBGainValue];
-
-const var samplerCValues = [Label_SamplerCAttackValue, Label_SamplerCDecayValue, Label_SamplerCSustainValue, Label_SamplerCReleaseValue, Label_SamplerCPitchCoarseValue, Label_SamplerCPitchFineValue, Label_SamplerCPanValue, Label_SamplerCGainValue];
-
-const var samplerBSlidersTop=[Slider_SamplerBAttack, Slider_SamplerBDecay, Slider_SamplerBSustain, Slider_SamplerBRelease];
-
-const var samplerBSlidersBottom=[Slider_SamplerBPitchCoarse, Slider_SamplerBPitchFine, Slider_SamplerBPan, Slider_SamplerBGain];
-
-const var samplerCSlidersTop=[Slider_SamplerCAttack, Slider_SamplerCDecay, Slider_SamplerCSustain, Slider_SamplerCRelease];
-
-const var samplerCSlidersBottom=[Slider_SamplerCPitchCoarse, Slider_SamplerCPitchFine, Slider_SamplerCPan, Slider_SamplerCGain];
-
-inline function positionSamplerSliders()
-{
-	local width = Panel_BG.getWidth() / 3;
-	local increment = width / 5;
-
-	local positionSamplerA = (width / 5);	
-	local positionSamplerB = width + (width / 5);
-	local positionSamplerC = (width / 5) + (width * 2);
-	local sliderSize = 48;
-	
-	local textBuffer = 16;
-	local valueBuffer = 36;
-	
-	local bypassButtonSize = 16;
-	
-	local randomizationButtonSize = 10;
-	
-	//Sampler A
-	
-	for (i=0; i<samplerASlidersTop.length; i++)
-		samplerASlidersTop[i].setPosition(positionSamplerA + (increment * i + 1) - sliderSize / 2, 260, sliderSize, sliderSize);
-		
-	for (i=0; i<samplerASlidersBottom.length; i++)
-		samplerASlidersBottom[i].setPosition(positionSamplerA + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);
-		
-	AHDSR_SamplerA.setPosition(AudioWaveform_SamplerA.get("x"), AudioWaveform_SamplerA.get("y"), AudioWaveform_SamplerA.getWidth(), AudioWaveform_SamplerA.getHeight());
-	
-	ComboBox_SamplerA.set("width", 150);
-	ComboBox_SamplerA.set("height", 28);
-	
-	ComboBox_SamplerA.set("x", (width / 2 ) - (ComboBox_SamplerA.get("width") / 2));
-	ComboBox_SamplerA.set("y", AudioWaveform_SamplerA.get("y") - (padding + ComboBox_SamplerA.get("height")));
-	
-	Button_SamplerAComboBoxUp.set("x", ComboBox_SamplerA.get("x") + ComboBox_SamplerA.get("width") - 18);
-	Button_SamplerAComboBoxDown.set("x", ComboBox_SamplerA.get("x") + ComboBox_SamplerA.get("width") - 18);
-	
-	Button_SamplerAComboBoxUp.set("y", ComboBox_SamplerA.get("y") + 7);
-	Button_SamplerAComboBoxDown.set("y", ComboBox_SamplerA.get("y") + 15);
-	
-	Button_SamplerAComboBoxUp.set("width", 8);
-	Button_SamplerAComboBoxUp.set("height", 6);
-	
-	Button_SamplerAComboBoxDown.set("width", 8);
-	Button_SamplerAComboBoxDown.set("height", 6);
-	
-	Button_SamplerABypass.setPosition(padding, padding, bypassButtonSize, bypassButtonSize);
-		
-	//Labels
-		
-	for (i=0; i<samplerALabels.length; i++)
-		{
-			if (i < 4)
-				samplerALabels[i].setPosition(samplerASlidersTop[i].getGlobalPositionX() - 3, samplerASlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
-			else	
-				samplerALabels[i].setPosition(samplerASlidersBottom[i-4].getGlobalPositionX() - 3, samplerASlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
-		}
-		
-	for (i=0; i<samplerAValues.length; i++)
-		{
-			if (i < 4)
-				samplerAValues[i].setPosition(samplerASlidersTop[i].getGlobalPositionX() - 3, samplerASlidersTop[i].getGlobalPositionY() + valueBuffer, sliderSize, 20);
-			else	
-				samplerAValues[i].setPosition(samplerASlidersBottom[i-4].getGlobalPositionX() - 3, samplerASlidersBottom[i-4].getGlobalPositionY() + valueBuffer, sliderSize, 20);
-		}		
-	
-	
-		
-	//Sampler B
-
-	for (i=0; i<samplerBSlidersTop.length; i++)
-		samplerBSlidersTop[i].setPosition(positionSamplerB + (increment * i + 1) - sliderSize / 2, 260, sliderSize, sliderSize);
-		
-	for (i=0; i<samplerBSlidersBottom.length; i++)
-		samplerBSlidersBottom[i].setPosition(positionSamplerB + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);	
-		
-	AHDSR_SamplerB.setPosition(AudioWaveform_SamplerB.get("x"), AudioWaveform_SamplerB.get("y"), AudioWaveform_SamplerB.getWidth(), AudioWaveform_SamplerB.getHeight());
-		
-	for (i=0; i<samplerBLabels.length; i++)
-		{
-			if (i < 4)
-				samplerBLabels[i].setPosition(samplerBSlidersTop[i].getGlobalPositionX() - 3, samplerBSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
-			else	
-				samplerBLabels[i].setPosition(samplerBSlidersBottom[i-4].getGlobalPositionX() - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
-		}		
-	
-for (i=0; i<samplerBValues.length; i++)
-	{
-		if (i < 4)
-			samplerBValues[i].setPosition(samplerBSlidersTop[i].getGlobalPositionX() - 3, samplerBSlidersTop[i].getGlobalPositionY() + valueBuffer, sliderSize, 20);
-		else	
-			samplerBValues[i].setPosition(samplerBSlidersBottom[i-4].getGlobalPositionX() - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() + valueBuffer, sliderSize, 20);
-	}	
-	
-	ComboBox_SamplerB.set("width", 150);
-	ComboBox_SamplerB.set("height", 28);
-
-	ComboBox_SamplerB.set("x", (width / 2 ) + width - (ComboBox_SamplerB.get("width") / 2));
-	ComboBox_SamplerB.set("y", AudioWaveform_SamplerB.get("y") - (padding + ComboBox_SamplerB.get("height")));
-	
-	Button_SamplerBComboBoxUp.set("x", ComboBox_SamplerB.get("x") + ComboBox_SamplerB.get("width") - 18);
-	Button_SamplerBComboBoxDown.set("x", ComboBox_SamplerB.get("x") + ComboBox_SamplerB.get("width") - 18);
-	
-	Button_SamplerBComboBoxUp.set("y", ComboBox_SamplerB.get("y") + 7);
-	Button_SamplerBComboBoxDown.set("y", ComboBox_SamplerB.get("y") + 15);
-	
-	Button_SamplerBComboBoxUp.set("width", 8);
-	Button_SamplerBComboBoxUp.set("height", 6);
-	
-	Button_SamplerBComboBoxDown.set("width", 8);
-	Button_SamplerBComboBoxDown.set("height", 6);
-	
-	Button_SamplerBBypass.setPosition((width + padding), padding, bypassButtonSize, bypassButtonSize);
-		
-	//Sampler C
-
-	for (i=0; i<samplerCSlidersTop.length; i++)
-		samplerCSlidersTop[i].setPosition(positionSamplerC + (increment * i + 1) - sliderSize / 2, 260, sliderSize, sliderSize);
-		
-	for (i=0; i<samplerCSlidersBottom.length; i++)
-		samplerCSlidersBottom[i].setPosition(positionSamplerC + (increment * i + 1) - sliderSize / 2, 370, sliderSize, sliderSize);	
-		
-	AHDSR_SamplerC.setPosition(AudioWaveform_SamplerC.get("x"), AudioWaveform_SamplerC.get("y"), AudioWaveform_SamplerC.getWidth(), AudioWaveform_SamplerC.getHeight());	
-		
-	for (i=0; i<samplerCLabels.length; i++)
-		{
-			if (i < 4)
-				samplerCLabels[i].setPosition(samplerCSlidersTop[i].getGlobalPositionX() - 3, samplerCSlidersTop[i].getGlobalPositionY() + textBuffer, sliderSize, 20);
-			else	
-				samplerCLabels[i].setPosition(samplerCSlidersBottom[i-4].getGlobalPositionX() - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() + textBuffer, sliderSize, 20);
-		}				
-	
-	for (i=0; i<samplerCValues.length; i++)
-		{
-			if (i < 4)
-				samplerCValues[i].setPosition(samplerCSlidersTop[i].getGlobalPositionX() - 3, samplerCSlidersTop[i].getGlobalPositionY() + valueBuffer, sliderSize, 20);
-			else	
-				samplerCValues[i].setPosition(samplerCSlidersBottom[i-4].getGlobalPositionX() - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() + valueBuffer, sliderSize, 20);
-		}		
-		
-		ComboBox_SamplerC.set("width", 150);
-		ComboBox_SamplerC.set("height", 28);
-	
-		ComboBox_SamplerC.set("x", (width / 2 ) + width + width - (ComboBox_SamplerC.get("width") / 2));
-		ComboBox_SamplerC.set("y", AudioWaveform_SamplerC.get("y") - (padding + ComboBox_SamplerC.get("height")));
-		
-		Button_SamplerCComboBoxUp.set("x", ComboBox_SamplerC.get("x") + ComboBox_SamplerC.get("width") - 18);
-		Button_SamplerCComboBoxDown.set("x", ComboBox_SamplerC.get("x") + ComboBox_SamplerC.get("width") - 18);
-		
-		Button_SamplerCComboBoxUp.set("y", ComboBox_SamplerC.get("y") + 7);
-		Button_SamplerCComboBoxDown.set("y", ComboBox_SamplerC.get("y") + 15);
-		
-		Button_SamplerCComboBoxUp.set("width", 8);
-		Button_SamplerCComboBoxUp.set("height", 6);
-		
-		Button_SamplerCComboBoxDown.set("width", 8);
-		Button_SamplerCComboBoxDown.set("height", 6);	
-		
-		Button_SamplerCBypass.setPosition((width + width + padding), padding, bypassButtonSize, bypassButtonSize);
-	
-	//Randomization Buttons
-		
-	for (i=0; i<samplerARandomizationButtons.length; i++)
-		{
-			if (i < 4)
-				samplerARandomizationButtons[i].setPosition((samplerASlidersTop[i].getGlobalPositionX() + sliderSize) - 3, samplerASlidersTop[i].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
-			else	
-				samplerARandomizationButtons[i].setPosition((samplerASlidersBottom[i-4].getGlobalPositionX()+ sliderSize) - 3, samplerASlidersBottom[i-4].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
-		}			
-		
-	for (i=0; i<samplerBRandomizationButtons.length; i++)
-		{
-			if (i < 4)
-				samplerBRandomizationButtons[i].setPosition((samplerBSlidersTop[i].getGlobalPositionX() + sliderSize) - 3, samplerBSlidersTop[i].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
-			else	
-				samplerBRandomizationButtons[i].setPosition((samplerBSlidersBottom[i-4].getGlobalPositionX()+ sliderSize) - 3, samplerBSlidersBottom[i-4].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
-		}		
-		
-	for (i=0; i<samplerCRandomizationButtons.length; i++)
-		{
-			if (i < 4)
-				samplerCRandomizationButtons[i].setPosition((samplerCSlidersTop[i].getGlobalPositionX() + sliderSize) - 3, samplerCSlidersTop[i].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
-			else	
-				samplerCRandomizationButtons[i].setPosition((samplerCSlidersBottom[i-4].getGlobalPositionX()+ sliderSize) - 3, samplerCSlidersBottom[i-4].getGlobalPositionY() - sliderSize, randomizationButtonSize, randomizationButtonSize);
-		}			
-		
-	randomizeComboBoxA.setPosition(ComboBox_SamplerA.get("x") + ComboBox_SamplerA.get("width") + padding, ComboBox_SamplerA.get("y"), randomizationButtonSize, randomizationButtonSize);
-	
-	randomizeSampleStartA.setPosition(AudioWaveform_SamplerA.get("x") + AudioWaveform_SamplerA.get("width") - (randomizationButtonSize + padding), AudioWaveform_SamplerA.get("y") - (randomizationButtonSize + padding), randomizationButtonSize, randomizationButtonSize);
-	
-	randomizeComboBoxB.setPosition(ComboBox_SamplerB.get("x") + ComboBox_SamplerB.get("width") + padding, ComboBox_SamplerB.get("y"), randomizationButtonSize, randomizationButtonSize);
-		
-		randomizeSampleStartB.setPosition(AudioWaveform_SamplerB.get("x") + AudioWaveform_SamplerB.get("width") - (randomizationButtonSize + padding), AudioWaveform_SamplerB.get("y") - (randomizationButtonSize + padding), randomizationButtonSize, randomizationButtonSize);
-		
-		randomizeComboBoxC.setPosition(ComboBox_SamplerC.get("x") + ComboBox_SamplerC.get("width") + padding, ComboBox_SamplerC.get("y"), randomizationButtonSize, randomizationButtonSize);
-			
-			randomizeSampleStartC.setPosition(AudioWaveform_SamplerC.get("x") + AudioWaveform_SamplerC.get("width") - (randomizationButtonSize + padding), AudioWaveform_SamplerC.get("y") - (randomizationButtonSize + padding), randomizationButtonSize, randomizationButtonSize);
-		
-	//Other Items
-	
-	AudioWaveform_SamplerA.setPosition(10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
-	Slider_SampleOffsetA.setPosition(10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
-	
-	AudioWaveform_SamplerB.setPosition(width + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
-	Slider_SampleOffsetB.setPosition(width + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);	
-	
-	AudioWaveform_SamplerC.setPosition((width + width) + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
-	Slider_SampleOffsetC.setPosition((width + width) + 10, 75, (Panel_BG.getWidth() / 3) - 20, 110);
-	
-	Panel_SamplerDisabledB.setPosition(width, 0, width, Panel_BG.getHeight());
-	Panel_SamplerDisabledC.setPosition(width * 2, 0, width, Panel_BG.getHeight());
-	
-	Button_SamplerAReverse.setPosition(AudioWaveform_SamplerA.getGlobalPositionX() + AudioWaveform_SamplerA.getWidth() - 46, AudioWaveform_SamplerA.getGlobalPositionY() + AudioWaveform_SamplerA.getHeight() -24, 40, 20);
-	
-	Button_SamplerBReverse.setPosition(AudioWaveform_SamplerB.getGlobalPositionX() + AudioWaveform_SamplerB.getWidth() - 46, AudioWaveform_SamplerB.getGlobalPositionY() + AudioWaveform_SamplerB.getHeight() -24, 40, 20);
-	
-	Button_SamplerCReverse.setPosition(AudioWaveform_SamplerC.getGlobalPositionX() + AudioWaveform_SamplerC.getWidth() - 46, AudioWaveform_SamplerC.getGlobalPositionY() + AudioWaveform_SamplerC.getHeight() -24, 40, 20);
-	
-	Label_SamplerATitle.setPosition(ComboBox_SamplerA.get("x") + (ComboBox_SamplerA.get("width") / 2) - (Label_SamplerATitle.get("width") / 2), ComboBox_SamplerA.get("y") - (Label_SamplerATitle.get("height") + padding + padding), 100, 30);
-	
-	Label_SamplerBTitle.setPosition(ComboBox_SamplerB.get("x") + (ComboBox_SamplerB.get("width") / 2) - (Label_SamplerBTitle.get("width") / 2), ComboBox_SamplerB.get("y") - (Label_SamplerBTitle.get("height") + padding + padding), 100, 30);
-	
-	Label_SamplerCTitle.setPosition(ComboBox_SamplerC.get("x") + (ComboBox_SamplerC.get("width") / 2) - (Label_SamplerCTitle.get("width") / 2), ComboBox_SamplerC.get("y") - (Label_SamplerCTitle.get("height") + padding + padding), 100, 30);
-}
-
-//positionSamplerSliders();
-
-
-
-//================================================================================================
 
 //FUNCTIONALITY
 
@@ -581,7 +285,6 @@ Content.getComponent("Button_SamplerAShowADSR").setControlCallback(onButton_Samp
 
 inline function onComboBox_SamplerAControl(component, value)
 {
-	//AudioWaveform_SamplerA.set("sampleIndex", value);
 	
 	if (currentExpansion == "Bloom")
     {
@@ -610,7 +313,6 @@ inline function onComboBox_SamplerAControl(component, value)
 Content.getComponent("ComboBox_SamplerA").setControlCallback(onComboBox_SamplerAControl);
 
 //Sample Start Offset A
-
 
 inline function onSlider_SampleOffsetAControl(component, value)
 {
@@ -653,6 +355,19 @@ inline function onSlider_SamplerAReleaseControl(component, value)
 };
 
 Content.getComponent("Slider_SamplerARelease").setControlCallback(onSlider_SamplerAReleaseControl);
+
+//Loop Button
+
+inline function onButton_SamplerALoopControl(component, value)
+{
+	for (s in SamplerA.asSampler().createSelection(".*"))
+		{
+		    local l = parseInt(s.get(SamplerA.SampleEnd));
+		    s.set(SamplerA.asSampler().LoopEnabled, value);
+		}
+};
+
+Content.getComponent("Button_SamplerALoop").setControlCallback(onButton_SamplerALoopControl);
 
 
 //Reverse Sample Switch
@@ -784,6 +499,18 @@ inline function onSlider_SamplerBReleaseControl(component, value)
 
 Content.getComponent("Slider_SamplerBRelease").setControlCallback(onSlider_SamplerBReleaseControl);
 
+//Loop Button
+
+inline function onButton_SamplerBLoopControl(component, value)
+{
+    for (s in SamplerB.asSampler().createSelection(".*"))
+        {
+            local l = parseInt(s.get(SamplerB.SampleEnd));
+            s.set(SamplerB.asSampler().LoopEnabled, value);
+        }
+};
+
+Content.getComponent("Button_SamplerBLoop").setControlCallback(onButton_SamplerBLoopControl);
 
 //Reverse Sample Switch
 
@@ -915,6 +642,18 @@ inline function onSlider_SamplerCReleaseControl(component, value)
 
 Content.getComponent("Slider_SamplerCRelease").setControlCallback(onSlider_SamplerCReleaseControl);
 
+//Loop Button
+
+inline function onButton_SamplerCLoopControl(component, value)
+{
+    for (s in SamplerC.asSampler().createSelection(".*"))
+        {
+            local l = parseInt(s.get(SamplerC.SampleEnd));
+            s.set(SamplerC.asSampler().LoopEnabled, value);
+        }
+};
+
+Content.getComponent("Button_SamplerCLoop").setControlCallback(onButton_SamplerCLoopControl);
 
 //Reverse Sample Switch
 

@@ -1,0 +1,2244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentProperties DeviceType="Desktop">
+  <Component type="ScriptButton" id="Button_OpenExpansions" x="191.0" y="510.0"
+             text="LIBRARIES" width="120.0" height="24.0" itemColour="4281545523"
+             numStrips="6.0" enableMidiLearn="0" saveInPreset="0" tooltip="Opens the Libraries panel."/>
+  <Component type="ScriptButton" id="Button_FXDisplay" x="443.0" y="510.0"
+             text="FX" width="120.0" height="24.0" numStrips="6.0" enableMidiLearn="0"
+             saveInPreset="0" tooltip="Opens the FX workspace."/>
+  <Component type="ScriptButton" id="Button_ArpDisplay" x="569.0" y="510.0"
+             width="120.0" height="24.0" text="ARP" itemColour="2147483648"
+             numStrips="6.0" enableMidiLearn="0" saveInPreset="0" tooltip="Opens the Arpeggiator workspace."/>
+  <Component type="ScriptButton" id="Button_OpenRandomizePanel" x="950.0"
+             y="510.0" width="30.0" height="24.0" text="LAFOpenRandomizationPanel"
+             itemColour="2147483648" numStrips="6.0" enableMidiLearn="0" saveInPreset="0"
+             tooltip="Opens the Randomization Panel."/>
+  <Component type="ScriptButton" id="Button_RandomizationButtonsVisibility"
+             x="910.0" y="510.0" text="LAFButtonRandomizeVisibility" width="30.0"
+             height="24.0" enableMidiLearn="0" tooltip="Toggles the visibility of Randomization switches."/>
+  <Component type="ScriptLabel" id="Label_RandomizeAll" x="850.0" y="510.0"
+             width="70.0" height="20.0" text="RANDOMIZE" fontSize="11.0" editable="0"
+             enabled="0" visible="0"/>
+  <Component type="ScriptButton" id="Button_SampleDisplay" x="317.0" y="510.0"
+             text="SAMPLE" width="120.0" height="24.0" numStrips="6.0" enableMidiLearn="0"
+             saveInPreset="0" tooltip="Opens the Sample workspace."/>
+  <Component type="ScriptButton" id="Button_MoveDisplay" x="695.0" y="510.0"
+             width="120.0" height="24.0" text="MOVE" itemColour="2147483648"
+             numStrips="6.0" enableMidiLearn="0" saveInPreset="0" tooltip="Opens the Movement workspace."/>
+  <Component type="ScriptButton" id="Button_CustomSettings" x="6.0" y="4.0"
+             text="Settings" numStrips="6.0" width="120.0" height="24.0" enableMidiLearn="0"
+             saveInPreset="0" tooltip="Opens the Settings panel."/>
+  <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="994.0"
+             height="474.0" borderRadius="2.0">
+    <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
+               text="Image" width="994.0" height="474.0" fileName="{PROJECT_FOLDER}bg_atlas.jpg"/>
+    <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
+               parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"
+               itemColour2="3456106496" borderRadius="2.0" bgColour="16777215"
+               textColour="16777215" visible="0">
+      <Component type="ScriptButton" id="Button_AchromicPickAttack" x="9.0" y="9.0"
+                 parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
+                 width="10.0" height="10.0" pluginParameterName="ACHPickAttack"
+                 defaultValue="1.0" tooltip="Enables pick attack sounds."/>
+      <Component type="ScriptButton" id="Button_AchromicReleaseNoise" x="9.0"
+                 y="26.0" parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
+                 width="10.0" height="10.0" pluginParameterName="ACHReleaseNoise"
+                 defaultValue="1.0" tooltip="Enables release fret noises."/>
+      <Component type="ScriptButton" id="Button_AchromicNoiseGate" x="9.0" y="43.0"
+                 parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
+                 width="10.0" height="10.0" pluginParameterName="ACHGateEnabled"
+                 tooltip="Enables noise gate."/>
+      <Component type="ScriptLabel" id="Label_AchromicPickAttack" x="22.0" y="0.0"
+                 parentComponent="Panel_AchromicSettings" width="80.0" height="28.0"
+                 text="Attack" alignment="left" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_AchromicReleaseNoise" x="22.0" y="17.0"
+                 parentComponent="Panel_AchromicSettings" width="80.0" height="28.0"
+                 text="Release" alignment="left" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_AchromicNoiseGate" x="22.0" y="34.0"
+                 parentComponent="Panel_AchromicSettings" width="80.0" height="28.0"
+                 text="Gate" alignment="left" editable="0" fontSize="14.0"/>
+      <Component type="ScriptButton" id="Button_AchromicForceDownpick" x="9.0"
+                 y="60.0" parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
+                 width="10.0" height="10.0" pluginParameterName="ACHForceDownpick"
+                 tooltip="Forces downpick when enabled."/>
+      <Component type="ScriptLabel" id="Label_AchromicForceDownpick" x="22.0"
+                 y="51.0" parentComponent="Panel_AchromicSettings" width="80.0"
+                 height="28.0" text="Downpick" alignment="left" editable="0" fontSize="14.0"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_PDQBassSettings" x="17.0" y="177.0"
+               parentComponent="Panel_BG" width="120.0" height="280.0" itemColour="3456106496"
+               itemColour2="3456106496" borderRadius="2.0" bgColour="16777215"
+               textColour="16777215" visible="0">
+      <Component type="ScriptLabel" id="Label_AchromicGainA1" x="23.0" y="-3.0"
+                 width="74.0" height="28.0" fontStyle="Bold" text="ARTICULATIONS"
+                 parentComponent="Panel_PDQBassSettings" editable="0" alignment="left"
+                 fontSize="12.0"/>
+      <Component type="ScriptButton" id="Button_PDQBassForceDownpick" x="10.0"
+                 y="241.0" parentComponent="Panel_PDQBassSettings" text="LAFButtonBypass"
+                 width="10.0" height="10.0" pluginParameterName="PDQorceDownpick"
+                 tooltip="Forces downpick when enabled."/>
+      <Component type="ScriptLabel" id="Label_PDQBassForceDownpick" x="24.0" y="235.0"
+                 parentComponent="Panel_PDQBassSettings" width="70.0" height="20.0"
+                 text="Downpick" alignment="left" editable="0"/>
+      <Component type="ScriptSlider" id="Slider_PDQBassVelocityMin" x="19.0" y="49.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="1.0" max="126.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="1.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming minimum Velocity."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassVelocityMax" x="68.0" y="49.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="2.0" max="127.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="127.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming maximum Velocity."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassPMVelMin" x="19.0" y="88.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="1.0" max="126.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="1.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming minimum Velocity for Palm Mutes."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassPMVelMax" x="68.0" y="88.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="2.0" max="127.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="20.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming maximum Velocity for Palm Mutes."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassFVelMin" x="19.0" y="128.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="1.0" max="126.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="21.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming minimum Velocity for Finger Notes."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassFVelMax" x="68.0" y="128.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="2.0" max="127.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="52.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming maximum Velocity for Finger Notes."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassAPVelMin" x="19.0" y="168.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="1.0" max="126.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="53.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming minimum Velocity for Alternate Picking."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassAPVelMax" x="68.0" y="168.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="2.0" max="127.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="114.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming maximum Velocity for Alternate Picking."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassSLVelMin" x="19.0" y="208.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="1.0" max="126.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="115.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming minimum Velocity for Slapped Notes."/>
+      <Component type="ScriptSlider" id="Slider_PDQBassSLVelMax" x="68.0" y="208.0"
+                 parentComponent="Panel_PDQBassSettings" width="30.0" height="15.0"
+                 min="2.0" max="127.0" scrollWheel="0" enableMidiLearn="0" dragDirection="Vertical"
+                 stepSize="1.0" middlePosition="64.0" defaultValue="127.0" text="LAF_SliderPDQBassVel"
+                 tooltip="Limits incoming maximum Velocity for Slapped Notes."/>
+      <Component type="ScriptLabel" id="Label_PDQBassVelocity" x="27.0" y="28.0"
+                 width="66.0" height="16.0" fontStyle="Regular" text="Limit Vel"
+                 parentComponent="Panel_PDQBassSettings" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassFinger" x="34.0" y="109.0"
+                 width="50.0" height="16.0" fontStyle="Regular" text="Finger"
+                 parentComponent="Panel_PDQBassSettings" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassAltPick" x="35.0" y="150.0"
+                 width="50.0" height="16.0" fontStyle="Regular" text="Alt. Pick"
+                 parentComponent="Panel_PDQBassSettings" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassPalmMute" x="27.0" y="68.0"
+                 width="66.0" height="16.0" fontStyle="Regular" text="Palm Mute"
+                 parentComponent="Panel_PDQBassSettings" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassSlapped" x="35.0" y="191.0"
+                 width="50.0" height="16.0" fontStyle="Regular" text="Slapped"
+                 parentComponent="Panel_PDQBassSettings" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassPalmMute1" x="51.0" y="88.0"
+                 width="15.0" height="16.0" fontStyle="Regular" text="-" parentComponent="Panel_PDQBassSettings"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassPalmMute2" x="51.0" y="128.0"
+                 width="15.0" height="16.0" fontStyle="Regular" text="-" parentComponent="Panel_PDQBassSettings"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassPalmMute3" x="51.0" y="168.0"
+                 width="15.0" height="16.0" fontStyle="Regular" text="-" parentComponent="Panel_PDQBassSettings"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassPalmMute4" x="51.0" y="208.0"
+                 width="15.0" height="16.0" fontStyle="Regular" text="-" parentComponent="Panel_PDQBassSettings"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassPalmMute5" x="51.0" y="49.0"
+                 width="15.0" height="16.0" fontStyle="Regular" text="-" parentComponent="Panel_PDQBassSettings"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_PDQBassProcessed" x="24.0" y="255.0"
+                 parentComponent="Panel_PDQBassSettings" width="70.0" height="20.0"
+                 text="Processed" alignment="left" editable="0"/>
+      <Component type="ScriptButton" id="Button_PDQBassProcessed" x="10.0" y="261.0"
+                 parentComponent="Panel_PDQBassSettings" text="LAFButtonBypass"
+                 width="10.0" height="10.0" tooltip="Enables Processed tone."/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_GloomExtras" x="17.0" y="377.0"
+               parentComponent="Panel_BG" width="101.0" height="76.0" itemColour="2583691264"
+               itemColour2="2583691264" borderRadius="2.0" bgColour="16777215"
+               textColour="16777215" visible="0">
+      <Component type="ScriptButton" id="Button_GloomChairCreakNoise" x="10.0"
+                 y="33.0" parentComponent="Panel_GloomExtras" itemColour="3355443"
+                 bgColour="16777215" text="LAFButtonBypass" width="10.0" height="10.0"
+                 tooltip="Enables chair creak noises."/>
+      <Component type="ScriptLabel" id="Label_GloomChairCreakNoise" x="27.0" y="24.0"
+                 parentComponent="Panel_GloomExtras" text="Player" fontStyle="Regular"
+                 width="50.0" height="28.0" editable="0" fontSize="14.0" alignment="left"/>
+      <Component type="ScriptLabel" id="Label_GloomReleaseNoise" x="27.0" y="47.0"
+                 parentComponent="Panel_GloomExtras" text="Release" fontStyle="Regular"
+                 width="60.0" height="28.0" editable="0" fontSize="14.0" alignment="left"/>
+      <Component type="ScriptButton" id="Button_GloomReleaseNoise" x="10.0" y="57.0"
+                 parentComponent="Panel_GloomExtras" itemColour="3355443" bgColour="16777215"
+                 text="LAFButtonBypass" width="10.0" height="10.0" tooltip="Enables release noises."/>
+      <Component type="ScriptLabel" id="Label_GloomNoisesTitle" x="17.0" y="-1.0"
+                 parentComponent="Panel_GloomExtras" text="NOISES" fontStyle="Bold"
+                 width="70.0" height="28.0" editable="0"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_CloudburstAcousticNoises" x="17.0"
+               y="427.0" parentComponent="Panel_BG" width="90.0" height="30.0"
+               itemColour="2583691264" itemColour2="2583691264" borderRadius="2.0"
+               bgColour="16777215" textColour="16777215" visible="0">
+      <Component type="ScriptButton" id="Button_CloudburstAcousticNoises" x="10.0"
+                 y="10.0" parentComponent="Panel_CloudburstAcousticNoises" itemColour="3355443"
+                 bgColour="16777215" text="LAFButtonBypass" width="10.0" height="10.0"
+                 tooltip="Enables dead notes and release noises."/>
+      <Component type="ScriptLabel" id="Label_CloudburstAcousticNoises" x="27.0"
+                 y="1.0" parentComponent="Panel_CloudburstAcousticNoises" text="Noises"
+                 fontStyle="Regular" width="50.0" height="28.0" editable="0" fontSize="14.0"
+                 alignment="left"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_PortalVelocity" x="17.0" y="425.0"
+               parentComponent="Panel_BG" width="150.0" height="28.0" itemColour="2583691264"
+               itemColour2="2583691264" borderRadius="2.0" bgColour="16777215"
+               textColour="16777215" visible="0">
+      <Component type="ScriptButton" id="Button_PortalIgnoreArpVelocity" x="10.0"
+                 y="8.0" parentComponent="Panel_PortalVelocity" itemColour="3355443"
+                 bgColour="16777215" text="LAFButtonBypass" width="10.0" height="10.0"
+                 tooltip="Input velocity overwrites Arpeggiator sliderpack."/>
+      <Component type="ScriptLabel" id="Label_PortalIgnoreArpVelocity" x="26.0"
+                 y="0.0" parentComponent="Panel_PortalVelocity" text="Write Arp Velocity"
+                 fontStyle="Regular" width="108.0" height="28.0" editable="0"
+                 fontSize="14.0"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_FX" x="0.0" y="0.0" parentComponent="Panel_BG"
+               width="994.0" height="474.0" itemColour="4194304000" itemColour2="4194304000"
+               bgColour="16777215" textColour="16777215" borderRadius="2.0"
+               visible="0">
+      <Component type="ScriptLabel" id="Label_FXTitle" x="472.0" y="0.0" width="50.0"
+                 height="28.0" fontStyle="Bold" text="FX" parentComponent="Panel_FX"
+                 editable="0"/>
+      <Component type="ScriptButton" id="Button_FilterSettings" x="51.0" y="89.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Filter Module.">
+        <Component type="ScriptButton" id="Button_FilterBypass" x="9.0" y="14.0"
+                   parentComponent="Button_FilterSettings" text="LAFButtonSamplerBypass"
+                   width="16.0" height="16.0" processorId="Filter1" parameterId="Enabled"
+                   bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                   isPluginParameter="1" pluginParameterName="Filter_Bypass" tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Filter" x="30.0" y="8.0" parentComponent="Button_FilterSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Filter" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_EQSettings" x="51.0" y="139.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the EQ Module.">
+        <Component type="ScriptButton" id="Button_EQBypass" x="9.0" y="14.0" parentComponent="Button_EQSettings"
+                   text="LAFButtonSamplerBypass" width="16.0" height="16.0" processorId="Parametriq EQ1"
+                   parameterId="Enabled" bgColour="16777215" itemColour="3355443"
+                   itemColour2="1118481" isPluginParameter="1" pluginParameterName="EQ_Bypass"
+                   tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_EQ" x="30.0" y="7.0" parentComponent="Button_EQSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="EQ" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_DriveSettings" x="51.0" y="289.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Drive Module.">
+        <Component type="ScriptButton" id="Button_DriveTubeDriveEnable" x="9.0"
+                   y="14.0" parentComponent="Button_DriveSettings" text="LAFButtonSamplerBypass"
+                   width="16.0" bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                   isPluginParameter="1" pluginParameterName="Drive_Bypass" height="16.0"
+                   tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Drive" x="30.0" y="7.0" parentComponent="Button_DriveSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Drive" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_CompSettings" x="51.0" y="189.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Compressor Module.">
+        <Component type="ScriptButton" id="Button_CompBypass" x="9.0" y="14.0" parentComponent="Button_CompSettings"
+                   text="LAFButtonSamplerBypass" width="16.0" height="16.0" processorId="Compressor"
+                   parameterId="Enabled" bgColour="16777215" itemColour="3355443"
+                   itemColour2="1118481" pluginParameterName="Comp_Bypass" isPluginParameter="1"
+                   tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Comp" x="30.0" y="7.0" parentComponent="Button_CompSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Comp" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_ReverbSettings" x="803.0" y="189.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Reverb Module.">
+        <Component type="ScriptButton" id="Button_ReverbEnable" x="9.0" y="14.0"
+                   parentComponent="Button_ReverbSettings" width="16.0" height="16.0"
+                   text="LAFButtonSamplerBypass" processorId="Simple Reverb1" parameterId="Enabled"
+                   bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                   isPluginParameter="1" pluginParameterName="Reverb_Bypass" tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Reverb" x="30.0" y="9.0" parentComponent="Button_ReverbSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Reverb" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_WidthSettings" x="803.0" y="89.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Utility Module.">
+        <Component type="ScriptButton" id="Button_WidthEnable" x="9.0" y="15.0"
+                   parentComponent="Button_WidthSettings" width="16.0" height="16.0"
+                   text="LAFButtonSamplerBypass" bgColour="16777215" itemColour="3355443"
+                   itemColour2="1118481" isPluginParameter="1" pluginParameterName="Width_Bypass"
+                   tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Width" x="30.0" y="9.0" parentComponent="Button_WidthSettings"
+                   width="82.0" height="28.0" fontSize="14.0" text="Utility" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_DelaySettings" x="803.0" y="239.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Delay Module.">
+        <Component type="ScriptButton" id="Button_DelayEnable" x="9.0" y="14.0"
+                   parentComponent="Button_DelaySettings" width="16.0" height="16.0"
+                   text="LAFButtonSamplerBypass" processorId="Delay1" parameterId="Enabled"
+                   bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                   isPluginParameter="1" pluginParameterName="Delay_Bypass" tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Delay" x="30.0" y="9.0" parentComponent="Button_DelaySettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Delay" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_PhaserSettings" x="803.0" y="139.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Phaser Module.">
+        <Component type="ScriptButton" id="Button_PhaserEnable" x="9.0" y="14.0"
+                   parentComponent="Button_PhaserSettings" width="16.0" height="16.0"
+                   text="LAFButtonSamplerBypass" processorId="Phase FX1" parameterId="Enabled"
+                   bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                   isPluginParameter="1" pluginParameterName="Phaser_Bypass" tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Phaser" x="30.0" y="9.0" parentComponent="Button_PhaserSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Phaser" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_DegradeSettings" x="51.0" y="339.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Degrade Module.">
+        <Component type="ScriptButton" id="Button_DegradeEnable" x="9.0" y="14.0"
+                   parentComponent="Button_DegradeSettings" width="16.0" height="16.0"
+                   text="LAFButtonSamplerBypass" processorId="Degrade" parameterId="Enabled"
+                   bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                   isPluginParameter="1" pluginParameterName="Degrade_Bypass" tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Degrade" x="30.0" y="7.0" parentComponent="Button_DegradeSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Degrade" editable="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_AmpSettings" x="51.0" y="239.0"
+                 parentComponent="Panel_FX" text="LAFButtonFXSettings" width="140.0"
+                 height="44.0" radioGroup="3.0" bgColour="16777215" itemColour="3355443"
+                 itemColour2="1118481" filmstripImage="{PROJECT_FOLDER}show FX button.png"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Opens the Amp Module.">
+        <Component type="ScriptButton" id="Button_AmpEnable" x="9.0" y="14.0" parentComponent="Button_AmpSettings"
+                   width="16.0" height="16.0" text="LAFButtonSamplerBypass" bgColour="16777215"
+                   itemColour="3355443" itemColour2="1118481" isPluginParameter="1"
+                   pluginParameterName="Delay_Bypass" tooltip="Bypasses the Effect."/>
+        <Component type="ScriptLabel" id="Label_Amp" x="30.0" y="7.0" parentComponent="Button_AmpSettings"
+                   width="77.0" height="28.0" fontSize="14.0" text="Amp" editable="0"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_FilterSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_FilterFreqValue" x="90.0" y="258.0"
+                   parentComponent="Panel_FilterSettings" width="60.0" height="27.0"
+                   text="20000Hz" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_FilterTitle" x="236.0" y="8.0" parentComponent="Panel_FilterSettings"
+                   text="FILTER" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_FilterFreq" x="30.0" y="242.0"
+                   parentComponent="Panel_FilterSettings" text="" min="20.0" max="20000.0"
+                   stepSize="1.0" middlePosition="1500.0" width="48.0" height="48.0"
+                   isPluginParameter="1" pluginParameterName="Filter_Freq" numStrips="127.0"
+                   defaultValue="20000.0" tooltip="Adjusts the Filter Cutoff Frequency (Hz)."/>
+        <Component type="ScriptSlider" id="Slider_FilterQ" x="170.0" y="242.0" parentComponent="Panel_FilterSettings"
+                   text="" min="0.300000011920929" max="8.0" middlePosition="1.0"
+                   width="48.0" height="48.0" isPluginParameter="1" pluginParameterName="Filter_Q"
+                   numStrips="127.0" defaultValue="0.4000000059604645" tooltip="Adjusts the Filter Resonance (Q)."/>
+        <Component type="ScriptComboBox" id="ComboBox_FilterMode" x="400.0" y="220.0"
+                   max="2" parentComponent="Panel_FilterSettings" text="Select"
+                   items="LowPass&#10;HighPass" width="170.0" height="30.0" isPluginParameter="1"
+                   pluginParameterName="Filter_Type" tooltip="Select Filter type."/>
+        <Component type="ScriptFloatingTile" id="FloatingTile4" x="30.0" y="40.0"
+                   parentComponent="Panel_FilterSettings" ContentType="FilterDisplay"
+                   bgColour="1729895452" itemColour="4294967295" itemColour2="2147483647"
+                   Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;Filter1&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                   width="540.0" height="170.0" itemColour3="12396841"/>
+        <Component type="ScriptLabel" id="Label_FilterFreq" x="90.0" y="242.0" parentComponent="Panel_FilterSettings"
+                   text="Freq" editable="0" width="49.0" height="28.0" bgColour="14692143"
+                   fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_FilterQ" x="230.0" y="242.0" parentComponent="Panel_FilterSettings"
+                   text="Q" editable="0" width="35.0" height="28.0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_FilterQValue" x="230.0" y="258.0"
+                   parentComponent="Panel_FilterSettings" width="43.0" height="27.0"
+                   text="0.40" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXFilterFreq" x="90.0"
+                   y="228.0" parentComponent="Panel_FilterSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXFilterQ" x="230.0"
+                   y="228.0" parentComponent="Panel_FilterSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_EQSettings" x="197.0" y="87.0" parentComponent="Panel_FX"
+                 width="600.0" height="300.0" itemColour="3372220416" itemColour2="3372220416"
+                 borderRadius="2.0" bgColour="16777215" textColour="16777215"
+                 visible="0">
+        <Component type="ScriptFloatingTile" id="FloatingTile3" x="7.0" y="40.0"
+                   parentComponent="Panel_EQSettings" width="580.0" height="250.0"
+                   ContentType="DraggableFilterPanel" bgColour="5855577" itemColour="3435066873"
+                   itemColour2="4294967295" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;Parametriq EQ1&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                   itemColour3="544305521"/>
+        <Component type="ScriptLabel" id="Label_EQTitle" x="236.0" y="8.0" parentComponent="Panel_EQSettings"
+                   text="PARAMETRIC EQ" editable="0" width="128.0" height="28.0"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_CompSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_CompTitle" x="236.0" y="8.0" parentComponent="Panel_CompSettings"
+                   text="COMPRESSOR" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_CompThreshold" x="44.0" y="90.0"
+                   parentComponent="Panel_CompSettings" text="" min="-100.0" max="0.0"
+                   middlePosition="-48.0" isPluginParameter="1" pluginParameterName="Comp_Threshold"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the Compressor Threshold (in dB)."/>
+        <Component type="ScriptSlider" id="Slider_CompAttack" x="44.0" y="159.0"
+                   parentComponent="Panel_CompSettings" text="" min="1.0" max="250.0"
+                   middlePosition="125.0" defaultValue="50.0" isPluginParameter="1"
+                   pluginParameterName="Comp_Attack" numStrips="127.0" width="48.0"
+                   height="48.0" tooltip="Adjusts the Compressor Attack (in ms)."/>
+        <Component type="ScriptSlider" id="Slider_CompRelease" x="44.0" y="229.0"
+                   parentComponent="Panel_CompSettings" text="" defaultValue="50.0"
+                   min="1.0" max="250.0" middlePosition="125.0" isPluginParameter="1"
+                   pluginParameterName="Comp_Release" numStrips="127.0" width="48.0"
+                   height="48.0" tooltip="Adjusts the Compressor Release (in ms)."/>
+        <Component type="ScriptSlider" id="Slider_CompRatio" x="180.0" y="90.0"
+                   parentComponent="Panel_CompSettings" text="" min="2.0" max="8.0"
+                   stepSize="1.0" middlePosition="4.0" defaultValue="4.0" isPluginParameter="1"
+                   pluginParameterName="Comp_Ratio" numStrips="127.0" width="48.0"
+                   height="48.0" tooltip="Adjusts the Compressor Ratio."/>
+        <Component type="ScriptSlider" id="Slider_CompMakeup" x="180.0" y="159.0"
+                   parentComponent="Panel_CompSettings" text="" max="12.0" middlePosition="6.0"
+                   isPluginParameter="1" pluginParameterName="Comp_MakeupGain" numStrips="127.0"
+                   width="48.0" height="48.0" tooltip="Adjusts the makeup Gain after the Compression has happened."/>
+        <Component type="ScriptSlider" id="Slider_CompMix" x="180.0" y="229.0" parentComponent="Panel_CompSettings"
+                   text="" middlePosition="0.5" isPluginParameter="1" pluginParameterName="Comp_Mix"
+                   numStrips="127.0" width="48.0" height="48.0" defaultValue="1.0"
+                   tooltip="Adjusts the blend between Dry and Wet signals."/>
+        <Component type="ScriptLabel" id="Label_CompThresholdValue" x="104.0" y="106.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="0dB" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompThreshold" x="104.0" y="90.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="Threshold" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompRatio" x="240.0" y="90.0" parentComponent="Panel_CompSettings"
+                   width="61.0" height="28.0" text="Ratio" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompRatioValue" x="240.0" y="106.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="4.0:1" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompMakeup" x="240.0" y="159.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="Makeup" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompMakeupValue" x="240.0" y="175.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="0dB" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompAttack" x="104.0" y="159.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="Attack" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompAttackValue" x="104.0" y="175.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="50ms" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompMix" x="240.0" y="229.0" parentComponent="Panel_CompSettings"
+                   width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompMixValue" x="240.0" y="245.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="100%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompRelease" x="104.0" y="229.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="Release" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_CompReleaseValue" x="104.0" y="245.0"
+                   parentComponent="Panel_CompSettings" width="61.0" height="28.0"
+                   text="50ms" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptPanel" id="Panel_CompImage" x="350.0" y="80.0" width="180.0"
+                   height="180.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
+                   parentComponent="Panel_CompSettings"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_AmpSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_AmpGain" x="104.0" y="180.0" parentComponent="Panel_AmpSettings"
+                   width="80.0" height="28.0" text="Drive" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpGainValue" x="104.0" y="196.0"
+                   parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
+                   text="0.0%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpTitle" x="236.0" y="8.0" parentComponent="Panel_AmpSettings"
+                   text="AMP" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_AmpGain" x="44.0" y="180.0" parentComponent="Panel_AmpSettings"
+                   text="" max="100.0" middlePosition="50.0" stepSize="1.0" isPluginParameter="1"
+                   pluginParameterName="Amp_Gain" numStrips="127.0" width="48.0"
+                   height="48.0" tooltip="Adjusts the amount of Drive going into the Amplifier."/>
+        <Component type="ScriptButton" id="Button_AmpCabBypass" x="246.0" y="253.0"
+                   parentComponent="Panel_AmpSettings" text="LAFButtonBypass" width="10.0"
+                   height="10.0" itemColour="3355443" bgColour="16777215" isPluginParameter="1"
+                   pluginParameterName="Amp_EnableCab" enableMidiLearn="0" tooltip="Bypasses the Cabinet IR."/>
+        <Component type="ScriptSlider" id="Slider_AmpEQLow" x="44.0" y="90.0" parentComponent="Panel_AmpSettings"
+                   text="" max="8.0" middlePosition="0.0" stepSize="1.0" isPluginParameter="1"
+                   pluginParameterName="Amp_EQLow" numStrips="127.0" width="48.0"
+                   height="48.0" min="-8.0" tooltip="Adjusts the Low EQ Shelf (in dB)."/>
+        <Component type="ScriptLabel" id="Label_AmpEQLowValue" x="40.0" y="58.0"
+                   parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
+                   text="0.0dB" editable="0" saveInPreset="1"/>
+        <Component type="ScriptLabel" id="Label_AmpEQLow" x="30.0" y="45.0" parentComponent="Panel_AmpSettings"
+                   width="80.0" height="28.0" text="Low" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptSlider" id="Slider_AmpEQHigh" x="204.0" y="90.0"
+                   parentComponent="Panel_AmpSettings" text="" max="8.0" middlePosition="0.0"
+                   stepSize="1.0" isPluginParameter="1" pluginParameterName="Amp_EQHigh"
+                   numStrips="127.0" width="48.0" height="48.0" min="-8.0" tooltip="Adjusts the High EQ shelf (in dB)."/>
+        <Component type="ScriptSlider" id="Slider_AmpEQMid" x="124.0" y="90.0" parentComponent="Panel_AmpSettings"
+                   text="" max="8.0" middlePosition="0.0" stepSize="1.0" isPluginParameter="1"
+                   pluginParameterName="Amp_EQMid" numStrips="127.0" width="48.0"
+                   height="48.0" min="-8.0" tooltip="Adjusts the Mid Band Gain (in dB)."/>
+        <Component type="ScriptLabel" id="Label_AmpCabBypass" x="253.0" y="244.0"
+                   parentComponent="Panel_AmpSettings" width="40.0" height="28.0"
+                   text="Cab" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptSlider" id="Slider_AmpOutput" x="164.0" y="180.0"
+                   parentComponent="Panel_AmpSettings" text="" max="36.0" middlePosition="0.0"
+                   stepSize="1.0" isPluginParameter="1" pluginParameterName="Amp_Output"
+                   numStrips="127.0" width="48.0" height="48.0" min="-60.0" tooltip="Adjusts the Output Gain of the Amplifier."/>
+        <Component type="ScriptLabel" id="Label_AmpOutputValue" x="224.0" y="196.0"
+                   parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
+                   text="0.0dB" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpOutput" x="224.0" y="180.0" parentComponent="Panel_AmpSettings"
+                   width="80.0" height="28.0" text="Output" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_AmpEQMid" x="111.0" y="45.0" parentComponent="Panel_AmpSettings"
+                   width="80.0" height="28.0" text="Mid" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptLabel" id="Label_AmpEQMidValue" x="121.0" y="58.0"
+                   parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
+                   text="0.0dB" editable="0" saveInPreset="1"/>
+        <Component type="ScriptLabel" id="Label_AmpEQHigh" x="193.0" y="45.0" parentComponent="Panel_AmpSettings"
+                   width="80.0" height="28.0" text="High" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptLabel" id="Label_AmpEQHighValue" x="203.0" y="58.0"
+                   parentComponent="Panel_AmpSettings" width="61.0" height="28.0"
+                   text="0.0dB" editable="0" saveInPreset="1"/>
+        <Component type="ScriptComboBox" id="ComboBox_AmpCabSelect" x="44.0" y="253.0"
+                   max="14" parentComponent="Panel_AmpSettings" items="Cab 1.wav&#10;Cab 2.wav&#10;Cab 3.wav&#10;Cab 4.wav&#10;Cab 5.wav&#10;Cab 6.wav&#10;Cab 7.wav&#10;Cab 8.wav&#10;Cab 9.wav&#10;Cab 10.wav&#10;Cab 11.wav&#10;Cab 12.wav&#10;Cab 13.wav&#10;Cab 14.wav"
+                   text="Cab Select" isPluginParameter="1" pluginParameterName="Amp_CabSelect"
+                   tooltip="Select a Cabinet Impulse Response (IR)." width="160.0"
+                   height="30.0"/>
+        <Component type="ScriptButton" id="Button_AmpHQ" x="246.0" y="272.0" parentComponent="Panel_AmpSettings"
+                   text="LAFButtonBypass" width="10.0" height="10.0" itemColour="3355443"
+                   bgColour="16777215" isPluginParameter="1" pluginParameterName="Amp_HQ"
+                   processorId="Amp" parameterId="Oversample" enableMidiLearn="0"
+                   tooltip="Toggles Oversampling."/>
+        <Component type="ScriptLabel" id="Label_AmpHQ" x="253.0" y="264.0" parentComponent="Panel_AmpSettings"
+                   width="40.0" height="28.0" text="HQ" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpLow" x="90.0" y="55.0"
+                   parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpMid" x="170.0" y="55.0"
+                   parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpHigh" x="254.0"
+                   y="55.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpDrive" x="104.0"
+                   y="166.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpOutput" x="224.0"
+                   y="166.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXAmpCabinet" x="222.0"
+                   y="253.0" parentComponent="Panel_AmpSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_AmpComboBoxUp" x="185.0" y="260.0"
+                   parentComponent="Panel_AmpSettings" width="10.0" height="7.0"
+                   text="LAFButtonUpArrow" isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>
+        <Component type="ScriptButton" id="Button_AmpComboBoxDown" x="185.0" y="269.0"
+                   parentComponent="Panel_AmpSettings" width="10.0" height="7.0"
+                   text="LAFButtonDownArrow" isMomentary="1" enableMidiLearn="0"
+                   saveInPreset="0"/>
+        <Component type="ScriptPanel" id="Panel_AmpImage" x="320.0" y="30.0" width="270.0"
+                   height="250.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
+                   parentComponent="Panel_AmpSettings"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_DriveSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_DriveWaveShaperGain" x="104.0" y="90.0"
+                   parentComponent="Panel_DriveSettings" width="61.0" height="28.0"
+                   text="Gain" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveWaveShaperGainValue" x="104.0"
+                   y="106.0" parentComponent="Panel_DriveSettings" width="50.0"
+                   height="28.0" text="0db" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveTitle" x="236.0" y="8.0" parentComponent="Panel_DriveSettings"
+                   text="DRIVE" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptComboBox" id="ComboBox_DriveOversample" x="180.0"
+                   y="110.0" max="2" parentComponent="Panel_DriveSettings" width="112.0"
+                   height="30.0" text="Oversample" items="Off&#10;2x" processorId="Shape FX1"
+                   parameterId="Oversampling" tooltip="Applies Oversampling."/>
+        <Component type="ScriptSlider" id="Slider_DriveWaveshaperGain" x="44.0"
+                   y="90.0" parentComponent="Panel_DriveSettings" text="" max="16.0"
+                   middlePosition="8.0" isPluginParameter="1" pluginParameterName="Drive_WaveShaperGain"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of Gain applied to the WaveShaper."/>
+        <Component type="ScriptComboBox" id="ComboBox_DriveOversample1" x="180.0"
+                   y="219.0" max="2" parentComponent="Panel_DriveSettings" width="112.0"
+                   height="30.0" text="Oversample" items="Off&#10;2x" tooltip="Applies Oversampling."/>
+        <Component type="ScriptSlider" id="Slider_DriveTubeGain" x="44.0" y="199.0"
+                   parentComponent="Panel_DriveSettings" text="" max="16.0" middlePosition="8.0"
+                   isPluginParameter="1" pluginParameterName="Drive_TubeGain" numStrips="127.0"
+                   width="48.0" height="48.0" tooltip="Adjusts the amount of Gain applied to the Tube Drive."/>
+        <Component type="ScriptLabel" id="Label_DriveWaveShaper" x="90.0" y="47.0"
+                   parentComponent="Panel_DriveSettings" text="WaveShaper" width="128.0"
+                   height="28.0" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptLabel" id="Label_DriveTube" x="90.0" y="156.0" parentComponent="Panel_DriveSettings"
+                   text="Tube Drive" width="128.0" height="28.0" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptLabel" id="Label_DriveTubeGainValue" x="104.0" y="215.0"
+                   parentComponent="Panel_DriveSettings" width="50.0" height="28.0"
+                   text="0db" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveTubeGain" x="104.0" y="199.0"
+                   parentComponent="Panel_DriveSettings" width="61.0" height="28.0"
+                   text="Gain" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveWaveShaperOversample" x="180.0"
+                   y="80.0" parentComponent="Panel_DriveSettings" width="109.0"
+                   height="28.0" text="Oversampling" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DriveTubeOversample" x="180.0" y="189.0"
+                   parentComponent="Panel_DriveSettings" width="109.0" height="28.0"
+                   text="Oversampling" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDriveWaveShaperGain"
+                   x="104.0" y="76.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDriveTubeDriveGain"
+                   x="104.0" y="185.0" parentComponent="Panel_DriveSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_DriveImage" x="330.0" y="30.0" width="280.0"
+                   height="290.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
+                   parentComponent="Panel_DriveSettings"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_DegradeSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_DegradeBitDepth" x="104.0" y="90.0"
+                   parentComponent="Panel_DegradeSettings" width="61.0" height="28.0"
+                   text="Bit Depth" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DegradeBitDepthValue" x="104.0"
+                   y="106.0" parentComponent="Panel_DegradeSettings" width="61.0"
+                   height="28.0" text="16" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DegradeTitle" x="236.0" y="8.0"
+                   parentComponent="Panel_DegradeSettings" text="DEGRADE" editable="0"
+                   width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_DegradeBitDepth" x="44.0" y="90.0"
+                   parentComponent="Panel_DegradeSettings" min="4.0" max="16.0"
+                   stepSize="0.1000000014901161" middlePosition="10.0" defaultValue="16.0"
+                   text="" isPluginParameter="1" pluginParameterName="Degrade_BitDepth"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of Bits."/>
+        <Component type="ScriptSlider" id="Slider_DegradeSampleHold" x="44.0" y="220.0"
+                   parentComponent="Panel_DegradeSettings" max="64.0" min="1.0"
+                   defaultValue="1.0" middlePosition="32.0" stepSize="1.0" text=""
+                   isPluginParameter="1" pluginParameterName="Degrade_SnH" numStrips="127.0"
+                   width="48.0" height="48.0" tooltip="Adjusts the SampleHold amount."/>
+        <Component type="ScriptLabel" id="Label_DegradeSampleHoldValue" x="104.0"
+                   y="236.0" parentComponent="Panel_DegradeSettings" width="61.0"
+                   height="28.0" text="1.0" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DegradeSampleHold" x="104.0" y="220.0"
+                   parentComponent="Panel_DegradeSettings" width="86.0" height="28.0"
+                   text="Sample Hold" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDegradeBitDepth" x="104.0"
+                   y="76.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXSampleHold" x="104.0"
+                   y="206.0" parentComponent="Panel_DegradeSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_DegradeImage" x="340.0" y="50.0"
+                   width="220.0" height="210.0" borderRadius="0.0" bgColour="16777215"
+                   textColour="16777215" parentComponent="Panel_DegradeSettings"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_WidthSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_StutterLFOSync" x="177.0" y="260.0"
+                   parentComponent="Panel_WidthSettings" width="80.0" height="28.0"
+                   text="Sync" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptButton" id="Button_StutterLFOSync" x="178.0" y="269.0"
+                   parentComponent="Panel_WidthSettings" text="LAFButtonBypass"
+                   width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
+                   enableMidiLearn="0" tooltip="Synchronizes the Stutter Rate to the Host Tempo."/>
+        <Component type="ScriptLabel" id="Label_WidthAmount" x="104.0" y="90.0"
+                   parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
+                   text="Width" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_WidthAmountValue" x="104.0" y="106.0"
+                   parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
+                   text="100%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_WidthTitle" x="90.0" y="47.0" parentComponent="Panel_WidthSettings"
+                   text="Widener" editable="0" width="128.0" height="28.0" fontStyle="Bold"/>
+        <Component type="ScriptSlider" id="Slider_WidthAmount" x="44.0" y="90.0"
+                   parentComponent="Panel_WidthSettings" text="" max="200.0" middlePosition="100.0"
+                   defaultValue="100.0" isPluginParameter="1" pluginParameterName="Width_Amount"
+                   numStrips="127.0" width="48.0" height="48.0" stepSize="1.0" tooltip="Adjusts the Stereo Width."/>
+        <Component type="ScriptSlider" id="Slider_WidthGain" x="180.0" y="90.0"
+                   parentComponent="Panel_WidthSettings" text="" min="-100.0" max="36.0"
+                   middlePosition="0.0" isPluginParameter="1" pluginParameterName="Width_Gain"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of clean Gain (in dB)."/>
+        <Component type="ScriptLabel" id="Label_WidthGain" x="240.0" y="90.0" parentComponent="Panel_WidthSettings"
+                   width="61.0" height="28.0" text="Gain" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_WidthGainValue" x="240.0" y="106.0"
+                   parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
+                   text="0db" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptSlider" id="Slider_StutterLFORate" x="44.0" y="199.0"
+                   parentComponent="Panel_WidthSettings" text="" max="18.0" middlePosition="9.0"
+                   defaultValue="11.0" isPluginParameter="1" pluginParameterName="Stutter_Rate"
+                   numStrips="127.0" width="48.0" height="48.0" stepSize="1.0" tooltip="Adjusts the stutter Rate, synced to DAW tempo."
+                   visible="0"/>
+        <Component type="ScriptSlider" id="Slider_StutterLFORateFree" x="44.0" y="199.0"
+                   parentComponent="Panel_WidthSettings" text="" middlePosition="10.0"
+                   defaultValue="3.0" isPluginParameter="1" pluginParameterName="Stutter_Rate"
+                   filmstripImage="{PROJECT_FOLDER}slider1.png" numStrips="127.0"
+                   width="48.0" height="48.0" stepSize="0.1000000014901161" min="0.5"
+                   max="40.0" tooltip="Adjusts the Stutter Rate (in Hz)."/>
+        <Component type="ScriptLabel" id="Label_StutterLFORateValue" x="104.0" y="215.0"
+                   parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
+                   text="3Hz" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_StutterLFORate" x="104.0" y="199.0"
+                   parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
+                   text="Rate" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptSlider" id="Slider_StutterLFOAmount" x="180.0" y="199.0"
+                   parentComponent="Panel_WidthSettings" text="" middlePosition="0.5"
+                   isPluginParameter="1" pluginParameterName="Stutter_Amount" numStrips="127.0"
+                   width="48.0" height="48.0" tooltip="Adjusts the amount of Stutter applied."/>
+        <Component type="ScriptLabel" id="Label_StutterLFOAmount" x="240.0" y="199.0"
+                   parentComponent="Panel_WidthSettings" width="61.0" height="28.0"
+                   text="Amount" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_StutterLFOAmountValue" x="240.0"
+                   y="215.0" parentComponent="Panel_WidthSettings" width="61.0"
+                   height="28.0" text="0%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_StutterLFOTitle" x="90.0" y="156.0"
+                   parentComponent="Panel_WidthSettings" text="Stutter LFO" editable="0"
+                   fontStyle="Bold"/>
+        <Component type="ScriptButton" id="Button_StutterLFOPreFX" x="54.0" y="270.0"
+                   parentComponent="Panel_WidthSettings" text="LAFButtonBypass"
+                   width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
+                   enableMidiLearn="0" tooltip="Makes the Stutter Pre-FX."/>
+        <Component type="ScriptLabel" id="Label_StutterLFOPreFX" x="61.0" y="261.0"
+                   parentComponent="Panel_WidthSettings" width="72.0" height="28.0"
+                   text="Pre FX" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXWidenerWidth" x="104.0"
+                   y="76.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXStutterRate" x="104.0"
+                   y="185.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXStutterAmount" x="240.0"
+                   y="185.0" parentComponent="Panel_WidthSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptLabel" id="Label_WidthTitle1" x="240.0" y="8.0" parentComponent="Panel_WidthSettings"
+                   text="UTILITY" editable="0" width="128.0" height="28.0" fontStyle="Regular"/>
+        <Component type="ScriptPanel" id="Panel_WidthImage" x="350.0" y="80.0" width="180.0"
+                   height="180.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
+                   parentComponent="Panel_WidthSettings"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_PhaserSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_PhaserRateAAmount" x="104.0" y="106.0"
+                   parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
+                   text="1500Hz" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserRateA" x="104.0" y="90.0"
+                   parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
+                   text="Rate A" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserTitle" x="236.0" y="8.0" parentComponent="Panel_PhaserSettings"
+                   text="PHASER" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_PhaserRateA" x="44.0" y="90.0"
+                   parentComponent="Panel_PhaserSettings" text="" min="20.0" max="20000.0"
+                   middlePosition="1500.0" defaultValue="1500.0" isPluginParameter="1"
+                   pluginParameterName="Phaser_RateA" numStrips="127.0" width="48.0"
+                   height="48.0" stepSize="1.0" tooltip="Adjusts the Phaser Rate A."/>
+        <Component type="ScriptSlider" id="Slider_PhaserRateB" x="44.0" y="179.0"
+                   parentComponent="Panel_PhaserSettings" text="" min="20.0" max="20000.0"
+                   middlePosition="1500.0" defaultValue="1500.0" isPluginParameter="1"
+                   pluginParameterName="Phaser_RateB" numStrips="127.0" width="48.0"
+                   height="48.0" stepSize="1.0" tooltip="Adjusts the Phaser Rate B."/>
+        <Component type="ScriptSlider" id="Slider_PhaserMix" x="180.0" y="179.0"
+                   parentComponent="Panel_PhaserSettings" text="" middlePosition="0.5"
+                   isPluginParameter="1" pluginParameterName="Phaser_Mix" numStrips="127.0"
+                   width="48.0" height="48.0" defaultValue="0.2000000029802322"
+                   tooltip="Adjusts the blend between Dry and Wet signals."/>
+        <Component type="ScriptSlider" id="Slider_PhaserFeedback" x="180.0" y="90.0"
+                   parentComponent="Panel_PhaserSettings" text="" middlePosition="0.5"
+                   isPluginParameter="1" pluginParameterName="Phaser_Feedback" numStrips="127.0"
+                   width="48.0" height="48.0" defaultValue="0.2000000029802322"
+                   tooltip="Adjusts the level of Feedback."/>
+        <Component type="ScriptLabel" id="Label_PhaserRateB" x="104.0" y="179.0"
+                   parentComponent="Panel_PhaserSettings" width="64.0" height="28.0"
+                   text="Rate B" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserRateBAmount" x="104.0" y="194.0"
+                   parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
+                   text="1500Hz" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserFeedback" x="240.0" y="90.0"
+                   parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
+                   text="Feedback" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserFeedbackAmount" x="240.0"
+                   y="106.0" parentComponent="Panel_PhaserSettings" width="61.0"
+                   height="28.0" text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserMix" x="240.0" y="179.0" parentComponent="Panel_PhaserSettings"
+                   width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_PhaserMixAmount" x="240.0" y="194.0"
+                   parentComponent="Panel_PhaserSettings" width="61.0" height="28.0"
+                   text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateA" x="104.0"
+                   y="76.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserRateB" x="104.0"
+                   y="165.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" x="240.0"
+                   y="76.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXPhaserMix" x="240.0"
+                   y="165.0" parentComponent="Panel_PhaserSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_PhaserImage" x="320.0" y="80.0"
+                   width="270.0" height="180.0" borderRadius="0.0" bgColour="16777215"
+                   textColour="16777215" parentComponent="Panel_PhaserSettings"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_ReverbSettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215" visible="0">
+        <Component type="ScriptLabel" id="Label_ReverbSize" x="104.0" y="90.0" parentComponent="Panel_ReverbSettings"
+                   width="61.0" height="28.0" text="Size" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbSizeValue" x="104.0" y="106.0"
+                   parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
+                   text="70%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbTitle" x="236.0" y="8.0" parentComponent="Panel_ReverbSettings"
+                   text="REVERB" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_ReverbSize" x="44.0" y="90.0"
+                   parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
+                   defaultValue="0.699999988079071" isPluginParameter="1" pluginParameterName="Reverb_Size"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the Size of the Reverb."/>
+        <Component type="ScriptSlider" id="Slider_ReverbWidth" x="44.0" y="179.0"
+                   parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
+                   defaultValue="0.800000011920929" isPluginParameter="1" pluginParameterName="Reverb_Width"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the Stereo Width of the Reverb."/>
+        <Component type="ScriptSlider" id="Slider_ReverbDamping" x="180.0" y="90.0"
+                   parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
+                   defaultValue="0.5" isPluginParameter="1" pluginParameterName="Reverb_Damping"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the amount of High Frequency Damping."/>
+        <Component type="ScriptSlider" id="Slider_ReverbMix" x="180.0" y="179.0"
+                   parentComponent="Panel_ReverbSettings" text="" middlePosition="0.5"
+                   defaultValue="0.2000000029802322" isPluginParameter="1" pluginParameterName="Reverb_Mix"
+                   numStrips="127.0" width="48.0" height="48.0" tooltip="Adjusts the blend between Dry and Wet signals."/>
+        <Component type="ScriptLabel" id="Label_ReverbDampingValue" x="240.0" y="106.0"
+                   parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
+                   text="50%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbDamping" x="240.0" y="90.0"
+                   parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
+                   text="Damping" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbWidth" x="104.0" y="179.0"
+                   parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
+                   text="Width" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbWidthValue" x="104.0" y="195.0"
+                   parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
+                   text="80%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbMix" x="240.0" y="179.0" parentComponent="Panel_ReverbSettings"
+                   width="61.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_ReverbMixValue" x="240.0" y="195.0"
+                   parentComponent="Panel_ReverbSettings" width="61.0" height="28.0"
+                   text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXReverbSize" x="104.0"
+                   y="76.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXReverbDamping" x="240.0"
+                   y="76.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXReverbWidth" x="104.0"
+                   y="165.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXReverbMix" x="240.0"
+                   y="165.0" parentComponent="Panel_ReverbSettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptPanel" id="Panel_ReverbImage" x="350.0" y="70.0"
+                   width="220.0" height="220.0" borderRadius="0.0" bgColour="16777215"
+                   textColour="16777215" parentComponent="Panel_ReverbSettings"/>
+      </Component>
+      <Component type="ScriptPanel" id="Panel_DelaySettings" x="197.0" y="87.0"
+                 parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
+                 itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
+                 textColour="16777215">
+        <Component type="ScriptLabel" id="Label_DelayTimeLeft" x="104.0" y="90.0"
+                   parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
+                   text="Time L" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTimeLeftValue" x="104.0" y="106.0"
+                   parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
+                   text="200ms" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTimeRightValue" x="240.0" y="106.0"
+                   parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
+                   text="200ms" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTimeRight" x="240.0" y="90.0"
+                   parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
+                   text="Time R" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayTitle" x="236.0" y="8.0" parentComponent="Panel_DelaySettings"
+                   text="DELAY" editable="0" width="128.0" height="28.0"/>
+        <Component type="ScriptSlider" id="Slider_DelayFeedbackRight" x="180.0"
+                   y="159.0" parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
+                   pluginParameterName="Delay_FeedbackRight" numStrips="127.0" width="48.0"
+                   height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Right Channel."
+                   middlePosition="0.5"/>
+        <Component type="ScriptSlider" id="Slider_DelayFeedbackLeft" x="44.0" y="159.0"
+                   parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
+                   pluginParameterName="Delay_FeedbackLeft" numStrips="127.0" width="48.0"
+                   height="48.0" defaultValue="0.25" isMetaParameter="1" tooltip="Adjusts the Feedback of the Left Channel."
+                   middlePosition="0.5"/>
+        <Component type="ScriptSlider" id="Slider_DelayMix" x="180.0" y="229.0"
+                   parentComponent="Panel_DelaySettings" text="" isPluginParameter="1"
+                   pluginParameterName="Delay_Mix" numStrips="127.0" width="48.0"
+                   height="48.0" defaultValue="0.2000000029802322" tooltip="Adjusts the blend between Dry and Wet signals."/>
+        <Component type="ScriptButton" id="Button_DelayLink" x="49.0" y="228.0"
+                   parentComponent="Panel_DelaySettings" text="LAFButtonBypass"
+                   width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
+                   enableMidiLearn="0" tooltip="Links the Left and Right channels."/>
+        <Component type="ScriptButton" id="Button_DelaySync" x="49.0" y="260.0"
+                   parentComponent="Panel_DelaySettings" text="LAFButtonBypass"
+                   width="10.0" height="10.0" itemColour="3355443" bgColour="16777215"
+                   enableMidiLearn="0" tooltip="Syncs Delay Times to Host Tempo."/>
+        <Component type="ScriptLabel" id="Label_DelayFeedbackLeft" x="104.0" y="159.0"
+                   parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
+                   text="FDBK L" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayFeedbackRight" x="240.0" y="159.0"
+                   parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
+                   text="FDBK R" editable="0" fontStyle="Bold" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayFeedbackRightValue" x="240.0"
+                   y="175.0" parentComponent="Panel_DelaySettings" width="61.0"
+                   height="28.0" text="25%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayFeedbackLeftValue" x="104.0"
+                   y="175.0" parentComponent="Panel_DelaySettings" width="61.0"
+                   height="28.0" text="25%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayMixValue" x="240.0" y="245.0"
+                   parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
+                   text="20%" editable="0" saveInPreset="1" alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayMix" x="240.0" y="229.0" parentComponent="Panel_DelaySettings"
+                   width="80.0" height="28.0" text="Mix" editable="0" fontStyle="Bold"
+                   alignment="left"/>
+        <Component type="ScriptLabel" id="Label_DelayLink" x="67.0" y="220.0" parentComponent="Panel_DelaySettings"
+                   width="80.0" height="28.0" text="Link L&amp;R" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptLabel" id="Label_DelaySync" x="70.0" y="250.0" parentComponent="Panel_DelaySettings"
+                   width="80.0" height="28.0" text="Tempo Sync" editable="0" fontStyle="Bold"/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeL" x="104.0"
+                   y="76.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayTimeR" x="240.0"
+                   y="76.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" x="104.0"
+                   y="145.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" x="240.0"
+                   y="145.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptButton" id="Button_RandomizeFXDelayMix" x="240.0"
+                   y="215.0" parentComponent="Panel_DelaySettings" text="LAFButtonRandomize"
+                   width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+        <Component type="ScriptSlider" id="Slider_DelayTimeLeft" x="44.0" y="90.0"
+                   parentComponent="Panel_DelaySettings" text="" width="48.0" height="48.0"
+                   max="2000" stepSize="1" middlePosition="1050.0" defaultValue="200.0"
+                   isMetaParameter="1" tooltip="Adjusts the Delay Time of the Left Channel."/>
+        <Component type="ScriptSlider" id="Slider_DelayTimeRight" x="180.0" y="90.0"
+                   parentComponent="Panel_DelaySettings" text="" width="48.0" height="48.0"
+                   max="2000" stepSize="1" middlePosition="1050.0" defaultValue="200.0"
+                   isMetaParameter="1" tooltip="Adjusts the Delay Time of the Right Channel."/>
+        <Component type="ScriptPanel" id="Panel_DelayImage" x="310.0" y="89.0" width="260.0"
+                   height="180.0" borderRadius="0.0" bgColour="16777215" textColour="16777215"
+                   parentComponent="Panel_DelaySettings"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_RandomizeFXFilterBypass" x="27.0"
+                 y="106.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeFXAmpBypass" x="27.0"
+                 y="256.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeFXDrive" x="27.0" y="306.0"
+                 parentComponent="Panel_FX" text="LAFButtonRandomize" width="10.0"
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeFXWidenerBypass" x="957.0"
+                 y="107.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeFXPhaserBypass" x="957.0"
+                 y="156.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeFXDegradeBypass" x="27.0"
+                 y="356.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeFXReverbBypass" x="957.0"
+                 y="208.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeFXDelayBypass" x="957.0"
+                 y="258.0" parentComponent="Panel_FX" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_CloseFXPanel" x="978.0" y="1.0"
+                 parentComponent="Panel_FX" width="14.0" height="14.0" text="LAFButtonClose"
+                 saveInPreset="0" isMomentary="1" enableMidiLearn="0"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_Sample" x="0.0" y="0.0" width="994.0"
+               height="474.0" parentComponent="Panel_BG" bgColour="3825600006"
+               itemColour="2583691264" itemColour2="2583691264" text="LAFPanel_Sample"
+               borderRadius="0.0">
+      <Component type="ScriptLabel" id="Label_SamplerATitle" x="115.0" y="-1.0"
+                 width="100.0" height="30.0" fontStyle="Bold" text="SAMPLER A"
+                 parentComponent="Panel_Sample" editable="0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerAGain" x="242.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="12.0" middlePosition="-12.0" pluginParameterName="SamplerA_Gain"
+                 isPluginParameter="1" tooltip="Adjusts the Gain (in dB) of this Sampler."
+                 stepSize="1.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAGainValue" x="242.0" y="439.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="0dB" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerAPan" x="175.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="100.0" stepSize="1.0" middlePosition="0.0"
+                 isPluginParameter="1" pluginParameterName="SamplerA_Pan" tooltip="Adjusts the Stereo Position of this Sampler."/>
+      <Component type="ScriptLabel" id="Label_SamplerAPanValue" x="175.0" y="439.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="C" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptComboBox" id="ComboBox_Oracle2A" x="38.0" y="55.0"
+                 max="18" text="Select" items="Pluck Sustain&#10;Pluck Harmonics&#10;Pluck Bass Sustain&#10;Pluck Acoustic Sustain&#10;Pluck Acoustic Harmonics&#10;Pluck Resynthed A&#10;Pluck Resynthed B&#10;Pluck Resynthed C&#10;Pluck Wobbly&#10;Pad Sustain A&#10;Pad Sustain B&#10;Pad Sustain C&#10;Pad Stretched A&#10;Pad Stretched B&#10;Pad Stretched Harmonics&#10;Pad Textural A &#10;Pad Textural B&#10;Pad Textural C"
+                 width="115.0" height="22.0" itemColour="4212199697" bgColour="4294967295"
+                 parentComponent="Panel_Sample" fontSize="12.0" visible="0"/>
+      <Component type="ScriptAudioWaveform" id="AudioWaveform_SamplerA" x="10.0"
+                 y="75.0" parentComponent="Panel_Sample" width="311.0" height="110.0"
+                 processorId="SamplerA" bgColour="4278584838" itemColour="2731725522"
+                 enableRange="0" showLines="1"/>
+      <Component type="ScriptSlider" id="Slider_SampleOffsetA" x="10.0" y="75.0"
+                 parentComponent="Panel_Sample" width="311.0" height="110.0" text="LAFSliderOracleSampleOffset"
+                 dragDirection="Horizontal" itemColour="4294901502" bgColour="4294967295"
+                 middlePosition="0.5" tooltip="Adjusts the Sample Start Offset of this Sampler."
+                 mouseSensitivity="1.210000038146973"/>
+      <Component type="ScriptComboBox" id="ComboBox_SamplerA" x="90.66666412353516"
+                 y="41.0" text="Select" width="150.0" height="28.0" itemColour="4212199697"
+                 bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
+                 fontName="Arial" tooltip="Select a Patch to load in this Sampler."
+                 items="&#10;Crystal&#10;Dialup&#10;Discovery&#10;Dirty Vinyl&#10;Drift&#10;Droplets&#10;Levitate&#10;Mod Organ&#10;Morning&#10;Ossuary&#10;Phenom&#10;Reliquary&#10;Science&#10;Solstice&#10;Temple&#10;Wonky"
+                 max="16"/>
+      <Component type="ScriptFloatingTile" id="AHDSR_SamplerA" x="10.0" y="75.0"
+                 parentComponent="Panel_Sample" ContentType="AHDSRGraph" bgColour="0"
+                 itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerA_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 textColour="4294951115" width="311.0" height="110.0" visible="0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAAttack" x="43.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Attack" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerADecay" x="109.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Decay" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerASustain" x="175.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Sustain" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerARelease" x="242.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Release" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAAttackValue" x="43.0" y="329.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="5ms" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerADecayValue" x="109.0" y="329.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="1500ms"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerASustainValue" x="175.0"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAReleaseValue" x="242.0"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="1000ms"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerAAttack" x="43.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="5.0" max="20000.0" middlePosition="1000.0"
+                 isPluginParameter="1" pluginParameterName="SamplerA_Attack" numStrips="127.0"
+                 stepSize="1.0" defaultValue="5.0" macroControl="No MacroControl"
+                 tooltip="Adjusts the Attack value of this Sampler's ADSR."/>
+      <Component type="ScriptSlider" id="Slider_SamplerADecay" x="109.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" max="5000.0" isPluginParameter="1"
+                 pluginParameterName="SamplerA_Decay" numStrips="127.0" min="5.0"
+                 stepSize="1.0" middlePosition="2500.0" defaultValue="1500.0"
+                 tooltip="Adjusts the Decay value of this Sampler's ADSR."/>
+      <Component type="ScriptSlider" id="Slider_SamplerASustain" x="175.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="-100.0" max="0.0" middlePosition="-12.0"
+                 isPluginParameter="1" pluginParameterName="SamplerA_Sustain"
+                 numStrips="127.0" stepSize="1.0" tooltip="Adjusts the Sustain value of this Sampler's ADSR."/>
+      <Component type="ScriptSlider" id="Slider_SamplerARelease" x="242.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="5.0" max="20000.0" middlePosition="1000.0"
+                 isPluginParameter="1" pluginParameterName="SamplerA_Release"
+                 numStrips="127.0" stepSize="1.0" defaultValue="1000.0" macroControl="No MacroControl"
+                 tooltip="Adjusts the Release value of this Sampler's ADSR."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerAAttack" x="91.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerADecay" x="157.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerASustain" x="223.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerARelease" x="290.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_SamplerABypass" x="6.0" y="6.0"
+                 parentComponent="Panel_Sample" width="16.0" height="16.0" text="LAFButtonSamplerBypass"
+                 processorId="SamplerA" parameterId="Enabled" enableMidiLearn="0"
+                 tooltip="Toggles the Sampler Bypass."/>
+      <Component type="ScriptSlider" id="Slider_SamplerAPitchCoarse" x="43.0"
+                 y="370.0" parentComponent="Panel_Sample" width="48.0" height="48.0"
+                 text="" min="-12.0" max="12.0" stepSize="1.0" middlePosition="0.0"
+                 isPluginParameter="1" pluginParameterName="SamplerA_Pitch" tooltip="Adjusts the Pitch (in Semitones) of this Sampler."/>
+      <Component type="ScriptLabel" id="Label_SamplerAPitchCoarseValue" x="43.0"
+                 y="439.0" width="48.0" height="20.0" fontStyle="Regular" text="0st"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerAPitchFine" x="109.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="100.0" middlePosition="0.0" stepSize="1.0"
+                 isPluginParameter="1" pluginParameterName="SamplerA_Tune" tooltip="Adjusts the Fine Tuning (in Cents) of this Sampler."/>
+      <Component type="ScriptLabel" id="Label_SamplerAPitchFineValue" x="109.0"
+                 y="439.0" width="48.0" height="20.0" fontStyle="Regular" text="0c"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAPitchCoarse" x="43.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Pitch" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAPitchFine" x="109.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Tune" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAPan" x="175.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Pan" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerAGain" x="242.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Gain" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptButton" id="Button_SamplerBBypass" x="337.0" y="6.0"
+                 parentComponent="Panel_Sample" width="16.0" height="16.0" text="LAFButtonSamplerBypass"
+                 processorId="SamplerB" parameterId="Enabled" enableMidiLearn="0"
+                 tooltip="Toggles the Sampler Bypass."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBAttack" x="422.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBDecay" x="488.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptSlider" id="Slider_SamplerBDecay" x="440.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" max="5000.0" isPluginParameter="1"
+                 pluginParameterName="SamplerB_Decay" numStrips="127.0" min="5.0"
+                 stepSize="1.0" middlePosition="2500.0" defaultValue="1500.0"
+                 tooltip="Adjusts the Decay value of this Sampler's ADSR."/>
+      <Component type="ScriptSlider" id="Slider_SamplerBAttack" x="374.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="5.0" max="20000.0" middlePosition="1000.0"
+                 isPluginParameter="1" pluginParameterName="SamplerB_Attack" numStrips="127.0"
+                 stepSize="1.0" defaultValue="5.0" tooltip="Adjusts the Attack value of this Sampler's ADSR."/>
+      <Component type="ScriptSlider" id="Slider_SamplerBSustain" x="507.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="-100.0" max="0.0" middlePosition="-12.0"
+                 isPluginParameter="1" pluginParameterName="SamplerB_Sustain"
+                 numStrips="127.0" stepSize="1.0" tooltip="Adjusts the Sustain value of this Sampler's ADSR."/>
+      <Component type="ScriptLabel" id="Label_SamplerBDecay" x="440.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Decay" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBSustain" x="555.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptLabel" id="Label_SamplerBDecayValue" x="440.0" y="329.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="1500ms"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBSustain" x="507.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Sustain" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBSustainValue" x="507.0"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptComboBox" id="ComboBox_SamplerB" x="422.0" y="41.0"
+                 text="Select" width="150.0" height="28.0" itemColour="4212199697"
+                 bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
+                 fontName="Arial" tooltip="Select a Patch to load in this Sampler."
+                 items="&#10;Crystal&#10;Dialup&#10;Discovery&#10;Dirty Vinyl&#10;Drift&#10;Droplets&#10;Levitate&#10;Mod Organ&#10;Morning&#10;Ossuary&#10;Phenom&#10;Reliquary&#10;Science&#10;Solstice&#10;Temple&#10;Wonky"
+                 max="16"/>
+      <Component type="ScriptLabel" id="Label_SamplerBPan" x="507.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Pan" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBPitchFine" x="440.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Tune" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBPitchCoarse" x="374.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Pitch" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerBRelease" x="573.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="5.0" max="20000.0" middlePosition="1000.0"
+                 isPluginParameter="1" pluginParameterName="SamplerB_Release"
+                 numStrips="127.0" stepSize="1.0" defaultValue="1000.0" tooltip="Adjusts the Release value of this Sampler's ADSR."/>
+      <Component type="ScriptAudioWaveform" id="AudioWaveform_SamplerB" x="341.0"
+                 y="75.0" parentComponent="Panel_Sample" width="311.0" height="110.0"
+                 processorId="SamplerB" bgColour="4278584838" itemColour="2731725522"
+                 enableRange="0" showLines="1"/>
+      <Component type="ScriptSlider" id="Slider_SampleOffsetB" x="341.0" y="75.0"
+                 parentComponent="Panel_Sample" width="311.0" height="110.0" text="LAFSliderOracleSampleOffset"
+                 dragDirection="Horizontal" itemColour="4294901502" bgColour="4294967295"
+                 middlePosition="0.5" mouseSensitivity="1.210000038146973" tooltip="Adjusts the Sample Start Offset of this Sampler."/>
+      <Component type="ScriptFloatingTile" id="AHDSR_SamplerB" x="341.0" y="75.0"
+                 parentComponent="Panel_Sample" ContentType="AHDSRGraph" bgColour="0"
+                 itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerB_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 textColour="4294951115" width="311.0" height="110.0" visible="0"/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBRelease" x="621.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptSlider" id="Slider_SamplerBPitchFine" x="440.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="100.0" middlePosition="0.0" stepSize="1.0"
+                 isPluginParameter="1" pluginParameterName="SamplerB_Tune" tooltip="Adjusts the Fine Tuning (in Cents) of this Sampler."/>
+      <Component type="ScriptSlider" id="Slider_SamplerBPitchCoarse" x="374.0"
+                 y="370.0" parentComponent="Panel_Sample" width="48.0" height="48.0"
+                 text="" min="-12.0" max="12.0" stepSize="1.0" middlePosition="0.0"
+                 isPluginParameter="1" pluginParameterName="SamplerB_Pitch" tooltip="Adjusts the Pitch (in Semitones) of this Sampler."/>
+      <Component type="ScriptSlider" id="Slider_SamplerBPan" x="507.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="100.0" stepSize="1.0" middlePosition="0.0"
+                 isPluginParameter="1" pluginParameterName="SamplerB_Pan" tooltip="Adjusts the Stereo Position of this Sampler."/>
+      <Component type="ScriptSlider" id="Slider_SamplerBGain" x="573.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="12.0" middlePosition="-12.0" stepSize="1.0"
+                 pluginParameterName="SamplerB_Gain" isPluginParameter="1" tooltip="Adjusts the Gain (in dB) of this Sampler."/>
+      <Component type="ScriptLabel" id="Label_SamplerBRelease" x="573.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Release" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBGain" x="573.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Gain" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBReleaseValue" x="573.0"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="1000ms"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBPitchCoarseValue" x="374.0"
+                 y="439.0" width="48.0" height="20.0" fontStyle="Regular" text="0st"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBPitchFineValue" x="440.0"
+                 y="439.0" width="48.0" height="20.0" fontStyle="Regular" text="0c"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBPanValue" x="507.0" y="439.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="C" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBGainValue" x="573.0" y="439.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="0dB" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBAttackValue" x="374.0" y="329.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="5ms" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBAttack" x="374.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Attack" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptButton" id="Button_SamplerCBypass" x="668.0" y="6.0"
+                 parentComponent="Panel_Sample" width="16.0" height="16.0" text="LAFButtonSamplerBypass"
+                 processorId="SamplerC" parameterId="Enabled" enableMidiLearn="0"
+                 tooltip="Toggles the Sampler Bypass."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCDecay" x="820.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCAttack" x="753.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptSlider" id="Slider_SamplerCAttack" x="705.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="5.0" max="20000.0" middlePosition="1000.0"
+                 isPluginParameter="1" pluginParameterName="SamplerC_Attack" numStrips="127.0"
+                 stepSize="1.0" defaultValue="5.0" tooltip="Adjusts the Attack value of this Sampler's ADSR."/>
+      <Component type="ScriptSlider" id="Slider_SamplerCDecay" x="772.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" max="5000.0" isPluginParameter="1"
+                 pluginParameterName="SamplerC_Decay" numStrips="127.0" min="5.0"
+                 stepSize="1.0" middlePosition="2500.0" defaultValue="1500.0"
+                 tooltip="Adjusts the Decay value of this Sampler's ADSR."/>
+      <Component type="ScriptSlider" id="Slider_SamplerCSustain" x="838.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="-100.0" max="0.0" middlePosition="-12.0"
+                 isPluginParameter="1" pluginParameterName="SamplerC_Sustain"
+                 numStrips="127.0" stepSize="1.0" tooltip="Adjusts the Sustain value of this Sampler's ADSR."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCSustain" x="886.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptLabel" id="Label_SamplerCDecay" x="772.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Decay" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCAttack" x="705.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Attack" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCSustain" x="838.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Sustain" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptComboBox" id="ComboBox_SamplerC" x="753.3333129882813"
+                 y="41.0" text="Select" width="150.0" height="28.0" itemColour="4212199697"
+                 bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
+                 fontName="Arial" tooltip="Select a Patch to load in this Sampler."
+                 items="&#10;Crystal&#10;Dialup&#10;Discovery&#10;Dirty Vinyl&#10;Drift&#10;Droplets&#10;Levitate&#10;Mod Organ&#10;Morning&#10;Ossuary&#10;Phenom&#10;Reliquary&#10;Science&#10;Solstice&#10;Temple&#10;Wonky"
+                 max="16"/>
+      <Component type="ScriptLabel" id="Label_SamplerCAttackValue" x="705.0" y="329.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="5ms" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCSustainValue" x="838.0"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCDecayValue" x="772.0" y="329.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="1500ms"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" x="672.0"
+                 y="75.0" parentComponent="Panel_Sample" width="311.0" height="110.0"
+                 showLines="1" processorId="SamplerC" bgColour="4278584838" itemColour="2731725522"
+                 enableRange="0"/>
+      <Component type="ScriptFloatingTile" id="AHDSR_SamplerC" x="672.0" y="75.0"
+                 parentComponent="Panel_Sample" ContentType="AHDSRGraph" bgColour="0"
+                 itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerC_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 textColour="4294951115" width="311.0" height="110.0" visible="0"/>
+      <Component type="ScriptSlider" id="Slider_SampleOffsetC" x="672.0" y="75.0"
+                 parentComponent="Panel_Sample" width="311.0" height="110.0" text="LAFSliderOracleSampleOffset"
+                 dragDirection="Horizontal" itemColour="4294901502" bgColour="4294967295"
+                 middlePosition="0.5" mouseSensitivity="1.210000038146973" tooltip="Adjusts the Sample Start Offset of this Sampler."/>
+      <Component type="ScriptSlider" id="Slider_SamplerCRelease" x="904.0" y="260.0"
+                 parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
+                 textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" min="5.0" max="20000.0" middlePosition="1000.0"
+                 isPluginParameter="1" pluginParameterName="SamplerC_Release"
+                 numStrips="127.0" stepSize="1.0" defaultValue="1000.0" tooltip="Adjusts the Release value of this Sampler's ADSR."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCRelease" x="952.0"
+                 y="245.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptLabel" id="Label_SamplerCPitchCoarse" x="705.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Pitch" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCPitchFine" x="772.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Tune" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCPan" x="838.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Pan" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCRelease" x="904.0" y="309.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Release" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCReleaseValue" x="904.0"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="1000ms"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCGain" x="904.0" y="419.0"
+                 width="48.0" height="20.0" fontStyle="Bold" text="Gain" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerCGain" x="904.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="12.0" middlePosition="-12.0" stepSize="1.0"
+                 pluginParameterName="SamplerC_Gain" isPluginParameter="1" tooltip="Adjusts the Gain (in dB) of this Sampler."/>
+      <Component type="ScriptSlider" id="Slider_SamplerCPan" x="838.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="100.0" stepSize="1.0" middlePosition="0.0"
+                 isPluginParameter="1" pluginParameterName="SamplerC_Pan" tooltip="Adjusts the Stereo Position of this Sampler."/>
+      <Component type="ScriptSlider" id="Slider_SamplerCPitchCoarse" x="705.0"
+                 y="370.0" parentComponent="Panel_Sample" width="48.0" height="48.0"
+                 text="" min="-12.0" max="12.0" stepSize="1.0" middlePosition="0.0"
+                 isPluginParameter="1" pluginParameterName="SamplerC_Pitch" tooltip="Adjusts the Pitch (in Semitones) of this Sampler."/>
+      <Component type="ScriptSlider" id="Slider_SamplerCPitchFine" x="772.0" y="370.0"
+                 parentComponent="Panel_Sample" width="48.0" height="48.0" text=""
+                 min="-100.0" max="100.0" middlePosition="0.0" stepSize="1.0"
+                 isPluginParameter="1" pluginParameterName="SamplerC_Tune" tooltip="Adjusts the Fine Tuning (in Cents) of this Sampler."/>
+      <Component type="ScriptLabel" id="Label_SamplerCGainValue" x="904.0" y="439.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="0dB" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCPanValue" x="838.0" y="439.0"
+                 width="48.0" height="20.0" fontStyle="Regular" text="C" parentComponent="Panel_Sample"
+                 editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCPitchFineValue" x="772.0"
+                 y="439.0" width="48.0" height="20.0" fontStyle="Regular" text="0c"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCPitchCoarseValue" x="705.0"
+                 y="439.0" width="48.0" height="20.0" fontStyle="Regular" text="0st"
+                 parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
+      <Component type="ScriptButton" id="Button_SamplerAReverse" x="278.0" y="204.0"
+                 parentComponent="Panel_Sample" width="40.0" height="20.0" text="LAFButtonSamplerReverse"
+                 macroControl="No MacroControl" enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
+      <Component type="ScriptButton" id="Button_SamplerBReverse" x="609.0" y="204.0"
+                 parentComponent="Panel_Sample" width="40.0" height="20.0" text="LAFButtonSamplerReverse"
+                 enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
+      <Component type="ScriptButton" id="Button_SamplerCReverse" x="940.0" y="204.0"
+                 parentComponent="Panel_Sample" width="40.0" height="20.0" text="LAFButtonSamplerReverse"
+                 enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
+      <Component type="ScriptButton" id="Button_SamplerAComboBoxUp" x="222.6666717529297"
+                 y="48.0" parentComponent="Panel_Sample" width="8.0" height="6.0"
+                 text="LAFButtonUpArrow" enableMidiLearn="0" isMomentary="1" saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_SamplerAComboBoxDown" x="222.6666717529297"
+                 y="56.0" parentComponent="Panel_Sample" width="8.0" height="6.0"
+                 text="LAFButtonDownArrow" enableMidiLearn="0" isMomentary="1"
+                 saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_SamplerBComboBoxUp" x="554.0"
+                 y="48.0" parentComponent="Panel_Sample" width="8.0" height="6.0"
+                 text="LAFButtonUpArrow" enableMidiLearn="0" isMomentary="1" saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_SamplerBComboBoxDown" x="554.0"
+                 y="56.0" parentComponent="Panel_Sample" width="8.0" height="6.0"
+                 text="LAFButtonDownArrow" enableMidiLearn="0" isMomentary="1"
+                 saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_SamplerCComboBoxUp" x="885.3333129882813"
+                 y="48.0" parentComponent="Panel_Sample" width="8.0" height="6.0"
+                 text="LAFButtonUpArrow" enableMidiLearn="0" isMomentary="1" saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_SamplerCComboBoxDown" x="885.3333129882813"
+                 y="56.0" parentComponent="Panel_Sample" width="8.0" height="6.0"
+                 text="LAFButtonDownArrow" enableMidiLearn="0" isMomentary="1"
+                 saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerAPitchCoarse"
+                 x="91.0" y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerAPitchFine" x="157.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerAPan" x="223.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerAGain" x="290.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBPitchCoarse"
+                 x="422.0" y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBPitchFine" x="488.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBPan" x="555.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBGain" x="621.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCPitchCoarse"
+                 x="753.0" y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCPitchFine" x="820.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCPan" x="886.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCGain" x="952.0"
+                 y="355.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerAComboBox" x="246.0"
+                 y="41.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBComboBox" x="578.0"
+                 y="41.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCComboBox" x="909.0"
+                 y="41.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerASampleStart"
+                 x="305.0" y="59.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerBSampleStart"
+                 x="636.0" y="59.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeSamplerCSampleStart"
+                 x="967.0" y="59.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_SamplerAShowADSR" x="13.0" y="60.0"
+                 parentComponent="Panel_Sample" width="24.0" height="12.0" text="LAFButtonSamplerShowADSR"
+                 enableMidiLearn="0" tooltip="Switches between Waveform and ADSR Display."/>
+      <Component type="ScriptButton" id="Button_SamplerBShowADSR" x="344.0" y="60.0"
+                 parentComponent="Panel_Sample" width="24.0" height="12.0" text="LAFButtonSamplerShowADSR"
+                 tooltip="Switches between Waveform and ADSR Display."/>
+      <Component type="ScriptButton" id="Button_SamplerCShowADSR" x="675.0" y="60.0"
+                 parentComponent="Panel_Sample" width="24.0" height="12.0" text="LAFButtonSamplerShowADSR"
+                 tooltip="Switches between Waveform and ADSR Display."/>
+      <Component type="ScriptPanel" id="Panel_SamplerDisabledB" x="331.0" y="0.0"
+                 parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
+                 itemColour2="3942645760" visible="0"/>
+      <Component type="ScriptPanel" id="Panel_SamplerDisabledC" x="662.0" y="0.0"
+                 parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
+                 itemColour2="3942645760" visible="0"/>
+      <Component type="ScriptLabel" id="Label_SamplerBTitle" x="447.0" y="-1.0"
+                 width="100.0" height="30.0" fontStyle="Bold" text="SAMPLER B"
+                 parentComponent="Panel_Sample" editable="0"/>
+      <Component type="ScriptLabel" id="Label_SamplerCTitle" x="778.0" y="-1.0"
+                 width="100.0" height="30.0" fontStyle="Bold" text="SAMPLER C"
+                 parentComponent="Panel_Sample" editable="0"/>
+      <Component type="ScriptButton" id="Button_CloseSamplePanel" x="978.0" y="1.0"
+                 parentComponent="Panel_Sample" width="14.0" height="14.0" text="LAFButtonClose"
+                 isMomentary="1" saveInPreset="0" enableMidiLearn="0"/>
+      <Component type="ScriptButton" id="Button_SamplerALoop" x="230.0" y="204.0"
+                 parentComponent="Panel_Sample" width="40.0" height="20.0" text=""
+                 macroControl="No MacroControl" enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
+      <Component type="ScriptButton" id="Button_SamplerBLoop" x="561.0" y="204.0"
+                 parentComponent="Panel_Sample" width="40.0" height="20.0" text="LAFButtonSamplerReverse"
+                 enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
+      <Component type="ScriptButton" id="Button_SamplerCLoop" x="892.0" y="204.0"
+                 parentComponent="Panel_Sample" width="40.0" height="20.0" text="LAFButtonSamplerReverse"
+                 enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
+      <Component type="ScriptPanel" id="Panel_SamplerALoopEdit" x="10.0" y="184.0"
+                 parentComponent="Panel_Sample" height="15.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
+      <Component type="ScriptPanel" id="Panel_SamplerBLoopEdit" x="341.0" y="184.0"
+                 parentComponent="Panel_Sample" height="15.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
+      <Component type="ScriptPanel" id="Panel_SamplerCLoopEdit" x="672.0" y="184.0"
+                 parentComponent="Panel_Sample" height="15.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_Movement" x="0.0" y="0.0" width="994.0"
+               height="474.0" parentComponent="Panel_BG" bgColour="3825600006"
+               itemColour="2583691264" itemColour2="2583691264" text="*" visible="0">
+      <Component type="ScriptLabel" id="Label_MovementTitle" x="348.0" y="0.0"
+                 width="298.0" height="28.0" fontStyle="Bold" text="MOVEMENT"
+                 parentComponent="Panel_Movement" editable="0"/>
+      <Component type="ScriptComboBox" id="ComboBox_Oracle2A1" x="38.0" y="55.0"
+                 max="18" text="Select" items="Pluck Sustain&#10;Pluck Harmonics&#10;Pluck Bass Sustain&#10;Pluck Acoustic Sustain&#10;Pluck Acoustic Harmonics&#10;Pluck Resynthed A&#10;Pluck Resynthed B&#10;Pluck Resynthed C&#10;Pluck Wobbly&#10;Pad Sustain A&#10;Pad Sustain B&#10;Pad Sustain C&#10;Pad Stretched A&#10;Pad Stretched B&#10;Pad Stretched Harmonics&#10;Pad Textural A &#10;Pad Textural B&#10;Pad Textural C"
+                 width="115.0" height="22.0" itemColour="4212199697" bgColour="4294967295"
+                 parentComponent="Panel_Movement" fontSize="12.0" visible="0"/>
+      <Component type="ScriptFloatingTile" id="AHDSR_SamplerA1" x="20.0" y="32.0"
+                 parentComponent="Panel_Movement" ContentType="AHDSRGraph" bgColour="0"
+                 itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerA_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 textColour="4294951115" width="150.0" height="60.0" visible="0"/>
+      <Component type="ScriptLabel" id="Label_ChaosRateValue" x="760.0" y="232.0"
+                 width="74.0" height="28.0" fontStyle="Regular" text="Medium"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptButton" id="Button_RandomizeADSRAttack4" x="456.0"
+                 y="103.0" parentComponent="Panel_Movement" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" visible="0"/>
+      <Component type="ScriptFloatingTile" id="AHDSR_SamplerB1" x="213.0" y="32.0"
+                 parentComponent="Panel_Movement" ContentType="AHDSRGraph" bgColour="0"
+                 itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerB_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 textColour="4294951115" width="150.0" height="60.0" visible="0"/>
+      <Component type="ScriptFloatingTile" id="AHDSR_SamplerC1" x="406.0" y="32.0"
+                 parentComponent="Panel_Movement" ContentType="AHDSRGraph" bgColour="0"
+                 itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerC_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
+                 textColour="4294951115" width="150.0" height="60.0" visible="0"/>
+      <Component type="ScriptPanel" id="Panel_MovementXYPad" x="286.0" y="60.0"
+                 parentComponent="Panel_Movement" width="397.0" height="298.0"
+                 allowCallbacks="Clicks, Hover &amp; Dragging" saveInPreset="1"
+                 tooltip="XY Pad to blend between Modulation Targets."/>
+      <Component type="ScriptComboBox" id="ComboBox_ChaosType" x="757.0" y="77.0"
+                 max="7" parentComponent="Panel_Movement" items="X Drift&#10;Y Drift&#10;Orbit&#10;Circular&#10;Twister&#10;Random Drift&#10;Random Jump&#10;&#10;"
+                 text="Type" width="190.0" height="23.0" tooltip="Select a Chaos Type."/>
+      <Component type="ScriptSlider" id="Slider_MovementXInvisible" x="286.0"
+                 y="364.0" parentComponent="Panel_Movement" width="397.0" height="6.0"
+                 text="LAFSliderMovementX" max="100.0" stepSize="1.0" middlePosition="50.0"
+                 isPluginParameter="1" pluginParameterName="XYPadXValue" defaultValue="50.0"
+                 tooltip="Adjusts the X Value independantly." enableMidiLearn="0"/>
+      <Component type="ScriptSlider" id="Slider_MovementYInvisible" x="689.0"
+                 y="60.0" parentComponent="Panel_Movement" width="6.0" height="298.0"
+                 text="LAFSliderMovementY" middlePosition="50.0" max="100.0" stepSize="1.0"
+                 isPluginParameter="1" pluginParameterName="XYPadYValue" defaultValue="50.0"
+                 tooltip="Adjusts the Y Value independantly." enableMidiLearn="0"/>
+      <Component type="ScriptLabel" id="Label_MovementChaosTitle" x="762.6500244140625"
+                 y="2.0" width="177.0" height="28.0" fontStyle="Bold" text="CHAOS"
+                 parentComponent="Panel_Movement" editable="0"/>
+      <Component type="ScriptSlider" id="Slider_MovementChaosIntensity" x="895.0"
+                 y="167.0" parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="25.0" numStrips="127.0"
+                 defaultValue="25.0" macroControl="No MacroControl" max="50.0"
+                 stepSize="1.0" pluginParameterName="ChaosIntensity" isPluginParameter="1"
+                 enableMidiLearn="0" tooltip="Adjusts the Chaos Intensity."/>
+      <Component type="ScriptSlider" id="Slider_MovementChaosRate" x="772.0" y="167.0"
+                 parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="10.0" numStrips="127.0"
+                 defaultValue="10.0" macroControl="No MacroControl" max="20.0"
+                 min="0.1000000014901161" isPluginParameter="1" pluginParameterName="ChaosRate"
+                 enableMidiLearn="0" tooltip="Adjusts the Chaos Rate."/>
+      <Component type="ScriptLabel" id="Label_ChaosRate" x="760.0" y="218.0" width="74.0"
+                 height="28.0" fontStyle="Bold" text="Rate" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ChaosIntensity" x="883.0" y="217.0"
+                 width="74.0" height="28.0" fontStyle="Bold" text="Intensity"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptButton" id="Button_ChaosBypass" x="727.0" y="8.0"
+                 parentComponent="Panel_Movement" text="LAFButtonSamplerBypass"
+                 width="16.0" height="16.0" isPluginParameter="1" pluginParameterName="ChaosBypass"
+                 enableMidiLearn="0" tooltip="Enables the Chaos Engine for automatic Modulation."/>
+      <Component type="ScriptLabel" id="Label_ChaosIntensityValue" x="883.0" y="231.0"
+                 width="74.0" height="28.0" fontStyle="Regular" text="50%" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_PanelXYTooltipX" x="447.5" y="370.0"
+                 width="74.0" height="28.0" fontStyle="Bold" text="X" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_PanelXYTooltipY" x="696.0" y="191.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="Y" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ChaosEnable" x="776.0" y="32.0"
+                 width="83.0" height="28.0" fontStyle="Bold" text="Enable" parentComponent="Panel_Movement"
+                 editable="0" fontSize="12.0" alignment="left" enabled="0" visible="0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvelopeTitle" x="48.17499923706055"
+                 y="0.0" width="177.0" height="28.0" fontStyle="Bold" text="ENVELOPES"
+                 parentComponent="Panel_Movement" editable="0"/>
+      <Component type="ScriptLabel" id="Label_MacroGain" x="421.0" y="161.0" width="50.0"
+                 height="28.0" fontStyle="Bold" text="Gain" parentComponent="Panel_Movement"
+                 editable="0" fontSize="12.0" visible="0"/>
+      <Component type="ScriptLabel" id="Label_MacroMod" x="421.0" y="181.0" width="50.0"
+                 height="28.0" fontStyle="Bold" text="Mod" parentComponent="Panel_Movement"
+                 editable="0" fontSize="12.0" visible="0"/>
+      <Component type="ScriptLabel" id="Label_MacroFX" x="421.0" y="201.0" width="50.0"
+                 height="28.0" fontStyle="Bold" text="FX" parentComponent="Panel_Movement"
+                 editable="0" fontSize="12.0" visible="0"/>
+      <Component type="ScriptLabel" id="Label_MacroFilter" x="421.0" y="220.0"
+                 width="50.0" height="28.0" fontStyle="Bold" text="Filter" parentComponent="Panel_Movement"
+                 editable="0" fontSize="12.0" visible="0"/>
+      <Component type="ScriptLabel" id="Label_MovementMacroTitle1" x="407.0" y="140.0"
+                 width="177.0" height="28.0" fontStyle="Bold" text="QUICK MAP"
+                 parentComponent="Panel_Movement" editable="0" visible="0"/>
+      <Component type="ScriptFloatingTile" id="FloatingTile1" x="16.0" y="47.0"
+                 parentComponent="Panel_Movement" width="230.0" height="100.0"
+                 ContentType="AHDSRGraph" bgColour="0" itemColour="436207615"
+                 itemColour2="2147483647" textColour="4294951115" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;AHDSR_Macro5&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"/>
+      <Component type="ScriptFloatingTile" id="FloatingTile5" x="16.0" y="257.0"
+                 parentComponent="Panel_Movement" width="230.0" height="100.0"
+                 ContentType="AHDSRGraph" bgColour="0" itemColour="436207615"
+                 itemColour2="2147483647" textColour="4294951115" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;AHDSR_Macro6&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvAAttack" x="16.0" y="160.0"
+                 parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="10000.0" numStrips="127.0"
+                 defaultValue="5.0" macroControl="No MacroControl" max="20000.0"
+                 min="5.0" pluginParameterName="ChaosRate" stepSize="1.0" enableMidiLearn="0"
+                 tooltip="Adjusts the Attack of this Modulation Envelope."/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvADecay" x="76.0" y="160.0"
+                 parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="2500.0" numStrips="127.0"
+                 defaultValue="1500.0" macroControl="No MacroControl" max="5000.0"
+                 min="5.0" pluginParameterName="ChaosRate" stepSize="1.0" enableMidiLearn="0"
+                 tooltip="Adjusts the Decay of this Modulation Envelope."/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvASustain" x="137.0"
+                 y="160.0" parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="-12.0" numStrips="127.0"
+                 macroControl="No MacroControl" max="0.0" min="-100.0" pluginParameterName="ChaosRate"
+                 stepSize="1.0" enableMidiLearn="0" tooltip="Adjusts the Sustain of this Modulation Envelope."/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvARelease" x="198.0"
+                 y="160.0" parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="1000.0" numStrips="127.0"
+                 defaultValue="1000.0" macroControl="No MacroControl" max="20000.0"
+                 min="5.0" pluginParameterName="ChaosRate" stepSize="1.0" enableMidiLearn="0"
+                 tooltip="Adjusts the Release of this Modulation Envelope."/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvBAttack" x="16.0" y="367.0"
+                 parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="10000.0" numStrips="127.0"
+                 defaultValue="5.0" macroControl="No MacroControl" max="20000.0"
+                 min="5.0" pluginParameterName="ChaosRate" stepSize="1.0" enableMidiLearn="0"
+                 tooltip="Adjusts the Attack of this Modulation Envelope."/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvBDecay" x="76.0" y="367.0"
+                 parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="2500.0" numStrips="127.0"
+                 defaultValue="1500.0" macroControl="No MacroControl" max="5000.0"
+                 min="5.0" pluginParameterName="ChaosRate" stepSize="1.0" enableMidiLearn="0"
+                 tooltip="Adjusts the Decay of this Modulation Envelope."/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvBSustain" x="137.0"
+                 y="367.0" parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="-12.0" numStrips="127.0"
+                 macroControl="No MacroControl" max="0.0" min="-100.0" pluginParameterName="ChaosRate"
+                 stepSize="1.0" enableMidiLearn="0" tooltip="Adjusts the Sustain of this Modulation Envelope."/>
+      <Component type="ScriptSlider" id="Slider_MovementEnvBRelease" x="198.0"
+                 y="367.0" parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
+                 bgColour="16777215" text="" middlePosition="1000.0" numStrips="127.0"
+                 defaultValue="1000.0" macroControl="No MacroControl" max="20000.0"
+                 min="5.0" pluginParameterName="ChaosRate" stepSize="1.0" enableMidiLearn="0"
+                 tooltip="Adjusts the Release of this Modulation Envelope."/>
+      <Component type="ScriptLabel" id="Label_MovementEnvATitle" x="248.0" y="94.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="A" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBTitle" x="248.0" y="296.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="B" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvAAttack" x="27.0" y="198.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="A" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvADecay" x="88.0" y="198.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="D" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvASustain" x="149.0" y="198.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="S" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvARelease" x="210.0" y="198.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="R" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBAttack" x="27.0" y="405.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="A" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBDecay" x="88.0" y="405.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="D" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBSustain" x="149.0" y="405.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="S" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBRelease" x="210.0" y="405.0"
+                 width="23.0" height="28.0" fontStyle="Bold" text="R" parentComponent="Panel_Movement"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvAAttackValue" x="16.0"
+                 y="217.0" width="46.0" height="28.0" fontStyle="Regular" text="5ms"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvADecayValue" x="79.0"
+                 y="217.0" width="46.0" height="28.0" fontStyle="Regular" text="1500ms"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvASustainValue" x="139.0"
+                 y="217.0" width="46.0" height="28.0" fontStyle="Regular" text="0dB"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvAReleaseValue" x="200.0"
+                 y="217.0" width="46.0" height="28.0" fontStyle="Regular" text="1000ms"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBAttackValue" x="16.0"
+                 y="424.0" width="46.0" height="28.0" fontStyle="Regular" text="5ms"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBDecayValue" x="79.0"
+                 y="424.0" width="46.0" height="28.0" fontStyle="Regular" text="1500ms"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBSustainValue" x="139.0"
+                 y="424.0" width="46.0" height="28.0" fontStyle="Regular" text="0dB"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_MovementEnvBReleaseValue" x="200.0"
+                 y="424.0" width="46.0" height="28.0" fontStyle="Regular" text="1000ms"
+                 parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
+      <Component type="ScriptButton" id="Button_MovementSettings" x="285.0" y="427.0"
+                 parentComponent="Panel_Movement" text="LAFButtonSettingsCogwheel"
+                 width="170.0" height="30.0" saveInPreset="0" enableMidiLearn="0"
+                 tooltip="Opens the Advanced Movement panel."/>
+      <Component type="ScriptLabel" id="Label_MovementSettings" x="547.0" y="407.0"
+                 width="99.0" height="28.0" fontStyle="Bold" text="Advanced" parentComponent="Panel_Movement"
+                 editable="0" fontSize="15.0" enabled="0" visible="0"/>
+      <Component type="ScriptButton" id="Button_ChaosTypeUp" x="928.0" y="82.0"
+                 parentComponent="Panel_Movement" width="10.0" height="5.0" text="LAFButtonUpArrow"
+                 enableMidiLearn="0" isMomentary="1" saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_ChaosTypeDown" x="928.0" y="89.0"
+                 parentComponent="Panel_Movement" width="10.0" height="5.0" text="LAFButtonDownArrow"
+                 enableMidiLearn="0" isMomentary="1" saveInPreset="0"/>
+      <Component type="ScriptPanel" id="Panel_MovementSettings" x="60.0" y="40.0"
+                 parentComponent="Panel_Movement" width="874.0" height="354.0"
+                 bgColour="3825600006" itemColour="4278584838" itemColour2="4278584838"
+                 borderRadius="2.0" visible="0">
+        <Component type="ScriptFloatingTile" id="FloatingTile_Macros" x="6.0" y="25.0"
+                   parentComponent="Panel_MovementSettings" width="860.0" height="320.0"
+                   ContentType="FrontendMacroPanel" bgColour="0" itemColour="1290661357"
+                   itemColour2="2130706432" Data="{&#13;&#10;}"/>
+        <Component type="ScriptLabel" id="Label_MovementSettingsTitle" x="327.0"
+                   y="0.0" width="200.0" height="28.0" fontStyle="Bold" text="CONNECTION SETTINGS"
+                   parentComponent="Panel_MovementSettings" editable="0"/>
+        <Component type="ScriptButton" id="Button_MovementSettingsClose" x="853.0"
+                   y="3.0" parentComponent="Panel_MovementSettings" width="12.0"
+                   height="12.0" text="LAFButtonClose" isMomentary="1" enableMidiLearn="0"
+                   saveInPreset="0"/>
+      </Component>
+      <Component type="ScriptButton" id="Button_CloseMovementPanel" x="978.0"
+                 y="1.0" parentComponent="Panel_Movement" text="LAFButtonClose"
+                 width="14.0" height="14.0" isMomentary="1" enableMidiLearn="0"
+                 saveInPreset="0"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_Arp" x="0" y="0" width="994" height="474"
+               parentComponent="Panel_BG" bgColour="3825600006" itemColour="3254779904"
+               itemColour2="2583691264" borderRadius="2.0" visible="0">
+      <Component type="ScriptLabel" id="Label_Arp" x="382.5" y="-1.0" width="229.0"
+                 height="28.0" fontStyle="Bold" text="ARP" parentComponent="Panel_Arp"
+                 editable="0"/>
+      <Component type="ScriptSliderPack" id="SliderPack_ArpVelocity" x="262.8000106811523"
+                 y="243.6" parentComponent="Panel_Arp" processorId="Arpeggiator1"
+                 SliderPackIndex="1" height="94.80000000000001" width="695.8"
+                 tooltip="Set specific Velocity values here for the Arpeggiator to play."/>
+      <Component type="ScriptSliderPack" id="SliderPack_ArpNotes" x="262.8000106811523"
+                 y="30" parentComponent="Panel_Arp" processorId="Arpeggiator1"
+                 height="189.6" width="695.8" tooltip="Set specific Note values here for the Arpeggiator to play."/>
+      <Component type="ScriptSliderPack" id="SliderPack_ArpLength" x="262.8000106811523"
+                 y="362.4" parentComponent="Panel_Arp" processorId="Arpeggiator1"
+                 SliderPackIndex="2" height="94.80000000000001" width="695.8"
+                 tooltip="Set specific Note Length values here for the Arpeggiator to play."/>
+      <Component type="ScriptSlider" id="Slider_ArpSteps" x="137.0" y="57.0" parentComponent="Panel_Arp"
+                 width="48.0" height="48.0" text="" min="1.0" max="32.0" stepSize="1.0"
+                 defaultValue="16.0" middlePosition="12.0" bgColour="16777215"
+                 itemColour="3355443" itemColour2="1118481" textColour="16777215"
+                 numStrips="127.0" enableMidiLearn="0" tooltip="Adjusts the number of Steps."/>
+      <Component type="ScriptSlider" id="Slider_ArpSpeed" x="137.0" y="131.0"
+                 parentComponent="Panel_Arp" width="48.0" height="48.0" text=""
+                 max="18.0" stepSize="1.0" middlePosition="9.0" itemColour="3355443"
+                 bgColour="16777215" textColour="16777215" itemColour2="1118481"
+                 numStrips="127.0" defaultValue="11.0" enableMidiLearn="0" tooltip="Adjusts the Speed of the Arpeggiator."/>
+      <Component type="ScriptSlider" id="Slider_ArpOctave" x="137.0" y="205.0"
+                 parentComponent="Panel_Arp" width="48.0" height="48.0" text=""
+                 min="-2.0" max="4.0" middlePosition="1.0" stepSize="1.0" itemColour="3355443"
+                 bgColour="16777215" textColour="16777215" itemColour2="1118481"
+                 numStrips="127.0" enableMidiLearn="0" tooltip="Adjusts the Number of Octaves the Arpeggiator will play."/>
+      <Component type="ScriptSlider" id="Slider_ArpSwing" x="137.0" y="279.0"
+                 parentComponent="Panel_Arp" width="48.0" height="48.0" text=""
+                 itemColour="3355443" bgColour="16777215" textColour="16777215"
+                 itemColour2="1118481" numStrips="127.0" enableMidiLearn="0" tooltip="Adjusts the Swing/Groove of the Arpeggiator."/>
+      <Component type="ScriptLabel" id="Label_ArpNotes" x="876.0" y="7.0" parentComponent="Panel_Arp"
+                 width="61.0" height="28.0" text="Notes" editable="0" alignment="right"/>
+      <Component type="ScriptLabel" id="Label_ArpVelocity" x="876.0" y="218.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="Velocity"
+                 editable="0" alignment="right"/>
+      <Component type="ScriptLabel" id="Label_ArpLength" x="876.0" y="338.0" parentComponent="Panel_Arp"
+                 width="61.0" height="28.0" text="Length" editable="0" alignment="right"/>
+      <Component type="ScriptButton" id="Button_ArpBypass" x="5.0" y="6.0" parentComponent="Panel_Arp"
+                 text="LAFButtonSamplerBypass" width="16.0" height="16.0" bgColour="16777215"
+                 itemColour="3355443" itemColour2="1118481" isPluginParameter="1"
+                 pluginParameterName="Arp_Bypass" enableMidiLearn="0" tooltip="Bypasses the Arpeggiator."/>
+      <Component type="ScriptLabel" id="Label_ArpSteps" x="57.0" y="57.0" parentComponent="Panel_Arp"
+                 width="61.0" height="28.0" text="Steps" editable="0" fontStyle="Bold"
+                 fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ArpSpeed" x="57.0" y="131.0" parentComponent="Panel_Arp"
+                 width="61.0" height="28.0" text="Speed" editable="0" fontStyle="Bold"
+                 fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ArpOctave" x="58.0" y="205.0" parentComponent="Panel_Arp"
+                 width="61.0" height="28.0" text="Octave" editable="0" fontStyle="Bold"
+                 fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ArpSwing" x="57.0" y="279.0" parentComponent="Panel_Arp"
+                 width="61.0" height="28.0" text="Swing" editable="0" fontStyle="Bold"
+                 fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ArpStepsValue" x="57.0" y="77.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="16"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ArpSpeedValue" x="58.0" y="151.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="1/16"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ArpOctaveValue" x="58.0" y="225.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="0"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptLabel" id="Label_ArpSwingValue" x="60.0" y="299.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="0%"
+                 editable="0" fontSize="14.0"/>
+      <Component type="ScriptComboBox" id="Arp_ModeComboBox" x="35.0" y="358.0"
+                 max="6" parentComponent="Panel_Arp" height="25.0" width="190.0"
+                 items="Up&#10;Down&#10;Up-Down&#10;Down-Up&#10;Random&#10;Chords"
+                 text="Mode" processorId="Arpeggiator1" parameterId="SequenceComboBox"
+                 defaultValue="0.0" bgColour="16777215" tooltip="Select an Arpeggiator Mode."/>
+      <Component type="ScriptButton" id="Button_ArpNotesReset" x="963.0" y="90.0"
+                 parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Sequence."/>
+      <Component type="ScriptButton" id="Button_ArpVelocityReset" x="964.0" y="244.0"
+                 parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Velocities."/>
+      <Component type="ScriptButton" id="Button_ArpLengthReset" x="964.0" y="357.0"
+                 parentComponent="Panel_Arp" text="LAFArpResetButton" isMomentary="1"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Reset the Note Lengths."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpNotes" x="946.0" y="16.0"
+                 parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpVelocity" x="946.0"
+                 y="228.0" parentComponent="Panel_Arp" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpLength" x="946.0"
+                 y="347.0" parentComponent="Panel_Arp" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpSteps" x="192.0" y="57.0"
+                 parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpSpeed" x="192.0" y="131.0"
+                 parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpOctaves" x="192.0"
+                 y="205.0" parentComponent="Panel_Arp" text="LAFButtonRandomize"
+                 width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_RandomizeArpSwing" x="192.0" y="279.0"
+                 parentComponent="Panel_Arp" text="LAFButtonRandomize" width="10.0"
+                 height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
+      <Component type="ScriptButton" id="Button_ArpSustain" x="242.0" y="437.0"
+                 parentComponent="Panel_Arp" text="LAFButtonBypass" width="8.0"
+                 height="8.0" bgColour="16777215" itemColour="3355443" itemColour2="1118481"
+                 isPluginParameter="1" pluginParameterName="Arp_Hold" isMomentary="1"
+                 processorId="Arpeggiator1" parameterId="Hold" enableMidiLearn="0"
+                 tooltip="Toggle Arpeggiator Note Hold."/>
+      <Component type="ScriptLabel" id="Label_ArpSustain" x="175.0" y="427.0"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="Hold"
+                 editable="0" alignment="right"/>
+      <Component type="ScriptButton" id="Button_ArpNotesMajor" x="963.0" y="60.0"
+                 parentComponent="Panel_Arp" text="LAFArpMajorButton" isMomentary="1"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Generate a random Major note Sequence."/>
+      <Component type="ScriptButton" id="Button_ArpNotesMinor" x="963.0" y="30.0"
+                 parentComponent="Panel_Arp" text="LAFArpMinorButton" isMomentary="1"
+                 saveInPreset="0" width="23.40000152587891" height="23.40000152587891"
+                 numStrips="6.0" enableMidiLearn="0" tooltip="Generate a random Minor note Sequence."/>
+      <Component type="ScriptButton" id="Button_ArpNotesInvert" x="963.0" y="117.0"
+                 parentComponent="Panel_Arp" text="LAFArpInvertButton" width="23.40000152587891"
+                 height="23.40000152587891" numStrips="6.0" isMomentary="1" enableMidiLearn="0"
+                 saveInPreset="0" tooltip="Invert the current Note Sequence."/>
+      <Component type="ScriptButton" id="Button_ArpModeUpArrow" x="206.0" y="364.0"
+                 parentComponent="Panel_Arp" text="LAFButtonUpArrow" height="6.0"
+                 width="10.0" saveInPreset="0" enableMidiLearn="0" isMomentary="1"/>
+      <Component type="ScriptButton" id="Button_ArpModeDownArrow" x="206.0" y="371.0"
+                 parentComponent="Panel_Arp" text="LAFButtonDownArrow" height="6.0"
+                 width="10.0" saveInPreset="0" enableMidiLearn="0" isMomentary="1"/>
+      <Component type="ScriptButton" id="Button_CloseArpPanel" x="978.0" y="1.0"
+                 parentComponent="Panel_Arp" width="14.0" height="14.0" text="LAFButtonClose"
+                 saveInPreset="0" isMomentary="1" enableMidiLearn="0"/>
+    </Component>
+    <Component type="ScriptPanel" id="Panel_RandomizeContainer" x="932.0" y="97.0"
+               width="60.0" height="280.0" itemColour="4279440147" itemColour2="4279440147"
+               borderRadius="2.0" bgColour="1912602623" textColour="1912602623"
+               parentComponent="Panel_BG" borderSize="1.0" visible="0.0">
+      <Component type="ScriptPanel" id="Button_RandomRESET" x="0" y="0" width="60"
+                 height="39.0" parentComponent="Panel_RandomizeContainer" allowCallbacks="Clicks &amp; Hover"
+                 tooltip="Resets all Module Parameters."/>
+      <Component type="ScriptPanel" id="Button_RandomArp" x="0" y="200" width="60"
+                 height="39.0" parentComponent="Panel_RandomizeContainer" allowCallbacks="Clicks &amp; Hover"
+                 tooltip="Randomizes all Arpeggiator Parameters."/>
+      <Component type="ScriptPanel" id="Button_RandomStab" x="0" y="120" width="60"
+                 height="39.0" parentComponent="Panel_RandomizeContainer" allowCallbacks="Clicks &amp; Hover"
+                 tooltip="Generates a random Stab Patch."/>
+      <Component type="ScriptPanel" id="Button_RandomPad" x="0" y="160" width="60"
+                 height="39.0" parentComponent="Panel_RandomizeContainer" allowCallbacks="Clicks &amp; Hover"
+                 tooltip="Generates a random Pad Patch."/>
+      <Component type="ScriptPanel" id="Button_RandomFX" x="0" y="240" width="60"
+                 height="39.0" parentComponent="Panel_RandomizeContainer" allowCallbacks="Clicks &amp; Hover"
+                 tooltip="Randomizes all FX Parameters."/>
+      <Component type="ScriptPanel" id="Button_RandomPatch" x="0" y="80" width="60"
+                 height="39.0" parentComponent="Panel_RandomizeContainer" allowCallbacks="Clicks &amp; Hover"
+                 tooltip="Randomizes all Patch-Specific Module Parameters."/>
+      <Component type="ScriptPanel" id="Button_RandomAll" x="0" y="40" width="60"
+                 height="39.0" parentComponent="Panel_RandomizeContainer" allowCallbacks="Clicks &amp; Hover"
+                 tooltip="Randomizes all Selected Module Parameters."/>
+    </Component>
+    <Component type="ScriptButton" id="Button_CloseRandomizationPanel" x="978.0"
+               y="88.0" parentComponent="Panel_BG" width="14.0" height="14.0"
+               text="LAFButtonCloseRandomizationPanel" isMomentary="1" enableMidiLearn="0"
+               saveInPreset="0" visible="0.0"/>
+    <Component type="ScriptedViewport" id="Viewport_ExpansionsHolder" x="0.0"
+               y="0.0" width="994.0" height="474.0" autoHide="0" scrollBarThickness="9.79798"
+               parentComponent="Panel_BG" visible="0">
+      <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="0.0" y="0.0"
+                 width="983.0" height="900.0" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
+                 bgColour="9700870" itemColour="4278190080" itemColour2="4278190080"
+                 borderSize="0.0">
+        <Component type="ScriptButton" id="Button_CloseExpansions" x="971.0" y="1.0"
+                   parentComponent="Panel_ExpansionsItemHolder" text="LAFButtonClose"
+                   width="14.0" height="14.0" isMomentary="1" enableMidiLearn="0"
+                   saveInPreset="0"/>
+      </Component>
+    </Component>
+  </Component>
+  <Component type="ScriptFloatingTile" id="FloatingTile_Keyboard" x="72.0"
+             y="540.0" ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
+             itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 13.0,&#10;  &quot;DisplayOctaveNumber&quot;: true,&#10;  &quot;LowKey&quot;: 0,&#10;  &quot;HiKey&quot;: 127,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: true,&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
+             width="856.0" height="60.0"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile_ResourceUsage" x="814.0"
+             y="1.0" ContentType="PerformanceLabel" bgColour="0" itemColour="4294951115"
+             itemColour2="4294951115" Data="{&#13;&#10;}" width="180.0" height="30.0"
+             FontSize="13.0" Font="Arial"/>
+  <Component type="ScriptComboBox" id="ExpansionSelector" x="275.0" y="0.0"
+             max="5" items="No Expansion&#10;Atlas&#10;Blackout&#10;Bloom&#10;Cloudburst"
+             enabled="0" visible="0"/>
+  <Component type="ScriptButton" id="Button_OpenPresetBrowser" x="258.0" y="4.0"
+             text="Preset Browser" width="120.0" height="24.0" numStrips="6.0"
+             enableMidiLearn="0" saveInPreset="0" tooltip="Opens the Preset Browser."/>
+  <Component type="ScriptSlider" id="Slider_OutputVolume" x="300.0" y="3.0"
+             filmstripImage="{PROJECT_FOLDER}slider_volumecontrol.png" numStrips="127.0"
+             width="98.0" height="25.0" dragDirection="Horizontal" min="-100.0"
+             max="0.0" middlePosition="-12.0" processorId="Simple Gain1" parameterId="Gain"
+             isPluginParameter="1" pluginParameterName="OutputVolume" enableMidiLearn="0"
+             visible="0"/>
+  <Component type="ScriptButton" id="Button_ClearSamplers" x="21.0" y="82.0"
+             isMomentary="1" saveInPreset="0" text="LAFButtonBypass" width="47.0"
+             height="26.0" visible="0" enabled="0"/>
+  <Component type="ScriptButton" id="Button_CheckExpansion" x="21.0" y="115.0"
+             isMomentary="1" saveInPreset="0" text="LAFButtonBypass" width="47.0"
+             height="31.0" visible="0" enabled="0"/>
+  <Component type="ScriptPanel" id="LEVELING_Container" x="420" y="9" width="160"
+             height="16" itemColour="0x00FFFFFF" itemColour2="0x00FFFFFF"
+             textColour="0x00FFFFFF" borderSize="1" borderRadius="0">
+    <Component type="ScriptPanel" id="LEVELING_Meter" x="0" y="0" width="160"
+               height="16" bgColour="4279505940" itemColour="3435066873" itemColour2="4279505940"
+               textColour="4283782485" parentComponent="LEVELING_Container"
+               opaque="1" saveInPreset="1" borderRadius="2.0"/>
+  </Component>
+  <Component type="ScriptPanel" id="outputSliderContainer" x="420" y="9" width="160"
+             height="16" saveInPreset="1" borderRadius="2.0" bgColour="16777215"
+             textColour="16777215"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile_PresetBrowser" x="3.0"
+             y="33.0" ContentType="PresetBrowser" bgColour="4160749568" itemColour="4294967295"
+             itemColour2="4294951115" Data="{&#13;&#10;  &quot;ShowSaveButton&quot;: true,&#13;&#10;  &quot;ShowExpansionsAsColumn&quot;: true,&#13;&#10;  &quot;ShowFolderButton&quot;: true,&#13;&#10;  &quot;ShowNotes&quot;: false,&#13;&#10;  &quot;ShowEditButtons&quot;: true,&#13;&#10;  &quot;ShowFavoriteIcon&quot;: true,&#13;&#10;  &quot;NumColumns&quot;: 2,&#13;&#10;  &quot;ColumnWidthRatio&quot;: [&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333&#13;&#10;  ]&#13;&#10;}"
+             width="994.0" height="474.0" FontSize="12.0" Font="Arial" visible="0"/>
+  <Component type="ScriptButton" id="Button_PresetBrowserClose" x="981.0"
+             y="34.0" text="LAFButtonClose" width="14.0" height="14.0" isMomentary="1"
+             enableMidiLearn="0" saveInPreset="0" visible="0"/>
+  <Component type="ScriptButton" id="Button_OpenAppData" x="384.0" y="6.0"
+             width="30.0" height="21.0" text="LAF_ButtonAppData" saveInPreset="0"
+             isMomentary="1" enableMidiLearn="0" tooltip="Opens the AppData folder."/>
+  <Component type="ScriptPanel" id="Panel_InstallLibraries" x="1.0" y="31.0"
+             width="998.0" height="478.0" itemColour="4278190080" itemColour2="4278190080"
+             borderRadius="2.0" visible="0">
+    <Component type="ScriptButton" id="Button_SetSamplesFolder" x="9.0" y="29.0"
+               text="LAFButtonSetup" saveInPreset="0" numStrips="6.0" width="93.0"
+               height="18.0" enableMidiLearn="0" parentComponent="Panel_InstallLibraries"
+               enabled="0" visible="0"/>
+    <Component type="ScriptLabel" id="Label_SetSamplesFolder" x="17.0" y="24.0"
+               width="74.0" height="28.0" text="Set Folder" fontSize="12.0"
+               editable="0" parentComponent="Panel_InstallLibraries" enabled="0"
+               visible="0"/>
+    <Component type="ScriptButton" id="Button_InstallLibrary" x="244.0" y="120.0"
+               text="LAFButtonInstallLibrary" saveInPreset="0" isMomentary="1"
+               numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
+               parentComponent="Panel_InstallLibraries"/>
+    <Component type="ScriptLabel" id="Label_InstallLibrary" x="244.0" y="77.0"
+               width="150.0" height="28.0" text="Install Library" fontSize="12.0"
+               editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
+    <Component type="ScriptButton" id="Button_CloseInstallPanel" x="978.0" y="1.0"
+               parentComponent="Panel_InstallLibraries" numStrips="6.0" width="14.0"
+               height="14.0" isMomentary="1" text="LAFButtonClose" enableMidiLearn="0"/>
+    <Component type="ScriptButton" id="Button_BulkInstall" x="604.0" y="120.0"
+               text="LAFButtonBulkInstall" saveInPreset="0" isMomentary="1"
+               numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
+               parentComponent="Panel_InstallLibraries"/>
+    <Component type="ScriptLabel" id="Label_BulkInstall" x="604.0" y="77.0"
+               width="150.0" height="28.0" text="Bulk Install" fontSize="12.0"
+               editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
+    <Component type="ScriptLabel" id="Label_InstallLibraryTitle" x="474.0" y="7.0"
+               width="80.0" height="28.0" text="Install" fontSize="14.0" editable="0"
+               parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
+    <Component type="ScriptLabel" id="Label_InstallLibraryDescription" x="169.0"
+               y="269.0" parentComponent="Panel_InstallLibraries" width="300.0"
+               height="100.0" text="Installs a single Library (.hr1 File), first select the Library you want to unpack, then navigate to the directory in which you wish to store the samples and other data."
+               fontStyle="Regular"/>
+    <Component type="ScriptLabel" id="Label_BulkInstallDescription" x="529.0"
+               y="269.0" parentComponent="Panel_InstallLibraries" width="300.0"
+               height="100.0" text="Installs all of the available Libraries (.hr1 Files) inside a chosen directory. First select the directory containing the Libraries, then navigate to the directory in which you wish to store the samples and other data."
+               fontStyle="Regular"/>
+  </Component>
+  <Component type="ScriptPanel" id="Panel_ChangeSampleFolder" x="110.0" y="82.0"
+             width="368.0" height="135.0" itemColour="4278190080" itemColour2="4278190080"
+             visible="0">
+    <Component type="ScriptPanel" id="Panel2" x="25.0" y="36.0" parentComponent="Panel_ChangeSampleFolder"
+               width="316.0" height="35.0" itemColour="814846353" itemColour2="814846353"/>
+    <Component type="ScriptFloatingTile" id="FloatingTile_SampleFolder" x="14.0"
+               y="23.0" ContentType="CustomSettings" bgColour="4278190080" itemColour="4294951115"
+               itemColour2="4294951115" Data="{&#13;&#10;  &quot;Driver&quot;: false,&#13;&#10;  &quot;Device&quot;: false,&#13;&#10;  &quot;Output&quot;: false,&#13;&#10;  &quot;BufferSize&quot;: false,&#13;&#10;  &quot;SampleRate&quot;: false,&#13;&#10;  &quot;GlobalBPM&quot;: false,&#13;&#10;  &quot;StreamingMode&quot;: false,&#13;&#10;  &quot;ScaleFactor&quot;: false,&#13;&#10;  &quot;VoiceAmountMultiplier&quot;: false,&#13;&#10;  &quot;ClearMidiCC&quot;: false,&#13;&#10;  &quot;SampleLocation&quot;: true,&#13;&#10;  &quot;DebugMode&quot;: false,&#13;&#10;  &quot;ScaleFactorList&quot;: [&#13;&#10;    0.5,&#13;&#10;    0.75,&#13;&#10;    1.0,&#13;&#10;    1.25,&#13;&#10;    1.5,&#13;&#10;    2.0&#13;&#10;  ]&#13;&#10;}"
+               width="351.0" height="97.0" itemColour3="4278190080" parentComponent="Panel_ChangeSampleFolder"/>
+    <Component type="ScriptButton" id="Button_CloseSetFolder" x="347.0" y="6.0"
+               parentComponent="Panel_ChangeSampleFolder" numStrips="6.0" width="14.0"
+               height="14.0" isMomentary="1" text="LAFButtonClose"/>
+  </Component>
+  <Component type="ScriptButton" id="Button_AddLibrary" x="132.0" y="4.0"
+             text="Add Library" numStrips="6.0" width="120.0" height="24.0"
+             enableMidiLearn="0" saveInPreset="0" tooltip="Opens the Add Library panel."/>
+  <Component type="ScriptPanel" id="loadingBar" x="347.0" y="257.0" width="300"
+             height="40" itemColour="0" enabled="0"/>
+  <Component type="ScriptSlider" id="Slider_OutputGain" x="420" y="9" text="LAFSliderOutputGain"
+             middlePosition="0.5" isPluginParameter="1" pluginParameterName="OutputGain"
+             height="16" dragDirection="Horizontal" width="160" defaultValue="1.0"
+             enableMidiLearn="0" processorId="OutputGain" parameterId="Gain"
+             tooltip="Adjusts the Output Gain." itemColour="3355443" bgColour="16777215"/>
+  <Component type="ScriptPanel" id="Panel_CustomSettings" x="1.0" y="31.0"
+             width="998.0" height="478.0" itemColour="4026531840" itemColour2="4026531840"
+             visible="0">
+    <Component type="ScriptButton" id="Button_CloseCustomSettings" x="978.0"
+               y="1.0" parentComponent="Panel_CustomSettings" numStrips="6.0"
+               width="14.0" height="14.0" isMomentary="1" text="LAFButtonClose"
+               enableMidiLearn="0"/>
+    <Component type="ScriptLabel" id="Label_CustomSettingsTitle" x="348.0" y="3.0"
+               width="298.0" height="28.0" fontStyle="Bold" text="SETTINGS"
+               parentComponent="Panel_CustomSettings" editable="0"/>
+    <Component type="ScriptFloatingTile" id="FloatingTile_CustomSettings" x="23.0"
+               y="29.0" parentComponent="Panel_CustomSettings" width="940.0"
+               height="410.0" ContentType="CustomSettings" bgColour="4278190080"
+               itemColour="4294951115" itemColour2="4294951115" Data="{&#10;  &quot;Driver&quot;: true,&#10;  &quot;Device&quot;: true,&#10;  &quot;Output&quot;: true,&#10;  &quot;BufferSize&quot;: true,&#10;  &quot;SampleRate&quot;: true,&#10;  &quot;GlobalBPM&quot;: true,&#10;  &quot;StreamingMode&quot;: true,&#10;  &quot;ScaleFactor&quot;: true,&#10;  &quot;VoiceAmountMultiplier&quot;: true,&#10;  &quot;ClearMidiCC&quot;: true,&#10;  &quot;SampleLocation&quot;: false,&#10;  &quot;DebugMode&quot;: true,&#10;  &quot;ScaleFactorList&quot;: [&#10;    0.5,&#10;    0.75,&#10;    1.0,&#10;    1.25,&#10;    1.5,&#10;    2.0&#10;  ]&#10;}"
+               Font="Arial"/>
+    <Component type="ScriptPanel" id="Panel_SettingsPortamento" x="17.0" y="39.0"
+               parentComponent="Panel_CustomSettings" width="135.0" height="119.0"
+               borderRadius="2.0">
+      <Component type="ScriptButton" id="Button_PortamentoBypass" x="25.0" y="46.0"
+                 parentComponent="Panel_SettingsPortamento" text="LAFButtonBypass"
+                 width="10.0" height="10.0" isPluginParameter="1" pluginParameterName="PortamentoBypass"
+                 tooltip="Enables Portamento."/>
+      <Component type="ScriptSlider" id="Slider_PortamentoTime" x="15.0" y="71.0"
+                 parentComponent="Panel_SettingsPortamento" width="32.0" height="32.0"
+                 text="" max="2000.0" defaultValue="50.0" middlePosition="1000.0"
+                 stepSize="1.0" isPluginParameter="1" pluginParameterName="PortamentoTime"
+                 tooltip="Adjusts the Portamento Glide time."/>
+    </Component>
+    <Component type="ScriptLabel" id="Label_PortamentoTitle" x="16.0" y="41.0"
+               width="137.0" height="28.0" fontStyle="Bold" text="PORTAMENTO"
+               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_PortamentoBypass" x="65.0" y="75.0"
+               width="58.0" height="28.0" fontStyle="Bold" text="Enable" parentComponent="Panel_CustomSettings"
+               editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_PortamentoTimeValue" x="65.0" y="122.0"
+               width="58.0" height="28.0" fontStyle="Regular" text="50.0ms"
+               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_PortamentoTime" x="65.0" y="106.0"
+               width="58.0" height="28.0" fontStyle="Bold" text="Time" parentComponent="Panel_CustomSettings"
+               editable="0" fontSize="12.0"/>
+    <Component type="ScriptFloatingTile" id="FloatingTile_MIDISources" x="9.0"
+               y="439.0" parentComponent="Panel_CustomSettings" ContentType="MidiSources"
+               bgColour="4278190080" itemColour="0" itemColour2="0" width="70.0"
+               height="30.0"/>
+    <Component type="ScriptLabel" id="Label_MIDIDevicesTitle" x="39.0" y="189.0"
+               width="298.0" height="28.0" fontStyle="Bold" text="MIDI DEVICES"
+               parentComponent="Panel_CustomSettings" editable="0" visible="0"/>
+    <Component type="ScriptComboBox" id="ComboBox_MIDIDevices" x="59.0" y="239.0"
+               parentComponent="Panel_CustomSettings" width="250.0" height="40.0"
+               text="Select" items="&#10;None" visible="0" saveInPreset="0"/>
+    <Component type="ScriptPanel" id="Panel_SettingsPortamento1" x="169.0" y="39.0"
+               parentComponent="Panel_CustomSettings" width="135.0" height="70.0"
+               borderRadius="2.0">
+      <Component type="ScriptButton" id="Button_ExclusiveReverse" x="25.0" y="46.0"
+                 parentComponent="Panel_SettingsPortamento1" text="LAFButtonBypass"
+                 width="10.0" height="10.0" tooltip="Allows Samplers to reverse individually at the cost of greater Memory usage."
+                 enableMidiLearn="0"/>
+    </Component>
+    <Component type="ScriptLabel" id="Label_SamplerReverseTitle" x="169.0" y="41.0"
+               width="137.0" height="28.0" fontStyle="Bold" text="EXCLUSIVE REVERSE"
+               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_SampleExclusiveReverse" x="219.0"
+               y="75.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
+               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_CurrentVersion" x="7.0" y="449.0"
+               parentComponent="Panel_CustomSettings" text="Current Version: v0.13"/>
+  </Component>
+  <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="490.0" y="604.0"
+             width="440.0" height="18.0" borderRadius="2.0" bgColour="16777215"
+             textColour="16777215"/>
+  <Component type="ScriptPanel" id="Panel_ResizeGUI" x="964.0" y="584.0" width="36.0"
+             height="36.0" allowCallbacks="Clicks, Hover &amp; Dragging" max="1.5"/>
+  <Component type="ScriptPanel" id="Panel_ImageContainer" x="999" y="999">
+    <Component type="ScriptPanel" id="Panel_ImageLoader01" x="-999.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader02" x="-989.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader03" x="-979.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader04" x="-969.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader05" x="-959.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader06" x="-949.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader07" x="-939.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader08" x="-929.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader09" x="-919.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader010" x="-909.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader011" x="-899.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader012" x="-889.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader013" x="-879.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader014" x="-869.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader015" x="-859.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader016" x="-849.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ImageLoader017" x="-839.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
+               visible="0"/>
+  </Component>
+  <Component type="ScriptPanel" id="Panel_ButtonContainer" x="999" y="999">
+    <Component type="ScriptPanel" id="Panel_ButtonLoader01" x="-999.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader02" x="-989.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader03" x="-979.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader04" x="-969.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader05" x="-959.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader06" x="-949.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader07" x="-939.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader08" x="-929.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader09" x="-919.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader010" x="-909.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader011" x="-899.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader012" x="-889.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader013" x="-879.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader014" x="-869.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader015" x="-859.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader016" x="-849.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+    <Component type="ScriptPanel" id="Panel_ButtonLoader017" x="-839.0" y="-389.0"
+               width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
+               visible="0"/>
+  </Component>
+  <Component type="ScriptButton" id="Button_UpdateAvailable" x="30.0" y="512.0"
+             height="20.0" width="90.0" text="LAFButtonUpdate" tooltip="A New Version is Available, click to Open Browser Window."
+             isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>
+  <Component type="ScriptPanel" id="Panel_PatchNotes" x="6.0" y="33.0" width="990.0"
+             height="470.0" visible="0"/>
+</ContentProperties>
