@@ -88,9 +88,6 @@ const var LAFSliderMovementX = Content.createLocalLookAndFeel();
 const var LAFSliderMovementY = Content.createLocalLookAndFeel();
 const var LAFSliderSampleOffset = Content.createLocalLookAndFeel();
 
-//Don't copy LAFSliderOracleSampleOffset
-//Will be replacing with default AudioWaveform sliders...
-
 //Setup Image Loading
 
 LAFButtonOpenRandomizationPanel.loadImage("{PROJECT_FOLDER}randomizationButtonDice.png", "randomizationButtonDiceImage"); 
@@ -679,7 +676,10 @@ LAFSliderMain.registerFunction("drawRotarySlider", function(g, obj)
 
     //unfilled ring
     sliderRing3.addArc([0.0, 0.0, 1.0, 1.0], start, Math.max(start, start + Math.PI * 1.5 * obj.valueNormalized));
-    g.setColour(0xFF262626);
+    if (obj.hover)
+        g.setColour(Colours.darkgrey);
+    else
+        g.setColour(0xFF262626);
     g.drawPath(sliderRing2, reduced(obj, ringWidth), ringWidth * 2);
 
 
@@ -763,18 +763,183 @@ LAFSliderMovementY.registerFunction("drawRotarySlider", function(g, obj)
     g.drawRoundedRectangle([obj.area[2] / 2 - 2, Math.range(obj.area[3] - obj.area[3] * obj.valueNormalized, 3, obj.area[3] - 6), 4, 6], 1.0, 1.0);
 });
 
-//Sample Offset Slider (TEMPORARY)
+//Sample Offset Slider
 
 LAFSliderSampleOffset.registerFunction("drawRotarySlider", function(g, obj)
 {
     g.setColour(Colours.grey);
     g.drawRoundedRectangle(obj.area, 2.0, 1.0);
     g.setColour(Colours.lightblue);
-    g.drawLine(obj.area[2] * obj.valueNormalized, obj.area[2] * obj.valueNormalized, 0, obj.area[3], 1.0);
+    if (obj.hover)
+    {
+    	g.drawLine(obj.area[2] * obj.valueNormalized, obj.area[2] * obj.valueNormalized, 0, obj.area[3], 4.0);
+        g.setColour(Colours.withAlpha(Colours.lightgrey, 0.04));
+        g.fillRoundedRectangle(obj.area, 1.0);
+    }
+    else
+    	g.drawLine(obj.area[2] * obj.valueNormalized, obj.area[2] * obj.valueNormalized, 0, obj.area[3], 1.0);
     g.setColour(0xB11A1A1A);        
     g.fillRoundedRectangle([0, 0, obj.area[2] * obj.valueNormalized, obj.area[3]], 2.0);
 });
 
+//Sample Loop Edit Panels
+
+Panel_SamplerALoopEdit.setPaintRoutine(function(g, obj)
+{
+    if (this.data.hover)
+        g.setColour(Colours.lightblue);
+    else
+        g.setColour(Colours.withAlpha(Colours.lightblue, .80));
+    if (this.data.active)
+    {
+        g.drawRoundedRectangle([this.getWidth() * this.data.loopStart, 0, 3, this.getHeight()], 1.0, 1.0);  
+        g.drawRoundedRectangle([this.getWidth() * this.data.loopEnd, 0, 3, this.getHeight()], 1.0, 1.0);  
+        if (Button_SamplerALoop.getValue())
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, .60));
+            g.fillRoundedRectangle([this.getWidth() * this.data.loopStart + 3, 3, (this.getWidth() * this.data.loopEnd) - (this.getWidth() * this.data.loopStart + 3), this.getHeight() - 6], 0.0);
+        }
+    }
+    else
+    {
+        g.drawRoundedRectangle([this.getWidth() * Slider_SamplerALoopStart.getValue(), 0, 3, this.getHeight()], 1.0, 1.0);  
+        g.drawRoundedRectangle([this.getWidth() * Slider_SamplerALoopEnd.getValue(), 0, 3, this.getHeight()], 1.0, 1.0);  
+        if (Button_SamplerALoop.getValue())
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, .60));
+            g.fillRoundedRectangle([this.getWidth() * Slider_SamplerALoopStart.getValue() + 3, 3, (this.getWidth() * Slider_SamplerALoopEnd.getValue()) - (this.getWidth() * Slider_SamplerALoopStart.getValue() + 3), this.getHeight() - 6], 0.0);
+        }
+    }
+
+});
+
+Panel_SamplerBLoopEdit.setPaintRoutine(function(g)
+{
+    if (this.data.hover)
+        g.setColour(Colours.lightblue);
+    else
+        g.setColour(Colours.withAlpha(Colours.lightblue, .80));
+    if (this.data.active)
+    {
+        g.drawRoundedRectangle([this.getWidth() * this.data.loopStart, 0, 3, this.getHeight()], 1.0, 1.0);  
+        g.drawRoundedRectangle([this.getWidth() * this.data.loopEnd, 0, 3, this.getHeight()], 1.0, 1.0);  
+        if (Button_SamplerBLoop.getValue())
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, .60));
+            g.fillRoundedRectangle([this.getWidth() * this.data.loopStart + 3, 3, (this.getWidth() * this.data.loopEnd) - (this.getWidth() * this.data.loopStart + 3), this.getHeight() - 6], 0.0);
+        }
+    }
+    else
+    {
+        g.drawRoundedRectangle([this.getWidth() * Slider_SamplerBLoopStart.getValue(), 0, 3, this.getHeight()], 1.0, 1.0);  
+        g.drawRoundedRectangle([this.getWidth() * Slider_SamplerBLoopEnd.getValue(), 0, 3, this.getHeight()], 1.0, 1.0);  
+        if (Button_SamplerBLoop.getValue())
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, .60));
+            g.fillRoundedRectangle([this.getWidth() * Slider_SamplerBLoopStart.getValue() + 3, 3, (this.getWidth() * Slider_SamplerBLoopEnd.getValue()) - (this.getWidth() * Slider_SamplerBLoopStart.getValue() + 3), this.getHeight() - 6], 0.0);
+        }
+    }
+});
+
+Panel_SamplerCLoopEdit.setPaintRoutine(function(g)
+{
+    if (this.data.hover)
+        g.setColour(Colours.lightblue);
+    else
+        g.setColour(Colours.withAlpha(Colours.lightblue, .80));
+    if (this.data.active)
+    {
+        g.drawRoundedRectangle([this.getWidth() * this.data.loopStart, 0, 3, this.getHeight()], 1.0, 1.0);  
+        g.drawRoundedRectangle([this.getWidth() * this.data.loopEnd, 0, 3, this.getHeight()], 1.0, 1.0);  
+        if (Button_SamplerCLoop.getValue())
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, .60));
+            g.fillRoundedRectangle([this.getWidth() * this.data.loopStart + 3, 3, (this.getWidth() * this.data.loopEnd) - (this.getWidth() * this.data.loopStart + 3), this.getHeight() - 6], 0.0);
+        }
+    }
+    else
+    {
+        g.drawRoundedRectangle([this.getWidth() * Slider_SamplerCLoopStart.getValue(), 0, 3, this.getHeight()], 1.0, 1.0);  
+        g.drawRoundedRectangle([this.getWidth() * Slider_SamplerCLoopEnd.getValue(), 0, 3, this.getHeight()], 1.0, 1.0);  
+        if (Button_SamplerCLoop.getValue())
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, .60));
+            g.fillRoundedRectangle([this.getWidth() * Slider_SamplerCLoopStart.getValue() + 3, 3, (this.getWidth() * Slider_SamplerCLoopEnd.getValue()) - (this.getWidth() * Slider_SamplerCLoopStart.getValue() + 3), this.getHeight() - 6], 0.0);
+        }
+    }
+});
+
+//Sample Loop Display Panels
+
+Panel_SamplerALoopDisplay.setPaintRoutine(function(g)
+{
+    if (Button_SamplerALoop.getValue())
+    {
+        if (Panel_SamplerALoopEdit.data.active)
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.07));
+            g.fillRoundedRectangle([this.getWidth() * Panel_SamplerALoopEdit.data.loopStart + 3, 0, (this.getWidth() * Panel_SamplerALoopEdit.data.loopEnd) - (this.getWidth() * Panel_SamplerALoopEdit.data.loopStart + 3), this.getHeight()], 0.0);
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.6));                 
+            g.drawLine(this.getWidth() * Panel_SamplerALoopEdit.data.loopStart + 3, this.getWidth() * Panel_SamplerALoopEdit.data.loopStart + 3, 0, this.getHeight(), 1.0);
+            g.drawLine(this.getWidth() * Panel_SamplerALoopEdit.data.loopEnd, this.getWidth() * Panel_SamplerALoopEdit.data.loopEnd, 0, this.getHeight(), 1.0);            
+        }
+        else
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.07));
+            g.fillRoundedRectangle([this.getWidth() * Slider_SamplerALoopStart.getValue() + 3, 0, (this.getWidth() * Slider_SamplerALoopEnd.getValue()) - (this.getWidth() * Slider_SamplerALoopStart.getValue() + 3), this.getHeight()], 0.0);
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.6));                
+            g.drawLine(this.getWidth() * Slider_SamplerALoopStart.getValue() + 3, this.getWidth() * Slider_SamplerALoopStart.getValue() + 3, 0, this.getHeight(), 1.0);
+            g.drawLine(this.getWidth() * Slider_SamplerALoopEnd.getValue(), this.getWidth() * Slider_SamplerALoopEnd.getValue(), 0, this.getHeight(), 1.0); 
+        }
+
+    }
+});
+
+Panel_SamplerBLoopDisplay.setPaintRoutine(function(g)
+{
+    if (Button_SamplerBLoop.getValue())
+    {
+        if (Panel_SamplerBLoopEdit.data.active)
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.07));
+            g.fillRoundedRectangle([this.getWidth() * Panel_SamplerBLoopEdit.data.loopStart + 3, 0, (this.getWidth() * Panel_SamplerBLoopEdit.data.loopEnd) - (this.getWidth() * Panel_SamplerBLoopEdit.data.loopStart + 3), this.getHeight()], 0.0);
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.6));              
+            g.drawLine(this.getWidth() * Panel_SamplerBLoopEdit.data.loopStart + 3, this.getWidth() * Panel_SamplerBLoopEdit.data.loopStart + 3, 0, this.getHeight(), 1.0);
+            g.drawLine(this.getWidth() * Panel_SamplerBLoopEdit.data.loopEnd, this.getWidth() * Panel_SamplerBLoopEdit.data.loopEnd, 0, this.getHeight(), 1.0);            
+        }
+        else
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.07));
+            g.fillRoundedRectangle([this.getWidth() * Slider_SamplerBLoopStart.getValue() + 3, 0, (this.getWidth() * Slider_SamplerBLoopEnd.getValue()) - (this.getWidth() * Slider_SamplerBLoopStart.getValue() + 3), this.getHeight()], 0.0);
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.6));              
+            g.drawLine(this.getWidth() * Slider_SamplerBLoopStart.getValue() + 3, this.getWidth() * Slider_SamplerBLoopStart.getValue() + 3, 0, this.getHeight(), 1.0);
+            g.drawLine(this.getWidth() * Slider_SamplerBLoopEnd.getValue(), this.getWidth() * Slider_SamplerBLoopEnd.getValue(), 0, this.getHeight(), 1.0); 
+        }
+    }
+});
+
+Panel_SamplerCLoopDisplay.setPaintRoutine(function(g)
+{
+    if (Button_SamplerCLoop.getValue())
+    {
+        if (Panel_SamplerCLoopEdit.data.active)
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.07));
+            g.fillRoundedRectangle([this.getWidth() * Panel_SamplerCLoopEdit.data.loopStart + 3, 0, (this.getWidth() * Panel_SamplerCLoopEdit.data.loopEnd) - (this.getWidth() * Panel_SamplerCLoopEdit.data.loopStart + 3), this.getHeight()], 0.0);
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.6));            
+            g.drawLine(this.getWidth() * Panel_SamplerCLoopEdit.data.loopStart + 3, this.getWidth() * Panel_SamplerCLoopEdit.data.loopStart + 3, 0, this.getHeight(), 1.0);
+            g.drawLine(this.getWidth() * Panel_SamplerCLoopEdit.data.loopEnd, this.getWidth() * Panel_SamplerCLoopEdit.data.loopEnd, 0, this.getHeight(), 1.0);            
+        }
+        else
+        {
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.07));
+            g.fillRoundedRectangle([this.getWidth() * Slider_SamplerCLoopStart.getValue() + 3, 0, (this.getWidth() * Slider_SamplerCLoopEnd.getValue()) - (this.getWidth() * Slider_SamplerCLoopStart.getValue() + 3), this.getHeight()], 0.0);
+            g.setColour(Colours.withAlpha(Colours.lightblue, 0.6));            
+            g.drawLine(this.getWidth() * Slider_SamplerCLoopStart.getValue() + 3, this.getWidth() * Slider_SamplerCLoopStart.getValue() + 3, 0, this.getHeight(), 1.0);
+            g.drawLine(this.getWidth() * Slider_SamplerCLoopEnd.getValue(), this.getWidth() * Slider_SamplerCLoopEnd.getValue(), 0, this.getHeight(), 1.0); 
+        }
+    }
+});
 
 //Assigning LAF Functions
 

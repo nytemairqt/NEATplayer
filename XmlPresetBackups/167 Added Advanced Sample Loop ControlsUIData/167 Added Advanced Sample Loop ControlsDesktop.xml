@@ -1505,12 +1505,39 @@
       <Component type="ScriptButton" id="Button_SamplerCLoop" x="892.0" y="204.0"
                  parentComponent="Panel_Sample" width="40.0" height="20.0" text="LAFButtonSamplerReverse"
                  enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
-      <Component type="ScriptPanel" id="Panel_SamplerALoopEdit" x="10.0" y="184.0"
-                 parentComponent="Panel_Sample" height="15.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
-      <Component type="ScriptPanel" id="Panel_SamplerBLoopEdit" x="341.0" y="184.0"
-                 parentComponent="Panel_Sample" height="15.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
-      <Component type="ScriptPanel" id="Panel_SamplerCLoopEdit" x="672.0" y="184.0"
-                 parentComponent="Panel_Sample" height="15.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
+      <Component type="ScriptPanel" id="Panel_SamplerALoopEdit" x="10.0" y="185.0"
+                 parentComponent="Panel_Sample" height="12.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
+      <Component type="ScriptPanel" id="Panel_SamplerBLoopEdit" x="341.0" y="185.0"
+                 parentComponent="Panel_Sample" height="12.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
+      <Component type="ScriptPanel" id="Panel_SamplerCLoopEdit" x="672.0" y="185.0"
+                 parentComponent="Panel_Sample" height="12.0" width="311.0" allowCallbacks="Clicks, Hover &amp; Dragging"/>
+      <Component type="ScriptSlider" id="Slider_SamplerALoopStart" x="17.0" y="207.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" enableMidiLearn="0"
+                 scrollWheel="0" showTextBox="0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerALoopEnd" x="37.0" y="207.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" enableMidiLearn="0"
+                 scrollWheel="0" showTextBox="0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerBLoopStart" x="347.0" y="207.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" enableMidiLearn="0"
+                 scrollWheel="0" showTextBox="0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerBLoopEnd" x="367.0" y="207.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" enableMidiLearn="0"
+                 scrollWheel="0" showTextBox="0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerCLoopStart" x="677.0" y="207.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" enableMidiLearn="0"
+                 scrollWheel="0" showTextBox="0"/>
+      <Component type="ScriptSlider" id="Slider_SamplerCLoopEnd" x="697.0" y="207.0"
+                 parentComponent="Panel_Sample" width="20.0" height="20.0" enableMidiLearn="0"
+                 scrollWheel="0" showTextBox="0"/>
+      <Component type="ScriptPanel" id="Panel_SamplerALoopDisplay" x="10.0" y="75.0"
+                 parentComponent="Panel_Sample" width="311.0" height="110.0" holdIsRightClick="0"
+                 popupOnRightClick="0" enabled="0"/>
+      <Component type="ScriptPanel" id="Panel_SamplerBLoopDisplay" x="341.0" y="75.0"
+                 parentComponent="Panel_Sample" width="311.0" height="110.0" popupOnRightClick="0"
+                 holdIsRightClick="0" enabled="0"/>
+      <Component type="ScriptPanel" id="Panel_SamplerCLoopDisplay" x="672.0" y="75.0"
+                 parentComponent="Panel_Sample" width="311.0" height="110.0" enabled="0"
+                 popupOnRightClick="0" holdIsRightClick="0"/>
     </Component>
     <Component type="ScriptPanel" id="Panel_Movement" x="0.0" y="0.0" width="994.0"
                height="474.0" parentComponent="Panel_BG" bgColour="3825600006"

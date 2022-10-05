@@ -28,4 +28,5 @@
   <LinkExpansionsToProject value="1"/>
   <EnableSoundGeneratorsFX value="No"/>
   <ReadOnlyFactoryPresets value="No"/>
+  <ForceStereoOutput value="No"/>
 </ProjectSettings>

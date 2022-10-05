@@ -9,6 +9,7 @@
             <Parameters>
               <Parameter MinValue="4.000000059604645" MaxValue="16.0" StepSize="0.1000000014901161"
                          ID="BitDepth" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" StepSize="1.0" ID="Mode" Value="0.0"/>
             </Parameters>
           </Node>
           <Node ID="sampleandhold" FactoryPath="fx.sampleandhold" Bypassed="0">

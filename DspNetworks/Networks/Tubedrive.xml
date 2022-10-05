@@ -61,6 +61,9 @@
                   </Node>
                 </Nodes>
                 <Parameters/>
+                <Properties>
+                  <Property ID="SmoothingTime" Value="20"/>
+                </Properties>
               </Node>
               <Node ID="soft_bypass1" FactoryPath="container.soft_bypass" Bypassed="0">
                 <Nodes>
@@ -76,6 +79,9 @@
                   </Node>
                 </Nodes>
                 <Parameters/>
+                <Properties>
+                  <Property ID="SmoothingTime" Value="20"/>
+                </Properties>
               </Node>
               <Node ID="one_pole" FactoryPath="filters.one_pole" Bypassed="0">
                 <ComplexData>

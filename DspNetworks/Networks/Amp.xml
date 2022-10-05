@@ -48,6 +48,9 @@
           </Node>
         </Nodes>
         <Parameters/>
+        <Properties>
+          <Property ID="SmoothingTime" Value="20"/>
+        </Properties>
       </Node>
       <Node ID="soft_bypass3" FactoryPath="container.soft_bypass" Bypassed="0">
         <Nodes>
@@ -58,6 +61,9 @@
           </Node>
         </Nodes>
         <Parameters/>
+        <Properties>
+          <Property ID="SmoothingTime" Value="20"/>
+        </Properties>
       </Node>
       <Node ID="gain1" FactoryPath="core.gain" Bypassed="0">
         <Parameters>
