@@ -1096,6 +1096,43 @@ Slider_SampleOffsetA.setLocalLookAndFeel(LAFSliderSampleOffset);
 Slider_SampleOffsetB.setLocalLookAndFeel(LAFSliderSampleOffset);
 Slider_SampleOffsetC.setLocalLookAndFeel(LAFSliderSampleOffset);
 
+//Extra Expansion Specific Controls
+
+//Achromic
+
+Button_AchromicPickAttack.setLocalLookAndFeel(LAFButtonBypass);
+Button_AchromicReleaseNoise.setLocalLookAndFeel(LAFButtonBypass);
+Button_AchromicNoiseGate.setLocalLookAndFeel(LAFButtonBypass);
+Button_AchromicForceDownpick.setLocalLookAndFeel(LAFButtonBypass);
+
+//Cloudburst Acoustic
+
+Button_CloudburstAcousticNoises.setLocalLookAndFeel(LAFButtonBypass);
+
+//Gloom
+
+Button_GloomChairCreakNoise.setLocalLookAndFeel(LAFButtonBypass);
+Button_GloomReleaseNoise.setLocalLookAndFeel(LAFButtonBypass);
+
+//PDQ Bass
+
+Button_PDQBassForceDownpick.setLocalLookAndFeel(LAFButtonBypass);
+Button_PDQBassProcessed.setLocalLookAndFeel(LAFButtonBypass);
+
+Slider_PDQBassVelocityMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassVelocityMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassPMVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassPMVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassFVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassFVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassAPVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassAPVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassSLVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
+Slider_PDQBassSLVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
+
+//Portal
+
+Button_PortalIgnoreArpVelocity.setLocalLookAndFeel(LAFButtonBypass);
 
 //--------------------------
 

@@ -11,6 +11,13 @@ const var achromicParameters = [ Button_AchromicPickAttack, Button_AchromicRelea
 
 const var AchromicGate = Synth.getEffect("AchromicGate");
 
+//Local LAF
+
+Button_AchromicPickAttack.setLocalLookAndFeel(LAFButtonBypass);
+Button_AchromicReleaseNoise.setLocalLookAndFeel(LAFButtonBypass);
+Button_AchromicNoiseGate.setLocalLookAndFeel(LAFButtonBypass);
+Button_AchromicForceDownpick.setLocalLookAndFeel(LAFButtonBypass);
+
 //Achromic
 
 const var achromicRRNum = 6;
