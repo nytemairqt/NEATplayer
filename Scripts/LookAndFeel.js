@@ -647,25 +647,15 @@ LAFButtonSettingsCogwheel.registerFunction("drawToggleButton", function(g, obj)
 
 //Slider Main
 
-//Main slider declaring vars inside the paint routine may be causing the crashes.
-    //probably gonna replace at some point with more minimalist version anyway
-
 LAFSliderMain.registerFunction("drawRotarySlider", function(g, obj)
 {
     var ringWidth = obj.area[2] / 16;    
     
     //background
-    /*
+    
     g.setColour(0x33000000);
     g.fillEllipse(reduced(obj, ringWidth * 2.0));
-    */
-
-    //center black gradient 
-    /*
-    g.setColour(0xFF333333);
-    g.fillEllipse(reduced(obj, obj.area[2] * .9));
-    */
-
+    
     //arc
     var sliderRing3 = Content.createPath();
 
@@ -676,32 +666,24 @@ LAFSliderMain.registerFunction("drawRotarySlider", function(g, obj)
 
     //unfilled ring
     sliderRing3.addArc([0.0, 0.0, 1.0, 1.0], start, Math.max(start, start + Math.PI * 1.5 * obj.valueNormalized));
-    if (obj.hover)
-        g.setColour(Colours.darkgrey);
-    else
-        g.setColour(0xFF262626);
+    g.setColour(obj.hover ? Colours.darkgrey : 0xFF262626);
     g.drawPath(sliderRing2, reduced(obj, ringWidth), ringWidth * 2);
 
-
-
     //filled ring
-    g.setColour(Colours.lightblue);
+    g.setColour(obj.hover? Colours.white : Colours.lightblue);
     g.drawPath(sliderRing3, reduced(obj, ringWidth), ringWidth * (1.6));
     
     g.rotate((1.0 - (obj.valueNormalized - 0.02)) * -1.5 * Math.PI, [obj.area[2] / 2, obj.area[3] / 2]);  
+    
+    //Center Ellipse
+        
+    g.setColour(obj.hover ? 0xFF2C2C2C : 0xFF1C1C1C);
+    g.fillEllipse(reduced(obj, obj.area[2] * .86));
 
     //value line
 
     g.setColour(Colours.lightgrey);    
-    g.drawLine(obj.area[2] * .65, obj.area[2] * .83, obj.area[3] * .65, obj.area[3] * .83, 3); 
-
-
-
-    //light grey component (defines pointer shape)
-    /*
-    g.setColour(obj.hover ? 0xFFc2c2c2 : 0xFFAAAAAA);     
-    g.fillPath(sliderRing, reduced(obj, ringWidth * (1.6)));  
-    */
+    g.drawLine(obj.area[2] * .65, obj.area[2] * .83, obj.area[3] * .65, obj.area[3] * .83, 3);     
 });
 
 //Pan Slider (unused??)

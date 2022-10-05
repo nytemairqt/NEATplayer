@@ -283,7 +283,7 @@
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ArpBypass" value="1"/>
+            <Control type="ScriptButton" id="Button_ArpBypass" value="1.0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpNotes" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="0.0"/>
@@ -1033,10 +1033,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="0.0" midi_cc="-1"/>
-    <macro name="Env B" value="0.0" midi_cc="-1"/>
-    <macro name="Velocity" value="110.0" midi_cc="-1"/>
-    <macro name="Random" value="72.33094024658203" midi_cc="-1"/>
+    <macro name="Env A" value="127.0" midi_cc="-1"/>
+    <macro name="Env B" value="127.0" midi_cc="-1"/>
+    <macro name="Velocity" value="127.0" midi_cc="-1"/>
+    <macro name="Random" value="127.0" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
