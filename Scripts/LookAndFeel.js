@@ -706,8 +706,20 @@ LAFSliderPan.registerFunction("drawRotarySlider", function(g, obj)
 
 LAFSliderOutputGain.registerFunction("drawRotarySlider", function(g, obj)
 {
+	//g.setColour(obj.hover ? Colours.withAlpha(Colours.darkgrey, .6) : Colours.withAlpha(Colours.darkgrey, .4));
+	//g.fillRoundedRectangle([obj.area[0], obj.area[1], obj.area[2] * obj.valueNormalized, obj.area[3]], 0.0);
+
     g.setColour(Colours.lightgrey);
-    g.fillRoundedRectangle([(obj.area[2] * 0.98) * obj.valueNormalized, 0, 2, obj.area[3]], 2.0);   
+    g.fillRoundedRectangle([(obj.area[2] * 0.98) * obj.valueNormalized, 0, 2, obj.area[3]], 2.0);    
+    
+    if (obj.clicked)
+    {
+		g.setFont("Arial", 12);
+		g.drawAlignedText(Engine.doubleToString(Engine.getDecibelsForGainFactor(obj.valueNormalized), 2) + " dB", [obj.area[0], obj.area[1], obj.area[2], obj.area[3]], "centred");
+    }
+    
+    g.setColour(Colours.withAlpha(Colours.lightgrey, .6));
+    g.drawRoundedRectangle(obj.area, 2.0, .6);
 });
 
 //PDQ Bass Velocity Slider

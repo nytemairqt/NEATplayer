@@ -143,8 +143,8 @@
             <Control type="ScriptButton" id="Button_RandomizeFXReverbDamping" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbWidth" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbMix" value="0.0"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="200ms"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="200ms"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1036ms"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1036ms"/>
             <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.25"/>
             <Control type="ScriptSlider" id="Slider_DelayFeedbackLeft" value="0.25"/>
             <Control type="ScriptSlider" id="Slider_DelayMix" value="0.2000000029802322"/>
@@ -158,8 +158,8 @@
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayMix" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="200.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="200.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="1036.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="1036.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXAmpBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDrive" value="0.0"/>
@@ -296,11 +296,11 @@
             <Control type="ScriptedViewport" id="Viewport_ExpansionsHolder" value="0.0"/>
             <Control type="ScriptComboBox" id="ExpansionSelector" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_OutputVolume" value="0.0"/>
-            <Control type="ScriptPanel" id="LEVELING_Meter" value="0.0"/>
             <Control type="ScriptPanel" id="outputSliderContainer" value="0.0"/>
+            <Control type="ScriptPanel" id="LEVELING_Meter" value="0.0"/>
+            <Control type="ScriptSlider" id="Slider_OutputGain" value="1.0"/>
             <Control type="ScriptButton" id="Button_CloseInstallPanel" value="0.0"/>
             <Control type="ScriptButton" id="Button_CloseSetFolder" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_OutputGain" value="1.0"/>
             <Control type="ScriptButton" id="Button_CloseCustomSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PortamentoBypass" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_PortamentoTime" value="50.0"/>
@@ -502,9 +502,10 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="200.0" DelayTimeRight="200.0"
-                   FeedbackLeft="0.25" FeedbackRight="0.25" LowPassFreq="20000.0"
-                   HiPassFreq="40.0" Mix="0.2000000029802322" TempoSync="0.0">
+        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="1036.0"
+                   DelayTimeRight="1036.0" FeedbackLeft="0.25" FeedbackRight="0.25"
+                   LowPassFreq="20000.0" HiPassFreq="40.0" Mix="0.2000000029802322"
+                   TempoSync="0.0">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
@@ -1033,10 +1034,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="127.0" midi_cc="-1"/>
-    <macro name="Env B" value="127.0" midi_cc="-1"/>
-    <macro name="Velocity" value="127.0" midi_cc="-1"/>
-    <macro name="Random" value="127.0" midi_cc="-1"/>
+    <macro name="Env A" value="0.0" midi_cc="-1"/>
+    <macro name="Env B" value="0.0" midi_cc="-1"/>
+    <macro name="Velocity" value="110.0" midi_cc="-1"/>
+    <macro name="Random" value="56.25617218017578" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
