@@ -263,7 +263,7 @@ Content.getComponent("Button_SampleDisplay").setControlCallback(onButton_SampleD
 Panel_Sample.setPaintRoutine(function(g)
 {
     g.setColour(0xFB111111);
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 8.0);
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0.0);
 	g.setColour(Colours.darkgrey);
 	g.drawLine(this.getWidth() / 3, this.getWidth() / 3, 0, this.getHeight(), 1.0);
 	g.drawLine(this.getWidth() / 3 * 2, this.getWidth() / 3 * 2, 0, this.getHeight(), 1.0);
