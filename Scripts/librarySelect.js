@@ -9,8 +9,6 @@ const var Button_CloseExpansions = Content.getComponent("Button_CloseExpansions"
 
 const var expansionNames = [];
 
-expansionNames.push("No Expansion");
-
 for (e in expHandler.getExpansionList())
     expansionNames.push(e.getProperties().Name);
 
@@ -29,75 +27,10 @@ expPanelTitle.setPaintRoutine(function(g)
     g.setColour(Colours.white);
     g.drawAlignedText("- Libraries -", [0 , 0, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
 });
-
-//Constructor Expansion
-
-const var constructorButton = Panel_ExpansionsItemHolder.addChildPanel();
-
-constructorButton.set("allowCallbacks", "Clicks & Hover");
-
-constructorButton.set("width", expButtonSize);
-constructorButton.set("height", expButtonSize);
-constructorButton.set("x", expButtonPadding);
-constructorButton.set("y", expButtonPadding);
-
-constructorButton.loadImage("{PROJECT_FOLDER}Construct_button.jpg", "constructButton");
-
-constructorButton.data.expansionName = "No Expansion";
-
-
-constructorButton.setPaintRoutine(function(g)
-{
-	g.setColour(Colours.white);
-    g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 0, 1.0);
-    g.setFont("Arial", 12.0);    
-    g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
-});
-
-constructorButton.setMouseCallback(function(event)
-{
-	if (event.clicked)
-        {
-            //Safety Check
-            loadConstructor();
-            expHandler.setCurrentExpansion("No Expansion");
-            /*
-            expHandler.setCurrentExpansion(this.data.expansionName);
-            load+this.data.expansionName;
-            */
-            this.setPaintRoutine(function(g) 
-            {
-                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0);  
-            });
-            Button_OpenExpansions.setValue(0);
-            Button_OpenExpansions.changed();
-            
-        }
-        
-        else if (event.mouseUp)
-            this.setPaintRoutine(function(g) 
-            {
-                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
-            });                  
-            
-        else if (event.hover)
-            this.setPaintRoutine(function(g) 
-            {
-                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
-                g.setColour(Colours.withAlpha(Colours.black, 0.1));
-                g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
-            });    
-            
-        else
-            this.setPaintRoutine(function(g) 
-            {
-                g.drawImage("constructButton", [0, 0, expButtonSize, expButtonSize], 0, 0); 
-            }); 
-});
     
 //Expansion Buttons    
     
-for (i=1; i<expansionNames.length; i++)
+for (i=0; i<expansionNames.length; i++)
 {
     expButton[i] = Panel_ExpansionsItemHolder.addChildPanel();
     expButton[i].set("width", expButtonSize);
@@ -108,17 +41,17 @@ for (i=1; i<expansionNames.length; i++)
         expButton[i].set("x", (expButtonPadding * (i + 1)) + (expButtonSize * (i)));
         expButton[i].set('y', expButtonPadding);
     }
-    else if (i >= 5 && i <= 9)
+    else if (i >= 5 && i <= 10)
     {
         expButton[i].set("x", (expButtonPadding * (i-5)) + (expButtonSize * ((i-5) - 1)));
         expButton[i].set('y', (expButtonPadding * 2 + expButtonSize));
     }
-    else if (i >= 10 && i <= 14)
+    else if (i >= 10 && i <= 15)
     {
         expButton[i].set("x", (expButtonPadding * (i-10)) + (expButtonSize * ((i-10) - 1)));
         expButton[i].set('y', (expButtonPadding * 3 + (expButtonSize * 2)));
     }
-    else if (i >= 15 && i <= 19)
+    else if (i >= 15 && i <= 20)
     {
         expButton[i].set("x", (expButtonPadding * (i-15)) + (expButtonSize * ((i-15) - 1)));
         expButton[i].set('y', (expButtonPadding * 4 + (expButtonSize * 3)));

@@ -122,9 +122,6 @@ function expCallback()
     
     switch (currentExpansion)
     {
-        case "No Expansion":
-        	loadConstructor();
-        break;
     
         case "Atlas":
             loadAtlas();
@@ -221,8 +218,6 @@ inline function onStop(isPlaying)
         
         switch (currentExpansion)
         {
-            case "No Expansion":
-            break;
     
             case "Atlas":
                 colourKeysAtlas();
