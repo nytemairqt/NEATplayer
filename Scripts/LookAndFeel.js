@@ -718,7 +718,7 @@ LAFSliderOutputGain.registerFunction("drawRotarySlider", function(g, obj)
 		g.drawAlignedText(Engine.doubleToString(Engine.getDecibelsForGainFactor(obj.valueNormalized), 2) + " dB", [obj.area[0], obj.area[1], obj.area[2], obj.area[3]], "centred");
     }
     
-    g.setColour(Colours.withAlpha(Colours.lightgrey, .6));
+    g.setColour(obj.hover ? Colours.withAlpha(Colours.lightgrey, 1.0) : Colours.withAlpha(Colours.lightgrey, 0.6));
     g.drawRoundedRectangle(obj.area, 2.0, .6);
 });
 

@@ -55,7 +55,7 @@ namespace VuMeter
 		{		
 			g.fillAll(this.get("bgColour"));
 			
-			g.setColour(obj.hover ? Colours.withAlpha(Colours.darkgrey, .6) : Colours.withAlpha(Colours.darkgrey, .4));
+			g.setColour(Colours.withAlpha(Colours.darkgrey, .4));
 			g.fillRoundedRectangle([0, 0, this.getWidth() * Slider_OutputGain.getValue(), this.getHeight()], 0.0);
 			
 			g.setColour(Colours.white);
@@ -73,7 +73,7 @@ namespace VuMeter
     	
 			g.fillRect([2, lPosition, lsize, barHeight]);
 			g.fillRect([2, rPosition, rsize, barHeight]);
-		});
+		});	
     
 		widget.setTimerCallback(function()
 		{

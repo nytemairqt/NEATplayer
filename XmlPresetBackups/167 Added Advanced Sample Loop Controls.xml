@@ -41,9 +41,9 @@
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_WidthSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_WidthSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DelaySettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_DelaySettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
@@ -250,10 +250,10 @@
             <Control type="ScriptButton" id="Button_SamplerALoop" value="1.0"/>
             <Control type="ScriptButton" id="Button_SamplerBLoop" value="1.0"/>
             <Control type="ScriptButton" id="Button_SamplerCLoop" value="1.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerALoopStart" value="0.3086816668510437"/>
-            <Control type="ScriptSlider" id="Slider_SamplerALoopEnd" value="0.7699999809265137"/>
-            <Control type="ScriptSlider" id="Slider_SamplerBLoopStart" value="0.3311897218227386"/>
-            <Control type="ScriptSlider" id="Slider_SamplerBLoopEnd" value="0.6848874688148499"/>
+            <Control type="ScriptSlider" id="Slider_SamplerALoopStart" value="0.389067530632019"/>
+            <Control type="ScriptSlider" id="Slider_SamplerALoopEnd" value="0.700964629650116"/>
+            <Control type="ScriptSlider" id="Slider_SamplerBLoopStart" value="0.3922829627990723"/>
+            <Control type="ScriptSlider" id="Slider_SamplerBLoopEnd" value="0.7813504934310913"/>
             <Control type="ScriptSlider" id="Slider_SamplerCLoopStart" value="0.3086816668510437"/>
             <Control type="ScriptSlider" id="Slider_SamplerCLoopEnd" value="0.6600000262260437"/>
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A1" value="1.0"/>
@@ -274,16 +274,16 @@
             <Control type="ScriptSlider" id="Slider_MovementEnvBSustain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBRelease" value="1000.0"/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="-1.0"
-                     data="128....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD"/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="-1.0"
-                     data="128............................................................................................................................................................................"/>
+                     data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
+            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="9.0"
+                     data="64...............................Hv.....C.............jAA................................"/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1.0"
-                     data="128....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD"/>
-            <Control type="ScriptSlider" id="Slider_ArpSteps" value="32.0"/>
+                     data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
+            <Control type="ScriptSlider" id="Slider_ArpSteps" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ArpBypass" value="1.0"/>
+            <Control type="ScriptButton" id="Button_ArpBypass" value="0.0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpNotes" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="0.0"/>
@@ -308,12 +308,12 @@
           </Content>
           <UIData Source="167 Added Advanced Sample Loop ControlsUIData"/>
         </Processor>
-        <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="0">
+        <Processor Type="Arpeggiator" ID="Arpeggiator1" Bypassed="1">
           <ChildProcessors/>
           <Content>
             <Control type="ScriptButton" id="BypassButton" value="0.0"/>
             <Control type="ScriptButton" id="ResetButton" value="0.0"/>
-            <Control type="ScriptSlider" id="NumStepSlider" value="32.0"/>
+            <Control type="ScriptSlider" id="NumStepSlider" value="16.0"/>
             <Control type="ScriptSlider" id="StepReset" value="0.0"/>
             <Control type="ScriptSlider" id="StepSkipSlider" value="1.0"/>
             <Control type="ScriptButton" id="SortKeysButton" value="1.0"/>
@@ -322,9 +322,9 @@
             <Control type="ScriptSlider" id="OctaveRange" value="0.0"/>
             <Control type="ScriptSlider" id="Shuffle" value="0.0"/>
             <Control type="ScriptButton" id="EnableTie" value="1.0"/>
-            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="128............................................................................................................................................................................"/>
-            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="128....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD..3uP..f+BA..9KD"/>
-            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="128....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD..XoP..fkBA..VJD"/>
+            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="64...............................Hv.....C.............jAA................................"/>
+            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
+            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
             <Control type="ScriptComboBox" id="ChannelSelector" value="2.0"/>
             <Control type="ScriptComboBox" id="OutputChannelSelector" value="1.0"/>
             <Control type="ScriptComboBox" id="MPEStartChannel" value="1.0"/>
@@ -1034,10 +1034,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="0.0" midi_cc="-1"/>
-    <macro name="Env B" value="0.0" midi_cc="-1"/>
-    <macro name="Velocity" value="110.0" midi_cc="-1"/>
-    <macro name="Random" value="56.25617218017578" midi_cc="-1"/>
+    <macro name="Env A" value="127.0" midi_cc="-1"/>
+    <macro name="Env B" value="127.0" midi_cc="-1"/>
+    <macro name="Velocity" value="127.0" midi_cc="-1"/>
+    <macro name="Random" value="127.0" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
