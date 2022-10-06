@@ -677,7 +677,7 @@
       <Component type="ScriptPanel" id="Panel_WidthSettings" x="197.0" y="87.0"
                  parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
                  itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
-                 textColour="16777215">
+                 textColour="16777215" visible="0">
         <Component type="ScriptLabel" id="Label_StutterLFOSync" x="177.0" y="260.0"
                    parentComponent="Panel_WidthSettings" width="80.0" height="28.0"
                    text="Sync" editable="0" fontStyle="Bold"/>
@@ -890,16 +890,16 @@
       <Component type="ScriptPanel" id="Panel_DelaySettings" x="197.0" y="87.0"
                  parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
                  itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
-                 textColour="16777215" visible="0">
+                 textColour="16777215">
         <Component type="ScriptLabel" id="Label_DelayTimeLeft" x="104.0" y="90.0"
                    parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
                    text="Time L" editable="0" fontStyle="Bold" alignment="left"/>
         <Component type="ScriptLabel" id="Label_DelayTimeLeftValue" x="104.0" y="106.0"
                    parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
-                   text="1036ms" editable="0" saveInPreset="1" alignment="left"/>
+                   text="814ms" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptLabel" id="Label_DelayTimeRightValue" x="240.0" y="106.0"
                    parentComponent="Panel_DelaySettings" width="61.0" height="28.0"
-                   text="1036ms" editable="0" saveInPreset="1" alignment="left"/>
+                   text="814ms" editable="0" saveInPreset="1" alignment="left"/>
         <Component type="ScriptLabel" id="Label_DelayTimeRight" x="240.0" y="90.0"
                    parentComponent="Panel_DelaySettings" width="80.0" height="28.0"
                    text="Time R" editable="0" fontStyle="Bold" alignment="left"/>
@@ -1986,7 +1986,7 @@
              tooltip="Adjusts the Output Gain." itemColour="3355443" bgColour="16777215"/>
   <Component type="ScriptFloatingTile" id="FloatingTile_PresetBrowser" x="3.0"
              y="33.0" ContentType="PresetBrowser" bgColour="4160749568" itemColour="4294967295"
-             itemColour2="4294951115" Data="{&#13;&#10;  &quot;ShowSaveButton&quot;: true,&#13;&#10;  &quot;ShowExpansionsAsColumn&quot;: true,&#13;&#10;  &quot;ShowFolderButton&quot;: true,&#13;&#10;  &quot;ShowNotes&quot;: false,&#13;&#10;  &quot;ShowEditButtons&quot;: true,&#13;&#10;  &quot;ShowFavoriteIcon&quot;: true,&#13;&#10;  &quot;NumColumns&quot;: 2,&#13;&#10;  &quot;ColumnWidthRatio&quot;: [&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333,&#13;&#10;    0.3333333333333333&#13;&#10;  ]&#13;&#10;}"
+             itemColour2="4294951115" Data="{&#10;  &quot;ShowSaveButton&quot;: true,&#10;  &quot;ShowExpansionsAsColumn&quot;: true,&#10;  &quot;ShowFolderButton&quot;: true,&#10;  &quot;ShowNotes&quot;: false,&#10;  &quot;ShowEditButtons&quot;: true,&#10;  &quot;ShowFavoriteIcon&quot;: true,&#10;  &quot;NumColumns&quot;: 2,&#10;  &quot;ColumnWidthRatio&quot;: [&#10;    0.3333333333333333,&#10;    0.3333333333333333,&#10;    0.3333333333333333&#10;  ]&#10;}"
              width="994.0" height="474.0" FontSize="12.0" Font="Arial" visible="0"/>
   <Component type="ScriptButton" id="Button_PresetBrowserClose" x="981.0"
              y="34.0" text="LAFButtonClose" width="14.0" height="14.0" isMomentary="1"
@@ -2010,7 +2010,7 @@
                numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
                parentComponent="Panel_InstallLibraries"/>
     <Component type="ScriptLabel" id="Label_InstallLibrary" x="244.0" y="77.0"
-               width="150.0" height="28.0" text="Install Library" fontSize="12.0"
+               width="150.0" height="28.0" text="Install Library" fontSize="14.0"
                editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
     <Component type="ScriptButton" id="Button_CloseInstallPanel" x="978.0" y="1.0"
                parentComponent="Panel_InstallLibraries" numStrips="6.0" width="14.0"
@@ -2020,7 +2020,7 @@
                numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
                parentComponent="Panel_InstallLibraries"/>
     <Component type="ScriptLabel" id="Label_BulkInstall" x="604.0" y="77.0"
-               width="150.0" height="28.0" text="Bulk Install" fontSize="12.0"
+               width="150.0" height="28.0" text="Bulk Install" fontSize="14.0"
                editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
     <Component type="ScriptLabel" id="Label_InstallLibraryTitle" x="474.0" y="7.0"
                width="80.0" height="28.0" text="Install" fontSize="14.0" editable="0"
@@ -2028,11 +2028,11 @@
     <Component type="ScriptLabel" id="Label_InstallLibraryDescription" x="169.0"
                y="269.0" parentComponent="Panel_InstallLibraries" width="300.0"
                height="100.0" text="Installs a single Library (.hr1 File), first select the Library you want to unpack, then navigate to the directory in which you wish to store the samples and other data."
-               fontStyle="Regular"/>
+               fontStyle="Regular" fontSize="14.0"/>
     <Component type="ScriptLabel" id="Label_BulkInstallDescription" x="529.0"
                y="269.0" parentComponent="Panel_InstallLibraries" width="300.0"
                height="100.0" text="Installs all of the available Libraries (.hr1 Files) inside a chosen directory. First select the directory containing the Libraries, then navigate to the directory in which you wish to store the samples and other data."
-               fontStyle="Regular"/>
+               fontStyle="Regular" fontSize="14.0"/>
   </Component>
   <Component type="ScriptPanel" id="Panel_ChangeSampleFolder" x="110.0" y="82.0"
              width="368.0" height="135.0" itemColour="4278190080" itemColour2="4278190080"
@@ -2065,7 +2065,7 @@
     <Component type="ScriptFloatingTile" id="FloatingTile_CustomSettings" x="23.0"
                y="29.0" parentComponent="Panel_CustomSettings" width="940.0"
                height="410.0" ContentType="CustomSettings" bgColour="4278190080"
-               itemColour="4294951115" itemColour2="4294951115" Data="{&#10;  &quot;Driver&quot;: true,&#10;  &quot;Device&quot;: true,&#10;  &quot;Output&quot;: true,&#10;  &quot;BufferSize&quot;: true,&#10;  &quot;SampleRate&quot;: true,&#10;  &quot;GlobalBPM&quot;: true,&#10;  &quot;StreamingMode&quot;: true,&#10;  &quot;ScaleFactor&quot;: true,&#10;  &quot;VoiceAmountMultiplier&quot;: true,&#10;  &quot;ClearMidiCC&quot;: true,&#10;  &quot;SampleLocation&quot;: false,&#10;  &quot;DebugMode&quot;: true,&#10;  &quot;ScaleFactorList&quot;: [&#10;    0.5,&#10;    0.75,&#10;    1.0,&#10;    1.25,&#10;    1.5,&#10;    2.0&#10;  ]&#10;}"
+               itemColour="4294951115" itemColour2="4294951115" Data="{&#10;  &quot;Driver&quot;: false,&#10;  &quot;UseOpenGL&quot;: false,&#10;  &quot;Device&quot;: false,&#10;  &quot;Output&quot;: false,&#10;  &quot;BufferSize&quot;: false,&#10;  &quot;SampleRate&quot;: false,&#10;  &quot;GlobalBPM&quot;: false,&#10;  &quot;StreamingMode&quot;: true,&#10;  &quot;ScaleFactor&quot;: false,&#10;  &quot;VoiceAmountMultiplier&quot;: true,&#10;  &quot;ClearMidiCC&quot;: true,&#10;  &quot;SampleLocation&quot;: false,&#10;  &quot;DebugMode&quot;: true,&#10;  &quot;ScaleFactorList&quot;: [&#10;    0.5,&#10;    0.75,&#10;    1.0,&#10;    1.25,&#10;    1.5,&#10;    2.0&#10;  ]&#10;}"
                Font="Arial"/>
     <Component type="ScriptPanel" id="Panel_SettingsPortamento" x="17.0" y="39.0"
                parentComponent="Panel_CustomSettings" width="135.0" height="119.0"
@@ -2116,8 +2116,10 @@
     <Component type="ScriptLabel" id="Label_SampleExclusiveReverse" x="219.0"
                y="75.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
                parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
-    <Component type="ScriptLabel" id="Label_CurrentVersion" x="7.0" y="449.0"
+    <Component type="ScriptLabel" id="Label_CurrentVersion" x="7.0" y="446.0"
                parentComponent="Panel_CustomSettings" text="Current Version: v0.13"/>
+    <Component type="ScriptLabel" id="Label_MadeWithHISE" x="869.0" y="446.0"
+               parentComponent="Panel_CustomSettings" text="Made with HISE."/>
   </Component>
   <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="490.0" y="604.0"
              width="440.0" height="18.0" borderRadius="2.0" bgColour="16777215"

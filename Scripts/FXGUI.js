@@ -245,8 +245,6 @@ inline function onSlider_FilterQControl(component, value)
 Content.getComponent("Slider_FilterQ").setControlCallback(onSlider_FilterQControl);
 
 
-
-
 inline function onButton_FilterSettingsControl(component, value)
 {
     Panel_FilterSettings.showControl(value);
@@ -579,22 +577,13 @@ const var Label_DelayMixValue = Content.getComponent("Label_DelayMixValue");
 
 inline function setDelayTimeLeft(value)
 {
-    if (Button_DelaySync.getValue())
-        Delay1.setAttribute(Delay1.DelayTimeLeft, value);
-    
-    else
-        Delay1.setAttribute(Delay1.DelayTimeLeft, value);    
-
+	Delay1.setAttribute(Delay1.DelayTimeLeft, value);
     Panel_DelayImage.repaint();
 }
 
 inline function setDelayTimeRight(value)
 {
-    if (Button_DelaySync.getValue())
-        Delay1.setAttribute(Delay1.DelayTimeRight, value);
-    
-    else
-        Delay1.setAttribute(Delay1.DelayTimeRight, value);    
+	Delay1.setAttribute(Delay1.DelayTimeRight, value);
 
     Panel_DelayImage.repaint();
 }

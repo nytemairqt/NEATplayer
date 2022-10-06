@@ -178,10 +178,7 @@ LAFButtonCloseRandomizationPanel.registerFunction("drawToggleButton", function(g
 {
     g.setColour(0xFB111111);
     g.fillEllipse(obj.area);
-    if (obj.over)
-        g.setColour(Colours.white);
-    else
-        g.setColour(Colours.lightgrey);
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     g.setFont("Arial", 14.0);
     g.drawAlignedText("x", obj.area, "centred");
 });
@@ -194,19 +191,9 @@ LAFButtonOpenRandomizationPanel.registerFunction("drawToggleButton", function(g,
     g.fillRoundedRectangle(obj.area, 2.0);
     g.drawImage("randomizationButtonDiceImage", [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 0, 0); 
     if (obj.value)
-    {
-        if (obj.over)
-            g.setColour(Colours.withAlpha(Colours.black, 0.05));
-        else
-            g.setColour(Colours.withAlpha(Colours.black, 0));      
-    }
+		g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0.0));  
     else
-    {
-        if (obj.over)
-            g.setColour(Colours.withAlpha(Colours.black, 0.1));
-        else
-            g.setColour(Colours.withAlpha(Colours.black, 0.3));         
-    }    
+		g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.1) : Colours.withAlpha(Colours.black, 0.3));  
     g.fillRoundedRectangle(obj.area, 0);    
 });
 
@@ -215,19 +202,9 @@ LAFButtonOpenRandomizationPanel.registerFunction("drawToggleButton", function(g,
 LAFButtonChangePage.registerFunction("drawToggleButton", function(g, obj)
 {
     if (obj.value)
-        {
-            if (obj.over)
-                g.setColour(Colours.darkgrey);
-            else
-                g.setColour(Colours.darkgrey);
-        }
+		g.setColour(Colours.darkgrey);
     else 
-        {
-            if (obj.over)
-                g.setColour(Colours.darkgrey);
-            else
-                g.setColour(0xFB111111);
-        }
+		g.setColour(obj.over ? Colours.darkgrey : 0xFB111111);
     g.fillRoundedRectangle(obj.area, 2.0);    
     g.setColour(Colours.white);
     g.setFont("Arial", 11.0);
@@ -239,19 +216,9 @@ LAFButtonChangePage.registerFunction("drawToggleButton", function(g, obj)
 LAFButtonSetup.registerFunction("drawToggleButton", function(g, obj)
 {
     if (obj.value)
-    {   
-        if (obj.over)
-            g.setColour(Colours.darkgrey);
-        else
-            g.setColour(Colours.darkgrey); 
-    }
+    	g.setColour(Colours.darkgrey);        
     else
-    {
-        if (obj.over)
-            g.setColour(Colours.darkgrey);
-        else
-            g.setColour(0xFB111111);
-    }
+		g.setColour(obj.over ? Colours.darkgrey : 0xFB111111);
     g.fillRoundedRectangle(obj.area, 2.0); 
     g.setColour(Colours.white);
     g.setFont("Arial", 12.0);
@@ -263,13 +230,10 @@ LAFButtonSetup.registerFunction("drawToggleButton", function(g, obj)
 LAFButtonInstallLibrary.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(0xFB111111);
-    g.fillRoundedRectangle(obj.area, 2.0);   
+    g.fillRoundedRectangle(obj.area, 8.0);   
     g.drawImage("installSingleExpansionImage", obj.area, 0, 0);
-    if (obj.over)
-        g.setColour(Colours.withAlpha(Colours.white, 0.03));
-    else
-        g.setColour(Colours.withAlpha(Colours.white, 0));
-    g.fillRoundedRectangle(obj.area, 2.0);    
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.03) : Colours.withAlpha(Colours.white, 0));
+    g.fillRoundedRectangle(obj.area, 8.0);    
 });
 
 //Library Bulk Install Button
@@ -277,13 +241,10 @@ LAFButtonInstallLibrary.registerFunction("drawToggleButton", function(g, obj)
 LAFButtonBulkInstall.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(0xFB111111);
-    g.fillRoundedRectangle(obj.area, 2.0);   
+    g.fillRoundedRectangle(obj.area, 8.0);   
     g.drawImage("bulkInstallImage", obj.area, 0, 0);
-    if (obj.over)
-        g.setColour(Colours.withAlpha(Colours.white, 0.03));
-    else
-        g.setColour(Colours.withAlpha(Colours.white, 0));
-    g.fillRoundedRectangle(obj.area, 2.0);      
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.03) : Colours.withAlpha(Colours.white, 0));
+    g.fillRoundedRectangle(obj.area, 8.0);      
 });
 
 //Randomize Visibility Button
@@ -294,19 +255,9 @@ LAFButtonRandomizeVisibility.registerFunction("drawToggleButton", function(g, ob
     g.fillRoundedRectangle(obj.area, 3.0); 
     g.drawImage("randomizationButtonVisibilityImage", [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 0, 0);
     if (obj.value)
-    {
-        if (obj.over)
-            g.setColour(Colours.withAlpha(Colours.black, 0.05));
-        else
-            g.setColour(Colours.withAlpha(Colours.black, 0));      
-    }
+		g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0));
     else
-    {
-        if (obj.over)
-            g.setColour(Colours.withAlpha(Colours.black, 0.1));
-        else
-            g.setColour(Colours.withAlpha(Colours.black, 0.3));         
-    }
+    	g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.1) : Colours.withAlpha(Colours.black, 0.3));
     g.fillRoundedRectangle(obj.area, 0);    
 });
 
@@ -316,22 +267,11 @@ LAFArpResetButton.registerFunction("drawToggleButton", function(g, obj)
 {
     path.clear();
     path.loadFromData(arpResetButtonStrokeData);    
-    if (obj.over)
-    {
-        g.setColour(Colours.white);
-        g.drawPath(path, reduced(obj, 6.0), 3);
-        path.clear();
-        path.loadFromData(arpResetButtonFillData);        
-        g.fillPath(path, [obj.area[0] + 4, obj.area[1] + 4, obj.area[2] - 14, obj.area[3] - 14]);
-    }
-    else
-    {             
-        g.setColour(Colours.lightgrey);
-        g.drawPath(path, reduced(obj, 6.0), 3);
-        path.clear();
-        path.loadFromData(arpResetButtonFillData);          
-        g.fillPath(path, [obj.area[0] + 4, obj.area[1] + 4, obj.area[2] - 14, obj.area[3] - 14]);             
-    }     
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+    g.drawPath(path, reduced(obj, 6.0), 3);
+    path.clear();
+    path.loadFromData(arpResetButtonFillData);        
+    g.fillPath(path, [obj.area[0] + 4, obj.area[1] + 4, obj.area[2] - 14, obj.area[3] - 14]);    
 });
 
 //Arp Invert Button
@@ -343,10 +283,7 @@ LAFArpInvertButton.registerFunction("drawToggleButton", function(g, obj)
     var rightTrianglePosition = (obj.area[2] * 0.75) - (obj.area[2] * 0.2);
     var triangleYOffset = (obj.area[3] * 0.33) / 2;
 
-    if (obj.over)           
-        g.setColour(Colours.white);
-    else               
-        g.setColour(Colours.lightgrey);
+	g.setColour(obj.over ? Colours.white : Colours.lightgrey);
 
     g.fillTriangle([leftTrianglePosition, 0 + triangleYOffset, obj.area[2] * 0.33, obj.area[3] * 0.33], Math.toRadians(0));
     g.drawLine(leftTrianglePosition + triangleWidth, leftTrianglePosition + triangleWidth, 10, obj.area[3] - 4, 2.0);
@@ -361,10 +298,7 @@ LAFArpMinorButton.registerFunction("drawToggleButton", function(g, obj)
 {
     path.clear();
     path.loadFromData(arpButtonMinor);    
-    if (obj.over)
-        g.setColour(Colours.white);
-    else
-        g.setColour(Colours.lightgrey);
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     g.fillPath(path, obj.area);
     g.setColour(0xE4060606);               
     g.drawPath(path, obj.area, 1.0);    
@@ -376,10 +310,7 @@ LAFArpMajorButton.registerFunction("drawToggleButton", function(g, obj)
 {
     path.clear();
     path.loadFromData(arpButtonMajor);    
-    if (obj.over)
-        g.setColour(Colours.white);
-    else
-        g.setColour(Colours.lightgrey);
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     g.fillPath(path, obj.area);
     g.setColour(0xE4060606);               
     g.drawPath(path, obj.area, 1.0);        
@@ -389,38 +320,21 @@ LAFArpMajorButton.registerFunction("drawToggleButton", function(g, obj)
 
 LAFButtonAppData.registerFunction("drawToggleButton", function(g, obj)
 {
-    if (obj.over)
-    {
-        g.setColour(Colours.lightgrey);
-        path.clear();
-        path.loadFromData(openAppDataFolderButtonFillDataBack);
-        g.fillPath(path, [obj.area[0], obj.area[1], obj.area[2] - 6, obj.area[3] - 6]);
-        path.clear();
-        g.setColour(Colours.white);
-        path.loadFromData(openAppDataFolderButtonFillDataFront);
-        g.fillPath(path, [obj.area[0], obj.area[1] + 6, obj.area[2] - 6, obj.area[3] - 8]);             
-    }
-    else 
-    {
-        g.setColour(Colours.grey);
-        path.clear();
-        path.loadFromData(openAppDataFolderButtonFillDataBack);
-        g.fillPath(path, [obj.area[0], obj.area[1], obj.area[2] - 6, obj.area[3] - 6]);
-        path.clear();
-        g.setColour(Colours.lightgrey);
-        path.loadFromData(openAppDataFolderButtonFillDataFront);
-        g.fillPath(path, [obj.area[0], obj.area[1] + 6, obj.area[2] - 6, obj.area[3] - 8]);            
-    }    
+	g.setColour(obj.over ? Colours.lightgrey : Colours.grey);
+    path.clear();
+    path.loadFromData(openAppDataFolderButtonFillDataBack);
+    g.fillPath(path, [obj.area[0], obj.area[1], obj.area[2] - 6, obj.area[3] - 6]);
+    path.clear();
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+    path.loadFromData(openAppDataFolderButtonFillDataFront);
+    g.fillPath(path, [obj.area[0], obj.area[1] + 6, obj.area[2] - 6, obj.area[3] - 8]); 
 });
 
 //Up Arrow Button
 
 LAFButtonUpArrow.registerFunction("drawToggleButton", function(g, obj)
 {
-    if (obj.over)
-        g.setColour(Colours.white);
-    else
-        g.setColour(Colours.lightgrey);
+	g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     g.fillTriangle(obj.area, 0);    
 });
 
@@ -428,10 +342,7 @@ LAFButtonUpArrow.registerFunction("drawToggleButton", function(g, obj)
 
 LAFButtonDownArrow.registerFunction("drawToggleButton", function(g, obj)
 {
-    if (obj.over)
-        g.setColour(Colours.white);
-    else
-        g.setColour(Colours.lightgrey);
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     g.fillTriangle(obj.area, Math.toRadians(180));    
 });
 
@@ -440,19 +351,9 @@ LAFButtonDownArrow.registerFunction("drawToggleButton", function(g, obj)
 LAFButtonSamplerBypass.registerFunction("drawToggleButton", function(g, obj)
 {
         if (obj.value)
-        {
-            if (obj.over)
-                g.setColour(Colours.white);
-            else
-                g.setColour(Colours.lightgrey);
-        }
+            g.setColour(obj.over ? Colours.white : Colours.lightgrey);
         else
-        {
-            if (obj.over)
-                g.setColour(Colours.grey);
-            else
-                g.setColour(Colours.darkgrey);
-        }
+			g.setColour(obj.over ? Colours.grey : Colours.darkgrey);
         path.clear();
         path.loadFromData(samplerPowerButtonData);
         g.drawPath(path, [obj.area[0] + 2, obj.area[1] + 2, obj.area[2] - 4, obj.area[3] - 4], 2);
@@ -465,62 +366,16 @@ LAFButtonSamplerShowADSR.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(0xFB111111);
     g.fillRoundedRectangle(obj.area, 2.0);
+    g.setColour(Colours.white);
+    g.setFont("Arial", 8);
     if (obj.value)
-    {
-        g.setColour(Colours.white);
-        g.setFont("Arial", 8);
-        g.drawAlignedText("WAVE", reduced(obj, 0.5), "centred");
-        g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0.00));
-    }
-    else
-    {
-        g.setColour(Colours.white);
-        g.setFont("Arial", 8);
-        g.drawAlignedText("ADSR", reduced(obj, 0.5), "centred");
-        g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0.00));
-    }
+    	g.drawAlignedText("WAVE", reduced(obj, 0.5), "centred");
+    else 
+    	g.drawAlignedText("ADSR", reduced(obj, 0.5), "centred");
+    g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0.00));
     g.fillRoundedRectangle(obj.area, 2.0);    
     g.setColour(Colours.lightgrey);
-    g.drawRoundedRectangle(obj.area, 2.0, 1.0);
-});
-
-//Sampler Loop Button
-
-LAFButtonSamplerLoop.registerFunction("drawToggleButton", function(g, obj)
-{
-    if (obj.value)
-    {
-        if (obj.over)
-        {
-            g.setColour(Colours.white);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-            g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
-            g.fillRoundedRectangle(obj.area, 2.0);
-        }
-        else
-        {
-            g.setColour(Colours.lightgrey);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-            g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
-            g.fillRoundedRectangle(obj.area, 2.0);
-        }
-    }
-    else
-    {
-        if (obj.over)
-        {
-            g.setColour(Colours.grey);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-        }
-        else
-        {
-            g.setColour(Colours.darkgrey);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-        }
-    }
-    g.setColour(Colours.white);
-    g.setFont("Arial", 9.0);
-    g.drawAlignedText("LOOP", obj.area, "centred");  
+    g.drawRoundedRectangle(obj.area, 2.0, 1.0);    
 });
 
 //Sampler Reverse Button
@@ -529,33 +384,15 @@ LAFButtonSamplerReverse.registerFunction("drawToggleButton", function(g, obj)
 {
     if (obj.value)
     {
-        if (obj.over)
-        {
-            g.setColour(Colours.white);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-            g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
-            g.fillRoundedRectangle(obj.area, 2.0);
-        }
-        else
-        {
-            g.setColour(Colours.lightgrey);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-            g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
-            g.fillRoundedRectangle(obj.area, 2.0);
-        }
+		g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+		g.drawRoundedRectangle(obj.area, 2.0, .5);
+        g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
+        g.fillRoundedRectangle(obj.area, 2.0);
     }
     else
     {
-        if (obj.over)
-        {
-            g.setColour(Colours.grey);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-        }
-        else
-        {
-            g.setColour(Colours.darkgrey);
-            g.drawRoundedRectangle(obj.area, 2.0, .5);
-        }
+		g.setColour(obj.over ? Colours.grey : Colours.darkgrey);
+		g.drawRoundedRectangle(obj.area, 2.0, .5);
     }
     g.setColour(Colours.white);
     g.setFont("Arial", 9.0);
@@ -566,10 +403,7 @@ LAFButtonSamplerReverse.registerFunction("drawToggleButton", function(g, obj)
 
 LAFButtonSettingsCogwheel.registerFunction("drawToggleButton", function(g, obj)
 {
-    if (obj.over)
-        g.setColour(Colours.darkgrey);
-    else
-        g.setColour(0xFB111111);
+	g.setColour(obj.over ? Colours.darkgrey : 0xFB111111);
     g.fillRoundedRectangle(obj.area, 2.0);
     g.setColour(Colours.darkgrey);
     g.drawRoundedRectangle(obj.area, 2.0, 1.0);

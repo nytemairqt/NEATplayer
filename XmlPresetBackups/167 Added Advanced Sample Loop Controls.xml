@@ -41,9 +41,9 @@
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_WidthSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_WidthSettings" value="0"/>
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DelaySettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DelaySettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
@@ -143,8 +143,8 @@
             <Control type="ScriptButton" id="Button_RandomizeFXReverbDamping" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbWidth" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbMix" value="0.0"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1036ms"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1036ms"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="814ms"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="814ms"/>
             <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.25"/>
             <Control type="ScriptSlider" id="Slider_DelayFeedbackLeft" value="0.25"/>
             <Control type="ScriptSlider" id="Slider_DelayMix" value="0.2000000029802322"/>
@@ -158,8 +158,8 @@
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayMix" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="1036.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="1036.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="814.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="814.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXAmpBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDrive" value="0.0"/>
@@ -493,10 +493,9 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="1036.0"
-                   DelayTimeRight="1036.0" FeedbackLeft="0.25" FeedbackRight="0.25"
-                   LowPassFreq="20000.0" HiPassFreq="40.0" Mix="0.2000000029802322"
-                   TempoSync="0.0">
+        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="814.0" DelayTimeRight="814.0"
+                   FeedbackLeft="0.25" FeedbackRight="0.25" LowPassFreq="20000.0"
+                   HiPassFreq="40.0" Mix="0.2000000029802322" TempoSync="0.0">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>

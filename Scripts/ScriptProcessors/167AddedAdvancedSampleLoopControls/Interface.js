@@ -351,54 +351,34 @@ function onNoteOn()
     //Check to see if within playable range.
     
     if (playableWhiteKeys.contains(e))
-    {
         Engine.setKeyColour(e, 0xCC6FC4CA);
-    }
     
     else if (playableBlackKeys.contains(e))
-    {
         Engine.setKeyColour(e, 0xEE124145);
-    }
     
     else if (playableWhiteKeysAethericAmbiance.contains(e))
-    {
         Engine.setKeyColour(e, 0xFF9C63D3);
-    }
     
     else if (playableBlackKeysAethericAmbiance.contains(e))
-    {
         Engine.setKeyColour(e, 0xFF361B51);
-    }
     
     else if (playableWhiteKeysYellow.contains(e))
-    {
         Engine.setKeyColour(e, 0xFFD6DA4C);
-    }
     
     else if (playableBlackKeysYellow.contains(e))
-    {
         Engine.setKeyColour(e, 0xFF646112);
-    }  
     
     else if (playableWhiteKeysBlue.contains(e))
-    {
         Engine.setKeyColour(e, 0xFF466CD2);
-    }   
     
     else if (playableBlackKeysBlue.contains(e))
-    {
         Engine.setKeyColour(e, 0xFF0C2055);
-    }    
     
     else if (voidWhiteKeys.contains(e))
-    {
         Engine.setKeyColour(e, Colours.lightgrey);
-    }
     
     else if (voidBlackKeys.contains(e))
-    {
         Engine.setKeyColour(e, Colours.black);
-    }
     
     //Nested switch statement to select expansion, then select specific note played.
 	switch (currentExpansion)
@@ -587,9 +567,7 @@ function onNoteOn()
             default:
         }
         if (Message.getNoteNumber() >= 60 && Message.getNoteNumber() <= 90)
-        {
             SamplerA.asSampler().enableRoundRobin(true);
-        }
         break;
         
         case "Blackout2":
@@ -776,9 +754,7 @@ function onNoteOn()
             default:
         }
         if (Message.getNoteNumber() >= 60 && Message.getNoteNumber() <= 90)
-        {
             SamplerA.asSampler().enableRoundRobin(true);
-        }
 	    break;        
 	    
 	    case "Portal":
@@ -1017,11 +993,6 @@ function onNoteOn()
         
         case "Aetheric":
             disableRoundRobin();
-            /*
-            SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
-            SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
-            SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
-            */
         break;
         
         case "Atlas":
@@ -1271,9 +1242,7 @@ function onNoteOn()
         case "Gloom":
             SamplerA.asSampler().enableRoundRobin(true);
             if (e > 0 && e <= 5)
-            {
                 Message.ignoreEvent(e);
-            }
             
             //chair creaking.
             else if (e >= 36 && e <= 120) 
