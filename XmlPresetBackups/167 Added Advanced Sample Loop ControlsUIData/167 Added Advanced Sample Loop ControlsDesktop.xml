@@ -1388,13 +1388,13 @@
       <Component type="ScriptLabel" id="Label_SamplerCPitchCoarseValue" x="705.0"
                  y="439.0" width="48.0" height="20.0" fontStyle="Regular" text="0st"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
-      <Component type="ScriptButton" id="Button_SamplerAReverse" x="278.0" y="204.0"
+      <Component type="ScriptButton" id="Button_SamplerAReverse" x="284.0" y="189.0"
                  parentComponent="Panel_Sample" width="36.0" height="16.0" text="LAFButtonSamplerReverse"
                  macroControl="No MacroControl" enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
-      <Component type="ScriptButton" id="Button_SamplerBReverse" x="609.0" y="204.0"
+      <Component type="ScriptButton" id="Button_SamplerBReverse" x="615.0" y="189.0"
                  parentComponent="Panel_Sample" width="36.0" height="16.0" text="LAFButtonSamplerReverse"
                  enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
-      <Component type="ScriptButton" id="Button_SamplerCReverse" x="940.0" y="204.0"
+      <Component type="ScriptButton" id="Button_SamplerCReverse" x="946.0" y="189.0"
                  parentComponent="Panel_Sample" width="36.0" height="16.0" text="LAFButtonSamplerReverse"
                  enableMidiLearn="0" tooltip="Reverses Sample playback for this Sampler."/>
       <Component type="ScriptButton" id="Button_SamplerAComboBoxUp" x="222.6666717529297"
@@ -1472,14 +1472,14 @@
       <Component type="ScriptButton" id="Button_RandomizeSamplerCSampleStart"
                  x="967.0" y="59.0" parentComponent="Panel_Sample" text="LAFButtonRandomize"
                  width="10.0" height="10.0" enableMidiLearn="0" tooltip="Toggles Randomization for this Control."/>
-      <Component type="ScriptButton" id="Button_SamplerAShowADSR" x="13.0" y="60.0"
-                 parentComponent="Panel_Sample" width="24.0" height="12.0" text="LAFButtonSamplerShowADSR"
+      <Component type="ScriptButton" id="Button_SamplerAShowADSR" x="10.0" y="57.0"
+                 parentComponent="Panel_Sample" width="36.0" height="16.0" text="LAFButtonSamplerShowADSR"
                  enableMidiLearn="0" tooltip="Switches between Waveform and ADSR Display."/>
-      <Component type="ScriptButton" id="Button_SamplerBShowADSR" x="344.0" y="60.0"
-                 parentComponent="Panel_Sample" width="24.0" height="12.0" text="LAFButtonSamplerShowADSR"
+      <Component type="ScriptButton" id="Button_SamplerBShowADSR" x="341.0" y="57.0"
+                 parentComponent="Panel_Sample" width="36.0" height="16.0" text="LAFButtonSamplerShowADSR"
                  tooltip="Switches between Waveform and ADSR Display."/>
-      <Component type="ScriptButton" id="Button_SamplerCShowADSR" x="675.0" y="60.0"
-                 parentComponent="Panel_Sample" width="24.0" height="12.0" text="LAFButtonSamplerShowADSR"
+      <Component type="ScriptButton" id="Button_SamplerCShowADSR" x="672.0" y="57.0"
+                 parentComponent="Panel_Sample" width="36.0" height="16.0" text="LAFButtonSamplerShowADSR"
                  tooltip="Switches between Waveform and ADSR Display."/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledB" x="331.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"

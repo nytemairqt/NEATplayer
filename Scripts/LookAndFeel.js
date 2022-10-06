@@ -468,30 +468,20 @@ LAFButtonSamplerShowADSR.registerFunction("drawToggleButton", function(g, obj)
     if (obj.value)
     {
         g.setColour(Colours.white);
-        g.drawImage("samplerShowADSRButtonOff", obj.area, 0, 0);
-        if (obj.over)
-        {
-            g.setColour(Colours.withAlpha(Colours.black, 0.05));
-        }
-        else
-        {
-            g.setColour(Colours.withAlpha(Colours.black, 0.00));
-        }
+        g.setFont("Arial", 8);
+        g.drawAlignedText("WAVE", reduced(obj, 0.5), "centred");
+        g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0.00));
     }
     else
     {
         g.setColour(Colours.white);
-        g.drawImage("samplerShowADSRButtonOn", obj.area, 0, 0);
-        if (obj.over)
-        {
-            g.setColour(Colours.withAlpha(Colours.black, 0.05));
-        }
-        else
-        {
-            g.setColour(Colours.withAlpha(Colours.black, 0.00));
-        }
+        g.setFont("Arial", 8);
+        g.drawAlignedText("ADSR", reduced(obj, 0.5), "centred");
+        g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0.00));
     }
     g.fillRoundedRectangle(obj.area, 2.0);    
+    g.setColour(Colours.lightgrey);
+    g.drawRoundedRectangle(obj.area, 2.0, 1.0);
 });
 
 //Sampler Loop Button
