@@ -49,62 +49,6 @@ inline function samplerLoopPitch(value)
     SamplerC_LoopsPitchMod.setIntensity(value);
 }
 
-//Loop Panel Function
-
-inline function panelSamplerLoopEdit(loopStart, loopEnd, panelDisplay)
-{
-	this.data.hover = event.hover || event.drag;
-
-	this.data.loopStartBoundsLeft = this.getWidth() * loopStart.getValue();
-	this.data.loopEndBoundsLeft = this.getWidth() * loopEnd.getValue();
-	 
-	if (event.clicked || event.drag)
-	{
-		this.data.active = true;
-
-		//Check which tab is clicked
-		if (event.x > this.data.loopStartBoundsLeft - 5 && event.x < this.data.loopStartBoundsLeft + 5)
-			this.data.tabToMove = "Loop Start";
-		else if (event.x > this.data.loopEndBoundsLeft - 5 && event.x < this.data.loopEndBoundsLeft + 5)
-			this.data.tabToMove = "Loop End";
-
-		if (this.data.tabToMove == "Loop Start")
-		{
-			this.data.loopStart = Math.range(event.x / this.getWidth(), this.get("min"), this.get("max"));
-			this.data.loopStartBoundsLeft = Math.range(event.x, 0, this.getWidth() - 5);
-		}
-		if (this.data.tabToMove == "Loop End")
-		{
-			this.data.loopEnd = Math.range(event.x / this.getWidth(), this.get("min"), this.get("max"));
-			this.data.loopEndBoundsLeft = Math.range(event.x, 0, this.getWidth() - 5);
-		}
-	this.repaint();
-	panelDisplay.repaint();
-	}
-	 
-	if (event.mouseUp)
-	{
-		 if (this.data.tabToMove == "Loop Start")
-		 {
-			loopStart.setValue(this.data.loopStart);
-			loopStart.changed();
-			this.data.tabToMove = "";
-		 }
-		 else if (this.data.tabToMove == "Loop End")
-		 {
-			loopEnd.setValue(this.data.loopEnd);
-			loopEnd.changed();
-			this.data.tabToMove = "";
-		 }
-		 else
-		 {
-		 	this.data.tabToMove = "";
-		 	return;
-		 }
-		this.data.active = false;
-	}
-}
-
 //GUI Elements
 
 const var Button_SamplerABypass = Content.getComponent("Button_SamplerABypass");
@@ -129,12 +73,6 @@ const var Label_SamplerAPitchFineValue = Content.getComponent("Label_SamplerAPit
 const var ComboBox_SamplerA = Content.getComponent("ComboBox_SamplerA");
 const var AudioWaveform_SamplerA = Content.getComponent("AudioWaveform_SamplerA");
 const var Slider_SampleOffsetA = Content.getComponent("Slider_SampleOffsetA");
-
-const var Button_SamplerALoop = Content.getComponent("Button_SamplerALoop");
-const var Slider_SamplerALoopStart = Content.getComponent("Slider_SamplerALoopStart");
-const var Slider_SamplerALoopEnd = Content.getComponent("Slider_SamplerALoopEnd");
-const var Panel_SamplerALoopDisplay = Content.getComponent("Panel_SamplerALoopDisplay");
-const var Panel_SamplerALoopEdit = Content.getComponent("Panel_SamplerALoopEdit");
 
 const var Slider_SamplerAAttack = Content.getComponent("Slider_SamplerAAttack");
 const var Slider_SamplerADecay = Content.getComponent("Slider_SamplerADecay");
@@ -176,12 +114,6 @@ const var ComboBox_SamplerB = Content.getComponent("ComboBox_SamplerB");
 const var AudioWaveform_SamplerB = Content.getComponent("AudioWaveform_SamplerB");
 const var Slider_SampleOffsetB = Content.getComponent("Slider_SampleOffsetB");
 
-const var Button_SamplerBLoop = Content.getComponent("Button_SamplerBLoop");
-const var Slider_SamplerBLoopStart = Content.getComponent("Slider_SamplerBLoopStart");
-const var Slider_SamplerBLoopEnd = Content.getComponent("Slider_SamplerBLoopEnd");
-const var Panel_SamplerBLoopDisplay = Content.getComponent("Panel_SamplerBLoopDisplay");
-const var Panel_SamplerBLoopEdit = Content.getComponent("Panel_SamplerBLoopEdit");
-
 const var Slider_SamplerBAttack = Content.getComponent("Slider_SamplerBAttack");
 const var Slider_SamplerBDecay = Content.getComponent("Slider_SamplerBDecay");
 const var Slider_SamplerBSustain = Content.getComponent("Slider_SamplerBSustain");
@@ -219,12 +151,6 @@ const var Label_SamplerCPitchFineValue = Content.getComponent("Label_SamplerCPit
 const var ComboBox_SamplerC = Content.getComponent("ComboBox_SamplerC");
 const var AudioWaveform_SamplerC = Content.getComponent("AudioWaveform_SamplerC");
 const var Slider_SampleOffsetC = Content.getComponent("Slider_SampleOffsetC");
-
-const var Button_SamplerCLoop = Content.getComponent("Button_SamplerCLoop");
-const var Slider_SamplerCLoopStart = Content.getComponent("Slider_SamplerCLoopStart");
-const var Slider_SamplerCLoopEnd = Content.getComponent("Slider_SamplerCLoopEnd");
-const var Panel_SamplerCLoopDisplay = Content.getComponent("Panel_SamplerCLoopDisplay");
-const var Panel_SamplerCLoopEdit = Content.getComponent("Panel_SamplerCLoopEdit");
 
 const var Slider_SamplerCAttack = Content.getComponent("Slider_SamplerCAttack");
 const var Slider_SamplerCDecay = Content.getComponent("Slider_SamplerCDecay");
@@ -421,56 +347,6 @@ inline function onSlider_SamplerAReleaseControl(component, value)
 
 Content.getComponent("Slider_SamplerARelease").setControlCallback(onSlider_SamplerAReleaseControl);
 
-//Loop Button
-
-inline function onButton_SamplerALoopControl(component, value)
-{
-	for (s in SamplerA.asSampler().createSelection(".*"))
-		{
-		    local l = parseInt(s.get(SamplerA.SampleEnd));
-		    s.set(SamplerA.asSampler().LoopEnabled, value);
-		}
-
-	Panel_SamplerALoopEdit.repaint();
-	Panel_SamplerALoopDisplay.repaint();
-};
-
-Content.getComponent("Button_SamplerALoop").setControlCallback(onButton_SamplerALoopControl);
-
-//Loop Panel
-
-Panel_SamplerALoopEdit.setMouseCallback(function(event)
-{
-	panelSamplerLoopEdit(Slider_SamplerALoopStart, Slider_SamplerALoopEnd, Panel_SamplerALoopDisplay);
-});
-
-//Loop Start
-
-
-inline function onSlider_SamplerALoopStartControl(component, value)
-{
-	for (s in SamplerA.asSampler().createSelection(".*"))
-	{
-    	local l = parseInt(s.get(Sampler.SampleEnd));
-    	s.set(SamplerA.asSampler().LoopStart, value * l);
-	}
-};
-
-Content.getComponent("Slider_SamplerALoopStart").setControlCallback(onSlider_SamplerALoopStartControl);
-
-//Loop End
-
-inline function onSlider_SamplerALoopEndControl(component, value)
-{
-	for (s in SamplerA.asSampler().createSelection(".*"))
-	{
-	    local l = parseInt(s.get(Sampler.SampleEnd));
-	    s.set(SamplerA.asSampler().LoopEnd, value * l);
-	}
-};
-
-Content.getComponent("Slider_SamplerALoopEnd").setControlCallback(onSlider_SamplerALoopEndControl);
-
 
 //Reverse Sample Switch
 
@@ -601,55 +477,6 @@ inline function onSlider_SamplerBReleaseControl(component, value)
 
 Content.getComponent("Slider_SamplerBRelease").setControlCallback(onSlider_SamplerBReleaseControl);
 
-//Loop Button
-
-inline function onButton_SamplerBLoopControl(component, value)
-{
-    for (s in SamplerB.asSampler().createSelection(".*"))
-        {
-            local l = parseInt(s.get(SamplerB.SampleEnd));
-            s.set(SamplerB.asSampler().LoopEnabled, value);
-        }
-
-    Panel_SamplerBLoopEdit.repaint();
-	Panel_SamplerBLoopDisplay.repaint();
-};
-
-Content.getComponent("Button_SamplerBLoop").setControlCallback(onButton_SamplerBLoopControl);
-
-//Loop Panel
-
-Panel_SamplerBLoopEdit.setMouseCallback(function(event)
-{
-	panelSamplerLoopEdit(Slider_SamplerBLoopStart, Slider_SamplerBLoopEnd, Panel_SamplerBLoopDisplay);
-});
-
-//Loop Start
-
-inline function onSlider_SamplerBLoopStartControl(component, value)
-{
-	for (s in SamplerB.asSampler().createSelection(".*"))
-	{
-    	local l = parseInt(s.get(Sampler.SampleEnd));
-    	s.set(SamplerB.asSampler().LoopStart, value * l);
-	}
-};
-
-Content.getComponent("Slider_SamplerBLoopStart").setControlCallback(onSlider_SamplerBLoopStartControl);
-
-//Loop End
-
-inline function onSlider_SamplerBLoopEndControl(component, value)
-{
-	for (s in SamplerB.asSampler().createSelection(".*"))
-	{
-    	local l = parseInt(s.get(Sampler.SampleEnd));
-    	s.set(SamplerB.asSampler().LoopEnd, value * l);
-	}
-};
-
-Content.getComponent("Slider_SamplerBLoopEnd").setControlCallback(onSlider_SamplerBLoopEndControl);
-
 //Reverse Sample Switch
 
 
@@ -779,55 +606,6 @@ inline function onSlider_SamplerCReleaseControl(component, value)
 };
 
 Content.getComponent("Slider_SamplerCRelease").setControlCallback(onSlider_SamplerCReleaseControl);
-
-//Loop Button
-
-inline function onButton_SamplerCLoopControl(component, value)
-{
-    for (s in SamplerC.asSampler().createSelection(".*"))
-    {
-        local l = parseInt(s.get(SamplerC.SampleEnd));
-        s.set(SamplerC.asSampler().LoopEnabled, value);
-    }
-
-	Panel_SamplerCLoopEdit.repaint();
-	Panel_SamplerCLoopDisplay.repaint();    
-};
-
-Content.getComponent("Button_SamplerCLoop").setControlCallback(onButton_SamplerCLoopControl);
-
-//Loop Panel
-
-Panel_SamplerCLoopEdit.setMouseCallback(function(event)
-{
-	panelSamplerLoopEdit(Slider_SamplerCLoopStart, Slider_SamplerCLoopEnd, Panel_SamplerCLoopDisplay);
-});
-
-//Loop Start
-
-inline function onSlider_SamplerCLoopStartControl(component, value)
-{
-	for (s in SamplerC.asSampler().createSelection(".*"))
-	{
-    	local l = parseInt(s.get(Sampler.SampleEnd));
-    	s.set(SamplerC.asSampler().LoopStart, value * l);
-	}
-};
-
-Content.getComponent("Slider_SamplerCLoopStart").setControlCallback(onSlider_SamplerCLoopStartControl);
-
-//Loop End
-
-inline function onSlider_SamplerCLoopEndControl(component, value)
-{
-	for (s in SamplerC.asSampler().createSelection(".*"))
-	{
-    	local l = parseInt(s.get(Sampler.SampleEnd));
-    	s.set(SamplerA.asSampler().LoopEnd, value * l);
-	}
-};
-
-Content.getComponent("Slider_SamplerCLoopEnd").setControlCallback(onSlider_SamplerCLoopEndControl);
 
 //Reverse Sample Switch
 
