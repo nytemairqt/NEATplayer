@@ -455,6 +455,8 @@ inline function onSlider_PhaserMixControl(component, value)
 {
 	PhaseFX1.setAttribute(PhaseFX1.Mix, value);
 	Label_PhaserMixAmount.set("text", Math.round(value * 100) + "%");
+	
+	Panel_PhaserImage.repaint();
 };
 
 Content.getComponent("Slider_PhaserMix").setControlCallback(onSlider_PhaserMixControl);
@@ -1322,29 +1324,56 @@ Panel_WidthImage.setPaintRoutine(function(g)
 
 //Phaser
 
-var phaserSineWidthL;
-var phaserSineWidthR;
+reg phaserSineWidthL;
+reg phaserSineWidthR;
+reg phaserYPos;
+reg phaserHeight;
+const var phaserNumPoints = 256;
+const var phaserPathL = Content.createPath();
+const var phaserPathR = Content.createPath();
 
 Panel_PhaserImage.setPaintRoutine(function(g)
 {   
-    phaserSineWidthL = this.getWidth() * (1-Slider_PhaserRateA.getValueNormalized());
-    phaserSineWidthL = Math.range(phaserSineWidthL, 0, this.getWidth() * .6);
+	//Phaser Left
+	
+	//y position = panel height / 2 - (panel height * (feedback slider normalized / 2))
+	phaserYPos = (this.getHeight() / 2) - (this.getHeight() * (Slider_PhaserFeedback.getValueNormalized() / 4));
+	phaserHeight = (Slider_PhaserFeedback.getValueNormalized() == 0.0 ? 1 : (this.getHeight() * Slider_PhaserFeedback.getValueNormalized()) * .5);
+	
+	
+	phaserPathL.clear();
+	
+	if (Slider_PhaserFeedback.getValueNormalized() == 0)	
+	{
+		g.setColour(Colours.white);
+		g.drawLine(0, this.getWidth(), (this.getHeight() / 2) - 20, (this.getHeight() / 2) - 20, 1.0);
+		g.setColour(Colours.lightblue);
+		g.drawLine(0, this.getWidth(), (this.getHeight() / 2) + 20, (this.getHeight() / 2) + 20, 1.0);
+	}
+	else
+	{
+		phaserSineWidthL = (Slider_PhaserRateA.getValueNormalized() == 0 ? 0.07155949854734688 : Slider_PhaserRateA.getValueNormalized()) * 15;	
+		phaserSineWidthR = (Slider_PhaserRateB.getValueNormalized() == 0 ? 0.07155949854734688 : Slider_PhaserRateB.getValueNormalized()) * 15;
 
-    phaserSineWidthR = this.getWidth() * (1-Slider_PhaserRateB.getValueNormalized());
-    phaserSineWidthR = Math.range(phaserSineWidthR, 0, this.getWidth() * .6);
+		phaserPathL.clear();
+		phaserPathR.clear();
 
-    g.setColour(Colours.white);
-    pathFXPanel.loadFromData(phaserData);
-    g.drawPath(pathFXPanel, [this.getWidth() * 0.1, this.getHeight() * .2, phaserSineWidthL, this.getHeight() * .6], FXImageLineWidth);
-
-    g.setColour(Colours.withAlpha(Colours.white, Slider_PhaserFeedback.getValueNormalized() * .5));
-    g.fillPath(pathFXPanel, [this.getWidth() * 0.1, this.getHeight() * .2, phaserSineWidthL, this.getHeight() * .6]);
-
-    g.setColour(Colours.lightblue);
-    g.drawPath(pathFXPanel, [this.getWidth() * .3, this.getHeight() * .2, phaserSineWidthR, this.getHeight() * .6], FXImageLineWidth);
-
-    g.setColour(Colours.withAlpha(Colours.lightblue, Slider_PhaserFeedback.getValueNormalized() * .5));
-    g.fillPath(pathFXPanel, [this.getWidth() * .3, this.getHeight() * .2, phaserSineWidthR, this.getHeight() * .6]);
+		for (i=0; i < phaserNumPoints; i++)
+		{
+			phaserPathL.lineTo(i, Math.sin(i / phaserNumPoints * 2.0 * Math.PI * phaserSineWidthL));
+			phaserPathR.lineTo(i, Math.sin(i / phaserNumPoints * 2.0 * Math.PI * phaserSineWidthR));
+		}
+		
+		g.setColour(Colours.white);
+		g.drawPath(phaserPathL, [0, phaserYPos - 20, this.getWidth(), phaserHeight], FXImageLineWidth);
+		g.setColour(Colours.withAlpha(Colours.white, Slider_PhaserMix.getValueNormalized() * .5));
+		g.fillPath(phaserPathL, [0, phaserYPos - 20, this.getWidth(), phaserHeight]);		
+			
+		g.setColour(Colours.lightblue);
+		g.drawPath(phaserPathR, [0, phaserYPos + 20, this.getWidth(), phaserHeight], FXImageLineWidth);
+		g.setColour(Colours.withAlpha(Colours.lightblue, Slider_PhaserMix.getValueNormalized() * .5));
+		g.fillPath(phaserPathR, [0, phaserYPos + 20, this.getWidth(), phaserHeight]);
+	}
 });
 
 //Reverb
