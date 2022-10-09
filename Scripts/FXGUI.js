@@ -461,10 +461,6 @@ inline function onSlider_PhaserMixControl(component, value)
 
 Content.getComponent("Slider_PhaserMix").setControlCallback(onSlider_PhaserMixControl);
 
-
-
-
-
 //Degrade
 
 const var Slider_DegradeBitDepth = Content.getComponent("Slider_DegradeBitDepth");
@@ -1273,17 +1269,27 @@ Panel_DriveImage.setPaintRoutine(function(g)
 
 //Degrade
 
-var degradePointsx = [.2, .58, .69, .26, .72, .8, .76, .66, .25, .44, .51, .07, .27, .17, .45, .38, .72, .69, .48, .23, .42];
-var degradePointsY = [.44, .62, .11, .88, .46, .33, .56, .82, .27, .14, .22, .45, .39, .58, .37, .66, .78, .29, .56, .67, .83];
-var degradeColours = [Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue, Colours.white, Colours.darkgrey, Colours.grey, Colours.lightgrey, Colours.lightblue];
+var degradePointsX = [];
+var degradePointsY = [];
+var degradeColours = [];
+const var degradeColoursList = [Colours.white, Colours.darkgrey, Colours.grey, Colours.lightblue, Colours.lightgrey];
+
+for (i=0; i<140; i++)
+{
+	degradePointsX.push(Math.random());
+	degradePointsY.push(Math.random());
+	degradeColours.push(degradeColoursList[Math.randInt(0, 4)]);
+}
 
 Panel_DegradeImage.setPaintRoutine(function(g)
 {
-
-	for (i=0; i<degradePointsx.length; i++)
+	
+	for (i=0; i<degradePointsX.length; i++)
 	{
-		g.setColour(degradeColours[i]);
-		g.drawRoundedRectangle([degradePointsx[i] * this.getWidth(), degradePointsY[i] * this.getHeight(), 16 + (Slider_DegradeSampleHold.getValue() * .35), 16], Math.range(Slider_DegradeBitDepth.getValue() - 4, 0.0, 9.0), FXImageLineWidth);
+		g.setColour(Colours.withAlpha(degradeColours[i], 1.0));
+		g.drawRoundedRectangle([(degradePointsX[i] * this.getLocalBounds(32)[2]) + 32, (degradePointsY[i] * this.getLocalBounds(32)[3]) + 32, 8 + (Slider_DegradeSampleHold.getValue() * .35), 8], Math.range(Slider_DegradeBitDepth.getValue() - 4, 0.0, 9.0), FXImageLineWidth);
+		g.setColour(Colours.withAlpha(degradeColours[i], .7));
+		g.fillRoundedRectangle([(degradePointsX[i] * this.getLocalBounds(32)[2]) + 32, (degradePointsY[i] * this.getLocalBounds(32)[3]) + 32, 8 + (Slider_DegradeSampleHold.getValue() * .35), 8], Math.range(Slider_DegradeBitDepth.getValue() - 4, 0.0, 9.0));
 	}
 });
 
