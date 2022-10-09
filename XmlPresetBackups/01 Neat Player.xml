@@ -45,11 +45,11 @@
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_DelaySettings" value="0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_PhaserSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_PhaserSettings" value="0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DegradeSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DegradeSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_DegradeEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_AmpSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_AmpSettings" value="0"/>
             <Control type="ScriptButton" id="Button_AmpEnable" value="0.0"/>
             <Control type="ScriptLabel" id="Label_FilterFreqValue" value="20000Hz"/>
             <Control type="ScriptSlider" id="Slider_FilterFreq" value="20000.0"/>
