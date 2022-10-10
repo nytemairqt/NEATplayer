@@ -1240,31 +1240,58 @@ Panel_AmpImage.setPaintRoutine(function(g)
 
 Panel_DriveImage.setPaintRoutine(function(g)
 {
-	//Diode
 	g.setColour(Colours.white);
-	pathFXPanel.loadFromData(driveDiodeData);
-	g.drawPath(pathFXPanel, [this.getWidth() * .2, this.getHeight() * .1, this.getWidth() * .6, this.getHeight() * .2], FXImageLineWidth);
-
-	//Tubes
-	g.setColour(Colours.white);
-	pathFXPanel.loadFromData(driveTubeData);
-	g.drawPath(pathFXPanel, [this.getWidth() * .2, (this.getHeight() * .1) + this.getHeight() * .3, this.getWidth() * .2, this.getHeight() * .4], FXImageLineWidth);
-	g.drawPath(pathFXPanel, [this.getWidth() * .6, (this.getHeight() * .1) + this.getHeight() * .3, this.getWidth() * .2, this.getHeight() * .4], FXImageLineWidth);
-
-	//Sparks
-
+	pathFXPanel.loadFromData(drive_path_data);
+	g.drawPath(pathFXPanel, this.getLocalBounds(40), FXImageLineWidth * .7);
 	
-	if (Slider_DriveWaveshaperGain.getValueNormalized() > .35 )
-	{
-		pathFXPanel.loadFromData(driveDiodeSparksData);
-		g.fillPath(pathFXPanel, [this.getWidth() * .25, 0, this.getWidth() * .5, this.getHeight() * .4]);
-	}
-
-	if (Slider_DriveTubeGain.getValueNormalized() > .35)
-	{
-		pathFXPanel.loadFromData(driveTubeSparksData);
-		g.fillPath(pathFXPanel, [this.getWidth() * .1, this.getHeight() * .5, this.getWidth() * .8, this.getHeight() * .25]);
-	}
+	//Warning Text
+	g.setFont("Arial", 8.0);
+	g.drawAlignedText("FAKE CIRCUIT, DO NOT RECREATE.", [this.getWidth() - 180, 20, 150, 10], "centred");
+	
+	//First Tube
+	g.drawEllipse([99, 153, 24, 24], FXImageLineWidth);
+	g.drawLine(111, 111, 153, 157, FXImageLineWidth * .7);
+	g.drawLine(111, 111, 159, 163, FXImageLineWidth * .7);
+	g.drawLine(111, 111, 165, 169, FXImageLineWidth * .7);
+	g.drawLine(111, 111, 171, 175, FXImageLineWidth * .7);
+	
+	//Second Tube
+	
+	g.drawEllipse([162, 197, 24, 24], FXImageLineWidth);
+	g.drawLine(174, 174, 197, 201, FXImageLineWidth * .7);
+	g.drawLine(174, 174, 203, 207, FXImageLineWidth * .7);
+	g.drawLine(174, 174, 209, 213, FXImageLineWidth * .7);
+	g.drawLine(174, 174, 215, 219, FXImageLineWidth * .7);
+	
+	//Third Tube
+	
+	g.drawEllipse([184, 242, 24, 24], FXImageLineWidth);
+	g.drawLine(196, 196, 242, 246, FXImageLineWidth * .7);
+	g.drawLine(196, 196, 248, 252, FXImageLineWidth * .7);
+	g.drawLine(196, 196, 254, 258, FXImageLineWidth * .7);
+	g.drawLine(196, 196, 260, 264, FXImageLineWidth * .7);
+	
+	//Filling Elements Based on Parameter Value
+		
+	g.setColour(Colours.withAlpha(Colours.white, Slider_DriveWaveshaperGain.getValueNormalized() * .7));
+	g.fillTriangle([132, 56.5, 10, 10], Math.toRadians(90));
+	g.fillTriangle([232, 79, 10, 10], Math.toRadians(90));
+	g.setColour(Colours.withAlpha(Colours.grey, Slider_DriveWaveshaperGain.getValueNormalized() * .7));
+	g.fillTriangle([232, 107, 10, 10], Math.toRadians(90));
+	g.setColour(Colours.withAlpha(Colours.lightblue, Slider_DriveWaveshaperGain.getValueNormalized() * .7));
+	g.fillTriangle([232, 133, 10, 10], Math.toRadians(90));
+	g.fillTriangle([152, 249.4, 10, 10], Math.toRadians(90));	
+	
+	//Tubes Fill
+	g.setColour(Colours.withAlpha(Colours.white, Slider_DriveTubeGain.getValueNormalized() * .5));
+	g.fillEllipse([99, 153, 24, 24]);
+	g.setColour(Colours.withAlpha(Colours.lightgrey, Slider_DriveTubeGain.getValueNormalized() * .5));
+	g.fillEllipse([162, 197, 24, 24]);
+	g.setColour(Colours.withAlpha(Colours.lightblue, Slider_DriveTubeGain.getValueNormalized() * .5));
+	g.fillEllipse([184, 242, 24, 24]);
+	
+	
+	
 });
 
 //Degrade
