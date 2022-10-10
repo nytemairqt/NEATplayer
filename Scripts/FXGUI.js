@@ -880,6 +880,8 @@ inline function onButton_StutterLFOSyncControl(component, value)
 	        LFOModulator2.setAttribute(LFOModulator2.Frequency, Slider_StutterLFORateFree.getValue());
 	        Label_StutterLFORateValue.set("text", Slider_StutterLFORateFree.getValue() + "Hz");
         }
+        
+        Panel_WidthImage.repaint();
 };
 
 Content.getComponent("Button_StutterLFOSync").setControlCallback(onButton_StutterLFOSyncControl);
@@ -900,6 +902,8 @@ inline function onSlider_WidthGainControl(component, value)
 {
     Width.setAttribute(Width.Gain, value);
     Label_WidthGainValue.set("text", Math.round(value) + "db");
+    
+    Panel_WidthImage.repaint();
 };
 
 Content.getComponent("Slider_WidthGain").setControlCallback(onSlider_WidthGainControl);
@@ -1255,43 +1259,37 @@ Panel_DriveImage.setPaintRoutine(function(g)
 	g.drawLine(111, 111, 165, 169, FXImageLineWidth * .7);
 	g.drawLine(111, 111, 171, 175, FXImageLineWidth * .7);
 	
-	//Second Tube
-	
+	//Second Tube	
 	g.drawEllipse([162, 197, 24, 24], FXImageLineWidth);
 	g.drawLine(174, 174, 197, 201, FXImageLineWidth * .7);
 	g.drawLine(174, 174, 203, 207, FXImageLineWidth * .7);
 	g.drawLine(174, 174, 209, 213, FXImageLineWidth * .7);
 	g.drawLine(174, 174, 215, 219, FXImageLineWidth * .7);
 	
-	//Third Tube
-	
+	//Third Tube	
 	g.drawEllipse([184, 242, 24, 24], FXImageLineWidth);
 	g.drawLine(196, 196, 242, 246, FXImageLineWidth * .7);
 	g.drawLine(196, 196, 248, 252, FXImageLineWidth * .7);
 	g.drawLine(196, 196, 254, 258, FXImageLineWidth * .7);
 	g.drawLine(196, 196, 260, 264, FXImageLineWidth * .7);
 	
-	//Filling Elements Based on Parameter Value
-		
-	g.setColour(Colours.withAlpha(Colours.white, Slider_DriveWaveshaperGain.getValueNormalized() * .7));
+	//Diodes Fill	
+	g.setColour(Colours.withAlpha(Colours.white, Slider_DriveWaveshaperGain.getValueNormalized() * .9));
 	g.fillTriangle([132, 56.5, 10, 10], Math.toRadians(90));
 	g.fillTriangle([232, 79, 10, 10], Math.toRadians(90));
-	g.setColour(Colours.withAlpha(Colours.grey, Slider_DriveWaveshaperGain.getValueNormalized() * .7));
+	g.setColour(Colours.withAlpha(Colours.grey, Slider_DriveWaveshaperGain.getValueNormalized() * .88));
 	g.fillTriangle([232, 107, 10, 10], Math.toRadians(90));
-	g.setColour(Colours.withAlpha(Colours.lightblue, Slider_DriveWaveshaperGain.getValueNormalized() * .7));
+	g.setColour(Colours.withAlpha(Colours.lightblue, Slider_DriveWaveshaperGain.getValueNormalized() * .96));
 	g.fillTriangle([232, 133, 10, 10], Math.toRadians(90));
 	g.fillTriangle([152, 249.4, 10, 10], Math.toRadians(90));	
 	
-	//Tubes Fill
+	//Tubes Fill	
 	g.setColour(Colours.withAlpha(Colours.white, Slider_DriveTubeGain.getValueNormalized() * .5));
 	g.fillEllipse([99, 153, 24, 24]);
 	g.setColour(Colours.withAlpha(Colours.lightgrey, Slider_DriveTubeGain.getValueNormalized() * .5));
 	g.fillEllipse([162, 197, 24, 24]);
 	g.setColour(Colours.withAlpha(Colours.lightblue, Slider_DriveTubeGain.getValueNormalized() * .5));
-	g.fillEllipse([184, 242, 24, 24]);
-	
-	
-	
+	g.fillEllipse([184, 242, 24, 24]);	
 });
 
 //Degrade
@@ -1320,39 +1318,39 @@ Panel_DegradeImage.setPaintRoutine(function(g)
 	}
 });
 
-//Width
+//Utility
+
+reg utilityNumBricks;
+reg utilityBrickWidth;
+const var utilityBrickGap = 2;
+reg utilityTotalHeight;
+reg utilityTotalWidth;
+
+reg utilityXPos;
+reg utilityYPos;
 
 Panel_WidthImage.setPaintRoutine(function(g)
 {
-	//Width
-	g.setColour(Colours.white);
-	g.drawLine(this.getWidth() / 2, this.getWidth() / 2, 0, this.getHeight(), 1.5);
-
-	g.drawTriangle([(this.getWidth() / 2) - ((this.getWidth() / 2) * Slider_WidthAmount.getValueNormalized()), 20, this.getWidth() * Slider_WidthAmount.getValueNormalized(), this.getHeight() - 40], Math.toRadians(180), FXImageLineWidth);
-
-	//Stutter
-
-	var stutterNumSteps;
-	var stutterStepHeight = 4;
-
-	//Stutter Check Sync
-		if (Button_StutterLFOSync.getValue() == 1)    
-    	{
-    		stutterNumSteps = Math.round(Slider_StutterLFORate.getValueNormalized() * 10);
-    	}
-    	else
-    	{
-    		stutterNumSteps = Math.round(Slider_StutterLFORateFree.getValueNormalized() * 10);
-    	}
-
-
-    for (i=0; i<stutterNumSteps; i++)
-    {
-        g.setColour(Colours.withAlpha(0xFF030303, Slider_StutterLFOAmount.getValueNormalized()));
-    	g.fillRoundedRectangle([0, this.getHeight() * (i / 10), this.getWidth(), stutterStepHeight], 2.0);
-        g.setColour(Colours.withAlpha(Colours.darkgrey, Slider_StutterLFOAmount.getValueNormalized()));
-    	g.drawRoundedRectangle([0, this.getHeight() * (i / 10), this.getWidth(), stutterStepHeight], 2.0, FXImageLineWidth);
-    }
+	
+	utilityTotalHeight = this.getHeight() * Slider_WidthGain.getValueNormalized() * .95;
+	utilityTotalWidth = this.getWidth() * Slider_WidthAmount.getValueNormalized() * .95;
+	
+	if (Button_StutterLFOSync.getValue())
+		utilityNumBricks = Math.round(Slider_StutterLFORate.getValueNormalized() * 20);
+	else
+		utilityNumBricks = Math.round(Slider_StutterLFORateFree.getValueNormalized() * 20);
+		
+	utilityBrickWidth = utilityTotalWidth / utilityNumBricks;
+	
+	utilityXPos = (this.getWidth() / 2) - (utilityTotalWidth / 2);
+	utilityYPos = (this.getHeight() / 2) - (utilityTotalHeight / 2);
+	
+	g.setColour(Colours.withAlpha(Colours.lightgrey, .4));
+	g.fillRoundedRectangle([utilityXPos, utilityYPos, utilityTotalWidth, utilityTotalHeight], 2.0);
+	
+	g.setColour(Colours.withAlpha(0xC9000000, 1.0));
+	for(i=1; i < utilityNumBricks; i++)
+		g.fillRoundedRectangle([utilityXPos + (utilityBrickWidth * i) - ((utilityTotalWidth / 60) * Slider_StutterLFOAmount.getValueNormalized()), utilityYPos, ((utilityTotalWidth / 30) * Slider_StutterLFOAmount.getValueNormalized()), utilityTotalHeight], 2.0);
 });
 
 //Phaser
