@@ -41,9 +41,9 @@
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_WidthSettings" value="1.0"/>
+            <Control type="ScriptButton" id="Button_WidthSettings" value="0"/>
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DelaySettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DelaySettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
@@ -253,7 +253,7 @@
             <Control type="ScriptComboBox" id="ComboBox_ChaosType" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_MovementXInvisible" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_MovementYInvisible" value="50.0"/>
-            <Control type="ScriptSlider" id="Slider_MovementChaosIntensity" value="25.0"/>
+            <Control type="ScriptSlider" id="Slider_MovementChaosIntensity" value="26.0"/>
             <Control type="ScriptSlider" id="Slider_MovementChaosRate" value="10.0"/>
             <Control type="ScriptButton" id="Button_ChaosBypass" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvAAttack" value="5.0"/>

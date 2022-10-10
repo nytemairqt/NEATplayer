@@ -1437,46 +1437,53 @@ Panel_ReverbImage.setPaintRoutine(function(g)
 //Delay
 
 var delayCircleRadius = 15;
-var delayNumCirclesL;
-var delayNumCirclesR;
 
 var delayGapL;
 var delayGapR;
 
+var delayNumPointsL; 
+var delayNumPointsR; 
+var delayPointsX = [];
+var delayPointsY = [];
+var delayColours = [];
+var delayPointSizeL;
+var delayPointSizeR;
+const var delayColoursList = [Colours.white, Colours.darkgrey, Colours.grey, Colours.lightblue, Colours.lightgrey];
+
 Panel_DelayImage.setPaintRoutine(function(g)
 {
-    delayNumCirclesL = Math.round(Slider_DelayFeedbackLeft.getValue() * 10);
-    delayNumCirclesR = Math.round(Slider_DelayFeedbackRight.getValue() * 10);
 
-    if (Button_DelaySync.getValue())
-    {
-        delayGapL = Slider_DelayTimeLeft.getValue();
-        delayGapL = (this.getWidth() + 60) / delayGapL;
-
-        delayGapR = Slider_DelayTimeRight.getValue();
-        delayGapR = (this.getWidth() + 60) / delayGapR;
-    }
-    else
-    {
-        delayGapL = Math.round(Slider_DelayTimeLeft.getValueNormalized() * 100);
-        delayGapR = Math.round(Slider_DelayTimeRight.getValueNormalized() * 100);
-    }
-
-    g.setColour(Colours.white);
-
-    g.drawEllipse([(this.getWidth() * .1), 20, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
-    g.drawEllipse([(this.getWidth() * .1), 80, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
-
-    g.setColour(Colours.withAlpha(Colours.white, Slider_DelayMix.getValue()));
-
-    for (i=1; i<delayNumCirclesL; i++)
-    {
-        g.drawEllipse([((this.getWidth() * .1) + delayGapL * i), 20, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
-    }
-
-    for (i=1; i<delayNumCirclesR; i++)
-    {
-        g.drawEllipse([((this.getWidth() * .1) + delayGapR * i), 80, delayCircleRadius, delayCircleRadius], FXImageLineWidth);
-    }
+	if (Button_DelaySync.getValue())
+	{
+		delayNumPointsL = 200 * Slider_DelayTimeLeft.getValueNormalized(); 
+		delayNumPointsR = 200 * Slider_DelayTimeRight.getValueNormalized();	
+	}
+	else
+	{
+		delayNumPointsL = 200 * (1 - Slider_DelayTimeLeft.getValueNormalized()); 
+		delayNumPointsR = 200 * (1 - Slider_DelayTimeRight.getValueNormalized());	
+	}
+	
+	delayPointSizeL = (Slider_DelayFeedbackLeft.getValueNormalized() < .5 ? 3 : (6 * Slider_DelayFeedbackLeft.getValueNormalized()));
+	delayPointSizeR = (Slider_DelayFeedbackRight.getValueNormalized() < .5 ? 3 : (6 * Slider_DelayFeedbackRight.getValueNormalized()));
+		
+	for (i=0; i < delayNumPointsL; i++)
+	{
+		//g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized()));
+		g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], (Slider_DelayMix.getValueNormalized() < .5 ? .5 : Slider_DelayMix.getValueNormalized())));
+		g.fillEllipse([Math.randInt(4, (this.getWidth() / 2) - 4), Math.randInt(4, this.getHeight() - 4), delayPointSizeL, delayPointSizeL]);
+		
+		g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized() * .6));
+		g.drawEllipse([Math.randInt(4, (this.getWidth() / 2 - 4)), Math.randInt(4, this.getHeight() - 4), delayPointSizeL, delayPointSizeL], FXImageLineWidth);		
+	}
+	
+	for (i=0; i < delayNumPointsR; i++)
+		{
+			g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], (Slider_DelayMix.getValueNormalized() < .5 ? .5 : Slider_DelayMix.getValueNormalized())));
+			g.fillEllipse([Math.randInt((this.getWidth() / 2) + 4, (this.getWidth() - 4)), Math.randInt(4, this.getHeight() - 4), delayPointSizeR, delayPointSizeR]);
+			
+			g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized() * .6));
+			g.drawEllipse([Math.randInt((this.getWidth() / 2) + 4, (this.getWidth() - 4)), Math.randInt(4, this.getHeight() - 4), delayPointSizeR, delayPointSizeR], FXImageLineWidth);	
+		}
 
 });
