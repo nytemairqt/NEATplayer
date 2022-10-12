@@ -727,13 +727,13 @@ delaySyncTimer.setTimerCallback(function(t)
 
 inline function setDelayTimeSlidersToFree()
 {
-        Slider_DelayTimeLeft.set("min", 0);
+        Slider_DelayTimeLeft.set("min", 1);
         Slider_DelayTimeLeft.set("max", 2000);
         Slider_DelayTimeLeft.set("stepSize", 1);
         Slider_DelayTimeLeft.set("middlePosition", 1050);
         Slider_DelayTimeLeft.set("defaultValue", 200);
         
-        Slider_DelayTimeRight.set("min", 0);
+        Slider_DelayTimeRight.set("min", 1);
         Slider_DelayTimeRight.set("max", 2000);
         Slider_DelayTimeRight.set("stepSize", 1);
         Slider_DelayTimeRight.set("middlePosition", 1050);

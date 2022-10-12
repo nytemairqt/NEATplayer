@@ -143,13 +143,13 @@
             <Control type="ScriptButton" id="Button_RandomizeFXReverbDamping" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbWidth" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXReverbMix" value="0.0"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1/4"/>
-            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1/4"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="200ms"/>
+            <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="200ms"/>
             <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.25"/>
             <Control type="ScriptSlider" id="Slider_DelayFeedbackLeft" value="0.25"/>
             <Control type="ScriptSlider" id="Slider_DelayMix" value="0.2000000029802322"/>
-            <Control type="ScriptButton" id="Button_DelayLink" value="1.0"/>
-            <Control type="ScriptButton" id="Button_DelaySync" value="1.0"/>
+            <Control type="ScriptButton" id="Button_DelayLink" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DelaySync" value="0.0"/>
             <Control type="ScriptLabel" id="Label_DelayFeedbackRightValue" value="25%"/>
             <Control type="ScriptLabel" id="Label_DelayFeedbackLeftValue" value="25%"/>
             <Control type="ScriptLabel" id="Label_DelayMixValue" value="20%"/>
@@ -158,8 +158,8 @@
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDelayMix" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="5.0"/>
-            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="5.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="200.0"/>
+            <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="200.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXAmpBypass" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDrive" value="0.0"/>
@@ -173,7 +173,7 @@
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A" value="1.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerA" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetA" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="14.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerADecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerASustain" value="0.0"/>
@@ -192,7 +192,7 @@
             <Control type="ScriptSlider" id="Slider_SamplerBAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBSustain" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="15.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBRelease" value="1000.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerB" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetB" value="0.0"/>
@@ -208,7 +208,7 @@
             <Control type="ScriptSlider" id="Slider_SamplerCDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCSustain" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="16.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCRelease" value="1000.0"/>
@@ -493,9 +493,9 @@
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
-        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="5.0" DelayTimeRight="5.0"
+        <Processor Type="Delay" ID="Delay1" Bypassed="1" DelayTimeLeft="200.0" DelayTimeRight="200.0"
                    FeedbackLeft="0.25" FeedbackRight="0.25" LowPassFreq="20000.0"
-                   HiPassFreq="40.0" Mix="0.2000000029802322" TempoSync="1.0">
+                   HiPassFreq="40.0" Mix="0.2000000029802322" TempoSync="0.0">
           <ChildProcessors/>
           <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
         </Processor>
@@ -723,7 +723,7 @@
     <Processor Type="StreamingSampler" ID="SamplerB" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="18.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
@@ -822,7 +822,7 @@
     <Processor Type="StreamingSampler" ID="SamplerC" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="18.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
