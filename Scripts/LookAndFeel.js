@@ -35,7 +35,8 @@ include("LAFPathData.js");
 Panel_BG.setPaintRoutine(function(g)
 {
 	 g.setColour(Colours.grey);
-	 g.drawRoundedRectangle([Panel_BG.getGlobalPositionX(), Panel_BG.getGlobalPositionY() - 32, Panel_BG.getWidth() - 4, Panel_BG.getHeight() - 4], 2, 1);
+	 g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 4.0, 1.0);
+	 //g.drawRoundedRectangle([Panel_BG.getGlobalPositionX(), Panel_BG.getGlobalPositionY() - 32, Panel_BG.getWidth() - 4, Panel_BG.getHeight() - 4], 2, 1);
 });
 
 //Slider Setup

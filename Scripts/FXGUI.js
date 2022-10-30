@@ -211,8 +211,6 @@ Content.getComponent("Button_FXDisplay").setControlCallback(onButton_FXDisplayCo
 
 //Paint Routine
 
-//Paint Routine
-
 Panel_FX.setPaintRoutine(function(g)
 {
     g.setColour(0xFB111111);
@@ -1469,20 +1467,21 @@ Panel_DelayImage.setPaintRoutine(function(g)
 		
 	for (i=0; i < delayNumPointsL; i++)
 	{
-		//g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized()));
-		g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], (Slider_DelayMix.getValueNormalized() < .5 ? .5 : Slider_DelayMix.getValueNormalized())));
+		g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized()));
+		//g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], (Slider_DelayMix.getValueNormalized() < .05 ? .05 : Slider_DelayMix.getValueNormalized())));
 		g.fillEllipse([Math.randInt(4, (this.getWidth() / 2) - 4), Math.randInt(4, this.getHeight() - 4), delayPointSizeL, delayPointSizeL]);
 		
-		g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized() * .6));
+		g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized()));
 		g.drawEllipse([Math.randInt(4, (this.getWidth() / 2 - 4)), Math.randInt(4, this.getHeight() - 4), delayPointSizeL, delayPointSizeL], FXImageLineWidth);		
 	}
 	
 	for (i=0; i < delayNumPointsR; i++)
 		{
-			g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], (Slider_DelayMix.getValueNormalized() < .5 ? .5 : Slider_DelayMix.getValueNormalized())));
+			//g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], (Slider_DelayMix.getValueNormalized() < .05 ? .5 : Slider_DelayMix.getValueNormalized())));
+			g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized()));
 			g.fillEllipse([Math.randInt((this.getWidth() / 2) + 4, (this.getWidth() - 4)), Math.randInt(4, this.getHeight() - 4), delayPointSizeR, delayPointSizeR]);
 			
-			g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized() * .6));
+			g.setColour(Colours.withAlpha(delayColoursList[Math.randInt(0,4)], Slider_DelayMix.getValueNormalized()));
 			g.drawEllipse([Math.randInt((this.getWidth() / 2) + 4, (this.getWidth() - 4)), Math.randInt(4, this.getHeight() - 4), delayPointSizeR, delayPointSizeR], FXImageLineWidth);	
 		}
 
