@@ -383,6 +383,9 @@ function onNoteOn()
     //Nested switch statement to select expansion, then select specific note played.
 	switch (currentExpansion)
     {
+
+        //Note: During Colour pass, just use alpha values to darken keys...
+
         case "Blackout":    
 	    switch (Message.getNoteNumber())
         {               

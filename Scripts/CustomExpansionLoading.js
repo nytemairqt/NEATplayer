@@ -76,6 +76,149 @@ inline function loadConstructor()
 	restoreArp();
 }
 
+//Example Load Method with Manifest.JSON
+
+var manifest;
+var keyRangeMin;
+var keyRangeMax;
+var usingPitchKeys  = False; //NEED TO MOVE THIS TO INIT
+var isLoopInstrument = False; // NEED TO MOVE THIS TO INIT
+
+inline function loadExpansionFromManifest()
+{
+    //This first part actually goes in the expansion callback!
+    manifest = expansion.loadDataFile("manifest.json"); // might need to use expansions[i]
+    backgroundImage = manifest.image; 
+    Image_BG.setAlpha(1);
+    Image_BG.set("fileName", backgroundImage);
+
+    clearSamplers();
+
+    SamplerA.asSampler.loadSampleMap(manifest.sampleMapA);
+    SamplerA.asSampler().enableRoundRobin(manifest.samplerRoundRobin[0]); //false
+
+    //Register KeyRange for Instrument
+
+    keyRangeMin = manifest.keyRange[0];
+    keyRangeMax = manifest.keyRange[1];
+
+    //Check if the expansion uses the additional samplers.
+
+    //NOTE: Aetheric manifest.json needs a list of sampleMaps:
+
+
+    if (manifest.samplerBUsable)
+    {
+        SamplerB.asSampler.loadSampleMap(manifest.sampleMapB);
+        SamplerB.asSampler().enableRoundRobin(manifest.sampleBRoundRobin);
+    }   
+
+    if (manifest.samplerCUsable)
+    {
+        SamplerC.asSampler.loadSampleMap(manifest.sampleMapC);
+        SamplerC.asSampler().enableRoundRobin(manifest.sampleBRoundRobin);
+    }
+
+    //Extra Sampler
+
+    if (manifest.usesOtherSampler)
+    {
+        Sampler_Other.setAttribute(12, 0); //what does this do?
+        Sampler_Other.setBypassed(0);
+        Sampler_Other.asSampler().loadSampleMap(manifest.sampleMapOther);
+    }
+
+    //Set Velocities here:
+
+    SamplerA_Velocity.setBypassed(manifest.samplerVelocity[0]);
+    SamplerB_Velocity.setBypassed(manifest.samplerVelocity[1]);
+    SamplerC_Velocity.setBypassed(manifest.samplerVelocity[2]);
+
+    //Set key colours (HOW?)
+
+    colourKeysReset();
+    clearGUI();
+
+    /*
+    if (manifest.usesExclusiveGUIElements)
+        {
+            for (i in range(len(manifest.exclusiveGUIElements)))
+                item.show()
+        }
+    */
+
+    //Populate ComboBoxes
+
+    /*
+    for i in range(len(manifest.comboBoxItems))
+    ComboBox_SamplerA.addItem(i);
+    ComboBox_SamplerB.addItem(i);
+    ComboBox_SamplerC.addItem(i);
+    */
+
+    resolveComboBoxes(); //what does this do?
+
+    //Loop Instruments
+
+    usesPitchKeys = manifest.usesPitchKeys;
+    isLoopInstrument = manifest.isLoopInstrument;
+
+    //Arp Steps 
+    if(manifest.isLoopInstrument) // might need to make a separate check...
+    {
+        Slider_ArpSteps.setValue(manifest.numArpSteps);
+        Slider_ArpSteps.changed();      
+    }
+
+    //Show expansion-specific GUI elements
+
+    if (manifest.usesAdditionalGUIControls)
+    {
+        /*
+        for i in range(len(manifest.additionalGUIControls))
+            i.showControl(1);
+        */
+    }
+
+    //Custom Plugin Parameters
+
+    if (manifest.usesAdditionalPluginParamaters)
+    {
+        /*
+        for i in range(len(manifest.additionalPluginParameters))
+            i.set("isPluginParameter, 1");
+        */
+    }
+    
+
+    Panel_SamplerDisabledB.showControl(manifest.samplerUsable[1]);
+    Panel_SamplerDisabledC.showControl(manifest.samplerUsable[2]);
+
+    ComboBox_SamplerA.set("text", manifest.samplerText[0]);
+    ComboBox_SamplerB.set("text", manifest.samplerText[1]); //if unused, the JSON will say "Disabled"
+    ComboBox_SamplerC.set("text", manifest.samplerText[2]); //if unused, the JSON will say "Disabled"
+
+    //Arp functionality
+
+    if(manifest.isLoopInstrument)
+        turnArpOn();
+
+    //Notes:
+    /*
+        Bloom uses two separate sample maps, might need to fix.
+        PDQ Bass checks a button value to see if it should load processed or unprocessed samples.
+    */
+
+    //onNoteOn()
+
+
+
+    //Need to add a manifest.pitchKeys list
+    //Only apply ignoreEvent(e) on specific keys
+    
+
+}
+
 //Cloudburst
 
 inline function loadCloudburst()
