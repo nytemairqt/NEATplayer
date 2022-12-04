@@ -64,163 +64,141 @@ inline function clearGUI()
     Button_PDQBassForceDownpick.set("isPluginParameter", 0);
 }
 
-//Constructor Kit
-
-inline function loadConstructor()
-{
-	Image_BG.setAlpha(0);
-
-	clearSamplers();
-	clearGUI();
-	colourKeysReset();
-	restoreArp();
-}
-
 //Example Load Method with Manifest.JSON
 
 var manifest;
-var keyRangeMin;
-var keyRangeMax;
-var usingPitchKeys  = False; //NEED TO MOVE THIS TO INIT
-var isLoopInstrument = False; // NEED TO MOVE THIS TO INIT
+var manifestArrayLength;
 
 inline function loadExpansionFromManifest()
 {
-    //This first part actually goes in the expansion callback!
-    manifest = expansion.loadDataFile("manifest.json"); // might need to use expansions[i]
-    backgroundImage = manifest.image; 
+    backgroundImage = manifest.image;
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);
-
+    
+        //Setting up Samplers
     clearSamplers();
 
-    SamplerA.asSampler.loadSampleMap(manifest.sampleMapA);
-    SamplerA.asSampler().enableRoundRobin(manifest.samplerRoundRobin[0]); //false
+    SamplerA.asSampler().loadSampleMap(manifest.sampleMapA);
+    SamplerA.asSampler().enableRoundRobin(manifest.samplerRoundRobin[0]);
+    
+    //Setting Key Colours
 
-    //Register KeyRange for Instrument
+    colourKeysReset(); //Reset
 
-    keyRangeMin = manifest.keyRange[0];
-    keyRangeMax = manifest.keyRange[1];
+    for (i=0; i<127; i++)
+    {
+        //Disable Keys First
+        if (i < manifest.keyRange[0] || i > manifest.keyRange[1]) 
+            Engine.setKeyColour(i, Colours.withAlpha(Colours.black, .8));
+        //Add our colours back in
+        if (manifest.usesYellowKeys) //Yellow
+            if (i >= manifest.yellowKeyRange[0] && i <= manifest.yellowKeyRange[1])
+                Engine.setKeyColour(i, Colours.withAlpha(Colours.yellow, .8));
+        if (manifest.usesBlueKeys) //Blue
+            if (i >= manifest.blueKeyRange[0] && i <= manifest.blueKeyRange[1])
+                Engine.setKeyColour(i, Colours.withAlpha(Colours.lightblue, .8));    
+        if (manifest.usesPurpleKeys) //Purple
+            if (i >= manifest.purpleKeyRange[0] && i <= manifest.purpleKeyRange[1])
+                Engine.setKeyColour(i, Colours.withAlpha(0xFFCC96FF, .5));
+    }
+    
+    //Hiding other GUI Elements
+    clearGUI();
+    
+    Panel_SamplerDisabledB.showControl(manifest.samplerHidden[1]);
+    Panel_SamplerDisabledC.showControl(manifest.samplerHidden[2]);
+
+    ComboBox_SamplerA.set("text", manifest.samplerText[0]);
+    ComboBox_SamplerB.set("text", manifest.samplerText[1]);
+    ComboBox_SamplerC.set("text", manifest.samplerText[2]);
+    
+    restoreArp();
 
     //Check if the expansion uses the additional samplers.
 
     //NOTE: Aetheric manifest.json needs a list of sampleMaps:
 
-
-    if (manifest.samplerBUsable)
+    if (manifest.sampleMapB != null)
     {
-        SamplerB.asSampler.loadSampleMap(manifest.sampleMapB);
-        SamplerB.asSampler().enableRoundRobin(manifest.sampleBRoundRobin);
+        SamplerB.asSampler().loadSampleMap(manifest.sampleMapB);
+        SamplerB.asSampler().enableRoundRobin(manifest.samplerRoundRobin[1]);
     }   
-
-    if (manifest.samplerCUsable)
+    if (manifest.sampleMapC != null)
     {
-        SamplerC.asSampler.loadSampleMap(manifest.sampleMapC);
-        SamplerC.asSampler().enableRoundRobin(manifest.sampleBRoundRobin);
+        SamplerC.asSampler().loadSampleMap(manifest.sampleMapC);
+        SamplerC.asSampler().enableRoundRobin(manifest.samplerRoundRobin[2]);
     }
 
     //Extra Sampler
 
-    if (manifest.usesOtherSampler)
+    if (manifest.sampleMapOther != null)
     {
-        Sampler_Other.setAttribute(12, 0); //what does this do?
+        Sampler_Other.setAttribute(12, 0); //Disables Purge if Enabled
         Sampler_Other.setBypassed(0);
         Sampler_Other.asSampler().loadSampleMap(manifest.sampleMapOther);
     }
 
     //Set Velocities here:
 
-    SamplerA_Velocity.setBypassed(manifest.samplerVelocity[0]);
-    SamplerB_Velocity.setBypassed(manifest.samplerVelocity[1]);
-    SamplerC_Velocity.setBypassed(manifest.samplerVelocity[2]);
+    SamplerA_Velocity.setBypassed(manifest.samplerVelocityBypassed[0]);
+    SamplerB_Velocity.setBypassed(manifest.samplerVelocityBypassed[1]);
+    SamplerC_Velocity.setBypassed(manifest.samplerVelocityBypassed[2]);
 
-    //Set key colours (HOW?)
+    //Show Expansion Specific Controls
 
-    colourKeysReset();
-    clearGUI();
+    if (manifest.usesAdditionalGUIControls)
+    {
+        local component_string = manifest.additionalGUIControlsIndex; //might need to move outside of scope due to local rework
+        Content.getComponent(component_string).set("visible", 1);
+    }
 
-    /*
-    if (manifest.usesExclusiveGUIElements)
+    //Custom Plugin Parameters      
+    if (manifest.usesAdditionalPluginParameters)
+        for (i=0; i<manifest.additionalPluginParameters.length; i++)
         {
-            for (i in range(len(manifest.exclusiveGUIElements)))
-                item.show()
-        }
-    */
+            local component_string = manifest.additionalPluginParameters[i];
+            Content.getComponent(component_string).set("isPluginParameter", 1);
+        }    
 
     //Populate ComboBoxes
 
-    /*
-    for i in range(len(manifest.comboBoxItems))
-    ComboBox_SamplerA.addItem(i);
-    ComboBox_SamplerB.addItem(i);
-    ComboBox_SamplerC.addItem(i);
-    */
+    if(manifest.usesComboBoxItems)
+        for (i=0; i<manifest.comboBoxItems.length; i++)
+        {
+            ComboBox_SamplerA.addItem(manifest.comboBoxItems[i]);
+            ComboBox_SamplerB.addItem(manifest.comboBoxItems[i]);
+            ComboBox_SamplerC.addItem(manifest.comboBoxItems[i]);
+        }
 
-    resolveComboBoxes(); //what does this do?
+    resolveComboBoxes(); //Ensures ComboBoxes don't have 0 value.
 
     //Loop Instruments
-
-    usesPitchKeys = manifest.usesPitchKeys;
-    isLoopInstrument = manifest.isLoopInstrument;
 
     //Arp Steps 
     if(manifest.isLoopInstrument) // might need to make a separate check...
     {
         Slider_ArpSteps.setValue(manifest.numArpSteps);
-        Slider_ArpSteps.changed();      
+        Slider_ArpSteps.changed();    
+        turnArpOn();  
     }
 
-    //Show expansion-specific GUI elements
 
-    if (manifest.usesAdditionalGUIControls)
-    {
-        /*
-        for i in range(len(manifest.additionalGUIControls))
-            i.showControl(1);
-        */
-    }
-
-    //Custom Plugin Parameters
-
-    if (manifest.usesAdditionalPluginParamaters)
-    {
-        /*
-        for i in range(len(manifest.additionalPluginParameters))
-            i.set("isPluginParameter, 1");
-        */
-    }
-    
-
-    Panel_SamplerDisabledB.showControl(manifest.samplerUsable[1]);
-    Panel_SamplerDisabledC.showControl(manifest.samplerUsable[2]);
-
-    ComboBox_SamplerA.set("text", manifest.samplerText[0]);
-    ComboBox_SamplerB.set("text", manifest.samplerText[1]); //if unused, the JSON will say "Disabled"
-    ComboBox_SamplerC.set("text", manifest.samplerText[2]); //if unused, the JSON will say "Disabled"
-
-    //Arp functionality
-
-    if(manifest.isLoopInstrument)
-        turnArpOn();
 
     //Notes:
     /*
         Bloom uses two separate sample maps, might need to fix.
         PDQ Bass checks a button value to see if it should load processed or unprocessed samples.
     */
-
-    //onNoteOn()
-
-
-
-    //Need to add a manifest.pitchKeys list
-    //Only apply ignoreEvent(e) on specific keys
-    
-
 }
 
 //Cloudburst
+inline function loadCloudburst()
+{
+    
+};
 
+
+/*
 inline function loadCloudburst()
 {
     backgroundImage = ("{PROJECT_FOLDER}bg_cloudburst.jpg");
@@ -249,6 +227,7 @@ inline function loadCloudburst()
     
     restoreArp();
 };
+*/
 
 //Cloudburst Acoustic
 

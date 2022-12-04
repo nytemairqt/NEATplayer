@@ -113,16 +113,20 @@ Content.getComponent("Button_OpenAppData").setControlCallback(onButton_OpenAppDa
 
 //Load expansions
 
+var manifest;
+
 function expCallback()
 { 
     currentExpansion = expHandler.getCurrentExpansion();
+    manifest = currentExpansion.loadDataFile("manifest.json");
     currentExpansion = currentExpansion.getProperties();
     currentExpansion = currentExpansion.Name;
     Console.print("Current Expansion: " + currentExpansion);
-    
+
+    loadExpansionFromManifest();
+    /*
     switch (currentExpansion)
-    {
-    
+    {    
         case "Atlas":
             loadAtlas();
         break;	
@@ -140,11 +144,11 @@ function expCallback()
         break;
         
         case "Cloudburst":
-            loadCloudburst();
+            loadExpansionFromManifest();
         break;
             
         case "CloudburstAcoustic":
-            loadCloudburstAcoustic();
+            loadExpansionFromManifest();
         break;            
     
         case "Oracle":
@@ -176,7 +180,7 @@ function expCallback()
         break;
             
         case "Achromic":
-            loadAchromic();
+            loadExpansionFromManifest();
         break;
             
         case "PDQBass":
@@ -193,6 +197,7 @@ function expCallback()
             
         default:
     };    
+    */
     
     expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
 }
@@ -379,6 +384,22 @@ function onNoteOn()
     
     else if (voidBlackKeys.contains(e))
         Engine.setKeyColour(e, Colours.black);
+
+    /*
+    
+    if manifest.usesPitchKeys
+        do pitch key stuff
+    if manifest.usesBlueKeys
+        do blue key stuff, same for yellow
+    if manifest.usesRandomNoise
+        if in range, roll random noise
+    if manifest.usesCustomRoundRobin
+        do round robin stuff :)
+    if manifest.usesAlternatePicking
+        if v in alternatePickingVelocityRange (min and max)
+            do stuff
+
+    */
     
     //Nested switch statement to select expansion, then select specific note played.
 	switch (currentExpansion)
