@@ -64,9 +64,64 @@ inline function clearGUI()
     Button_PDQBassForceDownpick.set("isPluginParameter", 0);
 }
 
-//Example Load Method with Manifest.JSON
+/*********
+ * /*********
+ * /*********
+ * /*********
+ * /********* DONT DELETE BLOOM METHOD
+ * /*********
+ * /*********
+ * /*********
+ * /*********
+ */
 
-var manifest;
+//Bloom
+
+inline function loadBloom()
+{
+        //Setting BG Image        
+    backgroundImage = ("{PROJECT_FOLDER}bg_bloom.jpg");
+    Image_BG.setAlpha(1);
+    Image_BG.set("fileName", backgroundImage); 
+    
+        //Setting up Samplers    
+    clearSamplers();
+
+        //Setting Key Colours    
+    colourKeysReset();
+    colourKeysBloom();
+    
+        //Hiding othe GUI Elements    
+    clearGUI();
+    
+    ComboBox_SamplerA.addItem("Bloom");
+    ComboBox_SamplerA.addItem("Flourish");
+    
+    ComboBox_SamplerA.setValue(1);
+    ComboBox_SamplerA.changed();
+
+        
+    switch (ComboBox_SamplerA.getValue())
+    {
+        case 1:
+            SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Bloom_SampleMap");
+            SamplerA.asSampler().enableRoundRobin(true);
+        break;
+            
+        case 2:
+            SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Flourish_SampleMap");
+            SamplerA.asSampler().enableRoundRobin(false);
+            SamplerA_Velocity.setBypassed(false);
+        break;
+    }
+    
+    Panel_SamplerDisabledB.showControl(1);
+    Panel_SamplerDisabledC.showControl(1);
+    restoreArp();    
+};
+
+//Load Expansion from manifest.JSON
+
 var manifestArrayLength;
 
 inline function loadExpansionFromManifest()
@@ -91,6 +146,12 @@ inline function loadExpansionFromManifest()
         if (i < manifest.keyRange[0] || i > manifest.keyRange[1]) 
             Engine.setKeyColour(i, Colours.withAlpha(Colours.black, .8));
         //Add our colours back in
+        if (manifest.usesPitchKeys) //Pitch Keys
+        {
+            if (i >= 24 && i <= 48)
+                Engine.setKeyColour(i, Colours.withAlpha(Colours.lime, .45));
+            Engine.setKeyColour(36, Colours.aquamarine);
+        }
         if (manifest.usesYellowKeys) //Yellow
             if (i >= manifest.yellowKeyRange[0] && i <= manifest.yellowKeyRange[1])
                 Engine.setKeyColour(i, Colours.withAlpha(Colours.yellow, .8));
@@ -100,6 +161,9 @@ inline function loadExpansionFromManifest()
         if (manifest.usesPurpleKeys) //Purple
             if (i >= manifest.purpleKeyRange[0] && i <= manifest.purpleKeyRange[1])
                 Engine.setKeyColour(i, Colours.withAlpha(0xFFCC96FF, .5));
+        if (manifest.usesGreenKeys) //Green
+            if (i >= manifest.greenKeyRange[0] && i <= manifest.greenKeyRange[1])
+                Engine.setKeyColour(i, Colours.withAlpha(Colours.lime, .45));
     }
     
     //Hiding other GUI Elements
@@ -153,6 +217,7 @@ inline function loadExpansionFromManifest()
     }
 
     //Custom Plugin Parameters      
+
     if (manifest.usesAdditionalPluginParameters)
         for (i=0; i<manifest.additionalPluginParameters.length; i++)
         {
@@ -263,50 +328,7 @@ inline function loadCloudburstAcoustic()
     restoreArp();    
 };
 
-//Bloom
 
-inline function loadBloom()
-{
-        //Setting BG Image        
-    backgroundImage = ("{PROJECT_FOLDER}bg_bloom.jpg");
-    Image_BG.setAlpha(1);
-    Image_BG.set("fileName", backgroundImage); 
-    
-        //Setting up Samplers    
-    clearSamplers();
-
-        //Setting Key Colours    
-    colourKeysReset();
-    colourKeysBloom();
-    
-        //Hiding othe GUI Elements    
-    clearGUI();
-    
-    ComboBox_SamplerA.addItem("Bloom");
-    ComboBox_SamplerA.addItem("Flourish");
-    
-    ComboBox_SamplerA.setValue(1);
-    ComboBox_SamplerA.changed();
-
-        
-    switch (ComboBox_SamplerA.getValue())
-    {
-        case 1:
-            SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Bloom_SampleMap");
-            SamplerA.asSampler().enableRoundRobin(true);
-        break;
-            
-        case 2:
-            SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Flourish_SampleMap");
-            SamplerA.asSampler().enableRoundRobin(false);
-            SamplerA_Velocity.setBypassed(false);
-        break;
-    }
-    
-    Panel_SamplerDisabledB.showControl(1);
-    Panel_SamplerDisabledC.showControl(1);
-    restoreArp();    
-};
 
 //Atlas
 

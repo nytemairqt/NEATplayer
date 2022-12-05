@@ -167,7 +167,7 @@ const var FloatingTile_ResourceUsage = Content.getComponent("FloatingTile_Resour
 
 var keyboardOctave = 0;
 var keyboardLowKey = 0;
-var keyboardHighKey = 128;
+var keyboardHighKey = 120;
 
 const var pageButtonListTop = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser];
 const var pageButtonListBottom = [Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
@@ -185,10 +185,10 @@ const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeS
 
 FloatingTile_Keyboard.setContentData({
     "Type": "Keyboard",
-    "KeyWidth": 13.0,
+    "KeyWidth": 12.0,
     "DisplayOctaveNumber": true,
     "LowKey": 0,
-    "HiKey": 127,
+    "HiKey": 120,
     "CustomGraphics": false,
     "DefaultAppearance": true,
     "BlackKeyRatio": 0.699999988079071,

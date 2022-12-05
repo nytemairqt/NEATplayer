@@ -29,26 +29,26 @@
   <Component type="ScriptButton" id="Button_CustomSettings" x="6.0" y="4.0"
              text="Settings" numStrips="6.0" width="120.0" height="24.0" enableMidiLearn="0"
              saveInPreset="0" tooltip="Opens the Settings panel."/>
-  <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="990"
-             height="470" borderRadius="0.0" borderSize="0.0">
+  <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="990.0"
+             height="470.0" borderRadius="0.0" borderSize="0.0">
     <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
-               text="Image" width="990" height="470" fileName="{PROJECT_FOLDER}bg_cloudburst.jpg"/>
+               text="Image" width="990.0" height="470.0" fileName="{PROJECT_FOLDER}bg_achromic.jpg"/>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
                parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"
                itemColour2="3456106496" borderRadius="2.0" bgColour="16777215"
-               textColour="16777215" visible="0">
+               textColour="16777215">
       <Component type="ScriptButton" id="Button_AchromicPickAttack" x="9.0" y="9.0"
                  parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHPickAttack"
-                 defaultValue="1.0" tooltip="Enables pick attack sounds."/>
+                 defaultValue="1.0" tooltip="Enables pick attack sounds." isPluginParameter="1"/>
       <Component type="ScriptButton" id="Button_AchromicReleaseNoise" x="9.0"
                  y="26.0" parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHReleaseNoise"
-                 defaultValue="1.0" tooltip="Enables release fret noises."/>
+                 defaultValue="1.0" tooltip="Enables release fret noises." isPluginParameter="1"/>
       <Component type="ScriptButton" id="Button_AchromicNoiseGate" x="9.0" y="43.0"
                  parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHGateEnabled"
-                 tooltip="Enables noise gate."/>
+                 tooltip="Enables noise gate." isPluginParameter="1"/>
       <Component type="ScriptLabel" id="Label_AchromicPickAttack" x="22.0" y="0.0"
                  parentComponent="Panel_AchromicSettings" width="80.0" height="28.0"
                  text="Attack" alignment="left" editable="0" fontSize="14.0"/>
@@ -61,7 +61,7 @@
       <Component type="ScriptButton" id="Button_AchromicForceDownpick" x="9.0"
                  y="60.0" parentComponent="Panel_AchromicSettings" text="LAFButtonBypass"
                  width="10.0" height="10.0" pluginParameterName="ACHForceDownpick"
-                 tooltip="Forces downpick when enabled."/>
+                 tooltip="Forces downpick when enabled." isPluginParameter="1"/>
       <Component type="ScriptLabel" id="Label_AchromicForceDownpick" x="22.0"
                  y="51.0" parentComponent="Panel_AchromicSettings" width="80.0"
                  height="28.0" text="Downpick" alignment="left" editable="0" fontSize="14.0"/>
@@ -1043,7 +1043,7 @@
                  middlePosition="0.5" tooltip="Adjusts the Sample Start Offset of this Sampler."
                  mouseSensitivity="1.210000038146973"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerA" x="90.66666412353516"
-                 y="41.0" text="Cloudburst" width="150.0" height="28.0" itemColour="4212199697"
+                 y="41.0" text="Guitar 1" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
                  max="0"/>
@@ -1189,7 +1189,7 @@
                  y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerB" x="422.0" y="41.0"
-                 text="unused" width="150.0" height="28.0" itemColour="4212199697"
+                 text="Guitar 2" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
                  max="0"/>
@@ -1308,7 +1308,7 @@
                  width="48.0" height="20.0" fontStyle="Bold" text="Sustain" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerC" x="753.3333129882813"
-                 y="41.0" text="unused" width="150.0" height="28.0" itemColour="4212199697"
+                 y="41.0" text="Disabled" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
                  max="0"/>
@@ -1483,7 +1483,7 @@
                  tooltip="Switches between Waveform and ADSR Display."/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledB" x="331.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
-                 itemColour2="3942645760"/>
+                 itemColour2="3942645760" visible="0"/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledC" x="662.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
                  itemColour2="3942645760"/>
@@ -1508,7 +1508,7 @@
     </Component>
     <Component type="ScriptPanel" id="Panel_Movement" x="0.0" y="0.0" width="994.0"
                height="474.0" parentComponent="Panel_BG" bgColour="3825600006"
-               itemColour="2583691264" itemColour2="2583691264" text="*">
+               itemColour="2583691264" itemColour2="2583691264" text="*" visible="0">
       <Component type="ScriptLabel" id="Label_MovementTitle" x="348.0" y="0.0"
                  width="298.0" height="28.0" fontStyle="Bold" text="MOVEMENT"
                  parentComponent="Panel_Movement" editable="0"/>
@@ -1941,10 +1941,10 @@
       </Component>
     </Component>
   </Component>
-  <Component type="ScriptFloatingTile" id="FloatingTile_Keyboard" x="72.0"
-             y="540.0" ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
-             itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 13.0,&#10;  &quot;DisplayOctaveNumber&quot;: true,&#10;  &quot;LowKey&quot;: 0,&#10;  &quot;HiKey&quot;: 127,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: true,&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
-             width="856.0" height="60.0"/>
+  <Component type="ScriptFloatingTile" id="FloatingTile_Keyboard" x="80.0"
+             y="542.0" ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
+             itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 12.0,&#10;  &quot;DisplayOctaveNumber&quot;: true,&#10;  &quot;LowKey&quot;: 0,&#10;  &quot;HiKey&quot;: 120,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: true,&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
+             width="840" height="60"/>
   <Component type="ScriptFloatingTile" id="FloatingTile_ResourceUsage" x="814.0"
              y="1.0" ContentType="PerformanceLabel" bgColour="0" itemColour="4294951115"
              itemColour2="4294951115" Data="{&#13;&#10;}" width="180.0" height="30.0"

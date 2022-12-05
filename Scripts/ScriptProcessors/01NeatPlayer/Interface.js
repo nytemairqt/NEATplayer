@@ -7,6 +7,10 @@ const var audiofiles = Engine.loadAudioFilesIntoPool();
 
 audiofiles.sortNatural();
 
+//Expansion Manifest Variable
+
+var manifest;
+
 include("Init Layout.js");
 include("updateNotificationButton.js");
 include("libraryInstallation.js");
@@ -38,6 +42,7 @@ include("LookAndFeel.js");
 //Push Panel Buttons
 
 var panelButtons = [];
+
 
 inline function closePanels(keepOpen)
 {
@@ -123,7 +128,10 @@ function expCallback()
     currentExpansion = currentExpansion.Name;
     Console.print("Current Expansion: " + currentExpansion);
 
-    loadExpansionFromManifest();
+    if (currentExpansion == "Bloom")
+        loadBloom();
+    else
+        loadExpansionFromManifest();
     /*
     switch (currentExpansion)
     {    
