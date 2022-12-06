@@ -132,6 +132,7 @@ function expCallback()
         loadBloom();
     else
         loadExpansionFromManifest();
+
     /*
     switch (currentExpansion)
     {    

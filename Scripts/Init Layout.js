@@ -187,7 +187,7 @@ FloatingTile_Keyboard.setContentData({
     "Type": "Keyboard",
     "KeyWidth": 12.0,
     "DisplayOctaveNumber": true,
-    "LowKey": 0,
+    "LowKey": 12,
     "HiKey": 120,
     "CustomGraphics": false,
     "DefaultAppearance": true,

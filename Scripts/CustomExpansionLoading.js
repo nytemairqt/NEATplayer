@@ -154,16 +154,16 @@ inline function loadExpansionFromManifest()
         }
         if (manifest.usesYellowKeys) //Yellow
             if (i >= manifest.yellowKeyRange[0] && i <= manifest.yellowKeyRange[1])
-                Engine.setKeyColour(i, Colours.withAlpha(Colours.yellow, .8));
+                Engine.setKeyColour(i, Colours.withAlpha(Colours.yellow, .5));
         if (manifest.usesBlueKeys) //Blue
             if (i >= manifest.blueKeyRange[0] && i <= manifest.blueKeyRange[1])
-                Engine.setKeyColour(i, Colours.withAlpha(Colours.lightblue, .8));    
+                Engine.setKeyColour(i, Colours.withAlpha(Colours.deepskyblue, .5));    
         if (manifest.usesPurpleKeys) //Purple
             if (i >= manifest.purpleKeyRange[0] && i <= manifest.purpleKeyRange[1])
                 Engine.setKeyColour(i, Colours.withAlpha(0xFFCC96FF, .5));
         if (manifest.usesGreenKeys) //Green
             if (i >= manifest.greenKeyRange[0] && i <= manifest.greenKeyRange[1])
-                Engine.setKeyColour(i, Colours.withAlpha(Colours.lime, .45));
+                Engine.setKeyColour(i, Colours.withAlpha(Colours.lime, .5));
     }
     
     //Hiding other GUI Elements
@@ -708,8 +708,6 @@ inline function loadOracle()
     
     Panel_SamplerDisabledB.showControl(1);
     Panel_SamplerDisabledC.showControl(1);
-
-
     
     ComboBox_SamplerA.addItem("Bridge");
     ComboBox_SamplerA.addItem("Middle");

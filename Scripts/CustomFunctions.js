@@ -125,7 +125,7 @@ inline function colourKeysReset()
     voidWhiteKeys.clear();
     voidBlackKeys.clear();
     
-    for (i=0; i<10; i++)
+    for (i=0; i<11; i++)
     {
         local octave = 12;   
 
