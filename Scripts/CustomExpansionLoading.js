@@ -11,6 +11,8 @@ inline function clearSamplers()
     SamplerA_Velocity.setBypassed(true);
     SamplerB_Velocity.setBypassed(true);
     SamplerC_Velocity.setBypassed(true);
+
+    randomReleaseNoiseActive = 0;
 }
 
 inline function resolveComboBoxes()
@@ -198,6 +200,11 @@ inline function loadExpansionFromManifest()
         Sampler_Other.setBypassed(0);
         Sampler_Other.asSampler().loadSampleMap(manifest.sampleMapOther);
     }
+
+    //Release Noises 
+
+    if (manifest.usesRandomReleaseNoises)
+        randomReleaseNoiseActive = 1;
 
     //Set Velocities here:
 

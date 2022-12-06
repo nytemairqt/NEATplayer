@@ -173,7 +173,7 @@
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A" value="1.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerA" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetA" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1"/>
             <Control type="ScriptSlider" id="Slider_SamplerAAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerADecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerASustain" value="0.0"/>
@@ -192,7 +192,7 @@
             <Control type="ScriptSlider" id="Slider_SamplerBAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBSustain" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2"/>
             <Control type="ScriptSlider" id="Slider_SamplerBRelease" value="1000.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerB" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetB" value="0.0"/>
@@ -208,7 +208,7 @@
             <Control type="ScriptSlider" id="Slider_SamplerCDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCSustain" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCRelease" value="1000.0"/>
@@ -270,7 +270,7 @@
                      data="64......................................................................................."/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1.0"
                      data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
-            <Control type="ScriptSlider" id="Slider_ArpSteps" value="16.0"/>
+            <Control type="ScriptSlider" id="Slider_ArpSteps" value="16"/>
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
@@ -565,7 +565,7 @@
     <Processor Type="StreamingSampler" ID="Sampler_Other" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="10.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="10.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="5.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
@@ -624,10 +624,10 @@
     <Processor Type="StreamingSampler" ID="SamplerA" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="2.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="16.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
-               Group5Table="" Group6Table="" Group7Table="" SampleMapID="{EXP::Gloom}Gloom_SampleMap">
+               Group5Table="" Group6Table="" Group7Table="" SampleMapID="{EXP::Blackout}Blackout_SampleMap">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -723,7 +723,7 @@
     <Processor Type="StreamingSampler" ID="SamplerB" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="12.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
@@ -755,7 +755,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="1" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="0" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>
@@ -822,7 +822,7 @@
     <Processor Type="StreamingSampler" ID="SamplerC" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="18.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
@@ -854,7 +854,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerC_Velocity" Bypassed="1" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerC_Velocity" Bypassed="0" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>
@@ -1026,8 +1026,8 @@
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
     <macro name="Env A" value="0.0" midi_cc="-1"/>
     <macro name="Env B" value="0.0" midi_cc="-1"/>
-    <macro name="Velocity" value="93.0" midi_cc="-1"/>
-    <macro name="Random" value="115.7915496826172" midi_cc="-1"/>
+    <macro name="Velocity" value="61.0" midi_cc="-1"/>
+    <macro name="Random" value="73.36463928222656" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>

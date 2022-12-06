@@ -42,7 +42,7 @@ Content.getComponent("Button_AchromicPickAttack").setControlCallback(onButton_Ac
 
 inline function onButton_AchromicReleaseNoiseControl(component, value)
 {
-	achromicReleaseNoise = value;
+	randomReleaseNoiseActive = value;
 };
 
 Content.getComponent("Button_AchromicReleaseNoise").setControlCallback(onButton_AchromicReleaseNoiseControl);

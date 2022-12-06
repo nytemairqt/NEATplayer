@@ -481,6 +481,10 @@ LAFSliderOutputGain.registerFunction("drawRotarySlider", function(g, obj)
     
     if (obj.clicked)
     {
+		g.setColour(Colours.withAlpha(Colours.black, .3));
+		g.fillRoundedRectangle([obj.area[0], obj.area[1], obj.area[2], obj.area[3]], 2.0);
+		g.setColour(Colours.white);
+
 		g.setFont("Arial", 12);
 		g.drawAlignedText(Engine.doubleToString(Engine.getDecibelsForGainFactor(obj.valueNormalized), 2) + " dB", [obj.area[0], obj.area[1], obj.area[2], obj.area[3]], "centred");
     }

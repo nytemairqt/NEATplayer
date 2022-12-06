@@ -29,4 +29,5 @@
   <EnableSoundGeneratorsFX value="No"/>
   <ReadOnlyFactoryPresets value="No"/>
   <ForceStereoOutput value="No"/>
+  <EnableMidiOut value="No"/>
 </ProjectSettings>

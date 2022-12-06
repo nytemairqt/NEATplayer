@@ -172,7 +172,23 @@ inline function onStop(isPlaying)
 {
     if(!isPlaying)
         Engine.allNotesOff();
-        
+
+    if (manifest.isLoopInstrument)
+    {
+        SamplerA.asSampler().enableRoundRobin(false);
+        SamplerA.asSampler().setActiveGroup(1);
+        if (manifest.sampleMapB != null)
+        {
+            SamplerB.asSampler().enableRoundRobin(false);
+            SamplerB.asSampler().setActiveGroup(1);
+        }
+        if (manifest.sampleMapC != null)
+        {
+            SamplerC.asSampler().enableRoundRobin(false);
+            SamplerC.asSampler().setActiveGroup(1);
+        }
+    }
+    /*
         switch (currentExpansion)
         {
     
@@ -258,6 +274,7 @@ inline function onStop(isPlaying)
 
             default:
         };    
+        */
 };
 
 th.setOnTransportChange(true, onStop);
@@ -364,31 +381,6 @@ function onNoteOn()
             }
         }
     }
-
-    /*
-    case "Gloom":
-            SamplerA.asSampler().enableRoundRobin(true);
-            if (e > 0 && e <= 5)
-                Message.ignoreEvent(e);
-            
-            //chair creaking.
-            else if (e >= 36 && e <= 120) 
-            {
-                local randomNoise = Math.random() * Button_GloomChairCreakNoise.getValue();
-                if (randomNoise > .55)
-                {
-                    if (randomNoiseCounter >= 8)
-                    {
-                        local vel = Message.getVelocity();
-                        local playedNote = Math.randInt(0, 2);
-                        Synth.playNote(playedNote, vel);
-                        randomNoiseCounter = 0;
-                    }
-                    else
-                        randomNoiseCounter += 1;
-                }
-            }
-        break;*/
 
     //Guitar-Based Libraries
 
@@ -518,55 +510,6 @@ function onNoteOn()
             Message.setVelocity(manifest.velocityBasedArticulationRanges[7]);
     }
 
-    
-
-    /*
-    if (playableWhiteKeys.contains(e))
-        Engine.setKeyColour(e, 0xCC6FC4CA);
-    
-    else if (playableBlackKeys.contains(e))
-        Engine.setKeyColour(e, 0xEE124145);
-    
-    else if (playableWhiteKeysAethericAmbiance.contains(e))
-        Engine.setKeyColour(e, 0xFF9C63D3);
-    
-    else if (playableBlackKeysAethericAmbiance.contains(e))
-        Engine.setKeyColour(e, 0xFF361B51);
-    
-    else if (playableWhiteKeysYellow.contains(e))
-        Engine.setKeyColour(e, 0xFFD6DA4C);
-    
-    else if (playableBlackKeysYellow.contains(e))
-        Engine.setKeyColour(e, 0xFF646112);
-    
-    else if (playableWhiteKeysBlue.contains(e))
-        Engine.setKeyColour(e, 0xFF466CD2);
-    
-    else if (playableBlackKeysBlue.contains(e))
-        Engine.setKeyColour(e, 0xFF0C2055);
-    
-    else if (voidWhiteKeys.contains(e))
-        Engine.setKeyColour(e, Colours.lightgrey);
-    
-    else if (voidBlackKeys.contains(e))
-        Engine.setKeyColour(e, Colours.black);
-    */
-
-    /*
-    
-    if manifest.usesPitchKeys
-        do pitch key stuff
-    if manifest.usesBlueKeys
-        do blue key stuff, same for yellow
-    if manifest.usesRandomNoise
-        if in range, roll random noise
-    if manifest.usesCustomRoundRobin
-        do round robin stuff :)
-    if manifest.usesAlternatePicking
-        if v in alternatePickingVelocityRange (min and max)
-            do stuff
-
-    */
     
     //Nested switch statement to select expansion, then select specific note played.
 
@@ -904,7 +847,9 @@ function onNoteOn()
         
         default:
     }*/
-}
+
+//} Might not need this scope.
+
   function onNoteOff()
 {
     local e = Message.getNoteNumber();    
@@ -947,15 +892,6 @@ function onNoteOn()
         lastNote = -1;
         lastTuning = 0;
     }
-
-    /*
-    
-    if (voidWhiteKeys.contains(e))
-        Engine.setKeyColour(e, Colours.white);
-    
-    if (voidBlackKeys.contains(e))
-        Engine.setKeyColour(e, 0xFF1F1F1F);
-    */
 
     //Reset Key Colours
 
@@ -1027,203 +963,18 @@ function onNoteOn()
                 Synth.playNote(Math.randInt(manifest.pianoReleaseNoiseKeys[0], manifest.pianoReleaseNoiseKeys[1]), Math.randInt(64, 127));
         }
     }
-    
-    /*
-	switch (currentExpansion)
-    {
-        case "Bloom":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Cloudburst":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Atlas":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Found Keys":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Endure":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Oracle":
-            //restoreKeysDefault(e);
-            if(e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
-            {
-                Engine.setKeyColour(e, Colours.withAlpha(Colours.black, 0.0));
-            }
-        break;       
-        
-        case "Aetheric":
-            restoreKeysDefault(e);
-            restoreKeysAethericAmbience(e);
-        break;
-            
-        case "Blackout":
-            if (e >= 24 & e <= 48)
+
+    //Random Release Noises
+    if (manifest.usesRandomReleaseNoise)
+        if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
         {
-                Message.ignoreEvent(e);
-                activeGroup = SamplerA.asSampler().getActiveRRGroup();
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(activeGroup);
-                SamplerA.asSampler().enableRoundRobin(true);
-        }
-            else
-        {
-            if (num > 1)
-            {
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(SamplerA.asSampler().getActiveRRGroup());
-                SamplerA.asSampler().enableRoundRobin(true);
-                restoreKeysDefault(e);            
-            }
-            else
-            {
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(0);
-                SamplerA.asSampler().enableRoundRobin(true);
-                restoreKeysDefault(e);     
-            }
-        }
-        break;
-        
-        case "Blackout2":
-            if (e >= 24 & e <= 48)
-        {
-                Message.ignoreEvent(e);
-                activeGroup = SamplerA.asSampler().getActiveRRGroup();
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(activeGroup);
-                SamplerA.asSampler().enableRoundRobin(true);
-        }
-            else
-        {
-            if (num > 1)
-            {
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(SamplerA.asSampler().getActiveRRGroup());
-                SamplerA.asSampler().enableRoundRobin(true);
-                restoreKeysDefault(e);            
-            }
-            else
-            {
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(0);
-                SamplerA.asSampler().enableRoundRobin(true);
-                restoreKeysDefault(e);     
-            }          
-        }
-        break;
-        
-        case "Portal":
-        if (e >= 24 & e <= 48)
-        {
-                Message.ignoreEvent(e);
-                activeGroup = SamplerA.asSampler().getActiveRRGroup();
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(activeGroup);
-                SamplerA.asSampler().enableRoundRobin(true);
-        }
-            else
-        {
-            if (num > 1)
-            {
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(SamplerA.asSampler().getActiveRRGroup());
-                SamplerA.asSampler().enableRoundRobin(true);
-                restoreKeysBlue(e);
-                restoreKeysYellow(e);            
-            }
-            else
-            {
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(0);
-                SamplerA.asSampler().enableRoundRobin(true);
-                restoreKeysBlue(e);
-                restoreKeysYellow(e);     
-            }
-        }        
-        break;
-        
-        case "MachineTribes":
-            restoreKeysBlue(e);
-            restoreKeysYellow(e);
-            if (num < 1)
-        {
-            SamplerA.asSampler().enableRoundRobin(false);
-            SamplerA.asSampler().setActiveGroup(0);
-            SamplerB.asSampler().enableRoundRobin(false);
-            SamplerB.asSampler().setActiveGroup(0);
-            SamplerC.asSampler().enableRoundRobin(false);
-            SamplerC.asSampler().setActiveGroup(0);   
-            SamplerA.asSampler().enableRoundRobin(true);
-            SamplerB.asSampler().enableRoundRobin(true);
-            SamplerC.asSampler().enableRoundRobin(true);
-        }
-            else 
-        {	                   
-            local currentRR1 = SamplerA.asSampler().getActiveRRGroup();
-            local currentRR2 = SamplerB.asSampler().getActiveRRGroup();
-            local currentRR3 = SamplerC.asSampler().getActiveRRGroup();
-            SamplerA.asSampler().enableRoundRobin(false);
-            SamplerB.asSampler().enableRoundRobin(false);
-            SamplerC.asSampler().enableRoundRobin(false);            
-            SamplerA.asSampler().setActiveGroup(currentRR1);
-            SamplerB.asSampler().setActiveGroup(currentRR2);
-            SamplerC.asSampler().setActiveGroup(currentRR3);
-            SamplerA.asSampler().enableRoundRobin(true);
-            SamplerB.asSampler().enableRoundRobin(true);
-            SamplerC.asSampler().enableRoundRobin(true);   
-        }
-        break;
-        
-        case "CloudburstAcoustic":
-            restoreKeysDefault(e);
-            local randomNoise = Math.random() * cloudburstAcousticNoises;
-            if (randomNoise > 0.955)
-            {
-                local vel = Math.randInt(1,127);
-                local playedNote = Math.randInt(12, 13);
-                Synth.playNote(playedNote, vel);
-            }
-        break;
-        
-        case "Prismatic":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Achromic":
-            restoreKeysDefault(e);
-            restoreKeysAchromic(e);
-            if (achromicReleaseNoise)
-                if (Math.random() < 0.3)
-                    Synth.playNote(1, 127);
-        break;
-        
-        case "PDQBass":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Oracle2":
-            restoreKeysDefault(e);
-        break;
-        
-        case "Gloom":
-            restoreKeysDefault(e);
-            if (num == 1)
-                Synth.playNote(Math.randInt(3,4), Math.randInt(64, 127));
-        break;
-        
-        default:        
-    } */
-    
+            local randomReleaseNoise = Math.random() * randomReleaseNoiseActive;
+            if (randomReleaseNoise <= manifest.randomReleaseNoiseChance)
+                Synth.playNote(Math.randInt(manifest.randomReleaseNoiseKeys[0], manifest.randomReleaseNoiseKeys[1]), v);
+        }   
     
 }
+
   function onController()
 {
     local val = Message.getControllerValue() / 127;

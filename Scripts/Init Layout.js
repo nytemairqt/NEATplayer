@@ -186,7 +186,7 @@ const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeS
 FloatingTile_Keyboard.setContentData({
     "Type": "Keyboard",
     "KeyWidth": 12.0,
-    "DisplayOctaveNumber": true,
+    "DisplayOctaveNumber": false,
     "LowKey": 12,
     "HiKey": 120,
     "CustomGraphics": false,

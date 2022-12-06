@@ -6,7 +6,8 @@ var cloudburstAcousticNoises;
 
 inline function onButton_CloudburstAcousticNoisesControl(component, value)
 {
-	cloudburstAcousticNoises = value;
+	randomNoiseActive = value;
+	randomReleaseNoiseActive = value;
 };
 
 Content.getComponent("Button_CloudburstAcousticNoises").setControlCallback(onButton_CloudburstAcousticNoisesControl);
