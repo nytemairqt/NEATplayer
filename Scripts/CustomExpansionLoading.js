@@ -178,20 +178,17 @@ inline function loadExpansionFromManifest()
     
     restoreArp();
 
+    //Set Round Robins, even if Sampler is unused (important for Custom RR Script)
+
+    SamplerB.asSampler().enableRoundRobin(manifest.samplerRoundRobin[1]);
+    SamplerC.asSampler().enableRoundRobin(manifest.samplerRoundRobin[2]);
+
     //Check if the expansion uses the additional samplers.
 
-    //NOTE: Aetheric manifest.json needs a list of sampleMaps:
-
     if (manifest.sampleMapB != null)
-    {
         SamplerB.asSampler().loadSampleMap(manifest.sampleMapB);
-        SamplerB.asSampler().enableRoundRobin(manifest.samplerRoundRobin[1]);
-    }   
     if (manifest.sampleMapC != null)
-    {
-        SamplerC.asSampler().loadSampleMap(manifest.sampleMapC);
-        SamplerC.asSampler().enableRoundRobin(manifest.samplerRoundRobin[2]);
-    }
+        SamplerC.asSampler().loadSampleMap(manifest.sampleMapC);    
 
     //Extra Sampler
 
@@ -240,7 +237,7 @@ inline function loadExpansionFromManifest()
     //Loop Instruments
 
     //Arp Steps 
-    if(manifest.isLoopInstrument) // might need to make a separate check...
+    if(manifest.isLoopInstrument)
     {
         Slider_ArpSteps.setValue(manifest.numArpSteps);
         Slider_ArpSteps.changed();    

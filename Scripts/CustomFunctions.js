@@ -61,13 +61,20 @@ var achromicFXKeysBlack = [109, 111, 114, 116];
 
 inline function restoreKeysDefault(e)
 {
+    for (i=0; i < 135; i++)
+    {
+        Engine.setKeyColour(i, Colours.withAlpha(Colours.black, 0.0));
+    }
+    /*
     if (playableWhiteKeys.contains(e))
         Engine.setKeyColour(e, 0xCCBEF5F9);
     
     else if (playableBlackKeys.contains(e))
         Engine.setKeyColour(e, 0xCC33787D);
+    */
 }
 
+/*
 inline function restoreKeysAethericAmbience(e)
 {
     if (playableWhiteKeysAethericAmbiance.contains(e))
@@ -75,7 +82,7 @@ inline function restoreKeysAethericAmbience(e)
     
     else if (playableBlackKeysAethericAmbiance.contains(e))
         Engine.setKeyColour(e, 0xFF4C2C6B);
-}
+}*/
 
 inline function restoreKeysBlue(e)
 {
@@ -114,33 +121,14 @@ inline function restoreKeysAchromic(e)
 
 inline function colourKeysReset()
 {    
-    playableWhiteKeys.clear(); 
-    playableBlackKeys.clear(); 
-    playableWhiteKeysAethericAmbiance.clear();
-    playableBlackKeysAethericAmbiance.clear();
-    playableWhiteKeysYellow.clear();
-    playableBlackKeysYellow.clear();
-    playableWhiteKeysBlue.clear();
-    playableBlackKeysBlue.clear();
-    voidWhiteKeys.clear();
-    voidBlackKeys.clear();
-    
-    for (i=0; i<11; i++)
-    {
-        local octave = 12;   
+    for (i=0; i<130; i++)
+        Engine.setKeyColour(i, Colours.withAlpha(Colours.black, 0.0));
+}
 
-        for (k=0; k<keysWhite.length; k++)
-        {
-            Engine.setKeyColour(keysWhite[k] + (octave * i), 0xFFFFFFFF);
-            voidWhiteKeys.push(key);
-        }
-
-        for (k=0; k<keysBlack.length; k++)
-        {
-            Engine.setKeyColour(keysBlack[k] + (octave * i), 0xFF1F1F1F);            
-            voidBlackKeys.push(key);
-        }
-    };
+inline function colourPitchKeys()
+{
+    for (i=24; i<49; i++)
+        Engine.setKeyColour(i, Colours.withAlpha(Colours.lime, .5));
 }
 
 inline function colourKeysVoid()

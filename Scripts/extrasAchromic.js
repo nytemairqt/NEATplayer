@@ -30,13 +30,12 @@ var achromicForceDownpick;
 var achromicPickAttack;
 var achromicReleaseNoise;
 
-
 //Button Callbacks
 
 
 inline function onButton_AchromicPickAttackControl(component, value)
 {
-	achromicPickAttack = value;
+	pickAttack = value;
 };
 
 Content.getComponent("Button_AchromicPickAttack").setControlCallback(onButton_AchromicPickAttackControl);
@@ -57,7 +56,7 @@ Content.getComponent("Button_AchromicNoiseGate").setControlCallback(onButton_Ach
 
 inline function onButton_AchromicForceDownpickControl(component, value)
 {
-	achromicForceDownpick = value;
+	forceDownPick = value;
 };
 
 Content.getComponent("Button_AchromicForceDownpick").setControlCallback(onButton_AchromicForceDownpickControl);

@@ -1,5 +1,5 @@
 const var frontInterfaceWidth = 1000;
-const var frontInterfaceHeight = 620;
+const var frontInterfaceHeight = 630;
 
 Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 
@@ -10,6 +10,7 @@ audiofiles.sortNatural();
 //Expansion Manifest Variable
 
 var manifest;
+const var pitchKeyValues = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 include("Init Layout.js");
 include("updateNotificationButton.js");
@@ -119,6 +120,17 @@ Content.getComponent("Button_OpenAppData").setControlCallback(onButton_OpenAppDa
 //Load expansions
 
 var manifest;
+
+//NoteOn Variables
+
+var currentRR = 1;
+var previousRR;
+var isUpPick = 0;
+var forceDownPick = 0;
+var pickAttack = 0;
+
+var numVelocityBasedArticulations = 8;
+var velocityBasedArticulations = [1, 20, 21, 52, 53, 114, 115, 127, 999, 999, 999, 999, 999, 999, 999, 999]; //999s are for future proofing
 
 function expCallback()
 { 
@@ -331,6 +343,7 @@ function onNoteOn()
 {
     local e = Message.getNoteNumber();
     local v = Message.getVelocity();
+
     Console.print("Note: " + e + " Velocity: " + v);
 
     //Portamento Stuff
@@ -361,9 +374,149 @@ function onNoteOn()
                 lastNote = e;
             }
         }
+
+    if (manifest.usesPitchKeys)
+        if (e >= 24 && e <= 48)
+        {
+            colourPitchKeys();
+            Engine.setKeyColour(e, Colours.withAlpha(Colours.deepskyblue, 0.5));            
+            samplerLoopPitch(pitchKeyValues[e-24]);
+            Message.ignoreEvent(e);
+        }
+
+    //Guitar-Based Libraries
+
+    if (manifest.isGuitarLibrary)
+    {
+        if (e >= manifest._guitarHiddenNoteRange[0] && e <= manifest._guitarHiddenNoteRange[1]) //Ignore These Notes if Played
+            Message.ignoreEvent(true);
+
+        if (e == manifest._guitarResetRR) // Reset RR
+            currentRR = 1;
+
+        if (e == manifest._guitarTightMute) // Tight Mute
+        {
+            Message.ignoreEvent(true);
+            previousRR = currentRR;
+            while (previousRR == currentRR)
+                currentRR = Math.randInt(1, manifest.numCustomRoundRobins);
+            if (!isUpPick)
+            {
+                SamplerA.asSampler().setActiveGroup(currentRR);
+                if (manifest._guitarIsStereo)
+                    SamplerB.asSampler().setActiveGroup(previousRR);
+                isUpPick = 1 - forceDownPick;
+            }
+            else
+            {
+                SamplerA.asSampler().setActiveGroup(currentRR + manifest.numCustomRoundRobins);
+                if (manifest._guitarIsStereo)
+                    SamplerB.asSampler().setActiveGroup(previousRR + manifest.numCustomRoundRobins);
+                isUpPick = 0;
+            }
+            Synth.playNote(manifest._guitarPickAttackKey, v);
+        }
+
+
+
+        if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1] ) //Non-Repeating RR
+        {            
+            if (!Button_ArpBypass.getValue())
+            {
+                
+                if (v >= manifest.alternatePickingVelocityRange[0] && v <= manifest.alternatePickingVelocityRange[1])
+                {
+                    if (manifest.library == "pdqbass")
+                        Console.print("wooh!");
+                    previousRR = currentRR;
+                    while (currentRR == previousRR)
+                        currentRR = Math.randInt(1, manifest.numCustomRoundRobins);
+
+                    if (!isUpPick)
+                            {
+                                if (manifest.library == "pdqbass" && v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Gross PDQ Bass Fix
+                                    Message.setVelocity(100);
+                                SamplerA.asSampler().setActiveGroup(currentRR);
+                                if (manifest._guitarIsStereo)
+                                    SamplerB.asSampler().setActiveGroup(previousRR);
+                                isUpPick = 1 - forceDownPick;
+                            }
+                        else
+                            {
+                                if (manifest.library == "pdqbass" && v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Gross PDQ Bass Fix
+                                {
+                                    Message.setVelocity(60);
+                                    SamplerA.asSampler().setActiveGroup(currentRR);
+                                }
+                                else 
+                                    SamplerA.asSampler().setActiveGroup(currentRR + manifest.numCustomRoundRobins);
+                                
+                                if (manifest._guitarIsStereo)
+                                    SamplerB.asSampler().setActiveGroup(previousRR + manifest.numCustomRoundRobins);
+                                isUpPick = 0;
+                            }     
+                        }
+                        if (pickAttack && manifest.library != "pdqbass") //Need to swap this for a global variable.
+                            Synth.playNote(manifest._guitarPickAttackKey, v); //Trigger Pick Attack  
+                }
+            }
+        }
+
+        if (e >= manifest._guitarFXKeysRange[0] && e <= manifest._guitarFXKeysRange[1]) // Assorted FX Keys
+        {
+            SamplerA.asSampler().setActiveGroup(1);
+            if (manifest._guitarIsStereo)
+                SamplerB.asSampler().setActiveGroup(2);
+        }
+
+        if (e >= manifest._guitarAltDeadNotes[0] && e <= manifest._guitarAltDeadNotes[1])
+            if (!Button_ArpBypass.getValue())
+                {   
+                    previousRR = currentRR;
+                    while (previousRR == currentRR)
+                        currentRR = Math.randInt(1, manifest.numCustomRoundRobins);                    
+                    if (!isUpPick)
+                    {
+                        SamplerA.asSampler().setActiveGroup(currentRR);
+                        if (manifest._guitarIsStereo)
+                            SamplerB.asSampler().setActiveGroup(previousRR);
+                        isUpPick = 1 - forceDownPick;
+                    }
+                    else
+                    {
+                        SamplerA.asSampler().setActiveGroup(currentRR + 6);
+                        if (manifest._guitarIsStereo)
+                            SamplerB.asSampler().setActiveGroup(previousRR + 6);
+                        isUpPick = 0;
+                    }     
+                }
+    }
+
+    //Velocity-Based Articulation Switches
+
+    if (manifest.usesVelocityBasedArticulationSwitching)
+    {
+        if (v >= velocityBasedArticulations[0] && v <= velocityBasedArticulations[1]) //Velocity Range 01
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[0]);
+        if (v >= velocityBasedArticulations[2] && v <= velocityBasedArticulations[3]) //Velocity Range 02
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[1]);
+        if (v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Velocity Range 03
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[2]);
+        if (v >= velocityBasedArticulations[6] && v <= velocityBasedArticulations[7]) //Velocity Range 04
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[3]);
+        if (v >= velocityBasedArticulations[8] && v <= velocityBasedArticulations[9]) //Velocity Range 05
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[4]);
+        if (v >= velocityBasedArticulations[10] && v <= velocityBasedArticulations[11]) //Velocity Range 06
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[5]);
+        if (v >= velocityBasedArticulations[12] && v <= velocityBasedArticulations[13]) //Velocity Range 07
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[6]);
+        if (v >= velocityBasedArticulations[14] && v <= velocityBasedArticulations[15]) //Velocity Range 08
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[7]);
+    }
+
     
-    //Check to see if within playable range.
-    
+
+    /*
     if (playableWhiteKeys.contains(e))
         Engine.setKeyColour(e, 0xCC6FC4CA);
     
@@ -393,6 +546,7 @@ function onNoteOn()
     
     else if (voidBlackKeys.contains(e))
         Engine.setKeyColour(e, Colours.black);
+    */
 
     /*
     
@@ -411,11 +565,10 @@ function onNoteOn()
     */
     
     //Nested switch statement to select expansion, then select specific note played.
+
+    /*
 	switch (currentExpansion)
     {
-
-        //Note: During Colour pass, just use alpha values to darken keys...
-
         case "Blackout":    
 	    switch (Message.getNoteNumber())
         {               
@@ -1021,7 +1174,7 @@ function onNoteOn()
         break;
 
         case "Cloudburst":
-            SamplerA.asSampler().enableRoundRobin(true);
+            SamplerA.asSampler().enableRoundRobin(true);            
         break;
         
         case "Aetheric":
@@ -1038,6 +1191,10 @@ function onNoteOn()
         case "Oracle":
             disableRoundRobin();
             SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
+            if(e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
+            {
+                Engine.setKeyColour(e, Colours.withAlpha(Colours.black, 0.10));
+            }
         break;
         
         case "Found Keys":
@@ -1298,7 +1455,7 @@ function onNoteOn()
         
         
         default:
-    }
+    }*/
 }
   function onNoteOff()
 {
@@ -1342,13 +1499,20 @@ function onNoteOn()
         lastNote = -1;
         lastTuning = 0;
     }
+
+    /*
     
     if (voidWhiteKeys.contains(e))
         Engine.setKeyColour(e, Colours.white);
     
     if (voidBlackKeys.contains(e))
         Engine.setKeyColour(e, 0xFF1F1F1F);
+    */
+
+    if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
+        Engine.setKeyColour(e, Colours.withAlpha(Colours.black, 0.0));
     
+    /*
 	switch (currentExpansion)
     {
         case "Bloom":
@@ -1372,7 +1536,11 @@ function onNoteOn()
         break;
         
         case "Oracle":
-            restoreKeysDefault(e);
+            //restoreKeysDefault(e);
+            if(e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
+            {
+                Engine.setKeyColour(e, Colours.withAlpha(Colours.black, 0.0));
+            }
         break;       
         
         case "Aetheric":
@@ -1536,7 +1704,7 @@ function onNoteOn()
         break;
         
         default:        
-    } 
+    } */
     
     
 }
