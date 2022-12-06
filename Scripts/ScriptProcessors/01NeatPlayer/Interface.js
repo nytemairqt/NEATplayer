@@ -426,15 +426,13 @@ function onNoteOn()
                 
                 if (v >= manifest.alternatePickingVelocityRange[0] && v <= manifest.alternatePickingVelocityRange[1])
                 {
-                    if (manifest.library == "pdqbass")
-                        Console.print("wooh!");
                     previousRR = currentRR;
                     while (currentRR == previousRR)
                         currentRR = Math.randInt(1, manifest.numCustomRoundRobins);
 
                     if (!isUpPick)
                             {
-                                if (manifest.library == "pdqbass" && v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Gross PDQ Bass Fix
+                                if (manifest.isBassLibrary && v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Bass Library Fix
                                     Message.setVelocity(100);
                                 SamplerA.asSampler().setActiveGroup(currentRR);
                                 if (manifest._guitarIsStereo)
@@ -443,7 +441,7 @@ function onNoteOn()
                             }
                         else
                             {
-                                if (manifest.library == "pdqbass" && v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Gross PDQ Bass Fix
+                                if (manifest.isBassLibrary && v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Bass Library Fix
                                 {
                                     Message.setVelocity(60);
                                     SamplerA.asSampler().setActiveGroup(currentRR);
@@ -456,7 +454,7 @@ function onNoteOn()
                                 isUpPick = 0;
                             }     
                         }
-                        if (pickAttack && manifest.library != "pdqbass") //Need to swap this for a global variable.
+                        if (pickAttack && !manifest.isBassLibrary) //Need to swap this for a global variable.
                             Synth.playNote(manifest._guitarPickAttackKey, v); //Trigger Pick Attack  
                 }
             }
