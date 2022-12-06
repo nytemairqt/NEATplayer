@@ -7,7 +7,7 @@ var portalArpIgnoreVelocity;
 
 inline function onButton_PortalIgnoreArpVelocityControl(component, value)
 {
-	portalArpIgnoreVelocity = value;
+	writingArpVelocity = value;
 };
 
 Content.getComponent("Button_PortalIgnoreArpVelocity").setControlCallback(onButton_PortalIgnoreArpVelocityControl);

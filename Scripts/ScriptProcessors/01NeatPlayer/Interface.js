@@ -132,6 +132,13 @@ var pickAttack = 0;
 var numVelocityBasedArticulations = 8;
 var velocityBasedArticulations = [1, 20, 21, 52, 53, 114, 115, 127, 999, 999, 999, 999, 999, 999, 999, 999]; //999s are for future proofing
 
+var writingArpVelocity;
+var randomNoiseActive;
+var randomReleaseNoiseActive;
+var pianoReleaseNoiseActive;
+
+// Expansion Loading
+
 function expCallback()
 { 
     currentExpansion = expHandler.getCurrentExpansion();
@@ -145,81 +152,6 @@ function expCallback()
     else
         loadExpansionFromManifest();
 
-    /*
-    switch (currentExpansion)
-    {    
-        case "Atlas":
-            loadAtlas();
-        break;	
-        
-        case "Blackout":
-            loadBlackout();
-        break;
-            
-        case "Blackout2":
-            loadBlackout2();
-        break;            
-        
-        case "Bloom":
-            loadBloom();
-        break;
-        
-        case "Cloudburst":
-            loadExpansionFromManifest();
-        break;
-            
-        case "CloudburstAcoustic":
-            loadExpansionFromManifest();
-        break;            
-    
-        case "Oracle":
-            loadOracle();
-        break;
-            
-        case "Aetheric":
-            loadAetheric();
-        break;
-            
-        case "Found Keys":
-            loadFoundKeys();
-        break;
-            
-        case "Prismatic":
-            loadPrismatic();
-        break; 
-            
-        case "Endure":
-            loadEndure();
-        break;
-            
-        case "Portal":
-            loadPortal();
-        break;
-            
-        case "MachineTribes":
-            loadMachineTribes();
-        break;
-            
-        case "Achromic":
-            loadExpansionFromManifest();
-        break;
-            
-        case "PDQBass":
-            loadPDQBass();
-        break;
-            
-        case "Oracle2":
-            loadOracle2();
-        break;
-            
-        case "Gloom":
-            loadGloom();
-        break;
-            
-        default:
-    };    
-    */
-    
     expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
 }
 
@@ -240,7 +172,6 @@ inline function onStop(isPlaying)
 {
     if(!isPlaying)
         Engine.allNotesOff();
-        //restoreKeysDefault(e);
         
         switch (currentExpansion)
         {
@@ -375,6 +306,8 @@ function onNoteOn()
             }
         }
 
+    //Loop Based Libraries
+
     if (manifest.usesPitchKeys)
         if (e >= 24 && e <= 48)
         {
@@ -383,6 +316,79 @@ function onNoteOn()
             samplerLoopPitch(pitchKeyValues[e-24]);
             Message.ignoreEvent(e);
         }
+
+    if (manifest.isLoopInstrument && manifest.canWriteArpVelocity)
+        if (writingArpVelocity && e >= manifest.blueKeyRange[0] && e <= manifest.yellowKeyRange[1]) // Between all playable keys
+        {
+            local notes = Slider_ArpSteps.getValue();
+            for (i=0; i<Slider_ArpSteps.getValue(); i++)
+            {
+                SliderPack_ArpVelocity.setAllValues(v);
+                SliderPack_ArpVelocity.changed();
+            }
+        }
+
+    //Loop + One Shot Libraries (Machine Tribes)
+    //Always use Yellow Keys for One Shots!
+
+    if (manifest.isLoopInstrument && manifest.usesLoopsAndOneShots)
+    {
+        if (e >= manifest.yellowKeyRange[0] && e <= manifest.yellowKeyRange[1])
+        {
+            local currentRR = Arpeggiator1.getAttribute(Arpeggiator1.CurrentValue);  
+            SamplerA.asSampler().enableRoundRobin(false);
+            SamplerA.asSampler().setActiveGroup(1);
+            Message.ignoreEvent(e);
+            Synth.playNote(e, v); 
+        }
+    }
+    
+    //Random Noise Chance
+
+    if (manifest.usesRandomNoise)
+    {
+        if (e >= manifest.randomNoiseKeys[0] && e <= manifest.randomNoiseKeys[1])
+            Message.ignoreEvent(true);
+        if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
+        {
+            local randomNoise = Math.random() * randomNoiseActive;
+            if (randomNoise <= manifest.randomNoiseChance)
+            {
+                if (randomNoiseCounter >= 8)
+                {
+                    Synth.playNote(Math.randInt(manifest.randomNoiseKeys[0], manifest.randomNoiseKeys[1]), v);
+                    randomNoiseCounter = 0;
+                }
+                else
+                    randomNoiseCounter += 1;
+            }
+        }
+    }
+
+    /*
+    case "Gloom":
+            SamplerA.asSampler().enableRoundRobin(true);
+            if (e > 0 && e <= 5)
+                Message.ignoreEvent(e);
+            
+            //chair creaking.
+            else if (e >= 36 && e <= 120) 
+            {
+                local randomNoise = Math.random() * Button_GloomChairCreakNoise.getValue();
+                if (randomNoise > .55)
+                {
+                    if (randomNoiseCounter >= 8)
+                    {
+                        local vel = Message.getVelocity();
+                        local playedNote = Math.randInt(0, 2);
+                        Synth.playNote(playedNote, vel);
+                        randomNoiseCounter = 0;
+                    }
+                    else
+                        randomNoiseCounter += 1;
+                }
+            }
+        break;*/
 
     //Guitar-Based Libraries
 
@@ -567,563 +573,7 @@ function onNoteOn()
     /*
 	switch (currentExpansion)
     {
-        case "Blackout":    
-	    switch (Message.getNoteNumber())
-        {               
-            case 24:
-            samplerLoopPitch(-12.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(24, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 25:
-	        samplerLoopPitch(-11.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(25, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 26:
-	        samplerLoopPitch(-10.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(26, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 27:
-	        samplerLoopPitch(-9.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(27, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 28:
-	        samplerLoopPitch(-8.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(28, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 29:
-	        samplerLoopPitch(-7.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(29, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 30:
-	        samplerLoopPitch(-6.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(30, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-	        case 31:
-	        samplerLoopPitch(-5.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(31, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 32:
-	        samplerLoopPitch(-4.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(32, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 33:
-	        samplerLoopPitch(-3.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(33, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 34:
-	        samplerLoopPitch(-2.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(34, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;	        
-            
-	        case 35:
-	        samplerLoopPitch(-1.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(35, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 36:
-	        samplerLoopPitch(0.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(36, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 37: 
-	        samplerLoopPitch(1.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(37, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 38: 
-	        samplerLoopPitch(2.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(38, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 39: 
-	        samplerLoopPitch(3.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(39, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 40: 
-	        samplerLoopPitch(4.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(40, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;	        
-	        
-	        case 41: 
-	        samplerLoopPitch(5.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(41, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 42: 
-	        samplerLoopPitch(6.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(42, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 43: 
-	        samplerLoopPitch(7.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(43, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 44: 
-	        samplerLoopPitch(8.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(44, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 45: 
-	        samplerLoopPitch(9.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(45, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 46: 
-	        samplerLoopPitch(10.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(46, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 47: 
-	        samplerLoopPitch(11.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(47, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 48: 
-	        samplerLoopPitch(12.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(48, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-            //0xFF64EFFF white key
-            //0xFF1B9AA9 black key
-	        
-            default:
-        }
-        if (Message.getNoteNumber() >= 60 && Message.getNoteNumber() <= 90)
-            SamplerA.asSampler().enableRoundRobin(true);
-        break;
         
-        case "Blackout2":
-        switch (Message.getNoteNumber())
-        {               
-            case 24:
-	        samplerLoopPitch(-12.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(24, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 25:
-	        samplerLoopPitch(-11.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(25, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 26:
-	        samplerLoopPitch(-10.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(26, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 27:
-	        samplerLoopPitch(-9.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(27, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 28:
-	        samplerLoopPitch(-8.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(28, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 29:
-	        samplerLoopPitch(-7.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(29, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 30:
-	        samplerLoopPitch(-6.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(30, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-	        case 31:
-	        samplerLoopPitch(-5.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(31, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 32:
-	        samplerLoopPitch(-4.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(32, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 33:
-	        samplerLoopPitch(-3.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(33, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 34:
-	        samplerLoopPitch(-2.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(34, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;	        
-            
-	        case 35:
-	        samplerLoopPitch(-1.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(35, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 36:
-	        samplerLoopPitch(0.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(36, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 37: 
-	        samplerLoopPitch(1.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(37, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 38: 
-	        samplerLoopPitch(2.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(38, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 39: 
-	        samplerLoopPitch(3.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(39, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 40: 
-	        samplerLoopPitch(4.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(40, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;	        
-	        
-	        case 41: 
-	        samplerLoopPitch(5.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(41, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 42: 
-	        samplerLoopPitch(6.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(42, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 43: 
-	        samplerLoopPitch(7.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(43, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 44: 
-	        samplerLoopPitch(8.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(44, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 45: 
-	        samplerLoopPitch(9.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(45, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 46: 
-	        samplerLoopPitch(10.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(46, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 47: 
-	        samplerLoopPitch(11.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(47, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 48: 
-	        samplerLoopPitch(12.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(48, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-            //0xFF64EFFF white key
-            //0xFF1B9AA9 black key
-	        
-            default:
-        }
-        if (Message.getNoteNumber() >= 60 && Message.getNoteNumber() <= 90)
-            SamplerA.asSampler().enableRoundRobin(true);
-	    break;        
-	    
-	    case "Portal":
-        switch (Message.getNoteNumber())
-        {               
-            case 24:
-	        samplerLoopPitch(-12.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(24, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 25:
-	        samplerLoopPitch(-11.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(25, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 26:
-	        samplerLoopPitch(-10.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(26, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 27:
-	        samplerLoopPitch(-9.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(27, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 28:
-	        samplerLoopPitch(-8.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(28, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 29:
-	        samplerLoopPitch(-7.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(29, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-            
-            case 30:
-	        samplerLoopPitch(-6.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(30, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-            
-	        case 31:
-	        samplerLoopPitch(-5.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(31, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 32:
-	        samplerLoopPitch(-4.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(32, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 33:
-	        samplerLoopPitch(-3.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(33, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 34:
-	        samplerLoopPitch(-2.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(34, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;	        
-            
-	        case 35:
-	        samplerLoopPitch(-1.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(35, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 36:
-	        samplerLoopPitch(0.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(36, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 37: 
-	        samplerLoopPitch(1.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(37, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 38: 
-	        samplerLoopPitch(2.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(38, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 39: 
-	        samplerLoopPitch(3.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(39, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 40: 
-	        samplerLoopPitch(4.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(40, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;	        
-	        
-	        case 41: 
-	        samplerLoopPitch(5.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(41, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 42: 
-	        samplerLoopPitch(6.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(42, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 43: 
-	        samplerLoopPitch(7.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(43, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 44: 
-	        samplerLoopPitch(8.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(44, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 45: 
-	        samplerLoopPitch(9.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(45, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 46: 
-	        samplerLoopPitch(10.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(46, 0xFF1B9AA9);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 47: 
-	        samplerLoopPitch(11.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(47, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-	        case 48: 
-	        samplerLoopPitch(12.0);
-	        colourKeysBlackoutPitch();
-            Engine.setKeyColour(48, 0xFF64EFFF);
-            Message.ignoreEvent(e);
-	        break;
-	        
-            //0xFF64EFFF white key
-            //0xFF1B9AA9 black key
-	        
-            default:
-        }
         if (e >= 60 && e <= 98 && portalArpIgnoreVelocity == 1)
         {
             local notes = Slider_ArpSteps.getValue();
@@ -1507,8 +957,76 @@ function onNoteOn()
         Engine.setKeyColour(e, 0xFF1F1F1F);
     */
 
+    //Reset Key Colours
+
     if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
         Engine.setKeyColour(e, Colours.withAlpha(Colours.black, 0.0));
+
+    //Loop Based
+
+    if (manifest.isLoopInstrument)
+        if (e >= 24 & e <= 48)
+        {
+                Message.ignoreEvent(e);
+                activeGroup = SamplerA.asSampler().getActiveRRGroup();
+                SamplerA.asSampler().enableRoundRobin(false);
+                SamplerA.asSampler().setActiveGroup(activeGroup);
+                SamplerA.asSampler().enableRoundRobin(true);
+        }
+            else
+        {
+            if (num > 1)
+            {
+                SamplerA.asSampler().enableRoundRobin(false);
+                SamplerA.asSampler().setActiveGroup(SamplerA.asSampler().getActiveRRGroup());
+                SamplerA.asSampler().enableRoundRobin(true);          
+            }
+            else
+            {
+                SamplerA.asSampler().enableRoundRobin(false);
+                SamplerA.asSampler().setActiveGroup(0);
+                SamplerA.asSampler().enableRoundRobin(true);  
+            }
+        }    
+
+    if (manifest.isLoopInstrument && manifest.usesLoopsAndOneShots)    
+        if (num < 1)
+        {
+            SamplerA.asSampler().enableRoundRobin(false);
+            SamplerA.asSampler().setActiveGroup(0);
+            SamplerB.asSampler().enableRoundRobin(false);
+            SamplerB.asSampler().setActiveGroup(0);
+            SamplerC.asSampler().enableRoundRobin(false);
+            SamplerC.asSampler().setActiveGroup(0);   
+            SamplerA.asSampler().enableRoundRobin(true);
+            SamplerB.asSampler().enableRoundRobin(true);
+            SamplerC.asSampler().enableRoundRobin(true);
+        }
+            else 
+        {                      
+            local currentRR1 = SamplerA.asSampler().getActiveRRGroup();
+            local currentRR2 = SamplerB.asSampler().getActiveRRGroup();
+            local currentRR3 = SamplerC.asSampler().getActiveRRGroup();
+            SamplerA.asSampler().enableRoundRobin(false);
+            SamplerB.asSampler().enableRoundRobin(false);
+            SamplerC.asSampler().enableRoundRobin(false);            
+            SamplerA.asSampler().setActiveGroup(currentRR1);
+            SamplerB.asSampler().setActiveGroup(currentRR2);
+            SamplerC.asSampler().setActiveGroup(currentRR3);
+            SamplerA.asSampler().enableRoundRobin(true);
+            SamplerB.asSampler().enableRoundRobin(true);
+            SamplerC.asSampler().enableRoundRobin(true);   
+        }
+
+    // Piano Release Noises
+    if (manifest.usesPianoReleaseNoise)
+    {
+        if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
+        {
+            if (num == 1)
+                Synth.playNote(Math.randInt(manifest.pianoReleaseNoiseKeys[0], manifest.pianoReleaseNoiseKeys[1]), Math.randInt(64, 127));
+        }
+    }
     
     /*
 	switch (currentExpansion)
