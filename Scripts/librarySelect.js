@@ -7,9 +7,11 @@ const var Button_OpenExpansions = Content.getComponent("Button_OpenExpansions");
 const var Panel_ExpansionsItemHolder = Content.getComponent("Panel_ExpansionsItemHolder");
 const var Button_CloseExpansions = Content.getComponent("Button_CloseExpansions");
 
+var expansionList = expHandler.getExpansionList();
 const var expansionNames = [];
 
-for (e in expHandler.getExpansionList())
+//for (e in expHandler.getExpansionList())
+for (e in expansionList)
     expansionNames.push(e.getProperties().Name);
 
 const var expButton = [];
@@ -33,6 +35,8 @@ expPanelTitle.setPaintRoutine(function(g)
 var num_rows = expansionNames.length / 5; //5 Items per row.
 var row_x = 0;
 var row_y = 0;
+var expansion_button_image = "";
+var selected_expansion;
     
 for (i=0; i<expansionNames.length; i++) // For each found Expansion
 {
@@ -53,7 +57,10 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
     //Load Image
 
-    expButton[i].loadImage("{PROJECT_FOLDER}" + expansionNames[i] + "_button.jpg", "panel_" + expansionNames[i]); 
+    selected_expansion = expHandler.getExpansion(expansionNames[i]);
+    expansion_button_image = selected_expansion.getWildcardReference("button_image.jpg");
+
+    expButton[i].loadImage(expansion_button_image, "panel_" + expansionNames[i]);
     expButton[i].data.imagefile = "panel_" + expansionNames[i]; 
     expButton[i].data.expansionName = expansionNames[i];
     expButton[i].set("allowCallbacks", "Clicks & Hover");
