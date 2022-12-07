@@ -43,63 +43,7 @@ const var Button_ArpNotesInvert = Content.getComponent("Button_ArpNotesInvert");
 
 const var Label_Arp = Content.getComponent("Label_Arp");
 
-//Positioning Elements
-
-inline function positionArpPanel()
-{
-
-    local padding = 6;
-    local buttonSize = (SliderPack_ArpNotes.get("height") / 4) - (padding * 4);     
-    local sliderPackXPosition = Panel_Arp.get("width") - (SliderPack_ArpNotes.get("width") + padding) - buttonSize - padding;
-
-
-	Panel_Arp.setPosition(0, 0, Panel_BG.get("width"), Panel_BG.get("height"));	
-	Panel_Arp.set("borderRadius", 2.0);
-
-    Label_Arp.set("x", (Panel_BG.get("width") / 2) - (Label_Arp.get("width") / 2));
-
-    SliderPack_ArpNotes.set("width", Panel_Arp.get("width") * 0.7);
-    SliderPack_ArpVelocity.set("width", Panel_Arp.get("width") * 0.7);
-    SliderPack_ArpLength.set("width", Panel_Arp.get("width") * 0.7);
-
-    SliderPack_ArpNotes.set("height", Panel_Arp.get("height") * 0.4);
-    SliderPack_ArpVelocity.set("height", Panel_Arp.get("height") * 0.20);
-    SliderPack_ArpLength.set("height", Panel_Arp.get("height") * 0.20);
-
-    SliderPack_ArpNotes.set("x", sliderPackXPosition);
-    SliderPack_ArpNotes.set("y", 30);
-
-    SliderPack_ArpVelocity.set("x", sliderPackXPosition);
-    SliderPack_ArpVelocity.set("y", SliderPack_ArpNotes.get("y") + SliderPack_ArpNotes.get("height") + (padding * 4));
-
-    SliderPack_ArpLength.set("x", sliderPackXPosition);
-    SliderPack_ArpLength.set("y", SliderPack_ArpVelocity.get("y") + SliderPack_ArpVelocity.get("height") + (padding * 4));  
-
-    //Setting Button Sizes & Positions
-
-    local buttons = [    
-    Button_ArpNotesReset,
-    Button_ArpNotesMinor,
-    Button_ArpNotesMajor,
-    Button_ArpNotesInvert, 
-    Button_ArpVelocityReset,
-    Button_ArpLengthReset
-    ];
-
-    for (b in buttons)
-    {
-        b.set("width", buttonSize);
-        b.set("height", buttonSize);
-    }
-
-
-}
-
-positionArpPanel();
-
 //Arp Panel
-
-
 
 inline function onButton_ArpDisplayControl(component, value)
 {

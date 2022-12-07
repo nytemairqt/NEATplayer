@@ -149,20 +149,10 @@ function expCallback()
 
     loadExpansionFromManifest();
 
-    /*
-    if (currentExpansion == "Bloom")
-        loadBloom();
-    else
-        loadExpansionFromManifest();
-    */
-
     expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
 }
 
 expHandler.setExpansionCallback(expCallback);
-
-
-
 
 
 //Extra Init Calls
@@ -192,100 +182,11 @@ inline function onStop(isPlaying)
             SamplerC.asSampler().setActiveGroup(1);
         }
     }
-    /*
-        switch (currentExpansion)
-        {
-    
-            case "Atlas":
-                colourKeysAtlas();
-                break;
-        
-            case "Blackout":
-                colourKeysBlackout();
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(1);
-                break;
-            
-            case "Blackout2":
-                colourKeysBlackout2();
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(1);
-                break;            
-        
-            case "Bloom":
-                colourKeysBloom();
-                break;
-        
-            case "Cloudburst":
-                colourKeysCloudburst();
-                break;
-            
-            case "CloudburstAcoustic":
-                colourKeysCloudburst();
-                break;            
-    
-            case "Oracle":
-                colourKeysOracle();
-                break;
-            
-            case "Aetheric":
-                colourKeysAetheric();
-                break;
-            
-            case "Found Keys":
-                colourKeysFoundKeys();
-                break;
-            
-            case "Prismatic":
-                colourKeysPrismatic();
-                break; 
-            
-            case "Endure":
-                colourKeysEndure();
-                break;
-            
-            case "Portal":
-                colourKeysPortal();
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(1);
-                break;
-            
-            case "MachineTribes":
-                colourKeysMachineTribes();
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA.asSampler().setActiveGroup(1);
-                SamplerB.asSampler().enableRoundRobin(false);
-                SamplerB.asSampler().setActiveGroup(1);
-                SamplerC.asSampler().enableRoundRobin(false);
-                SamplerC.asSampler().setActiveGroup(1); 
-                break;
-                
-            case "Achromic":
-                colourKeysAchromic();
-            break;
-            
-            case "PDQBass":
-                colourKeysPDQBass();
-            break;
-            
-            case "Oracle2":
-                colourKeysOracle2();
-            break;
-            
-            case "Gloom":
-                colourKeysGloom();                
-            break;
-
-            default:
-        };    
-        */
 };
 
 th.setOnTransportChange(true, onStop);
 
 //clearEverything();
-
-
 
 
 
@@ -348,6 +249,17 @@ function onNoteOn()
                 SliderPack_ArpVelocity.changed();
             }
         }
+
+    //ComboBox Based Libraries
+
+    if (manifest.usesComboBoxItems)
+    {
+        SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
+        if (manifest.sampleMapB != null)
+            SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
+        if (manifest.sampleMapC != null)
+            SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
+    }
 
     //Loop + One Shot Libraries (Machine Tribes)
     //Always use Yellow Keys for One Shots!

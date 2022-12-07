@@ -298,7 +298,7 @@ inline function onComboBox_SamplerAControl(component, value)
     if (currentExpansion == "Aetheric")
     {
         SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
-    }
+    }    
 };
 
 Content.getComponent("ComboBox_SamplerA").setControlCallback(onComboBox_SamplerAControl);

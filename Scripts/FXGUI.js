@@ -153,41 +153,6 @@ const var listRandomizationButtonsFXBypass = [Content.getComponent("Button_Rando
 
 const var FXImageLineWidth = 1.25;
 
-inline function positionFXPanel()
-{
-	local padding = 6;
-	Panel_FX.setPosition(0, 0, Panel_BG.get("width"), Panel_BG.get("height"));
-
-	for (l in listFXPanels)
-	{
-		l.setPosition((Panel_BG.get("width") / 2) - (l.get("width") / 2), (Panel_BG.get("height") / 2) - (l.get("height") / 2), 600, 300);
-		l.set("borderRadius", 2.0);
-		l.set("bgColour", 0x00FFFFFF);
-		l.set("textColour", 0x00FFFFFF);
-	}
-
-	for (i=0; i<listFXButtonsLeft.length; i++)
-	{
-		listFXButtonsLeft[i].setPosition(listFXPanels[0].get("x") - (listFXButtonsLeft[0].get("width") + padding), listFXPanels[0].get("y") + ((listFXButtonsLeft[0].get("height") + padding) * i) + 2, listFXButtonsLeft[0].get("width"), listFXPanels[0].get("height") / listFXButtonsLeft.length - padding);
-	}
-
-	for (i=0; i<listFXButtonsRight.length; i++)
-	{
-		listFXButtonsRight[i].setPosition(listFXPanels[0].get("x") + listFXPanels[0].get("width") + padding, listFXPanels[0].get("y") + ((listFXButtonsLeft[0].get("height") + padding) * i) + 2, listFXButtonsLeft[0].get("width"), listFXPanels[0].get("height") / listFXButtonsLeft.length - padding);
-	}
-
-
-	for (i=0; i<listFXLabels.length; i++)
-	{
-		listFXLabels[i].setPosition((listFXPanels[i].get("width") / 2) - (listFXLabels[i].get("width") / 2), 8, listFXLabels[i].get("width"), listFXLabels[i].get("height"));
-	}
-
-	Label_FXTitle.set("x", (Panel_FX.get("width") / 2) - (Label_FXTitle.get("width") / 2));
-}
-
-
-//positionFXPanel();
-
 //FX Panel
 
 //Close Button

@@ -235,8 +235,10 @@ inline function loadExpansionFromManifest()
         for (i=0; i<manifest.comboBoxItems.length; i++)
         {
             ComboBox_SamplerA.addItem(manifest.comboBoxItems[i]);
-            ComboBox_SamplerB.addItem(manifest.comboBoxItems[i]);
-            ComboBox_SamplerC.addItem(manifest.comboBoxItems[i]);
+            if (manifest.sampleMapB != null)
+                ComboBox_SamplerB.addItem(manifest.comboBoxItems[i]);
+            if (manifest.sampleMapC != null)
+                ComboBox_SamplerC.addItem(manifest.comboBoxItems[i]);
         }
 
     resolveComboBoxes(); //Ensures ComboBoxes don't have 0 value.
