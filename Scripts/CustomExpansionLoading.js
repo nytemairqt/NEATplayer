@@ -260,13 +260,6 @@ inline function loadExpansionFromManifest()
     */
 }
 
-//Cloudburst
-inline function loadCloudburst()
-{
-    
-};
-
-
 /*
 inline function loadCloudburst()
 {

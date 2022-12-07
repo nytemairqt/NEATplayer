@@ -29,42 +29,29 @@ expPanelTitle.setPaintRoutine(function(g)
 });
     
 //Expansion Buttons    
+
+var num_rows = expansionNames.length / 5; //5 Items per row.
+var row_x = 0;
+var row_y = 0;
     
-for (i=0; i<expansionNames.length; i++)
+for (i=0; i<expansionNames.length; i++) // For each found Expansion
 {
-    expButton[i] = Panel_ExpansionsItemHolder.addChildPanel();
+    expButton[i] = Panel_ExpansionsItemHolder.addChildPanel(); // Add a child panel
     expButton[i].set("width", expButtonSize);
     expButton[i].set("height", expButtonSize);
 
-    if (i <= 4)
+    if (row_x == 5)
     {
-        expButton[i].set("x", (expButtonPadding * (i + 1)) + (expButtonSize * (i)));
-        expButton[i].set('y', expButtonPadding);
+        row_y += 1; //Offset for next row
+        row_x = 0; //Reset counter
     }
-    else if (i >= 5 && i <= 10)
-    {
-        expButton[i].set("x", (expButtonPadding * (i-5)) + (expButtonSize * ((i-5) - 1)));
-        expButton[i].set('y', (expButtonPadding * 2 + expButtonSize));
-    }
-    else if (i >= 10 && i <= 15)
-    {
-        expButton[i].set("x", (expButtonPadding * (i-10)) + (expButtonSize * ((i-10) - 1)));
-        expButton[i].set('y', (expButtonPadding * 3 + (expButtonSize * 2)));
-    }
-    else if (i >= 15 && i <= 20)
-    {
-        expButton[i].set("x", (expButtonPadding * (i-15)) + (expButtonSize * ((i-15) - 1)));
-        expButton[i].set('y', (expButtonPadding * 4 + (expButtonSize * 3)));
-    }
-    else
-    {
-        expButton[i].set("x", 99999);
-        expButton[i].set('y', 99999);   
-    }
+
+    expButton[i].set("x", expButtonPadding + (expButtonPadding * row_x) + (expButtonSize * row_x));
+    expButton[i].set("y", expButtonPadding + (expButtonPadding * row_y) + (expButtonSize * row_y));
+
+    row_x++;
 
     //Load Image
-
-    
 
     expButton[i].loadImage("{PROJECT_FOLDER}" + expansionNames[i] + "_button.jpg", "panel_" + expansionNames[i]); 
     expButton[i].data.imagefile = "panel_" + expansionNames[i]; 
@@ -115,7 +102,8 @@ for (i=0; i<expansionNames.length; i++)
             {
                 g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
             });                  
-            
+        
+        
         else if (event.hover)
             this.setPaintRoutine(function(g) 
             {
@@ -128,7 +116,7 @@ for (i=0; i<expansionNames.length; i++)
             this.setPaintRoutine(function(g) 
             {
                 g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0);
-            });         
+            });              
     });    
 };
 
@@ -145,16 +133,6 @@ reg hr;
 expHandler.setAllowedExpansionTypes([expHandler.FileBased, 
                                      expHandler.Intermediate, 
                                      expHandler.Encrypted]);
-
-//Position Panels
-
-inline function positionLibraryPanel()
-{
-    Viewport_ExpansionsHolder.setPosition(0, 0, Panel_BG.get("width"), Panel_BG.get("height"));
-    Panel_ExpansionsItemHolder.setPosition(0, 0, Panel_BG.get("width"), Panel_BG.get("height"));
-}
-
-//positionLibraryPanel();
 
 //Open Panel
 

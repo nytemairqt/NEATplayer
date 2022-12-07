@@ -147,10 +147,14 @@ function expCallback()
     currentExpansion = currentExpansion.Name;
     Console.print("Current Expansion: " + currentExpansion);
 
+    loadExpansionFromManifest();
+
+    /*
     if (currentExpansion == "Bloom")
         loadBloom();
     else
         loadExpansionFromManifest();
+    */
 
     expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
 }
