@@ -101,6 +101,7 @@ inline function onButton_ArpBypassControl(component, value)
 	Arpeggiator1.setBypassed(1-value);
 	
 	//To get Achromic working
+    /*
 
     if (currentExpansion == "Achromic")
     {
@@ -113,6 +114,7 @@ inline function onButton_ArpBypassControl(component, value)
             SamplerB.asSampler().setActiveGroup(2);       
         }
     }
+    */
 };
 
 Content.getComponent("Button_ArpBypass").setControlCallback(onButton_ArpBypassControl);

@@ -252,7 +252,7 @@ function onNoteOn()
 
     //ComboBox Based Libraries
 
-    if (manifest.usesComboBoxItems)
+    if (manifest.usesComboBoxItems && currentExpansion != "Aetheric") // Aetheric & Bloom have split samplemaps.
     {
         SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
         if (manifest.sampleMapB != null)
@@ -886,7 +886,7 @@ function onNoteOn()
         {
             local randomReleaseNoise = Math.random() * randomReleaseNoiseActive;
             if (randomReleaseNoise <= manifest.randomReleaseNoiseChance)
-                Synth.playNote(Math.randInt(manifest.randomReleaseNoiseKeys[0], manifest.randomReleaseNoiseKeys[1]), v);
+                Synth.playNote(Math.randInt(manifest.randomReleaseNoiseKeys[0], manifest.randomReleaseNoiseKeys[1]), Math.randInt(1, 127));
         }   
     
 }
