@@ -89,6 +89,8 @@ const var LAFSliderMovementX = Content.createLocalLookAndFeel();
 const var LAFSliderMovementY = Content.createLocalLookAndFeel();
 const var LAFSliderSampleOffset = Content.createLocalLookAndFeel();
 
+const var LAFPresetBrowser = Content.createLocalLookAndFeel();
+
 //Setup Image Loading
 
 LAFButtonOpenRandomizationPanel.loadImage("{PROJECT_FOLDER}randomizationButtonDice.png", "randomizationButtonDiceImage"); 
@@ -836,4 +838,101 @@ laf.registerFunction("drawAlertWindowIcon", function(g, obj)
             path.loadFromData(openAppDataFolderButtonFillDataFront);
             g.fillPath(path, [obj.area[0], obj.area[1] + 16, obj.area[2] - 40, obj.area[3] - 64]);  
     }
+});
+
+//Preset Browser
+
+FloatingTile_PresetBrowser.setLocalLookAndFeel(LAFPresetBrowser);
+var presetBrowserSelectedExpansion;
+var presetBrowserExpansionImage;
+const var presetBrowserPath = Content.createPath();
+
+inline function loadPresetBrowserImages(LAFObject)
+{
+    for (e in expHandler.getExpansionList())
+    {
+        local img = e.getWildcardReference("background.jpg");
+        if (isDefined(img))
+            LAFObject.loadImage(img, e.getProperties().Name);
+    }
+}
+
+loadPresetBrowserImages(LAFPresetBrowser);
+
+LAFPresetBrowser.registerFunction("drawPresetBrowserBackground", function(g, obj)
+{
+    g.fillAll(Colours.withAlpha(Colours.black, .8));
+});
+
+LAFPresetBrowser.registerFunction("drawPresetBrowserColumnBackground", function(g, obj)
+{
+    if (obj.columnIndex != -1)
+    {
+        g.fillAll(Colours.withAlpha(Colours.black, .8));
+    }
+});
+
+LAFPresetBrowser.registerFunction("drawPresetBrowserListItem", function(g, obj)
+{
+    if (obj.columnIndex == -1)
+    {
+        g.drawImage(obj.text, obj.area, 0, 0);
+
+        //Add Padding
+        g.setColour(Colours.withAlpha(Colours.black, 1.0));
+        g.drawRoundedRectangle(obj.area, 4.0, 4.0);
+
+        //Add Chamfer
+        g.setColour(Colours.withAlpha(Colours.black, .8));
+        g.fillTriangle([-20, -32, 130, 70], Math.toRadians(90));
+        g.setColour(Colours.withAlpha(Colours.black, .4));
+        g.fillTriangle([10, -32, 130, 70], Math.toRadians(90));
+        g.setColour(Colours.withAlpha(Colours.black, .2));
+		g.fillTriangle([40, -32, 130, 70], Math.toRadians(90));
+
+        //Colour Background for Text
+
+        g.setColour(Colours.withAlpha(Colours.black, 1.0));
+        //g.fillRoundedRectangle([2, 4, obj.area[2] * .4, obj.area[3] - 6], 2.0);
+        g.setColour(Colours.lightgrey);
+        g.setFont("Arial", 13.0);
+        g.drawAlignedText(obj.text, [2, 4, obj.area[2] * .4, obj.area[3] - 8], "left");
+    }
+    else
+    {
+        //Fill Background
+        g.setColour(Colours.withAlpha(Colours.darkgrey, .6));
+        g.fillRoundedRectangle([10, 3, obj.area[2] - 20, obj.area[3] - 5], 4.0);
+
+        g.setColour(Colours.withAlpha(Colours.black, .2));
+        g.fillRoundedRectangle([10, 3, obj.area[2] - 20, obj.area[3] - 5], 4.0);
+        
+        //Add Chamfer
+        g.setColour(Colours.withAlpha(Colours.black, .8));
+        g.fillTriangle([-20, -32, 130, 70], Math.toRadians(90));
+        g.setColour(Colours.withAlpha(Colours.black, .4));
+        g.fillTriangle([10, -32, 130, 70], Math.toRadians(90));
+        g.setColour(Colours.withAlpha(Colours.black, .2));
+		g.fillTriangle([40, -32, 130, 70], Math.toRadians(90));
+
+        //Draw Text
+        g.setColour(Colours.white);
+        g.setFont("Arial", 13.0);
+        g.drawAlignedText(obj.text, obj.area, "left");
+
+        //Arrow Icon
+
+        if (obj.columnIndex == 0)
+        {
+            g.setColour(Colours.withAlpha(Colours.white, .4));
+            g.fillRoundedRectangle([obj.area[2] - 30, obj.area[3] / 2 - 2, 7, 4], 0.0);
+            g.fillTriangle([obj.area[2] - 23, obj.area[3] / 2 - 5, 10, 10], Math.toRadians(90));
+        }
+
+        if (obj.hover)
+        {
+            g.setColour(Colours.withAlpha(Colours.white, .05));
+            g.fillRoundedRectangle([10, 3, obj.area[2] - 20, obj.area[3] - 5], 4.0);
+        }
+    } 
 });

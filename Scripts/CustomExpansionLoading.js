@@ -128,7 +128,9 @@ var manifestArrayLength;
 
 inline function loadExpansionFromManifest()
 {
-    backgroundImage = manifest.image;
+    //backgroundImage = manifest.image;
+    backgroundImage = expHandler.getCurrentExpansion().getWildcardReference("background.jpg");
+
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);
     

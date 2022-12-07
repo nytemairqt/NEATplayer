@@ -1987,10 +1987,10 @@
   <Component type="ScriptFloatingTile" id="FloatingTile_PresetBrowser" x="3.0"
              y="33.0" ContentType="PresetBrowser" bgColour="4160749568" itemColour="4294967295"
              itemColour2="4294951115" Data="{&#10;  &quot;ShowSaveButton&quot;: true,&#10;  &quot;ShowExpansionsAsColumn&quot;: true,&#10;  &quot;ShowFolderButton&quot;: true,&#10;  &quot;ShowNotes&quot;: false,&#10;  &quot;ShowEditButtons&quot;: true,&#10;  &quot;ShowFavoriteIcon&quot;: true,&#10;  &quot;NumColumns&quot;: 2,&#10;  &quot;ColumnWidthRatio&quot;: [&#10;    0.3333333333333333,&#10;    0.3333333333333333,&#10;    0.3333333333333333&#10;  ]&#10;}"
-             width="994.0" height="474.0" FontSize="12.0" Font="Arial" visible="0"/>
+             width="994.0" height="474.0" FontSize="12.0" Font="Arial"/>
   <Component type="ScriptButton" id="Button_PresetBrowserClose" x="981.0"
              y="34.0" text="LAFButtonClose" width="14.0" height="14.0" isMomentary="1"
-             enableMidiLearn="0" saveInPreset="0" visible="0"/>
+             enableMidiLearn="0" saveInPreset="0"/>
   <Component type="ScriptButton" id="Button_OpenAppData" x="384.0" y="6.0"
              width="30.0" height="21.0" text="LAF_ButtonAppData" saveInPreset="0"
              isMomentary="1" enableMidiLearn="0" tooltip="Opens the AppData folder."/>
