@@ -905,6 +905,9 @@ LAFPresetBrowser.registerFunction("drawPresetBrowserListItem", function(g, obj)
         g.setColour(Colours.lightgrey);
         g.setFont("Arial", 13.0);
         g.drawAlignedText(obj.text, [2, 4, obj.area[2] * .4, obj.area[3] - 8], "left");
+
+        if (obj.hover)
+            g.fillAll(Colours.withAlpha(Colours.white, 0.05));
     }
     else
     {
