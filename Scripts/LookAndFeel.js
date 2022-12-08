@@ -929,7 +929,7 @@ LAFPresetBrowser.registerFunction("drawPresetBrowserListItem", function(g, obj)
 
         if (obj.columnIndex == 0) // Folder
         {
-            g.drawAlignedText(obj.text, obj.area, "left");
+            g.drawAlignedText(obj.text, [5, 0, obj.area[2], obj.area[3]], "left");
 
             //Arrow Icon
             g.setColour(Colours.withAlpha(Colours.white, .4));
@@ -944,6 +944,10 @@ LAFPresetBrowser.registerFunction("drawPresetBrowserListItem", function(g, obj)
             g.fillRoundedRectangle([10, 3, obj.area[2] - 20, obj.area[3] - 5], 4.0);
         }
     } 
+
+    //Border when selected
+    g.setColour(Colours.withAlpha(Colours.white, obj.selected ? .4 : .0));
+    g.drawRoundedRectangle(obj.area, 2.0, 2.0);
     
 });
 
