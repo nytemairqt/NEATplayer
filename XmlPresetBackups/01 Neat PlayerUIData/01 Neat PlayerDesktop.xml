@@ -1993,7 +1993,7 @@
              isMomentary="1" enableMidiLearn="0" tooltip="Opens the AppData folder."/>
   <Component type="ScriptPanel" id="Panel_InstallLibraries" x="1.0" y="31.0"
              width="998.0" height="478.0" itemColour="4278190080" itemColour2="4278190080"
-             borderRadius="2.0" visible="0">
+             borderRadius="2.0">
     <Component type="ScriptButton" id="Button_SetSamplesFolder" x="9.0" y="29.0"
                text="LAFButtonSetup" saveInPreset="0" numStrips="6.0" width="93.0"
                height="18.0" enableMidiLearn="0" parentComponent="Panel_InstallLibraries"
@@ -2002,34 +2002,26 @@
                width="74.0" height="28.0" text="Set Folder" fontSize="12.0"
                editable="0" parentComponent="Panel_InstallLibraries" enabled="0"
                visible="0"/>
-    <Component type="ScriptButton" id="Button_InstallLibrary" x="244.0" y="120.0"
+    <Component type="ScriptButton" id="Button_InstallLibrary" x="119.0" y="89.0"
                text="LAFButtonInstallLibrary" saveInPreset="0" isMomentary="1"
-               numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
+               numStrips="6.0" width="110.0" height="110.0" enableMidiLearn="0"
                parentComponent="Panel_InstallLibraries"/>
-    <Component type="ScriptLabel" id="Label_InstallLibrary" x="244.0" y="77.0"
+    <Component type="ScriptLabel" id="Label_InstallLibrary" x="99.0" y="59.0"
                width="150.0" height="28.0" text="Install Library" fontSize="14.0"
                editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
     <Component type="ScriptButton" id="Button_CloseInstallPanel" x="978.0" y="1.0"
                parentComponent="Panel_InstallLibraries" numStrips="6.0" width="14.0"
                height="14.0" isMomentary="1" text="LAFButtonClose" enableMidiLearn="0"/>
-    <Component type="ScriptButton" id="Button_BulkInstall" x="604.0" y="120.0"
+    <Component type="ScriptButton" id="Button_BulkInstall" x="119.0" y="289.0"
                text="LAFButtonBulkInstall" saveInPreset="0" isMomentary="1"
-               numStrips="6.0" width="150.0" height="150.0" enableMidiLearn="0"
+               numStrips="6.0" width="110.0" height="110.0" enableMidiLearn="0"
                parentComponent="Panel_InstallLibraries"/>
-    <Component type="ScriptLabel" id="Label_BulkInstall" x="604.0" y="77.0"
+    <Component type="ScriptLabel" id="Label_BulkInstall" x="99.0" y="259.0"
                width="150.0" height="28.0" text="Bulk Install" fontSize="14.0"
                editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
     <Component type="ScriptLabel" id="Label_InstallLibraryTitle" x="474.0" y="7.0"
-               width="80.0" height="28.0" text="Install" fontSize="14.0" editable="0"
-               parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
-    <Component type="ScriptLabel" id="Label_InstallLibraryDescription" x="169.0"
-               y="269.0" parentComponent="Panel_InstallLibraries" width="300.0"
-               height="100.0" text="Installs a single Library (.hr1 File), first select the Library you want to unpack, then navigate to the directory in which you wish to store the samples and other data."
-               fontStyle="Regular" fontSize="14.0"/>
-    <Component type="ScriptLabel" id="Label_BulkInstallDescription" x="529.0"
-               y="269.0" parentComponent="Panel_InstallLibraries" width="300.0"
-               height="100.0" text="Installs all of the available Libraries (.hr1 Files) inside a chosen directory. First select the directory containing the Libraries, then navigate to the directory in which you wish to store the samples and other data."
-               fontStyle="Regular" fontSize="14.0"/>
+               width="80.0" height="28.0" text="Add Library" fontSize="14.0"
+               editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
   </Component>
   <Component type="ScriptPanel" id="Panel_ChangeSampleFolder" x="110.0" y="82.0"
              width="368.0" height="135.0" itemColour="4278190080" itemColour2="4278190080"

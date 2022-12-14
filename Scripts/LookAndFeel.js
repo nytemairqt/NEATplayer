@@ -96,9 +96,6 @@ const var LAFPresetBrowser = Content.createLocalLookAndFeel();
 LAFButtonOpenRandomizationPanel.loadImage("{PROJECT_FOLDER}randomizationButtonDice.png", "randomizationButtonDiceImage"); 
 LAFButtonRandomizeVisibility.loadImage("{PROJECT_FOLDER}randomizationVisibility.png", "randomizationButtonVisibilityImage"); 
 
-LAFButtonInstallLibrary.loadImage("{PROJECT_FOLDER}installSingleExpansionButton.png", "installSingleExpansionImage"); 
-LAFButtonBulkInstall.loadImage("{PROJECT_FOLDER}installBulkExpansionButton.png", "bulkInstallImage"); 
-
 LAFButtonSamplerShowADSR.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOff.png", "samplerShowADSRButtonOff"); 
 LAFButtonSamplerShowADSR.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOn.png", "samplerShowADSRButtonOn"); 
 
@@ -234,7 +231,16 @@ LAFButtonInstallLibrary.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(0xFB111111);
     g.fillRoundedRectangle(obj.area, 8.0);   
-    g.drawImage("installSingleExpansionImage", obj.area, 0, 0);
+
+    g.setColour(Colours.withAlpha(Colours.white, .9));
+    path.loadFromData(pathButtonInstallLibrary);
+    g.fillPath(path, [16, 24, obj.area[2] - 32, obj.area[3] - 48]);
+
+    g.setColour(Colours.withAlpha(Colours.black, .9));
+    g.fillRoundedRectangle([19, 72, 12, 12], 2.0);
+    g.fillRoundedRectangle([34, 72, 12, 12], 2.0);
+    g.fillRoundedRectangle([68, 78, 22, 6], 2.0);
+
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.03) : Colours.withAlpha(Colours.white, 0));
     g.fillRoundedRectangle(obj.area, 8.0);    
 });
@@ -245,7 +251,16 @@ LAFButtonBulkInstall.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(0xFB111111);
     g.fillRoundedRectangle(obj.area, 8.0);   
-    g.drawImage("bulkInstallImage", obj.area, 0, 0);
+
+    g.setColour(Colours.withAlpha(Colours.white, .9));
+    path.loadFromData(pathButtonBulkInstall);
+    g.fillPath(path, [16, 24, obj.area[2] - 32, obj.area[3] - 48]);
+    
+    g.setColour(Colours.withAlpha(Colours.black, .9));
+    g.fillRoundedRectangle([19, 72, 12, 12], 2.0);
+    g.fillRoundedRectangle([34, 72, 12, 12], 2.0);
+    g.fillRoundedRectangle([68, 78, 22, 6], 2.0);
+
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.03) : Colours.withAlpha(Colours.white, 0));
     g.fillRoundedRectangle(obj.area, 8.0);      
 });
@@ -1016,3 +1031,4 @@ const var presetBrowserIconRename = "177.t0ViWPfPXkGsBwVLHpfPhAspBwVdocgPFDTrBwV
 const var presetBrowserIconDelete = "868.t0lsyVtPpwqGBIlsyVtPS2rDBEYagKDtdjfP7mB2BgqGIHDaPf0iAgqGIHjX0MIcAgqGIHjShIUPS2rDB4jXREjZ75gPrcRLQFDRg+tPhcRLQFDDXWuP5ljnAEBr5KDDXcaPg.q9BwF+oHsPg.q9BIVjscsPg.q9BY6raKDDXWuP1N61BgT3uKDa1Na4BoFudHzXssHqGJzhrAlPhsHqGJTHvvkP7RegB02uXIzgVOnP88KVBwl7RgmP88KVBI1gVPmP88KVBktovITHvvkPoaJbBsHafIDaoaJbBIZw.KjXoaJbBQ03BKzgVPmPltIwBIuT3IjoaRrPrcn0CJjoaRrPhwK8EJjoaRrPKx5gBQ03BKzhrdnPhVLvBw1hrdnPKxFXBMVaKx5uBsHafIjXKx5uBEBLbIDuz2qP88KVBcn06JTe+hkPrkWJzJTe+hkPhQzBxJTe+hkP0MErBEBLbITcSAqPKxFXBwVcSAqPhVLvBIVcSAqPTMtvBQzBxJjoaRrP4kBsBY5lDKDaGZ8tBY5lDKjX7ReuBY5lDKzhr9qPTMtvBsHq+JjnECrPrsHq+JzhrAlPi01EY8gPKxFXBI1EY8gPg.CWBkW5aHTe+hkPNz5EB02uXIDaxKEBB02uXIjXGZAAB02uXIT5lBfPg.CWBkto.HzhrAlPrkto.HjnECrPhkto.HDUiKrPGZAABY5lDKj7RgfPltIwBwlCsdgPltIwBIVdougPltIwBcQVeHDUiKrPWj0GBIZw.KDaWj0GBsHafIzXswdzfHzf.aVPrEXkIFzf.aVPhEWO3Ezf.aVPNIlXA46m7EjShIVPnZ7hAwlShIUPnEIsAIlShIUPwffvAEWOnEzy2ybPAVYfA878LGDafp42B878LGjXRgu3B878LGjsyVtPwffvAY6rkKDZQRaPrY6riKDpFuXPhY6riKjuexWPRgO3BMHvlEDnZ1sPCBrYAwlBW9pPCBrYAIFqb9pP+oFYA46muJjRLHVP994qBwepeEDa994qB0gVTEjX994qBMGZiDzbnppPov08.0ihjJTJbcOPrU351HTJbcOPhswqpHTJbcOPCBLHBMGZiDzf.ChPcnEUAw1f.ChP7m5WAI1f.ChPJwfXAgpwfHzepQVPrGMHBMHvlEzXkA"
 
 const var presetBrowserIconSavePreset = "510.t0lUNEqPCBrcAwlUNEqP+oF6AIlUNEqPY6D.BwKMsJjAAhfPygBpBYPfHHDaMyzKBYPfHHjXyLSIBYPfHHD..zgPY6D.BA..cHzepwdPrA..cHzf.aWPrUNzzFzf.aWPhMIFWFzf.aWPEtdeAIwfSFTgq2WPjsSrAwVgq2WPAV0zBIVgq2WPVNr1BMIFWFzwKCtPkCMsAc7xfKDafpozBc7xfKjXzhf1Bc7xfKT4P.tPVNr1BUNDfKTfUMsPrUNDfKTwfRfPr0hL9Jzf.aWPrYkSwJzf.aWPi0lQ1FqP6QAdBIlQ1FqPY6LbBIwvtJTamqlPBAxpB014pIDaovUJB014pIjXMdgHB014pITHvvgPY6LbBEBLbHzdTfmPrEBLbHjZ7BqPhEBLbHDtdQqPMdgHB8lT2JTJbkhPuI0sBwlPfrpPuI0sBIlDC6pPuI0sBYjswJDtdQqPFYarBoFuvJDaFYarBsGE3IzXs0LypJjVjoXPh0LypJDnZHXP03QpBMHv1EjRLbpPCBrcAw1FuFoPCBrcAIFqb9nPCBrcAgo6MJDnZHXPX5diBoEYJFDaX5diBkBWyGjXX5diBMdo6GDqb9nPg.S.BswqQJTHvDfProDCmJTHvDfPhUiGoJTHvDfPMyrpBMdo6GTyLqpPov07AwVyLqpPZQlhAMVY"
+

@@ -100,3 +100,26 @@ inline function onButton_BulkInstallControl(component, value)
 };
 
 Content.getComponent("Button_BulkInstall").setControlCallback(onButton_BulkInstallControl);
+
+//Paint Routine
+
+Panel_InstallLibraries.setPaintRoutine(function(g)
+{
+    g.setColour(Colours.withAlpha(Colours.black, 0.82));
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
+
+    g.setColour(Colours.withAlpha(Colours.white, .9));
+
+    g.setFont("Arial Bold", 14);
+    g.drawAlignedText("TO ADD A LIBRARY:", [this.getWidth() / 2, 80, 500, 50], "left");
+    g.drawAlignedText("TO REMOVE A LIBRARY:", [this.getWidth() / 2, 220, 500, 50], "left");    
+
+    g.setFont("Arial", 14);
+    g.drawAlignedText("1. Navigate to extracted Library .hr1 file (or folder for Bulk Install).", [this.getWidth() / 2, 130, 500, 50], "left");
+    g.drawAlignedText("2. Select Destination Folder.", [this.getWidth() / 2, 150, 500, 50], "left");
+    g.drawAlignedText("3. Restart the Plugin once Installation finishes.", [this.getWidth() / 2, 170, 500, 50], "left");
+
+    g.drawAlignedText("1. Delete Library .ch1 files inside Destination Folder.", [this.getWidth() / 2, 270, 500, 50], "left");
+    g.drawAlignedText("2. Open AppData (Folder Button at the top of NEAT Player).", [this.getWidth() / 2, 290, 500, 50], "left");
+    g.drawAlignedText("3. Delete NEAT Player/Expansions/{LIBRARYNAME} Folder.", [this.getWidth() / 2, 310, 500, 50], "left");
+});
