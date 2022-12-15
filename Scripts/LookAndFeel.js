@@ -5,30 +5,6 @@ const laf = Engine.createGlobalScriptLookAndFeel();
 laf.loadImage("{PROJECT_FOLDER}randomizationButtonDice.png", "randomizationButtonDiceImage"); 
 laf.loadImage("{PROJECT_FOLDER}randomizationVisibility.png", "randomizationButtonVisibilityImage"); 
 
-laf.loadImage("{PROJECT_FOLDER}installSingleExpansionButton.png", "installSingleExpansionImage"); 
-laf.loadImage("{PROJECT_FOLDER}installBulkExpansionButton.png", "bulkInstallImage"); 
-
-laf.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOff.png", "samplerShowADSRButtonOff"); 
-laf.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOn.png", "samplerShowADSRButtonOn"); 
-
-/*
-
-******KEEP AS BACKUP********
-
-inline function reduced(obj, amount)
-    {
-        return [amount, amount, obj.area[2] - 2*amount, obj.area[3] - 2* amount];
-    }
-    
-    var x = obj.area[0];
-    var y = obj.area[1];
-    var w = obj.area[2];
-    var h = obj.area[3];
-    
-    var a = obj.area;
-
-*/
-
 const var path = Content.createPath();
 include("LAFPathData.js");
 
@@ -97,9 +73,6 @@ const var LAFPresetBrowser = Content.createLocalLookAndFeel();
 
 LAFButtonOpenRandomizationPanel.loadImage("{PROJECT_FOLDER}randomizationButtonDice.png", "randomizationButtonDiceImage"); 
 LAFButtonRandomizeVisibility.loadImage("{PROJECT_FOLDER}randomizationVisibility.png", "randomizationButtonVisibilityImage"); 
-
-LAFButtonSamplerShowADSR.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOff.png", "samplerShowADSRButtonOff"); 
-LAFButtonSamplerShowADSR.loadImage("{PROJECT_FOLDER}samplerShowADSRButtonOn.png", "samplerShowADSRButtonOn"); 
 
 //BUTTONS
 

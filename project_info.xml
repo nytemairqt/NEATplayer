@@ -21,7 +21,7 @@
   <AAXCategoryFX value="AAX_ePlugInCategory_Modulation"/>
   <SupportMonoFX value="No"/>
   <EnableMidiInputFX value="No"/>
-  <VST3Support value="1"/>
+  <VST3Support value="0"/>
   <UseRawFrontend value="No"/>
   <ExpansionType value="Encrypted"/>
   <EncryptionKey value="xoutfull1"/>
@@ -30,4 +30,7 @@
   <ReadOnlyFactoryPresets value="No"/>
   <ForceStereoOutput value="No"/>
   <EnableMidiOut value="No"/>
+  <AdminPermissions value="No"/>
+  <EmbedUserPresets value="Yes"/>
+  <EnableGlobalPreprocessor value="No"/>
 </ProjectSettings>
