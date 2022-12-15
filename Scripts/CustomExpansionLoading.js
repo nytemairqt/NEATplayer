@@ -154,7 +154,7 @@ inline function loadExpansionFromManifest()
         {
             if (i >= 24 && i <= 48)
                 Engine.setKeyColour(i, Colours.withAlpha(Colours.lime, .45));
-            Engine.setKeyColour(36, Colours.aquamarine);
+            Engine.setKeyColour(36, Colours.withAlpha(Colours.deepskyblue, 0.5));
         }
         if (manifest.usesYellowKeys) //Yellow
             if (i >= manifest.yellowKeyRange[0] && i <= manifest.yellowKeyRange[1])
