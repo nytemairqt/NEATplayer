@@ -88,6 +88,8 @@ const var LAFSliderPDQBassVel = Content.createLocalLookAndFeel();
 const var LAFSliderMovementX = Content.createLocalLookAndFeel();
 const var LAFSliderMovementY = Content.createLocalLookAndFeel();
 const var LAFSliderSampleOffset = Content.createLocalLookAndFeel();
+const var LAFSliderPackArpNotes = Content.createLocalLookAndFeel();
+const var LAFSliderPackArpOther = Content.createLocalLookAndFeel();
 
 const var LAFPresetBrowser = Content.createLocalLookAndFeel();
 
@@ -1018,17 +1020,40 @@ LAFPresetBrowser.registerFunction("drawDialogButton", function(g, obj)
         g.setColour(Colours.withAlpha(Colours.white, obj.over ? 0.8 : 0.6));
         g.drawAlignedText(obj.text, obj.area, "centred");
     }
-
-
 });
 
-//SVG Icons for Preset Browser (Move Later)
+//Arpeggiator
 
-const var presetBrowserIconAdd = "320.t0Vx1ikPIaOVBw10iJZPIaOVBI1jXzXPIaOVBwzM2EjQ1FlPLcycAc9drIDaLcycAwfvIJjXLcycA0MIOJzjXzXPbR3jBc8nhFDmDNoPrkr8XIDmDNoPrkr8XIjBWcsPhkr8XIz14xsPFYaXBcQFgKz46wlPWjQ3BwFCBmnPWjQ3BIV2j7nPWjQ3BwIgSJz14xsPbR3jBovUWKDabR3jBwIgSJDaJb00BwIgSJjXamK2BwIgSJzEYDtPcSxiBcQFgKDCBmnPrcQFgKz46wlPhcQFgKjQ1FlPamK2Bkr8XIjBWcsPIaOVBwFmDNoPIaOVBwFmDNoPWOpnAIFmDNoPShQiA0MIOJDS2bWPLHbhBwzM2EDamuGaBwzM2EjXFYaXBwzM2ETx1ikPShQiAkr8XIz0iJZPrkr8XITx1ikPiUF";
+SliderPack_ArpNotes.setLocalLookAndFeel(LAFSliderPackArpNotes);
 
-const var presetBrowserIconRename = "177.t0ViWPfPXkGsBwVLHpfPhAspBwVdocgPFDTrBwViWPfPXkGsBMVa030BBIDnoJDaJbsGBIvZLJDaw06TBgq2lJDa3OUFBMxlvJDa030BBIDnoJzXsQzhJKTHvpfPrcmeBKjCsTePrIamEIT35yoPrIEtUIjqGTpPrQzhJKTHvpfPi01dTDrPeT36AwFmDBqPtdTqAwl.qFhPFDvhBwltIKjPkC4lBw1dTDrPeT36AMVY"
+LAFSliderPackArpNotes.registerFunction("drawLinearSlider", function(g, obj)
+{        
+    g.setColour(Colours.mix(Colours.grey, Colours.lightgrey, .5));
+    g.drawHorizontalLine(obj.area[3] / 2, obj.area[0], obj.area[2]);    
 
-const var presetBrowserIconDelete = "868.t0lsyVtPpwqGBIlsyVtPS2rDBEYagKDtdjfP7mB2BgqGIHDaPf0iAgqGIHjX0MIcAgqGIHjShIUPS2rDB4jXREjZ75gPrcRLQFDRg+tPhcRLQFDDXWuP5ljnAEBr5KDDXcaPg.q9BwF+oHsPg.q9BIVjscsPg.q9BY6raKDDXWuP1N61BgT3uKDa1Na4BoFudHzXssHqGJzhrAlPhsHqGJTHvvkP7RegB02uXIzgVOnP88KVBwl7RgmP88KVBI1gVPmP88KVBktovITHvvkPoaJbBsHafIDaoaJbBIZw.KjXoaJbBQ03BKzgVPmPltIwBIuT3IjoaRrPrcn0CJjoaRrPhwK8EJjoaRrPKx5gBQ03BKzhrdnPhVLvBw1hrdnPKxFXBMVaKx5uBsHafIjXKx5uBEBLbIDuz2qP88KVBcn06JTe+hkPrkWJzJTe+hkPhQzBxJTe+hkP0MErBEBLbITcSAqPKxFXBwVcSAqPhVLvBIVcSAqPTMtvBQzBxJjoaRrP4kBsBY5lDKDaGZ8tBY5lDKjX7ReuBY5lDKzhr9qPTMtvBsHq+JjnECrPrsHq+JzhrAlPi01EY8gPKxFXBI1EY8gPg.CWBkW5aHTe+hkPNz5EB02uXIDaxKEBB02uXIjXGZAAB02uXIT5lBfPg.CWBkto.HzhrAlPrkto.HjnECrPhkto.HDUiKrPGZAABY5lDKj7RgfPltIwBwlCsdgPltIwBIVdougPltIwBcQVeHDUiKrPWj0GBIZw.KDaWj0GBsHafIzXswdzfHzf.aVPrEXkIFzf.aVPhEWO3Ezf.aVPNIlXA46m7EjShIVPnZ7hAwlShIUPnEIsAIlShIUPwffvAEWOnEzy2ybPAVYfA878LGDafp42B878LGjXRgu3B878LGjsyVtPwffvAY6rkKDZQRaPrY6riKDpFuXPhY6riKjuexWPRgO3BMHvlEDnZ1sPCBrYAwlBW9pPCBrYAIFqb9pP+oFYA46muJjRLHVP994qBwepeEDa994qB0gVTEjX994qBMGZiDzbnppPov08.0ihjJTJbcOPrU351HTJbcOPhswqpHTJbcOPCBLHBMGZiDzf.ChPcnEUAw1f.ChP7m5WAI1f.ChPJwfXAgpwfHzepQVPrGMHBMHvlEzXkA"
+    if (obj.valueNormalized >= 0.5)
+    {
+        obj.area[1] = obj.area[1] + obj.area[3] * (1.0 - obj.valueNormalized);
+        obj.area[3] = obj.area[3] / 2 - obj.area[1];
+    }       
+    else
+    {
+        obj.area[1] = obj.area[3] / 2;
+        obj.area[3] = obj.area[3] / 2 - obj.area[3] / 2 * (2.0 * obj.valueNormalized);
+    }
 
-const var presetBrowserIconSavePreset = "510.t0lUNEqPCBrcAwlUNEqP+oF6AIlUNEqPY6D.BwKMsJjAAhfPygBpBYPfHHDaMyzKBYPfHHjXyLSIBYPfHHD..zgPY6D.BA..cHzepwdPrA..cHzf.aWPrUNzzFzf.aWPhMIFWFzf.aWPEtdeAIwfSFTgq2WPjsSrAwVgq2WPAV0zBIVgq2WPVNr1BMIFWFzwKCtPkCMsAc7xfKDafpozBc7xfKjXzhf1Bc7xfKT4P.tPVNr1BUNDfKTfUMsPrUNDfKTwfRfPr0hL9Jzf.aWPrYkSwJzf.aWPi0lQ1FqP6QAdBIlQ1FqPY6LbBIwvtJTamqlPBAxpB014pIDaovUJB014pIjXMdgHB014pITHvvgPY6LbBEBLbHzdTfmPrEBLbHjZ7BqPhEBLbHDtdQqPMdgHB8lT2JTJbkhPuI0sBwlPfrpPuI0sBIlDC6pPuI0sBYjswJDtdQqPFYarBoFuvJDaFYarBsGE3IzXs0LypJjVjoXPh0LypJDnZHXP03QpBMHv1EjRLbpPCBrcAw1FuFoPCBrcAIFqb9nPCBrcAgo6MJDnZHXPX5diBoEYJFDaX5diBkBWyGjXX5diBMdo6GDqb9nPg.S.BswqQJTHvDfProDCmJTHvDfPhUiGoJTHvDfPMyrpBMdo6GTyLqpPov07AwVyLqpPZQlhAMVY"
+    g.setColour(Colours.withAlpha(Colours.white, .8));
+    g.fillRoundedRectangle(obj.area, 2);
+});
 
+SliderPack_ArpVelocity.setLocalLookAndFeel(LAFSliderPackArpOther);
+SliderPack_ArpLength.setLocalLookAndFeel(LAFSliderPackArpOther);
+
+LAFSliderPackArpOther.registerFunction("drawLinearSlider", function(g, obj)
+{
+    g.setColour(Colours.mix(Colours.withAlpha(Colours.black, .7), Colours.withAlpha(Colours.lightgrey, .4), obj.valueNormalized));
+    g.fillRoundedRectangle([0, obj.area[1] + obj.area[3] * (1.0 - obj.valueNormalized), obj.area[2], obj.area[3]], 2.0);
+
+    g.setColour(Colours.withAlpha(Colours.white, .8));
+    g.drawRoundedRectangle([0, obj.area[1] + obj.area[3] * (1.0 - obj.valueNormalized), obj.area[2], obj.area[3]], 2.0, 2.0);
+});
