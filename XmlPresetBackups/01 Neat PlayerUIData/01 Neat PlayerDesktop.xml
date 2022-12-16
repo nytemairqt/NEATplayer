@@ -2040,8 +2040,8 @@
   <Component type="ScriptButton" id="Button_AddLibrary" x="132.0" y="4.0"
              text="Add Library" numStrips="6.0" width="120.0" height="24.0"
              enableMidiLearn="0" saveInPreset="0" tooltip="Opens the Add Library panel."/>
-  <Component type="ScriptPanel" id="loadingBar" x="420.0" y="160.0" width="150"
-             height="150" itemColour="0" enabled="0"/>
+  <Component type="ScriptPanel" id="loadingBar" x="295.0" y="145.0" width="400"
+             height="180" itemColour="0" enabled="0"/>
   <Component type="ScriptPanel" id="Panel_CustomSettings" x="1.0" y="31.0"
              width="998.0" height="478.0" itemColour="4026531840" itemColour2="4026531840"
              visible="0">
@@ -2117,7 +2117,7 @@
   <Component type="ScriptPanel" id="Panel_ResizeGUI" x="964.0" y="593.0" width="36.0"
              height="36.0" allowCallbacks="Clicks, Hover &amp; Dragging" max="1.5"
              tooltip="Resize the interface."/>
-  <Component type="ScriptPanel" id="Panel_ImageContainer" x="999" y="999">
+  <Component type="ScriptPanel" id="Panel_ImageContainer" x="999.0" y="999.0">
     <Component type="ScriptPanel" id="Panel_ImageLoader01" x="-999.0" y="-389.0"
                width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
                visible="0"/>
@@ -2170,7 +2170,7 @@
                width="10.0" height="10.0" parentComponent="Panel_ImageContainer"
                visible="0"/>
   </Component>
-  <Component type="ScriptPanel" id="Panel_ButtonContainer" x="999" y="999">
+  <Component type="ScriptPanel" id="Panel_ButtonContainer" x="999.0" y="999.0">
     <Component type="ScriptPanel" id="Panel_ButtonLoader01" x="-999.0" y="-389.0"
                width="10.0" height="10.0" parentComponent="Panel_ButtonContainer"
                visible="0"/>

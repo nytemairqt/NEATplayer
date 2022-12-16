@@ -113,8 +113,6 @@ inline function onButton_OpenAppDataControl(component, value)
 
 Content.getComponent("Button_OpenAppData").setControlCallback(onButton_OpenAppDataControl);
 
-
-
 //Initialize GUI.
 
 //Load expansions
