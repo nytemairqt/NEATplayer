@@ -202,7 +202,9 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
                 //Create Backup Folder
                 var root_folder = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder();
                 var backup_folder = root_folder.createDirectory("Backup");
-                var backup_version_subfolder = backup_folder.createDirectory("01");
+                var subfolder_string = Engine.doubleToString(library_unloadedManifest.version, 1);
+                subfolder_string = subfolder_string.replace(".", "_");
+                var backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
 
                 //First clean the download list.
                 this.data.downloading = true;
