@@ -51,14 +51,22 @@ var expansion_button_image = "";
 var selected_expansion;
 
 /*
-create the following arrays: current versions, product pages (for latest versions), download links
-get each expansion
-load each manifest file
+
 from manifest file, push the current version, product page, download link
 for each item in current version, check if current version < latest version (crawled from product page)
     if true, create child panel for respective outdated expansion
         when clicked, download file from download links & move to relevant outdated expansion folder
 */
+
+inline function updateAllExpansions()
+{
+    /*
+    for all expansions
+    if expansion out of date
+    call update function
+    paint routine should be % fill respective to current loop iter
+    */
+}
     
 for (i=0; i<expansionNames.length; i++) // For each found Expansion
 {
@@ -132,16 +140,28 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
         {
             g.setColour(Colours.withAlpha(Colours.black, .8));
             g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
-            g.setColour(Colours.withAlpha(Colours.white, .8));
-            library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
-            g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
 
-            //Little Extra Bits
+            if (!this.data.downloading)
+            {            
+                g.setColour(Colours.withAlpha(Colours.white, .8));
+                library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
+                g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
 
-            g.setColour(Colours.withAlpha(Colours.black, .8));
-            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 5, 20, 3, 3], 2.0);
-            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 10, 20, 3, 3], 2.0);
-            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 18, 21, 6, 2], 2.0);
+                //Little Extra Bits
+
+                g.setColour(Colours.withAlpha(Colours.black, .8));
+                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 5, 20, 3, 3], 2.0);
+                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 10, 20, 3, 3], 2.0);
+                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 18, 21, 6, 2], 2.0);
+            }
+            else
+            {
+                g.setColour(Colours.withAlpha(Colours.white, .8));
+                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 10, (library_updateButtonSize / 2) - 2, 4, 4]);
+                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 2, (library_updateButtonSize / 2) - 2, 4, 4]);
+                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) + 6, (library_updateButtonSize / 2) - 2, 4, 4]);
+            }
+
         }     
 
         if (this.data.mouseover)
@@ -172,11 +192,34 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
             if (library_outdatedVersions[i] && event.mouseDownX > (expButtonSize - library_updateButtonSize) && event.mouseDownY < library_updateButtonSize)
             {
+                //Backup current .hxi file
+                //Create Backup Folder (check if it exists first) File.createDirectory("");
+                    //Create subfolder -> name it the expansion's version ( :D )
+                //Move info.hxi into respective Backup folder. File.move(target);
+                //Download new info.hxi
+                //Add a "my expansion update broke -> how do I rollback" to FAQ or whatever
+
+                //Create Backup Folder
+                var root_folder = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder();
+                var backup_folder = root_folder.createDirectory("Backup");
+                var backup_version_subfolder = backup_folder.createDirectory("01");
+
+                //First clean the download list.
+                this.data.downloading = true;
+
                 var download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile("info.hxi");
+
+                //Move old .hxi to backup folder
+                download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+
                 Server.setBaseURL("https://storage.googleapis.com");
                 Server.downloadFile(library_updateURLs[this.data.index], {}, download_target, downloadCallback);
+
+                if (this.data.finished)
+                    this.data.downloading = false;
             }
 
+            //Load Library
             //Here we add the safety check.
             
             else if (this.data.preload == false)
