@@ -25,9 +25,9 @@ expPanelTitle.setPosition(0, 0, Panel_ExpansionsItemHolder.getWidth(), 20);
 expPanelTitle.setPaintRoutine(function(g)
 {
     g.fillAll(0x1B1B1B);
-    g.setFont("Arial", 12.0);
+    g.setFont("Arial", 14.0);
     g.setColour(Colours.white);
-    g.drawAlignedText("- Libraries -", [0 , 0, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
+    g.drawAlignedText("Libraries", [0 , 6, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
 });
 
 
@@ -50,14 +50,6 @@ var row_y = 0;
 var expansion_button_image = "";
 var selected_expansion;
 
-/*
-
-from manifest file, push the current version, product page, download link
-for each item in current version, check if current version < latest version (crawled from product page)
-    if true, create child panel for respective outdated expansion
-        when clicked, download file from download links & move to relevant outdated expansion folder
-*/
-
 inline function updateAllExpansions()
 {
     /*
@@ -67,6 +59,37 @@ inline function updateAllExpansions()
     paint routine should be % fill respective to current loop iter
     */
 }
+
+//Update All Expansions
+
+const var Button_UpdateAllExpansions = Panel_ExpansionsItemHolder.addChildPanel();
+Button_UpdateAllExpansions.set("width", 100);
+Button_UpdateAllExpansions.set("height", 26);
+Button_UpdateAllExpansions.set("x", 100);
+Button_UpdateAllExpansions.set("y", 6);
+Button_UpdateAllExpansions.set("allowCallbacks", "All Callbacks");
+
+Button_UpdateAllExpansions.setPaintRoutine(function(g)
+{
+    g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .8) : Colours.withAlpha(Colours.white, .6));
+    //g.setColour(Colours.withAlpha(Colours.white, .8));
+    g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0, 2.0);
+    g.setFont("Arial", 13);
+    g.drawAlignedText("Update All", [0, 0, this.getWidth(), this.getHeight()], "centred");
+});
+
+Button_UpdateAllExpansions.setMouseCallback(function(event)
+    {
+        this.data.mouseover = event.hover;        
+
+        if (event.clicked)
+            Console.print("Clicked!");
+
+        this.repaint();
+    });  
+
+
+//Expansion Buttons
     
 for (i=0; i<expansionNames.length; i++) // For each found Expansion
 {
@@ -108,7 +131,7 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
     }
 
     expButton[i].set("x", expButtonPadding + (expButtonPadding * row_x) + (expButtonSize * row_x));
-    expButton[i].set("y", expButtonPadding + (expButtonPadding * row_y) + (expButtonSize * row_y));
+    expButton[i].set("y", (2 * expButtonPadding) + (expButtonPadding * row_y) + (expButtonSize * row_y));
 
     row_x++;
 
@@ -116,9 +139,11 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
     function downloadCallback()
     {
-        var message = "";
-        message += Engine.doubleToString(this.data.numTotal / this.data.numDownloaded, 1) + "%";
-        Console.print(message);
+        if (this.data.finished)
+        {
+            this.data.downloading = false;
+            this.repaint();
+        }
     }
 
     //Load Image
@@ -192,13 +217,6 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
             if (library_outdatedVersions[i] && event.mouseDownX > (expButtonSize - library_updateButtonSize) && event.mouseDownY < library_updateButtonSize)
             {
-                //Backup current .hxi file
-                //Create Backup Folder (check if it exists first) File.createDirectory("");
-                    //Create subfolder -> name it the expansion's version ( :D )
-                //Move info.hxi into respective Backup folder. File.move(target);
-                //Download new info.hxi
-                //Add a "my expansion update broke -> how do I rollback" to FAQ or whatever
-
                 //Create Backup Folder
                 var root_folder = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder();
                 var backup_folder = root_folder.createDirectory("Backup");
@@ -215,10 +233,18 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
                 download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 
                 Server.setBaseURL("https://storage.googleapis.com");
-                Server.downloadFile(library_updateURLs[this.data.index], {}, download_target, downloadCallback);
 
-                if (this.data.finished)
-                    this.data.downloading = false;
+                var thisButton = this;
+
+                Server.downloadFile(library_updateURLs[this.data.index], {}, download_target, function[thisButton]() 
+                {
+                    if (this.data.finished)         
+                    {
+                        Console.print("Finished");      
+                        thisButton.data.downloading = false;              
+                        thisButton.repaint();
+                    }              
+                });             
             }
 
             //Load Library
