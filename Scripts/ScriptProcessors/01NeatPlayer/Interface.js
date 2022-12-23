@@ -287,11 +287,17 @@ function onNoteOn()
             {
                 if (randomNoiseCounter >= 8)
                 {
+                    Message.ignoreEvent(true);
                     Synth.playNote(Math.randInt(manifest.randomNoiseKeys[0], manifest.randomNoiseKeys[1]), v);
                     randomNoiseCounter = 0;
+                    Console.print("Reset Random Noise Counter");
                 }
                 else
+                {
                     randomNoiseCounter += 1;
+                    Console.print("RandomNoiseCounter:" + randomNoiseCounter);
+                }
+                
             }
         }
     }

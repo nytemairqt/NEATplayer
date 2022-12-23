@@ -135,17 +135,6 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
     row_x++;
 
-    //Download Callback
-
-    function downloadCallback()
-    {
-        if (this.data.finished)
-        {
-            this.data.downloading = false;
-            this.repaint();
-        }
-    }
-
     //Load Image
 
     selected_expansion = expHandler.getExpansion(expansionNames[i]);
