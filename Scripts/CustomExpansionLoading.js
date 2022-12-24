@@ -255,6 +255,14 @@ inline function loadExpansionFromManifest()
         turnArpOn();  
     }
 
+    //Split Archive RR Fix
+    if (manifest.usesSplitSampleArchive)
+    {
+        SamplerA.asSampler().setActiveGroup(1);
+        SamplerB.asSampler().setActiveGroup(1);
+        SamplerC.asSampler().setActiveGroup(1);
+    }
+
 
 
     //Notes:
