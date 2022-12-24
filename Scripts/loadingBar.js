@@ -50,7 +50,8 @@ loadingBar.setTimerCallback(function()
     this.data.progress = this.data.progress * 100;
     this.data.progress = Math.round(this.data.progress);
     this.data.text = Engine.getPreloadMessage() + " " + this.data.progress + "%";
-    this.repaint();    
+    //this.repaint();    
+    loadingBar.repaint(); //Bug fix???
 });
 
 // This function will be executed whenever the preload state changes
