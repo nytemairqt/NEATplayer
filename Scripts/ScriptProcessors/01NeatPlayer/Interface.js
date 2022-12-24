@@ -129,6 +129,7 @@ var pickAttack = 0;
 
 var numVelocityBasedArticulations = 8;
 var velocityBasedArticulations = [1, 20, 21, 52, 53, 114, 115, 127, 999, 999, 999, 999, 999, 999, 999, 999]; //999s are for future proofing
+var alternatePickingVelocityRange = [1, 127];
 
 var writingArpVelocity;
 var randomNoiseActive;
@@ -297,6 +298,29 @@ function onNoteOn()
         }
     }
 
+    //Velocity-Based Articulation Switches
+
+    if (manifest.usesVelocityBasedArticulationSwitching)
+    {
+        if (v >= velocityBasedArticulations[0] && v <= velocityBasedArticulations[1]) //Velocity Range 01
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[0]);
+        if (v >= velocityBasedArticulations[2] && v <= velocityBasedArticulations[3]) //Velocity Range 02
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[1]);
+        if (v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Velocity Range 03
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[2]);
+        if (v >= velocityBasedArticulations[6] && v <= velocityBasedArticulations[7]) //Velocity Range 04
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[3]);
+        if (v >= velocityBasedArticulations[8] && v <= velocityBasedArticulations[9]) //Velocity Range 05
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[4]);
+        if (v >= velocityBasedArticulations[10] && v <= velocityBasedArticulations[11]) //Velocity Range 06
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[5]);
+        if (v >= velocityBasedArticulations[12] && v <= velocityBasedArticulations[13]) //Velocity Range 07
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[6]);
+        if (v >= velocityBasedArticulations[14] && v <= velocityBasedArticulations[15]) //Velocity Range 08
+            Message.setVelocity(manifest.velocityBasedArticulationRanges[7]);
+    }
+
+
     //Guitar-Based Libraries
 
     if (manifest.isGuitarLibrary)
@@ -335,9 +359,8 @@ function onNoteOn()
         if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1] ) //Non-Repeating RR
         {            
             if (!Button_ArpBypass.getValue())
-            {
-                
-                if (v >= manifest.alternatePickingVelocityRange[0] && v <= manifest.alternatePickingVelocityRange[1])
+            {                
+                if (v >= alternatePickingVelocityRange[0] && v <= alternatePickingVelocityRange[1])
                 {
                     previousRR = currentRR;
                     while (currentRR == previousRR)
@@ -403,27 +426,6 @@ function onNoteOn()
                 }
     }
 
-    //Velocity-Based Articulation Switches
-
-    if (manifest.usesVelocityBasedArticulationSwitching)
-    {
-        if (v >= velocityBasedArticulations[0] && v <= velocityBasedArticulations[1]) //Velocity Range 01
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[0]);
-        if (v >= velocityBasedArticulations[2] && v <= velocityBasedArticulations[3]) //Velocity Range 02
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[1]);
-        if (v >= velocityBasedArticulations[4] && v <= velocityBasedArticulations[5]) //Velocity Range 03
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[2]);
-        if (v >= velocityBasedArticulations[6] && v <= velocityBasedArticulations[7]) //Velocity Range 04
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[3]);
-        if (v >= velocityBasedArticulations[8] && v <= velocityBasedArticulations[9]) //Velocity Range 05
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[4]);
-        if (v >= velocityBasedArticulations[10] && v <= velocityBasedArticulations[11]) //Velocity Range 06
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[5]);
-        if (v >= velocityBasedArticulations[12] && v <= velocityBasedArticulations[13]) //Velocity Range 07
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[6]);
-        if (v >= velocityBasedArticulations[14] && v <= velocityBasedArticulations[15]) //Velocity Range 08
-            Message.setVelocity(manifest.velocityBasedArticulationRanges[7]);
-    }
 
     
     //Nested switch statement to select expansion, then select specific note played.

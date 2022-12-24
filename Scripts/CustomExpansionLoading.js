@@ -255,6 +255,11 @@ inline function loadExpansionFromManifest()
         turnArpOn();  
     }
 
+    //Guitar Instruments
+
+    alternatePickingVelocityRange[0] = manifest.alternatePickingVelocityRange[0];
+    alternatePickingVelocityRange[1] = manifest.alternatePickingVelocityRange[1];
+
     //Split Archive RR Fix
     if (manifest.usesSplitSampleArchive)
     {

@@ -153,6 +153,7 @@ inline function onSlider_PDQBassAPVelMinControl(component, value)
 	    Slider_PDQBassAPVelMax.changed();
 	}
 	velocityBasedArticulations[4] = value;
+	alternatePickingVelocityRange[0] = value;
 };
 
 Content.getComponent("Slider_PDQBassAPVelMin").setControlCallback(onSlider_PDQBassAPVelMinControl);
@@ -167,6 +168,7 @@ inline function onSlider_PDQBassAPVelMaxControl(component, value)
 	    Slider_PDQBassAPVelMin.changed();
 	}
 	velocityBasedArticulations[5] = value;
+	alternatePickingVelocityRange[1] = value;
 };
 
 Content.getComponent("Slider_PDQBassAPVelMax").setControlCallback(onSlider_PDQBassAPVelMaxControl);
