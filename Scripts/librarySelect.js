@@ -1,5 +1,7 @@
 //Library Select
 
+include("librarySelectModularMigration.js");
+
 var currentExpansion; 
 
 const var Viewport_ExpansionsHolder = Content.getComponent("Viewport_ExpansionsHolder"); 
@@ -29,13 +31,12 @@ expPanelTitle.setPaintRoutine(function(g)
     g.setColour(Colours.white);
     g.drawAlignedText("Libraries", [0 , 6, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
 });
-
-
     
 //Library Version Control & Select Buttons
 
 var library_outdatedVersions = [];
 var library_updateURLs = [];
+var library_is_premodular = [];
 var library_unloadedManifest;
 var library_latestVersion;
 var library_responseArray;
@@ -96,28 +97,41 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
     //Version Control via Manifest file.
 
+    //Check for existing Manifest File (V1.0 -> V2.0 Update)
+
     library_unloadedManifest = expansionList[i].loadDataFile("manifest.json");
     library_outdatedVersions.push(false);
-    library_updateURLs.push(library_unloadedManifest.updateURL);
+    library_is_premodular.push(false);
 
-    //Scrape Product Page
+    if (!library_unloadedManifest) //Pre-Modular Migration
+    {
+        library_outdatedVersions[i] = true;
+        library_updateURLs.push(migration_list_urls[i]);
+        library_is_premodular[i] = true;
+    }
+    else //Update Normally
+    {
+        library_updateURLs.push(library_unloadedManifest.updateURL);
 
-    Server.setBaseURL("https://www.iamlamprey.com");
+        //Scrape Product Page
 
-    Server.callWithGET(library_unloadedManifest.productPage, "", function(status, response)
-    {       
-        library_responseArray = response.split(" ");
-        
-        library_responseAsString = library_responseArray.indexOf("Version:");
-        
-        library_latestVersion = library_responseArray[library_responseAsString + 1];
-        
-        library_latestVersion = library_latestVersion.replace(library_latestVersion.substring(4, 6), "");
-        
-        library_latestVersion = Math.range(library_latestVersion, 0.00, 99.99);
+        Server.setBaseURL("https://www.iamlamprey.com");
 
-        library_outdatedVersions[i] = library_unloadedManifest.version < library_latestVersion; //Swap array values at index to True
-    });
+        Server.callWithGET(library_unloadedManifest.productPage, "", function(status, response)
+        {       
+            library_responseArray = response.split(" ");
+            
+            library_responseAsString = library_responseArray.indexOf("Version:");
+            
+            library_latestVersion = library_responseArray[library_responseAsString + 1];
+            
+            library_latestVersion = library_latestVersion.replace(library_latestVersion.substring(4, 6), "");
+            
+            library_latestVersion = Math.range(library_latestVersion, 0.00, 99.99);
+
+            library_outdatedVersions[i] = library_unloadedManifest.version < library_latestVersion; //Swap array values at index to True
+        });
+    }
 
     expButton[i] = Panel_ExpansionsItemHolder.addChildPanel(); // Add a child panel
     expButton[i].set("width", expButtonSize);
@@ -150,7 +164,7 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
     {
         g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
 
-        if (library_outdatedVersions[i] == true)
+        if (library_outdatedVersions[this.data.index] == true)
         {
             g.setColour(Colours.withAlpha(Colours.black, .8));
             g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
@@ -204,12 +218,16 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
         {
             //First check if user clicked the Update Button:
 
-            if (library_outdatedVersions[i] && event.mouseDownX > (expButtonSize - library_updateButtonSize) && event.mouseDownY < library_updateButtonSize)
+            if (library_outdatedVersions[this.data.index] && event.mouseDownX > (expButtonSize - library_updateButtonSize) && event.mouseDownY < library_updateButtonSize)
             {
+                Console.print("YEP");
                 //Create Backup Folder
                 var root_folder = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder();
                 var backup_folder = root_folder.createDirectory("Backup");
-                var subfolder_string = Engine.doubleToString(library_unloadedManifest.version, 1);
+                if (library_is_premodular[this.data.index])
+                    var subfolder_string = "_PreModular";
+                else
+                    var subfolder_string = Engine.doubleToString(library_unloadedManifest.version, 1);
                 subfolder_string = subfolder_string.replace(".", "_");
                 var backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
 
@@ -246,11 +264,12 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
                 Button_OpenExpansions.setValue(0);
                 Button_OpenExpansions.changed();
             }
+
         }
 
         if (event.hover)
         {
-            if (library_outdatedVersions[i] && event.x > (expButtonSize - library_updateButtonSize) && event.y < library_updateButtonSize)
+            if (library_outdatedVersions[this.data.index] && event.x > (expButtonSize - library_updateButtonSize) && event.y < library_updateButtonSize)
             {
                 this.data.hoverUpdateButton = true;    
                 this.set("tooltip", "Download latest version.");
