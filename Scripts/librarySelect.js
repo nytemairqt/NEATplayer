@@ -64,19 +64,28 @@ inline function updateAllExpansions()
 //Update All Expansions
 
 const var Button_UpdateAllExpansions = Panel_ExpansionsItemHolder.addChildPanel();
-Button_UpdateAllExpansions.set("width", 100);
-Button_UpdateAllExpansions.set("height", 26);
-Button_UpdateAllExpansions.set("x", 100);
-Button_UpdateAllExpansions.set("y", 6);
+Button_UpdateAllExpansions.set("width", 24);
+Button_UpdateAllExpansions.set("height", 24);
+Button_UpdateAllExpansions.set("x", 17);
+Button_UpdateAllExpansions.set("y", 7);
 Button_UpdateAllExpansions.set("allowCallbacks", "All Callbacks");
+Button_UpdateAllExpansions.set("tooltip", "Update all Libraries.");
 
 Button_UpdateAllExpansions.setPaintRoutine(function(g)
 {
-    g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .8) : Colours.withAlpha(Colours.white, .6));
-    //g.setColour(Colours.withAlpha(Colours.white, .8));
-    g.drawRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0, 2.0);
-    g.setFont("Arial", 13);
-    g.drawAlignedText("Update All", [0, 0, this.getWidth(), this.getHeight()], "centred");
+    g.setColour(Colours.withAlpha(Colours.white, .9));
+    path.loadFromData(pathButtonBulkInstall);
+    g.fillPath(path, [2, 3, this.getWidth() - 4, this.getHeight() - 6]);
+
+    g.setColour(Colours.withAlpha(Colours.black, .9));
+
+    //Small Details:
+    g.fillRoundedRectangle([3, this.getHeight() - 7, 3, 3], 1.0);
+    g.fillRoundedRectangle([7, this.getHeight() - 7, 3, 3], 1.0);
+    g.fillRoundedRectangle([15, this.getHeight() - 6, 6, 2], 1.0);
+
+    g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);    
 });
 
 Button_UpdateAllExpansions.setMouseCallback(function(event)
