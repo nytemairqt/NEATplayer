@@ -36,6 +36,16 @@ Content.getComponent("Button_CloseInstallPanel").setControlCallback(onButton_Clo
 
 //Library Installation
 
+//Global Installation Callback
+
+function expansionInstallCallback(obj)
+{
+    if(obj.Status == 2 && isDefined(obj.Expansion))
+        Engine.showMessageBox("Installation Complete", "Library installed successfully, please restart NEAT Player.", 0);
+}
+
+expHandler.setInstallCallback(expansionInstallCallback);
+
 //Single
 
 inline function onButton_InstallLibraryControl(component, value)
