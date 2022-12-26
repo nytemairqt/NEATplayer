@@ -2005,7 +2005,7 @@
     <Component type="ScriptButton" id="Button_InstallLibrary" x="119.0" y="89.0"
                text="LAFButtonInstallLibrary" saveInPreset="0" isMomentary="1"
                numStrips="6.0" width="110.0" height="110.0" enableMidiLearn="0"
-               parentComponent="Panel_InstallLibraries"/>
+               parentComponent="Panel_InstallLibraries" tooltip="Install a single Library (.hr1 File)."/>
     <Component type="ScriptLabel" id="Label_InstallLibrary" x="99.0" y="59.0"
                width="150.0" height="28.0" text="Install Library" fontSize="14.0"
                editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
@@ -2015,7 +2015,7 @@
     <Component type="ScriptButton" id="Button_BulkInstall" x="119.0" y="289.0"
                text="LAFButtonBulkInstall" saveInPreset="0" isMomentary="1"
                numStrips="6.0" width="110.0" height="110.0" enableMidiLearn="0"
-               parentComponent="Panel_InstallLibraries"/>
+               parentComponent="Panel_InstallLibraries" tooltip="Install multiple Libraries (.hr1 Files) from a Folder."/>
     <Component type="ScriptLabel" id="Label_BulkInstall" x="99.0" y="259.0"
                width="150.0" height="28.0" text="Bulk Install" fontSize="14.0"
                editable="0" parentComponent="Panel_InstallLibraries" fontStyle="Bold"/>
