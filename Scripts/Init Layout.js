@@ -112,3 +112,17 @@ Panel_ResizeGUI.setMouseCallback(function(event) {
     
     this.repaint();
 });
+
+//Open Shop
+
+const var Button_OpenShop = Content.getComponent("Button_OpenShop");
+
+inline function onButton_OpenShopControl(component, value)
+{
+    if(value)
+        Engine.openWebsite("https://www.iamlamprey.com/collections/instruments");
+};
+
+Content.getComponent("Button_OpenShop").setControlCallback(onButton_OpenShopControl);
+
+Button_OpenShop.set("tooltip", "Opens a browser window to the Shop.");

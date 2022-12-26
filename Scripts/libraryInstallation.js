@@ -10,6 +10,9 @@ const expHandler = Engine.createExpansionHandler();
 reg nest = {};
 var hrList = [];
 
+Button_InstallLibrary.set("tooltip", "Install a single Library (.hr1 File).");
+Button_BulkInstall.set("tooltip", "Install multiple Libraries (.hr1 Files) from a Folder.");
+
 //Open Panel
 
 inline function onButton_AddLibraryControl(component, value)
@@ -123,3 +126,4 @@ Panel_InstallLibraries.setPaintRoutine(function(g)
     g.drawAlignedText("2. Open AppData (Folder Button at the top of NEAT Player).", [this.getWidth() / 2, 290, 500, 50], "left");
     g.drawAlignedText("3. Delete NEAT Player/Expansions/{LIBRARYNAME} Folder.", [this.getWidth() / 2, 310, 500, 50], "left");
 });
+

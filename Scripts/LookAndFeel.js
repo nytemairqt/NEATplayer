@@ -56,6 +56,7 @@ const var LAFButtonSamplerShowADSR = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerLoop = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerReverse = Content.createLocalLookAndFeel();
 const var LAFButtonSettingsCogwheel = Content.createLocalLookAndFeel();
+const var LAFButtonOpenShop = Content.createLocalLookAndFeel();
 
 const var LAFSliderMain = Content.createLocalLookAndFeel();
 const var LAFSliderPan = Content.createLocalLookAndFeel();
@@ -113,6 +114,21 @@ LAFButtonBypass.registerFunction("drawToggleButton", function(g, obj)
     else 
     	g.setColour(obj.over ? Colours.grey : Colours.darkgrey);
     g.fillEllipse([obj.area[0]+1, obj.area[1]+1, obj.area[2]-2, obj.area[3]-2]);
+});
+
+//Open Shop Button
+
+LAFButtonOpenShop.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(Colours.withAlpha(Colours.black, .4));
+    g.fillRoundedRectangle(obj.area, 6.0);
+    g.setColour(Colours.withAlpha(Colours.white, .95));    
+    path.loadFromData(pathButtonOpenShop);
+    g.drawPath(path, [8, 8, obj.area[2] - 16, obj.area[3] - 16], 2.0);
+    g.setFont("Arial Bold", 6.0);
+    g.drawAlignedText("S H O P", [obj.area[2] / 2 - 18 , 6, 36, 8], "centred");
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, .15) : Colours.withAlpha(Colours.white, .0));
+    g.fillRoundedRectangle(obj.area, 2.0);
 });
 
 //FX Settings Button
@@ -565,6 +581,8 @@ Button_OpenRandomizePanel.setLocalLookAndFeel(LAFButtonOpenRandomizationPanel);
 
 Button_PortamentoBypass.setLocalLookAndFeel(LAFButtonBypass);
 Button_ExclusiveReverse.setLocalLookAndFeel(LAFButtonBypass);
+
+Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
 
 //Close Buttons
 

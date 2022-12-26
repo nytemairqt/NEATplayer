@@ -35,6 +35,8 @@ expPanelTitle.setPaintRoutine(function(g)
 //Library Version Control & Select Buttons
 
 var library_outdatedVersions = [];
+var library_currentVersions = [];
+var library_latestVersions = [];
 var library_updateURLs = [];
 var library_is_premodular = [];
 var library_unloadedManifest;
@@ -51,14 +53,90 @@ var row_y = 0;
 var expansion_button_image = "";
 var selected_expansion;
 
+inline function updateExpansion()
+{
+    //Create Backup Folder
+    local root_folder = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder();
+    local backup_folder = root_folder.createDirectory("Backup");
+    if (library_is_premodular[this.data.index])
+        local subfolder_string = "_PreModular";
+    else
+        local subfolder_string = Engine.doubleToString(library_unloadedManifest.version, 1);
+    subfolder_string = subfolder_string.replace(".", "_");
+    local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
+
+    //First clean the download list.
+    this.data.downloading = true;
+
+    local download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile("info.hxi");
+
+    //Move old .hxi to backup folder
+    download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+
+    Server.setBaseURL("https://storage.googleapis.com");
+
+    local thisButton = this;
+
+    Server.downloadFile(library_updateURLs[this.data.index], {}, download_target, function[thisButton]() 
+    {
+        if (this.data.finished && this.data.success)         
+        {
+            Engine.showMessageBox("Update Complete", expansionNames[thisButton.data.index] + " updated successfully.  Please restart NEAT Player.", 0);
+            thisButton.data.downloading = false;              
+            thisButton.repaint();
+        }              
+    });  
+}
+
+inline function loadExpansion()
+{
+    expHandler.setCurrentExpansion(this.data.expansionName);   
+    load+this.data.expansionName;
+    Button_OpenExpansions.setValue(0);
+    Button_OpenExpansions.changed();
+}
+
 inline function updateAllExpansions()
 {
-    /*
-    for all expansions
-    if expansion out of date
-    call update function
-    paint routine should be % fill respective to current loop iter
-    */
+    for (i=0; i<expansionNames.length; i++)
+    {
+        if (library_outdatedVersions[i])
+        {
+            //Create backup Folder
+            local root_folder = expansionList[i].getRootFolder();
+            local backup_folder= root_folder.createDirectory("Backup");
+            if (library_is_premodular[index])
+                local subfolder_string = "_PreModular";
+            else
+                local subfolder_string = Engine.doubleToString(library_currentVersions[i], 1);
+            subfolder_string = subfolder_string.replace(".", "_");
+            local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
+
+            //Clean Download List
+            expButton[i].data.downloading = true;
+
+            local download_target = expansionList[i].getRootFolder().getChildFile("info.hxi");
+
+            //Move old .hxi to backup folder
+            download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+
+            Server.setBaseURL("https://storage.googleapis.com");
+
+            local thisButton = expButton[i];
+
+            Server.downloadFile(library_updateURLs[thisButton.data.index], {}, download_target, function[thisButton]() 
+            {           
+                if (this.data.finished && this.data.success)         
+                {
+                    thisButton.data.downloading = false;              
+                    thisButton.repaint();
+
+                    if (thisButton.data.index == (expansionNames.length - 1))
+                        Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
+                }              
+            });                
+        }
+    }
 }
 
 //Update All Expansions
@@ -89,14 +167,14 @@ Button_UpdateAllExpansions.setPaintRoutine(function(g)
 });
 
 Button_UpdateAllExpansions.setMouseCallback(function(event)
-    {
-        this.data.mouseover = event.hover;        
+{
+    this.data.mouseover = event.hover;        
 
-        if (event.clicked)
-            Console.print("Clicked!");
+    if (event.clicked)
+        updateAllExpansions();
 
-        this.repaint();
-    });  
+    this.repaint();
+});  
 
 
 //Expansion Buttons
@@ -109,7 +187,8 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
     //Check for existing Manifest File (V1.0 -> V2.0 Update)
 
     library_unloadedManifest = expansionList[i].loadDataFile("manifest.json");
-    library_outdatedVersions.push(false);
+    library_currentVersions.push(library_unloadedManifest.version);
+    //library_outdatedVersions.push(0);
     library_is_premodular.push(false);
 
     if (!library_unloadedManifest) //Pre-Modular Migration
@@ -117,10 +196,12 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
         library_outdatedVersions[i] = true;
         library_updateURLs.push(migration_list_urls[i]);
         library_is_premodular[i] = true;
+        library_currentVersions[i] = 0.0;
     }
     else //Update Normally
     {
         library_updateURLs.push(library_unloadedManifest.updateURL);
+        var library_currentVersion = library_unloadedManifest.version;
 
         //Scrape Product Page
 
@@ -135,10 +216,15 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
             library_latestVersion = library_responseArray[library_responseAsString + 1];
             
             library_latestVersion = library_latestVersion.replace(library_latestVersion.substring(4, 6), "");
+            library_latestVersion = library_latestVersion.substring(0, 3);
             
             library_latestVersion = Math.range(library_latestVersion, 0.00, 99.99);
 
-            library_outdatedVersions[i] = library_unloadedManifest.version < library_latestVersion; //Swap array values at index to True
+            library_latestVersions.push(library_latestVersion);
+
+            //library_outdatedVersions[i] = library_currentVersion < library_latestVersion;
+
+            library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);
         });
     }
 
@@ -229,38 +315,7 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
             if (library_outdatedVersions[this.data.index] && event.mouseDownX > (expButtonSize - library_updateButtonSize) && event.mouseDownY < library_updateButtonSize)
             {
-                Console.print("YEP");
-                //Create Backup Folder
-                var root_folder = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder();
-                var backup_folder = root_folder.createDirectory("Backup");
-                if (library_is_premodular[this.data.index])
-                    var subfolder_string = "_PreModular";
-                else
-                    var subfolder_string = Engine.doubleToString(library_unloadedManifest.version, 1);
-                subfolder_string = subfolder_string.replace(".", "_");
-                var backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
-
-                //First clean the download list.
-                this.data.downloading = true;
-
-                var download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile("info.hxi");
-
-                //Move old .hxi to backup folder
-                download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
-
-                Server.setBaseURL("https://storage.googleapis.com");
-
-                var thisButton = this;
-
-                Server.downloadFile(library_updateURLs[this.data.index], {}, download_target, function[thisButton]() 
-                {
-                    if (this.data.finished)         
-                    {
-                        Console.print("Finished");      
-                        thisButton.data.downloading = false;              
-                        thisButton.repaint();
-                    }              
-                });             
+                updateExpansion();
             }
 
             //Load Library
@@ -268,10 +323,7 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
             
             else if (this.data.preload == false)
             {
-                expHandler.setCurrentExpansion(this.data.expansionName);   
-                load+this.data.expansionName;
-                Button_OpenExpansions.setValue(0);
-                Button_OpenExpansions.changed();
+                loadExpansion();
             }
 
         }

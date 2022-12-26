@@ -49,7 +49,7 @@
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
             <Control type="ScriptButton" id="Button_DegradeSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_DegradeEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_AmpSettings" value="0"/>
+            <Control type="ScriptButton" id="Button_AmpSettings" value="0.0"/>
             <Control type="ScriptButton" id="Button_AmpEnable" value="0.0"/>
             <Control type="ScriptLabel" id="Label_FilterFreqValue" value="20000Hz"/>
             <Control type="ScriptSlider" id="Slider_FilterFreq" value="20000.0"/>
@@ -264,11 +264,11 @@
             <Control type="ScriptSlider" id="Slider_MovementEnvBDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBSustain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBRelease" value="1000.0"/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="-1"
+            <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="-1.0"
                      data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="-1.0"
                      data="64......................................................................................."/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1"
+            <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1.0"
                      data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
             <Control type="ScriptSlider" id="Slider_ArpSteps" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
