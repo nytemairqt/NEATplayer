@@ -225,8 +225,13 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
             //library_outdatedVersions[i] = library_currentVersion < library_latestVersion;
 
             library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);
+
+            
+
         });
     }
+
+    
 
     expButton[i] = Panel_ExpansionsItemHolder.addChildPanel(); // Add a child panel
     expButton[i].set("width", expButtonSize);
@@ -345,6 +350,19 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
         this.repaint();
     });    
 };
+
+//Check for Pre-Modular & Prompt User
+
+var num_premodular_libraries = 0;
+
+for (i=0; i<library_is_premodular.length; i++)
+{        
+    if (library_is_premodular[i])
+        num_premodular_libraries++;                
+}
+
+if (num_premodular_libraries > 0);
+    Engine.showMessageBox("Using Pre-Modular Libraries.", "Pre-Modular Libraries are deprecated, please update old Libraries.", 0);
 
 currentExpansion = expHandler.getCurrentExpansion();
 currentExpansion = currentExpansion.Name;
