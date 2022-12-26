@@ -17,3 +17,22 @@ const var migration_list_urls = [
     "/iamlamprey-instruments/_ExpansionHXIs/Portal/info.hxi",
     "/iamlamprey-instruments/_ExpansionHXIs/Prismatic/info.hxi",
     ];
+
+const var migration_list_urls_JSON = {
+    "Achromic" : "/iamlamprey-instruments/_ExpansionHXIs/Achromic/info.hxi",
+    "Aetheric" : "/iamlamprey-instruments/_ExpansionHXIs/Aetheric/info.hxi",
+    "Atlas" : "/iamlamprey-instruments/_ExpansionHXIs/Atlas/info.hxi",
+    "Blackout" : "/iamlamprey-instruments/_ExpansionHXIs/Blackout/info.hxi",
+    "Blackout2" : "/iamlamprey-instruments/_ExpansionHXIs/Blackout2/info.hxi",
+    "Bloom" : "/iamlamprey-instruments/_ExpansionHXIs/Achromic/Bloom.hxi",
+    "Cloudburst" : "/iamlamprey-instruments/_ExpansionHXIs/Cloudburst/info.hxi",
+    "CloudburstAcoustic" : "/iamlamprey-instruments/_ExpansionHXIs/CloudburstAcoustic/info.hxi",
+    "Endure" : "/iamlamprey-instruments/_ExpansionHXIs/Endure/info.hxi",
+    "Found Keys" : "/iamlamprey-instruments/_ExpansionHXIs/FoundKeys/info.hxi",
+    "Gloom" : "/iamlamprey-instruments/_ExpansionHXIs/Gloom/info.hxi",
+    "MachineTribes" : "/iamlamprey-instruments/_ExpansionHXIs/MachineTribes/info.hxi",
+    "Oracle" : "/iamlamprey-instruments/_ExpansionHXIs/Oracle/info.hxi",
+    "Oracle2" : "/iamlamprey-instruments/_ExpansionHXIs/Oracle2/info.hxi",
+    "PDQBass" : "/iamlamprey-instruments/_ExpansionHXIs/PDQBass/info.hxi",
+    "Portal" : "/iamlamprey-instruments/_ExpansionHXIs/Portal/info.hxi",
+    "Prismatic" : "/iamlamprey-instruments/_ExpansionHXIs/Prismatic/info.hxi"}

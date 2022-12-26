@@ -188,13 +188,12 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
     library_unloadedManifest = expansionList[i].loadDataFile("manifest.json");
     library_currentVersions.push(library_unloadedManifest.version);
-    //library_outdatedVersions.push(0);
     library_is_premodular.push(false);
 
     if (!library_unloadedManifest) //Pre-Modular Migration
     {
         library_outdatedVersions[i] = true;
-        library_updateURLs.push(migration_list_urls[i]);
+        library_updateURLs.push(migration_list_urls_JSON[expansionNames[i]]);
         library_is_premodular[i] = true;
         library_currentVersions[i] = 0.0;
     }
@@ -221,8 +220,6 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
             library_latestVersion = Math.range(library_latestVersion, 0.00, 99.99);
 
             library_latestVersions.push(library_latestVersion);
-
-            //library_outdatedVersions[i] = library_currentVersion < library_latestVersion;
 
             library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);
 

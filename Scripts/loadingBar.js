@@ -61,7 +61,7 @@ loadingBar.setLoadingCallback(function(isPreloading)
     {       
         currentlyLoading = true;
         this.data.colour = Colours.withAlpha(Colours.black, 0.9);
-        this.data.colourFill = Colours.withAlpha(Colours.black, 0.8);
+        this.data.colourFill = Colours.withAlpha(Colours.black, 0.95);
         this.data.circleFill = Colours.withAlpha(Colours.lightblue, .5);
         this.data.colourBorder = Colours.withAlpha(Colours.lightgrey, .6);
         this.startTimer(50);
