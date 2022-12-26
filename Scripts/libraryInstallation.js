@@ -38,10 +38,13 @@ Content.getComponent("Button_CloseInstallPanel").setControlCallback(onButton_Clo
 
 //Global Installation Callback
 
+var isBulkInstalling = false;
+var num_expansions_remaining = 0;
+
 function expansionInstallCallback(obj)
 {
-    if(obj.Status == 2 && isDefined(obj.Expansion))
-        Engine.showMessageBox("Installation Complete", "Library installed successfully, please restart NEAT Player.", 0);
+        if(obj.Status == 2 && isDefined(obj.Expansion) && num_expansions_remaining == 0)
+            Engine.showMessageBox("Installation Complete", "Library installed successfully, please restart NEAT Player.", 0);
 }
 
 expHandler.setInstallCallback(expansionInstallCallback);
@@ -69,7 +72,10 @@ inline function onButton_InstallLibraryControl(component, value)
                         FileSystem.browseForDirectory(FileSystem.Downloads, function(dir)
                         {
                             if (dir.isDirectory())
+                            {
+                                num_expansions_remaining = 1;
                                 expHandler.installExpansionFromPackage(nest.hr, dir);
+                            }
                         });
                     });
                 }
@@ -100,10 +106,16 @@ inline function onButton_BulkInstallControl(component, value)
                             if (!response) return;
        
                             FileSystem.browseForDirectory(FileSystem.Downloads, function(dir)
-                            {
+                            {                            
                                 if (dir.isDirectory())
-                                    for (h in hrList)
-                                        expHandler.installExpansionFromPackage(h, dir);
+                                {
+                                    num_expansions_remaining = hrList.length;
+                                    for (i=0; i<hrList.length; i++)
+                                    {
+                                        expHandler.installExpansionFromPackage(hrList[i], dir);
+                                        num_expansions_remaining--;
+                                    }
+                                }
                             });
                         });
                     }

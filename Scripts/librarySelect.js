@@ -176,7 +176,6 @@ Button_UpdateAllExpansions.setMouseCallback(function(event)
     this.repaint();
 });  
 
-
 //Expansion Buttons
     
 for (i=0; i<expansionNames.length; i++) // For each found Expansion
@@ -221,14 +220,9 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
             library_latestVersions.push(library_latestVersion);
 
-            library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);
-
-            
-
+            library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);             
         });
     }
-
-    
 
     expButton[i] = Panel_ExpansionsItemHolder.addChildPanel(); // Add a child panel
     expButton[i].set("width", expButtonSize);
@@ -257,11 +251,13 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
     expButton[i].set("allowCallbacks", "All Callbacks");
     expButton[i].data.mouseover = 0;
     expButton[i].data.hoverUpdateButton = 0;
+
+    
     expButton[i].setPaintRoutine(function(g) 
     {
         g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
 
-        if (library_outdatedVersions[this.data.index] == true)
+        if (library_outdatedVersions[this.data.index] == true && !library_is_premodular[this.data.index])
         {
             g.setColour(Colours.withAlpha(Colours.black, .8));
             g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
@@ -300,7 +296,37 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
             g.setColour(Colours.withAlpha(Colours.white, 0.3));
             g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
         }
+
+        if (library_is_premodular[this.data.index])
+        {
+            g.setColour(Colours.withAlpha(Colours.black, .8));
+            g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
+            
+            if (!this.data.downloading)
+            {            
+                g.setColour(Colours.withAlpha(Colours.white, .8));
+                library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
+                //g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
+                g.setColour(Colours.withAlpha(Colours.white, .8));
+                g.fillPath(library_updateButtonPath, [68, 68, expButtonSize - 136, expButtonSize - 136]);
+
+                //Little Extra Bits
+
+                g.setColour(Colours.withAlpha(Colours.black, .86));
+                g.fillRoundedRectangle([70, 99, 8, 8], 2.0);
+                g.fillRoundedRectangle([80, 99, 8, 8], 2.0);
+                g.fillRoundedRectangle([93, 102, 13, 5], 2.0);
+            }
+            else
+            {
+                g.setColour(Colours.withAlpha(Colours.white, .8));
+                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 10, (library_updateButtonSize / 2) - 2, 4, 4]);
+                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 2, (library_updateButtonSize / 2) - 2, 4, 4]);
+                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) + 6, (library_updateButtonSize / 2) - 2, 4, 4]);
+            }
+        }
     });
+
     
     expButton[i].setLoadingCallback(function(isPreloading)
     {
@@ -315,51 +341,46 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
         {
             //First check if user clicked the Update Button:
 
-            if (library_outdatedVersions[this.data.index] && event.mouseDownX > (expButtonSize - library_updateButtonSize) && event.mouseDownY < library_updateButtonSize)
+            if (!library_is_premodular[this.data.index])
             {
+                if (library_outdatedVersions[this.data.index] && event.mouseDownX > (expButtonSize - library_updateButtonSize) && event.mouseDownY < library_updateButtonSize)
+                    updateExpansion();
+                
+                else if (this.data.preload == false)
+                    loadExpansion();
+            }
+            else
                 updateExpansion();
-            }
-
-            //Load Library
-            //Here we add the safety check.
-            
-            else if (this.data.preload == false)
-            {
-                loadExpansion();
-            }
-
         }
 
         if (event.hover)
         {
-            if (library_outdatedVersions[this.data.index] && event.x > (expButtonSize - library_updateButtonSize) && event.y < library_updateButtonSize)
+            if (!library_is_premodular[this.data.index])
             {
-                this.data.hoverUpdateButton = true;    
-                this.set("tooltip", "Download latest version.");
+                if (library_outdatedVersions[this.data.index] && event.x > (expButtonSize - library_updateButtonSize) && event.y < library_updateButtonSize)
+                {
+                    this.set("tooltip", "Download latest version.");
+                    this.data.hoverUpdateButton = true;                    
+                }
+                else
+                {
+                    this.data.hoverUpdateButton = false;
+                    this.set("tooltip", "Load Library.");
+                }
             }
             else
             {
                 this.data.hoverUpdateButton = false;
-                this.set("tooltip", "Load Library.");
-            }
+                this.set("tooltip", "Library is deprecated, please click to Download latest version.");
+            }            
         }
 
         this.repaint();
     });    
 };
 
-//Check for Pre-Modular & Prompt User
 
-var num_premodular_libraries = 0;
 
-for (i=0; i<library_is_premodular.length; i++)
-{        
-    if (library_is_premodular[i])
-        num_premodular_libraries++;                
-}
-
-if (num_premodular_libraries > 0);
-    Engine.showMessageBox("Using Pre-Modular Libraries.", "Pre-Modular Libraries are deprecated, please update old Libraries.", 0);
 
 currentExpansion = expHandler.getCurrentExpansion();
 currentExpansion = currentExpansion.Name;
