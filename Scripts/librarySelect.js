@@ -103,6 +103,7 @@ inline function updateAllExpansions()
         if (library_outdatedVersions[i])
         {
             //Create backup Folder
+            
             local root_folder = expansionList[i].getRootFolder();
             local backup_folder= root_folder.createDirectory("Backup");
             if (library_is_premodular[index])
@@ -132,7 +133,10 @@ inline function updateAllExpansions()
                     thisButton.repaint();
 
                     if (thisButton.data.index == (expansionNames.length - 1))
+                    {
+                        Server.cleanFinishedDownloads();
                         Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
+                    }
                 }              
             });                
         }
@@ -306,7 +310,6 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
             {            
                 g.setColour(Colours.withAlpha(Colours.white, .8));
                 library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
-                //g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
                 g.setColour(Colours.withAlpha(Colours.white, .8));
                 g.fillPath(library_updateButtonPath, [68, 68, expButtonSize - 136, expButtonSize - 136]);
 

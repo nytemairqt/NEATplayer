@@ -113,7 +113,7 @@ inline function onButton_BulkInstallControl(component, value)
                                     for (i=0; i<hrList.length; i++)
                                     {
                                         expHandler.installExpansionFromPackage(hrList[i], dir);
-                                        num_expansions_remaining--;
+                                        num_expansions_remaining = hrList.length - (i + 1);
                                     }
                                 }
                             });
