@@ -52,6 +52,8 @@ var row_x = 0;
 var row_y = 0;
 var expansion_button_image = "";
 var selected_expansion;
+var currentlyDownloading = false;
+var currentlyDownloadingName = "";
 
 inline function updateExpansion()
 {
@@ -76,9 +78,13 @@ inline function updateExpansion()
     Server.setBaseURL("https://storage.googleapis.com");
 
     local thisButton = this;
+    currentlyDownloading = true;
+    currentlyDownloadingName = expansionNames[thisButton.data.index];
+    loadingBar.startTimer(50);
 
     Server.downloadFile(library_updateURLs[this.data.index], {}, download_target, function[thisButton]() 
     {
+        currentlyDownloading = 1-this.data.finished;
         if (this.data.finished && this.data.success)         
         {
             Engine.showMessageBox("Update Complete", expansionNames[thisButton.data.index] + " updated successfully.  Please restart NEAT Player.", 0);
@@ -98,12 +104,13 @@ inline function loadExpansion()
 
 inline function updateAllExpansions()
 {
+    currentlyDownloading = true;
+    loadingBar.startTimer(50);
     for (i=0; i<expansionNames.length; i++)
     {
         if (library_outdatedVersions[i])
         {
-            //Create backup Folder
-            
+            //Create backup Folder           
             local root_folder = expansionList[i].getRootFolder();
             local backup_folder= root_folder.createDirectory("Backup");
             if (library_is_premodular[index])
@@ -118,7 +125,7 @@ inline function updateAllExpansions()
 
             local download_target = expansionList[i].getRootFolder().getChildFile("info.hxi");
 
-            //Move old .hxi to backup folder
+            //Copy old .hxi to backup folder
             download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 
             Server.setBaseURL("https://storage.googleapis.com");
@@ -127,6 +134,11 @@ inline function updateAllExpansions()
 
             Server.downloadFile(library_updateURLs[thisButton.data.index], {}, download_target, function[thisButton]() 
             {           
+                currentlyDownloadingName = expansionNames[thisButton.data.index];
+
+                if (this.data.finished && thisButton.data.index == (expansionNames.length - 1))
+                    currentlyDownloading = false;
+
                 if (this.data.finished && this.data.success)         
                 {
                     thisButton.data.downloading = false;              
@@ -137,7 +149,7 @@ inline function updateAllExpansions()
                         Server.cleanFinishedDownloads();
                         Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
                     }
-                }              
+                }            
             });                
         }
     }
@@ -266,27 +278,16 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
             g.setColour(Colours.withAlpha(Colours.black, .8));
             g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
 
-            if (!this.data.downloading)
-            {            
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
-                g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
+            g.setColour(Colours.withAlpha(Colours.white, .8));
+            library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
+            g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
 
-                //Little Extra Bits
+            //Little Extra Bits
 
-                g.setColour(Colours.withAlpha(Colours.black, .8));
-                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 5, 20, 3, 3], 2.0);
-                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 10, 20, 3, 3], 2.0);
-                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 18, 21, 6, 2], 2.0);
-            }
-            else
-            {
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 10, (library_updateButtonSize / 2) - 2, 4, 4]);
-                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 2, (library_updateButtonSize / 2) - 2, 4, 4]);
-                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) + 6, (library_updateButtonSize / 2) - 2, 4, 4]);
-            }
-
+            g.setColour(Colours.withAlpha(Colours.black, .8));
+            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 5, 20, 3, 3], 2.0);
+            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 10, 20, 3, 3], 2.0);
+            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 18, 21, 6, 2], 2.0);
         }     
 
         if (this.data.mouseover)
@@ -305,28 +306,18 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
         {
             g.setColour(Colours.withAlpha(Colours.black, .8));
             g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
-            
-            if (!this.data.downloading)
-            {            
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                g.fillPath(library_updateButtonPath, [68, 68, expButtonSize - 136, expButtonSize - 136]);
 
-                //Little Extra Bits
+            g.setColour(Colours.withAlpha(Colours.white, .8));
+            library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
+            g.setColour(Colours.withAlpha(Colours.white, .8));
+            g.fillPath(library_updateButtonPath, [68, 68, expButtonSize - 136, expButtonSize - 136]);
 
-                g.setColour(Colours.withAlpha(Colours.black, .86));
-                g.fillRoundedRectangle([70, 99, 8, 8], 2.0);
-                g.fillRoundedRectangle([80, 99, 8, 8], 2.0);
-                g.fillRoundedRectangle([93, 102, 13, 5], 2.0);
-            }
-            else
-            {
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 10, (library_updateButtonSize / 2) - 2, 4, 4]);
-                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) - 2, (library_updateButtonSize / 2) - 2, 4, 4]);
-                g.fillEllipse([(expButtonSize - library_updateButtonSize) + (library_updateButtonSize / 2) + 6, (library_updateButtonSize / 2) - 2, 4, 4]);
-            }
+            //Little Extra Bits
+
+            g.setColour(Colours.withAlpha(Colours.black, .86));
+            g.fillRoundedRectangle([70, 99, 8, 8], 2.0);
+            g.fillRoundedRectangle([80, 99, 8, 8], 2.0);
+            g.fillRoundedRectangle([93, 102, 13, 5], 2.0);            
         }
     });
 

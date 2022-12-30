@@ -8,10 +8,11 @@ loadingBar.set("width", 400);
 loadingBar.set("height", 180);
 loadingBar.set("x", (Panel_BG.getWidth() / 2) - (loadingBar.getWidth() / 2));
 loadingBar.set("y", (Panel_BG.getHeight() / 2) - loadingBar.getHeight() / 2);
-
-loadingBar.data.colour = 0x00000000;
-loadingBar.data.colourFill = 0x00000000;
-loadingBar.data.colourBorder = 0x00000000;
+loadingBar.data.colour = Colours.withAlpha(Colours.black, 0.9);
+loadingBar.data.colourFill = Colours.withAlpha(Colours.black, 0.95);
+loadingBar.data.circleFill = Colours.withAlpha(Colours.lightblue, .5);
+loadingBar.data.colourBorder = Colours.withAlpha(Colours.lightgrey, .6);
+loadingBar.showControl(0);
 loadingBar.data.loadingCircleSize = 8;
 loadingBar.data.loadingCircleOffset = 4;
 loadingBar.data.text = "";
@@ -24,7 +25,7 @@ loadingBar.setPaintRoutine(function(g)
 {
     //Background Fill
     g.setColour(this.data.colourFill);
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 7.0);
 
     //Text
     g.setColour(Colours.white);
@@ -48,8 +49,22 @@ loadingBar.setTimerCallback(function()
 {
     this.data.progress = Engine.getPreloadProgress();
     this.data.progress = this.data.progress * 100;
-    this.data.progress = Math.round(this.data.progress);
-    this.data.text = Engine.getPreloadMessage() + " " + this.data.progress + "%";
+    this.data.progress = Math.round(this.data.progress);    
+    this.showControl(1);
+
+    if (Engine.getPreloadMessage().contains("Decompressing")) //Installation
+        this.data.text = "Unpacking " + expansionInstallName.toString(1).substring(0, expansionInstallName.toString(1).indexOf("_")) + " " + this.data.progress + "%";
+    else if (currentlyDownloading) //Updating
+        this.data.text = "Updating " + currentlyDownloadingName + ", please wait.";
+    else if (currentlyLoading) //Loading Library
+        this.data.text = Engine.getPreloadMessage() + " " + this.data.progress + "%";
+    else //Hide
+    {        
+        this.showControl(0);
+        this.stopTimer();
+    }
+
+        
     //this.repaint();    
     loadingBar.repaint(); //Bug fix???
 });
@@ -60,21 +75,11 @@ loadingBar.setLoadingCallback(function(isPreloading)
 	if(isPreloading)
     {       
         currentlyLoading = true;
-        this.data.colour = Colours.withAlpha(Colours.black, 0.9);
-        this.data.colourFill = Colours.withAlpha(Colours.black, 0.95);
-        this.data.circleFill = Colours.withAlpha(Colours.lightblue, .5);
-        this.data.colourBorder = Colours.withAlpha(Colours.lightgrey, .6);
         this.startTimer(50);
     }
     else
     {       
         currentlyLoading = false;
-        this.stopTimer();
-        this.data.colour = 0x00000000;
-        this.data.colourBorder = 0x00000000;
-        this.data.colourFill = 0x00000000;
-        this.data.circleFill = 0x00000000;
-        this.data.text = "";
         this.data.randomSeed = Math.random();
     }
         

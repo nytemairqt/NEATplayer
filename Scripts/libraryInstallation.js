@@ -40,9 +40,11 @@ Content.getComponent("Button_CloseInstallPanel").setControlCallback(onButton_Clo
 
 var num_expansions_to_install;
 var expansionInstallIndex = 1;
+var expansionInstallName;
 
 function expansionInstallCallback(obj)
 {
+    expansionInstallName = obj.SourceFile;
         if(obj.Status == 2 && isDefined(obj.Expansion))
         {
             if (expansionInstallIndex >= num_expansions_to_install)
