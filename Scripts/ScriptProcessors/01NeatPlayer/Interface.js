@@ -888,7 +888,10 @@ function onNoteOn()
         {
             local randomReleaseNoise = Math.random() * randomReleaseNoiseActive;
             if (randomReleaseNoise <= manifest.randomReleaseNoiseChance)
+            {
                 Synth.playNote(Math.randInt(manifest.randomReleaseNoiseKeys[0], manifest.randomReleaseNoiseKeys[1]), Math.randInt(1, 127));
+                Console.print("Played Release Noise");
+            }
         }   
     
 }

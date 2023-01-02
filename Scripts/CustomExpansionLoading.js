@@ -190,9 +190,17 @@ inline function loadExpansionFromManifest()
     //Check if the expansion uses the additional samplers.
 
     if (manifest.sampleMapB != null)
+    {
         SamplerB.asSampler().loadSampleMap(manifest.sampleMapB);
+        Button_SamplerBBypass.setValue(1);
+        Button_SamplerBBypass.changed();
+    }
     if (manifest.sampleMapC != null)
+    {
         SamplerC.asSampler().loadSampleMap(manifest.sampleMapC);    
+        Button_SamplerCBypass.setValue(1);
+        Button_SamplerCBypass.changed();
+    }
 
     //Extra Sampler
 
@@ -205,7 +213,7 @@ inline function loadExpansionFromManifest()
 
     //Release Noises 
 
-    if (manifest.usesRandomReleaseNoises)
+    if (manifest.usesRandomReleaseNoise)
         randomReleaseNoiseActive = 1;
 
     //Set Velocities here:
