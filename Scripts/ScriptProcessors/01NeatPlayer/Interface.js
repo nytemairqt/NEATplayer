@@ -137,6 +137,9 @@ var randomNoiseActive;
 var randomReleaseNoiseActive;
 var pianoReleaseNoiseActive;
 
+var velocityMin = 1;
+var velocityMax = 127;
+
 // Expansion Loading
 
 function expCallback()
@@ -303,6 +306,13 @@ function onNoteOn()
 
     if (manifest.usesVelocityBasedArticulationSwitching)
     {
+        //Velocity Limiters
+        if (v <= velocityMin)
+            v = velocityMin;
+        if (v >= velocityMax)
+            v = velocityMax;
+
+        //Specific Articulations
         if (v >= velocityBasedArticulations[0] && v <= velocityBasedArticulations[1]) //Velocity Range 01
             Message.setVelocity(manifest.velocityBasedArticulationRanges[0]);
         if (v >= velocityBasedArticulations[2] && v <= velocityBasedArticulations[3]) //Velocity Range 02
@@ -888,10 +898,7 @@ function onNoteOn()
         {
             local randomReleaseNoise = Math.random() * randomReleaseNoiseActive;
             if (randomReleaseNoise <= manifest.randomReleaseNoiseChance)
-            {
-                Synth.playNote(Math.randInt(manifest.randomReleaseNoiseKeys[0], manifest.randomReleaseNoiseKeys[1]), Math.randInt(1, 127));
-                Console.print("Played Release Noise");
-            }
+                Synth.playNote(Math.randInt(manifest.randomReleaseNoiseKeys[0], manifest.randomReleaseNoiseKeys[1]), Math.randInt(1, 127));            
         }   
     
 }

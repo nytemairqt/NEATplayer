@@ -37,7 +37,7 @@ expPanelTitle.setPaintRoutine(function(g)
 var library_outdatedVersions = [];
 var library_currentVersions = [];
 var library_latestVersions = [];
-var library_updateURLs = [];
+var library_names = [];
 var library_is_premodular = [];
 var library_unloadedManifest;
 var library_latestVersion;
@@ -55,6 +55,9 @@ var selected_expansion;
 var currentlyDownloading = false;
 var currentlyDownloadingName = "";
 
+var download_target;
+var new_download_target;
+
 inline function updateExpansion()
 {
     //Create Backup Folder
@@ -70,19 +73,21 @@ inline function updateExpansion()
     //First clean the download list.
     this.data.downloading = true;
 
-    local download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile("info.hxi");
+    download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile("info.hxi");
 
     //Move old .hxi to backup folder
     download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 
-    Server.setBaseURL("https://storage.googleapis.com");
+    Server.setBaseURL("https://github.com/nytemairqt/libraries/raw/main/");
 
     local thisButton = this;
     currentlyDownloading = true;
     currentlyDownloadingName = expansionNames[thisButton.data.index];
     loadingBar.startTimer(50);
 
-    Server.downloadFile(library_updateURLs[this.data.index], {}, download_target, function[thisButton]() 
+    new_download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile(library_names[this.data.index]+".hxi");
+
+    Server.downloadFile(library_names[this.data.index]+".hxi", {}, download_target, function[thisButton]() 
     {
         currentlyDownloading = 1-this.data.finished;
         if (this.data.finished && this.data.success)         
@@ -91,7 +96,7 @@ inline function updateExpansion()
             thisButton.data.downloading = false;              
             thisButton.repaint();
         }              
-    });  
+    });
 }
 
 inline function loadExpansion()
@@ -128,11 +133,11 @@ inline function updateAllExpansions()
             //Copy old .hxi to backup folder
             download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 
-            Server.setBaseURL("https://storage.googleapis.com");
+            Server.setBaseURL("https://github.com/nytemairqt/libraries/raw/main/");
 
             local thisButton = expButton[i];
 
-            Server.downloadFile(library_updateURLs[thisButton.data.index], {}, download_target, function[thisButton]() 
+            Server.downloadFile(library_names[this.data.index]+".hxi", {}, download_target, function[thisButton]() 
             {           
                 currentlyDownloadingName = expansionNames[thisButton.data.index];
 
@@ -208,13 +213,12 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
     if (!library_unloadedManifest) //Pre-Modular Migration
     {
         library_outdatedVersions[i] = true;
-        library_updateURLs.push(migration_list_urls_JSON[expansionNames[i]]);
         library_is_premodular[i] = true;
         library_currentVersions[i] = 0.0;
     }
     else //Update Normally
     {
-        library_updateURLs.push(library_unloadedManifest.updateURL);
+        library_names.push(library_unloadedManifest.library);
         var library_currentVersion = library_unloadedManifest.version;
 
         //Scrape Product Page

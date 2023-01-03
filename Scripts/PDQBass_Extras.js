@@ -75,6 +75,7 @@ inline function onSlider_PDQBassVelocityMinControl(component, value)
 {
 	if (value >= Slider_PDQBassVelocityMax.getValue())
 	    Slider_PDQBassVelocityMax.setValue(value + 1);
+	velocityMin = value;
 };
 
 Content.getComponent("Slider_PDQBassVelocityMin").setControlCallback(onSlider_PDQBassVelocityMinControl);
@@ -83,6 +84,7 @@ inline function onSlider_PDQBassVelocityMaxControl(component, value)
 {
 	if (value <= Slider_PDQBassVelocityMin.getValue())
 	    Slider_PDQBassVelocityMin.setValue(value - 1);
+	velocityMax = value;
 };
 
 Content.getComponent("Slider_PDQBassVelocityMax").setControlCallback(onSlider_PDQBassVelocityMaxControl);

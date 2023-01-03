@@ -13,6 +13,9 @@ inline function clearSamplers()
     SamplerC_Velocity.setBypassed(true);
 
     randomReleaseNoiseActive = 0;
+
+    velocityMin = 1;
+    velocityMax = 127;
 }
 
 inline function resolveComboBoxes()
@@ -242,6 +245,7 @@ inline function loadExpansionFromManifest()
     //Populate ComboBoxes
 
     if(manifest.usesComboBoxItems)
+    {
         for (i=0; i<manifest.comboBoxItems.length; i++)
         {
             ComboBox_SamplerA.addItem(manifest.comboBoxItems[i]);
@@ -250,6 +254,7 @@ inline function loadExpansionFromManifest()
             if (manifest.sampleMapC != null)
                 ComboBox_SamplerC.addItem(manifest.comboBoxItems[i]);
         }
+    }
 
     resolveComboBoxes(); //Ensures ComboBoxes don't have 0 value.
 

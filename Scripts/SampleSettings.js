@@ -276,29 +276,10 @@ Content.getComponent("Button_SamplerAShowADSR").setControlCallback(onButton_Samp
 
 inline function onComboBox_SamplerAControl(component, value)
 {
-	
-	if (currentExpansion == "Bloom")
-    {
-        switch (value)
-        {
-            case 1:
-                SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Bloom_SampleMap");
-                SamplerA.asSampler().enableRoundRobin(true);
-                SamplerA_Velocity.setBypassed(true);
-            break;
-                
-            case 2:
-                SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Flourish_SampleMap");
-                SamplerA.asSampler().enableRoundRobin(false);
-                SamplerA_Velocity.setBypassed(false);
-            break;
-        }
-    }
-
     if (currentExpansion == "Aetheric")
     {
         SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
-    }    
+    } 
 };
 
 Content.getComponent("ComboBox_SamplerA").setControlCallback(onComboBox_SamplerAControl);
