@@ -56,7 +56,6 @@ var currentlyDownloading = false;
 var currentlyDownloadingName = "";
 
 var download_target;
-var new_download_target;
 
 inline function updateExpansion()
 {
@@ -78,16 +77,23 @@ inline function updateExpansion()
     //Move old .hxi to backup folder
     download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 
-    Server.setBaseURL("https://github.com/nytemairqt/libraries/raw/main/");
+    Server.setBaseURL("https://storage.googleapis.com/iamlamprey-instruments/_ExpansionHXIs/");
 
     local thisButton = this;
     currentlyDownloading = true;
     currentlyDownloadingName = expansionNames[thisButton.data.index];
     loadingBar.startTimer(50);
 
-    new_download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile(library_names[this.data.index]+".hxi");
+    //Server.downloadFile(library_names[this.data.index] +".hxi", {}, download_target, function[thisButton]() 
 
-    Server.downloadFile(library_names[this.data.index]+".hxi", {}, download_target, function[thisButton]() 
+    local url = "";
+
+    if (library_is_premodular[this.data.index])
+        url = migration_list_urls_JSON[expansionNames[this.data.index]];
+    else
+        url = library_names[this.data.index] +".hxi";
+
+    Server.downloadFile(url, {}, download_target, function[thisButton]() 
     {
         currentlyDownloading = 1-this.data.finished;
         if (this.data.finished && this.data.success)         
@@ -96,7 +102,7 @@ inline function updateExpansion()
             thisButton.data.downloading = false;              
             thisButton.repaint();
         }              
-    });
+    });    
 }
 
 inline function loadExpansion()
@@ -133,26 +139,30 @@ inline function updateAllExpansions()
             //Copy old .hxi to backup folder
             download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 
-            Server.setBaseURL("https://github.com/nytemairqt/libraries/raw/main/");
+            Server.setBaseURL("https://storage.googleapis.com/iamlamprey-instruments/_ExpansionHXIs/");
 
             local thisButton = expButton[i];
 
-            Server.downloadFile(library_names[this.data.index]+".hxi", {}, download_target, function[thisButton]() 
+            local url = "";
+
+            if (library_is_premodular[i])
+                url = migration_list_urls_JSON[expansionNames[i]];
+            else
+                url = library_names[i] +".hxi";
+
+            Server.downloadFile(url, {}, download_target, function[thisButton]() 
             {           
                 currentlyDownloadingName = expansionNames[thisButton.data.index];
-
-                if (this.data.finished && thisButton.data.index == (expansionNames.length - 1))
-                    currentlyDownloading = false;
-
+                    
                 if (this.data.finished && this.data.success)         
                 {
                     thisButton.data.downloading = false;              
                     thisButton.repaint();
-
                     if (thisButton.data.index == (expansionNames.length - 1))
-                    {
-                        Server.cleanFinishedDownloads();
+                    {                        
                         Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
+                        Server.cleanFinishedDownloads();
+                        currentlyDownloading = false;
                     }
                 }            
             });                
@@ -376,9 +386,6 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
         this.repaint();
     });    
 };
-
-
-
 
 currentExpansion = expHandler.getCurrentExpansion();
 currentExpansion = currentExpansion.Name;
