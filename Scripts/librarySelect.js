@@ -170,6 +170,71 @@ inline function updateAllExpansions()
     }
 }
 
+//Restore from Backups
+
+inline function restoreAllExpansionsFromBackup()
+{
+    local expansions_root = FileSystem.getFolder(FileSystem.Expansions);
+    local expansion_list = FileSystem.findFiles(expansions_root, "*", false); //ASTERISK YOU SNEAKY DEVIL
+
+    for (i=0; i<expansion_list.length; i++)
+    {
+        if (expansion_list[i].isDirectory())
+        {
+            local hxi = expansion_list[i].getChildFile("info.hxi");
+            if (!hxi.isFile()) //check if hxi exists.
+            {
+                Console.print("MISSING HXI: " + hxi.toString(0));
+                Console.print("restoring from backup...");
+
+                local backup = expansion_list[i].getChildFile("Backup");
+                if (backup.isDirectory())
+                {
+                    Console.print("Found Backup Directory");
+                    //get the last folder in the directory
+                    local backup_list = FileSystem.findFiles(backup, "*", false);
+                    local last_backup = backup_list[0];
+                    local backup_hxi = last_backup.getChildFile("info.hxi");
+                    if (backup_hxi.isFile())
+                    {
+                        Console.print("Found HXI!: " + backup_hxi.toString(0));
+                        backup_hxi.copy(hxi);
+                    }
+                }
+            }
+        }
+    }
+    Engine.showMessageBox("Restore Complete", "Library restoration is complete, please restart NEAT Player.", 0);
+}
+
+const var Button_RestoreAllExpansionsFromBackup = Panel_ExpansionsItemHolder.addChildPanel();
+Button_RestoreAllExpansionsFromBackup.set("width", 24);
+Button_RestoreAllExpansionsFromBackup.set("height", 24);
+Button_RestoreAllExpansionsFromBackup.set("x", 47);
+Button_RestoreAllExpansionsFromBackup.set("y", 7);
+Button_RestoreAllExpansionsFromBackup.set("allowCallbacks", "All Callbacks");
+Button_RestoreAllExpansionsFromBackup.set("tooltip", "Restore missing Libraries from Backup.");
+
+Button_RestoreAllExpansionsFromBackup.setPaintRoutine(function(g)
+{
+    g.setColour(Colours.withAlpha(Colours.white, .9));
+    path.loadFromData(arpResetButtonStrokeData);
+    g.fillPath(path, [2, 3, this.getWidth() - 4, this.getHeight() - 6]);
+
+    g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);    
+});
+
+Button_RestoreAllExpansionsFromBackup.setMouseCallback(function(event)
+{
+    this.data.mouseover = event.hover;        
+
+    if (event.clicked)
+        restoreAllExpansionsFromBackup();
+
+    this.repaint();
+});  
+
 //Update All Expansions
 
 const var Button_UpdateAllExpansions = Panel_ExpansionsItemHolder.addChildPanel();
