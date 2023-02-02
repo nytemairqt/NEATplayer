@@ -1572,7 +1572,7 @@
     </Component>
     <Component type="ScriptPanel" id="Panel_Movement" x="0.0" y="0.0" width="994.0"
                height="474.0" parentComponent="Panel_BG" bgColour="3825600006"
-               itemColour="2583691264" itemColour2="2583691264" text="*" visible="0">
+               itemColour="2583691264" itemColour2="2583691264" text="*">
       <Component type="ScriptLabel" id="Label_MovementTitle" x="348.0" y="0.0"
                  width="298.0" height="28.0" fontStyle="Bold" text="MOVEMENT"
                  parentComponent="Panel_Movement" editable="0"/>
@@ -1584,7 +1584,7 @@
                  parentComponent="Panel_Movement" ContentType="AHDSRGraph" bgColour="0"
                  itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerA_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
                  textColour="4294951115" width="150.0" height="60.0" visible="0"/>
-      <Component type="ScriptLabel" id="Label_ChaosRateValue" x="760.0" y="232.0"
+      <Component type="ScriptLabel" id="Label_ChaosRateValue" x="760.0" y="424.0"
                  width="74.0" height="28.0" fontStyle="Regular" text="Medium"
                  parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
       <Component type="ScriptButton" id="Button_RandomizeADSRAttack4" x="456.0"
@@ -1602,7 +1602,7 @@
                  parentComponent="Panel_Movement" width="397.0" height="298.0"
                  allowCallbacks="Clicks, Hover &amp; Dragging" saveInPreset="1"
                  tooltip="XY Pad to blend between Modulation Targets."/>
-      <Component type="ScriptComboBox" id="ComboBox_ChaosType" x="757.0" y="77.0"
+      <Component type="ScriptComboBox" id="ComboBox_ChaosType" x="757.0" y="27.0"
                  max="7" parentComponent="Panel_Movement" items="X Drift&#10;Y Drift&#10;Orbit&#10;Circular&#10;Twister&#10;Random Drift&#10;Random Jump&#10;&#10;"
                  text="Type" width="190.0" height="23.0" tooltip="Select a Chaos Type."/>
       <Component type="ScriptSlider" id="Slider_MovementXInvisible" x="286.0"
@@ -1619,30 +1619,30 @@
                  y="2.0" width="177.0" height="28.0" fontStyle="Bold" text="CHAOS"
                  parentComponent="Panel_Movement" editable="0"/>
       <Component type="ScriptSlider" id="Slider_MovementChaosIntensity" x="895.0"
-                 y="167.0" parentComponent="Panel_Movement" showTextBox="0" width="48.0"
+                 y="367.0" parentComponent="Panel_Movement" showTextBox="0" width="48.0"
                  height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
                  bgColour="16777215" text="" middlePosition="25.0" numStrips="127.0"
                  defaultValue="25.0" macroControl="No MacroControl" max="50.0"
                  stepSize="1.0" pluginParameterName="ChaosIntensity" isPluginParameter="1"
                  enableMidiLearn="0" tooltip="Adjusts the Chaos Intensity."/>
-      <Component type="ScriptSlider" id="Slider_MovementChaosRate" x="772.0" y="167.0"
+      <Component type="ScriptSlider" id="Slider_MovementChaosRate" x="772.0" y="367.0"
                  parentComponent="Panel_Movement" showTextBox="0" width="48.0"
                  height="48.0" textColour="16777215" itemColour2="1118481" itemColour="3355443"
                  bgColour="16777215" text="" middlePosition="10.0" numStrips="127.0"
                  defaultValue="10.0" macroControl="No MacroControl" max="20.0"
                  min="0.1000000014901161" isPluginParameter="1" pluginParameterName="ChaosRate"
                  enableMidiLearn="0" tooltip="Adjusts the Chaos Rate."/>
-      <Component type="ScriptLabel" id="Label_ChaosRate" x="760.0" y="218.0" width="74.0"
+      <Component type="ScriptLabel" id="Label_ChaosRate" x="760.0" y="405.0" width="74.0"
                  height="28.0" fontStyle="Bold" text="Rate" parentComponent="Panel_Movement"
                  editable="0" fontSize="14.0"/>
-      <Component type="ScriptLabel" id="Label_ChaosIntensity" x="883.0" y="217.0"
+      <Component type="ScriptLabel" id="Label_ChaosIntensity" x="883.0" y="405.0"
                  width="74.0" height="28.0" fontStyle="Bold" text="Intensity"
                  parentComponent="Panel_Movement" editable="0" fontSize="14.0"/>
       <Component type="ScriptButton" id="Button_ChaosBypass" x="727.0" y="8.0"
                  parentComponent="Panel_Movement" text="LAFButtonSamplerBypass"
                  width="16.0" height="16.0" isPluginParameter="1" pluginParameterName="ChaosBypass"
                  enableMidiLearn="0" tooltip="Enables the Chaos Engine for automatic Modulation."/>
-      <Component type="ScriptLabel" id="Label_ChaosIntensityValue" x="883.0" y="231.0"
+      <Component type="ScriptLabel" id="Label_ChaosIntensityValue" x="883.0" y="424.0"
                  width="74.0" height="28.0" fontStyle="Regular" text="50%" parentComponent="Panel_Movement"
                  editable="0" fontSize="14.0"/>
       <Component type="ScriptLabel" id="Label_PanelXYTooltipX" x="447.5" y="370.0"
@@ -1795,10 +1795,10 @@
       <Component type="ScriptLabel" id="Label_MovementSettings" x="547.0" y="407.0"
                  width="99.0" height="28.0" fontStyle="Bold" text="Advanced" parentComponent="Panel_Movement"
                  editable="0" fontSize="15.0" enabled="0" visible="0"/>
-      <Component type="ScriptButton" id="Button_ChaosTypeUp" x="928.0" y="82.0"
+      <Component type="ScriptButton" id="Button_ChaosTypeUp" x="928.0" y="32.0"
                  parentComponent="Panel_Movement" width="10.0" height="5.0" text="LAFButtonUpArrow"
                  enableMidiLearn="0" isMomentary="1" saveInPreset="0"/>
-      <Component type="ScriptButton" id="Button_ChaosTypeDown" x="928.0" y="89.0"
+      <Component type="ScriptButton" id="Button_ChaosTypeDown" x="928.0" y="39.0"
                  parentComponent="Panel_Movement" width="10.0" height="5.0" text="LAFButtonDownArrow"
                  enableMidiLearn="0" isMomentary="1" saveInPreset="0"/>
       <Component type="ScriptPanel" id="Panel_MovementSettings" x="60.0" y="40.0"
@@ -1821,6 +1821,27 @@
                  y="1.0" parentComponent="Panel_Movement" text="LAFButtonClose"
                  width="14.0" height="14.0" isMomentary="1" enableMidiLearn="0"
                  saveInPreset="0"/>
+      <Component type="ScriptButton" id="Button_ChaosTypeA" x="817.0" y="67.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="X Drift."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeB" x="851.0" y="116.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Y Drift."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeC" x="783.0" y="116.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Orbit."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeD" x="817.0" y="167.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Circular."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeE" x="783.0" y="216.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Twister."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeF" x="851.0" y="216.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Random Drift."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeG" x="817.0" y="267.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Random Jump."/>
     </Component>
     <Component type="ScriptPanel" id="Panel_Arp" x="0.0" y="0.0" width="990.0"
                height="470.0" parentComponent="Panel_BG" bgColour="3825600006"
@@ -1881,13 +1902,13 @@
                  width="61.0" height="28.0" text="Swing" editable="0" fontStyle="Bold"
                  fontSize="14.0"/>
       <Component type="ScriptLabel" id="Label_ArpStepsValue" x="37.0" y="77.0"
-                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="32"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="16"
                  editable="0" fontSize="14.0"/>
       <Component type="ScriptLabel" id="Label_ArpSpeedValue" x="38.0" y="151.0"
                  parentComponent="Panel_Arp" width="61.0" height="28.0" text="1/16"
                  editable="0" fontSize="14.0"/>
       <Component type="ScriptLabel" id="Label_ArpOctaveValue" x="38.0" y="225.0"
-                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="1"
+                 parentComponent="Panel_Arp" width="61.0" height="28.0" text="0"
                  editable="0" fontSize="14.0"/>
       <Component type="ScriptLabel" id="Label_ArpSwingValue" x="40.0" y="299.0"
                  parentComponent="Panel_Arp" width="61.0" height="28.0" text="0%"

@@ -61,6 +61,14 @@ const var LAFButtonSettingsCogwheel = Content.createLocalLookAndFeel();
 const var LAFButtonOpenShop = Content.createLocalLookAndFeel();
 const var LAFButtonSettings = Content.createLocalLookAndFeel();
 
+const var LAFButtonChaosA = Content.createLocalLookAndFeel();
+const var LAFButtonChaosB = Content.createLocalLookAndFeel();
+const var LAFButtonChaosC = Content.createLocalLookAndFeel();
+const var LAFButtonChaosD = Content.createLocalLookAndFeel();
+const var LAFButtonChaosE = Content.createLocalLookAndFeel();
+const var LAFButtonChaosF = Content.createLocalLookAndFeel();
+const var LAFButtonChaosG = Content.createLocalLookAndFeel();
+
 const var LAFSliderMain = Content.createLocalLookAndFeel();
 const var LAFSliderPan = Content.createLocalLookAndFeel();
 const var LAFSliderOutputGain = Content.createLocalLookAndFeel();
@@ -458,6 +466,72 @@ LAFButtonSettingsCogwheel.registerFunction("drawToggleButton", function(g, obj)
     g.setFont("Arial", 14.0);
     g.drawAlignedText("Connection Settings", obj.area, "centred");    
 });
+
+//Chaos Engine Buttons
+
+LAFButtonChaosA.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    path.loadFromData(pathButtonChaosPolygon);
+    g.fillPath(path, obj.area);
+
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    path.loadFromData(pathButtonChaosTypeA);
+    g.drawPath(path, [8, 16, obj.area[2] - 16, obj.area[3] - 32], 3.0);
+
+});
+
+LAFButtonChaosB.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    path.loadFromData(pathButtonChaosPolygon);
+    g.fillPath(path, obj.area);
+});
+
+LAFButtonChaosC.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    path.loadFromData(pathButtonChaosPolygon);
+    g.fillPath(path, obj.area);
+});
+
+LAFButtonChaosD.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    path.loadFromData(pathButtonChaosPolygon);
+    g.fillPath(path, obj.area);
+});
+
+LAFButtonChaosE.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    path.loadFromData(pathButtonChaosPolygon);
+    g.fillPath(path, obj.area);
+});
+
+LAFButtonChaosF.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    path.loadFromData(pathButtonChaosPolygon);
+    g.fillPath(path, obj.area);
+});
+
+LAFButtonChaosG.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    path.loadFromData(pathButtonChaosPolygon);
+    g.fillPath(path, obj.area);
+});
+
+
+Button_ChaosTypeA.setLocalLookAndFeel(LAFButtonChaosA);
+Button_ChaosTypeB.setLocalLookAndFeel(LAFButtonChaosB);
+Button_ChaosTypeC.setLocalLookAndFeel(LAFButtonChaosC);
+Button_ChaosTypeD.setLocalLookAndFeel(LAFButtonChaosD);
+Button_ChaosTypeE.setLocalLookAndFeel(LAFButtonChaosE);
+Button_ChaosTypeF.setLocalLookAndFeel(LAFButtonChaosF);
+Button_ChaosTypeG.setLocalLookAndFeel(LAFButtonChaosG);
 
 //SLIDERS
 

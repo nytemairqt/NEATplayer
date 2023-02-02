@@ -3,6 +3,15 @@
 //GUI Elements
 
 const var ComboBox_ChaosType = Content.getComponent("ComboBox_ChaosType");
+
+const var Button_ChaosTypeA = Content.getComponent("Button_ChaosTypeA");
+const var Button_ChaosTypeB = Content.getComponent("Button_ChaosTypeB");
+const var Button_ChaosTypeC = Content.getComponent("Button_ChaosTypeC");
+const var Button_ChaosTypeD = Content.getComponent("Button_ChaosTypeD");
+const var Button_ChaosTypeE = Content.getComponent("Button_ChaosTypeE");
+const var Button_ChaosTypeF = Content.getComponent("Button_ChaosTypeF");
+const var Button_ChaosTypeG = Content.getComponent("Button_ChaosTypeG");
+
 const var Slider_MovementChaosIntensity = Content.getComponent("Slider_MovementChaosIntensity");
 const var Slider_MovementChaosRate = Content.getComponent("Slider_MovementChaosRate");
 
@@ -10,6 +19,8 @@ const var Label_ChaosRateValue = Content.getComponent("Label_ChaosRateValue");
 const var Label_ChaosIntensityValue = Content.getComponent("Label_ChaosIntensityValue");
 
 const var chaosTimer = Engine.createTimerObject();
+
+var chaosType = 1;
 
 reg chaosXTarget;
 reg chaosYTarget;
@@ -436,7 +447,8 @@ inline function chaosRandomJump()
 
 chaosTimer.setTimerCallback(function()
 {   
-    switch (ComboBox_ChaosType.getValue())
+    //switch (ComboBox_ChaosType.getValue())
+    switch (chaosType)
     {
         case 1:
             chaosXDrift();
@@ -477,7 +489,8 @@ inline function onButton_ChaosBypassControl(component, value)
 {
     if (value)
     {
-        switch (ComboBox_ChaosType.getValue())
+        //switch (ComboBox_ChaosType.getValue())
+        switch (chaosType)
             {
                 //X Drift
                 case 1:
@@ -550,7 +563,8 @@ inline function onSlider_MovementChaosIntensityControl(component, value)
 {	
 	if (Button_ChaosBypass.getValue())
     {
-        switch (ComboBox_ChaosType.getValue())
+        //switch (ComboBox_ChaosType.getValue())
+        switch (chaosType)
         {
             //X Drift
             case 1:
@@ -608,6 +622,119 @@ inline function onSlider_MovementChaosIntensityControl(component, value)
 
 Content.getComponent("Slider_MovementChaosIntensity").setControlCallback(onSlider_MovementChaosIntensityControl);
 
+//Buttons
+
+
+inline function onButton_ChaosTypeAControl(component, value)
+{ 
+    //X Drift
+    if (value)
+    {
+        chaosType = 1;
+        chaosStage = 1;
+        chaosXTarget = 50 + Slider_MovementChaosIntensity.getValue();
+
+        if (Button_ChaosBypass.getValue())
+            chaosTimer.startTimer(33.3333);   
+    }
+};
+
+Content.getComponent("Button_ChaosTypeA").setControlCallback(onButton_ChaosTypeAControl);
+
+inline function onButton_ChaosTypeBControl(component, value)
+{
+    //Y Drift
+    if (value)
+    {    
+        chaosType = 2;
+        chaosStage = 1;
+        chaosYTarget = 50 + Slider_MovementChaosIntensity.getValue();
+
+        if (Button_ChaosBypass.getValue())
+            chaosTimer.startTimer(33.3333);   
+    }
+};
+
+Content.getComponent("Button_ChaosTypeB").setControlCallback(onButton_ChaosTypeBControl);
+
+inline function onButton_ChaosTypeCControl(component, value)
+{
+    //Orbit
+    if (value)
+    {
+        chaosType = 3;
+        chaosStage = 1;
+        chaosXTarget = 50 + Slider_MovementChaosIntensity.getValue();
+        Slider_MovementXInvisible.setValue(50 - Slider_MovementChaosIntensity.getValue());
+        Slider_MovementYInvisible.setValue(50 + Slider_MovementChaosIntensity.getValue());
+
+        if (Button_ChaosBypass.getValue())
+            chaosTimer.startTimer(33.3333); 
+    }  
+};
+
+Content.getComponent("Button_ChaosTypeC").setControlCallback(onButton_ChaosTypeCControl);
+
+inline function onButton_ChaosTypeDControl(component, value)
+{
+    //Circular
+    if (value)
+    {
+        chaosType = 4;
+        chaosStage = 1;
+
+        if (Button_ChaosBypass.getValue())
+            chaosTimer.startTimer(33.3333);   
+    }
+};
+
+Content.getComponent("Button_ChaosTypeD").setControlCallback(onButton_ChaosTypeDControl);
+
+inline function onButton_ChaosTypeEControl(component, value)
+{
+    //Twister
+    if (value)
+    {
+        chaosType = 5;
+        chaosStage = 1;
+        chaosStageTwister = 1;
+
+        if (Button_ChaosBypass.getValue())
+            chaosTimer.startTimer(33.3333);   
+    }
+};
+
+Content.getComponent("Button_ChaosTypeE").setControlCallback(onButton_ChaosTypeEControl);
+
+inline function onButton_ChaosTypeFControl(component, value)
+{
+    //Random Drift
+    if (value)
+    {    
+        chaosType = 6;
+        chaosStage = 1;
+
+        if (Button_ChaosBypass.getValue())
+            chaosTimer.startTimer(33.3333);   
+    }
+};
+
+Content.getComponent("Button_ChaosTypeF").setControlCallback(onButton_ChaosTypeFControl);
+
+inline function onButton_ChaosTypeGControl(component, value)
+{
+    //Random Jump
+    if (value)
+    {    
+        chaosType = 7;
+        chaosStage = 1;
+
+        if (Button_ChaosBypass.getValue())
+            chaosTimer.startTimer(33.3333);   
+    }
+};
+
+Content.getComponent("Button_ChaosTypeG").setControlCallback(onButton_ChaosTypeGControl);
 
 
 inline function onComboBox_ChaosTypeControl(component, value)

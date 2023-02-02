@@ -250,7 +250,7 @@
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A1" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeADSRAttack4" value="0.0"/>
             <Control type="ScriptPanel" id="Panel_MovementXYPad" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_ChaosType" value="1.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_ChaosType" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_MovementXInvisible" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_MovementYInvisible" value="50.0"/>
             <Control type="ScriptSlider" id="Slider_MovementChaosIntensity" value="25.0"/>
@@ -264,15 +264,22 @@
             <Control type="ScriptSlider" id="Slider_MovementEnvBDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBSustain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_MovementEnvBRelease" value="1000.0"/>
+            <Control type="ScriptButton" id="Button_ChaosTypeA" value="1.0"/>
+            <Control type="ScriptButton" id="Button_ChaosTypeB" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ChaosTypeC" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ChaosTypeD" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ChaosTypeE" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ChaosTypeF" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ChaosTypeG" value="0.0"/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="-1.0"
-                     data="128....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD"/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="31.0"
-                     data="128....3.A....D...RP...n.A...AD...NP...3.A...AD...TP....AA..fCD........P.A.........P...3.A........JP...P.A....D........3.A...AD...TP...n.A..fDD...RP...PAA..fCD........HAA...DD"/>
+                     data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
+            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="-1.0"
+                     data="64......................................................................................."/>
             <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1.0"
-                     data="128....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD"/>
-            <Control type="ScriptSlider" id="Slider_ArpSteps" value="32.0"/>
+                     data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
+            <Control type="ScriptSlider" id="Slider_ArpSteps" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
-            <Control type="ScriptSlider" id="Slider_ArpOctave" value="1.0"/>
+            <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
             <Control type="ScriptButton" id="Button_ArpBypass" value="1.0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="0.0"/>
@@ -304,18 +311,18 @@
           <Content>
             <Control type="ScriptButton" id="BypassButton" value="0.0"/>
             <Control type="ScriptButton" id="ResetButton" value="0.0"/>
-            <Control type="ScriptSlider" id="NumStepSlider" value="32.0"/>
+            <Control type="ScriptSlider" id="NumStepSlider" value="16.0"/>
             <Control type="ScriptSlider" id="StepReset" value="0.0"/>
             <Control type="ScriptSlider" id="StepSkipSlider" value="1.0"/>
             <Control type="ScriptButton" id="SortKeysButton" value="1.0"/>
             <Control type="ScriptSlider" id="SpeedKnob" value="11.0"/>
             <Control type="ScriptComboBox" id="SequenceComboBox" value="0.0"/>
-            <Control type="ScriptSlider" id="OctaveRange" value="1.0"/>
+            <Control type="ScriptSlider" id="OctaveRange" value="0.0"/>
             <Control type="ScriptSlider" id="Shuffle" value="0.0"/>
             <Control type="ScriptButton" id="EnableTie" value="1.0"/>
-            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="128....3.A....D...RP...n.A...AD...NP...3.A...AD...TP....AA..fCD........P.A.........P...3.A........JP...P.A....D........3.A...AD...TP...n.A..fDD...RP...PAA..fCD........HAA...DD"/>
-            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="128....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD"/>
-            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="128....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD"/>
+            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="64......................................................................................."/>
+            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
+            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
             <Control type="ScriptComboBox" id="ChannelSelector" value="2.0"/>
             <Control type="ScriptComboBox" id="OutputChannelSelector" value="1.0"/>
             <Control type="ScriptComboBox" id="MPEStartChannel" value="1.0"/>
@@ -1024,10 +1031,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="0.0" midi_cc="-1"/>
-    <macro name="Env B" value="0.0" midi_cc="-1"/>
-    <macro name="Velocity" value="110.0" midi_cc="-1"/>
-    <macro name="Random" value="107.4735488891602" midi_cc="-1"/>
+    <macro name="Env A" value="127.0" midi_cc="-1"/>
+    <macro name="Env B" value="127.0" midi_cc="-1"/>
+    <macro name="Velocity" value="127.0" midi_cc="-1"/>
+    <macro name="Random" value="127.0" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
