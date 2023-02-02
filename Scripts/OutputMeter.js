@@ -6,7 +6,7 @@
 const var LEVELING_UNIT = Synth.getEffect("Simple Gain1");
 const var SimpleGain1 = Synth.getEffect("Simple Gain1");
 
-const var LEVELING_Container = Content.addPanel("LEVELING_Container", 320, 5);
+const var LEVELING_Container = Content.addPanel("LEVELING_Container", 116, 7);
 
 Content.setPropertiesFromJSON("LEVELING_Container", {
    "width": 100,
@@ -36,7 +36,7 @@ namespace VuMeter
 		local widget = Content.addPanel(name, x, y);
     
 		Content.setPropertiesFromJSON(name, {
-		"width": 160,
+		"width": 250,
 		"height": 16,
 		"itemColour": 0x00FFFFFF,
 		"itemColour2": 0x00FFFFFF,
@@ -55,11 +55,8 @@ namespace VuMeter
 		{		
 			g.fillAll(this.get("bgColour"));
 			
-			g.setColour(Colours.withAlpha(Colours.darkgrey, .4));
+			g.setColour(Colours.withAlpha(Colours.darkgrey, .7));
 			g.fillRoundedRectangle([0, 0, this.getWidth() * Slider_OutputGain.getValue(), this.getHeight()], 0.0);
-			
-			g.setColour(Colours.white);
-			g.drawRoundedRectangle([this.getGlobalPositionX(), this.getGlobalPositionY(), this.getWidth(), this.getHeight()], 2.0, 2.0);
 
 			g.setColour(Colours.lightblue);
     	
@@ -107,10 +104,10 @@ const var OutputGain = Synth.getEffect("OutputGain");
 
 inline function positionOutputSliderContainer()
 {
-	local x = 300;
-	local y = 9;
-	local w = 160;
-	local h = 16;
+	local x = 360;
+	local y = 7;
+	local w = 250;
+	local h = 20;
 
 	outputSliderContainer.setPosition(x, y, w, h);
 }

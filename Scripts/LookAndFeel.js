@@ -52,6 +52,7 @@ const var LAFButtonAppData = Content.createLocalLookAndFeel();
 const var LAFButtonUpArrow = Content.createLocalLookAndFeel();
 const var LAFButtonDownArrow = Content.createLocalLookAndFeel();
 const var LAFButtonPresetBrowser = Content.createLocalLookAndFeel();
+const var LAFButtonAddLibrary = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerBypass = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerShowADSR = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerLoop = Content.createLocalLookAndFeel();
@@ -104,6 +105,16 @@ LAFButtonSettings.registerFunction("drawToggleButton", function(g, obj)
     g.fillPath(path, [2, 2, obj.area[2] - 4, obj.area[3] - 4]); 
 });
 
+//Add Library Button
+
+LAFButtonAddLibrary.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    g.drawLine(obj.area[2] / 2, obj.area[2] / 2, 4, obj.area[3] - 4, 3.0); //Vertical
+    g.drawLine(4, obj.area[2] - 4, obj.area[3] / 2, obj.area[3] / 2, 3.0); //Horizontal
+});
+
 //Preset Browser Button
 
 LAFButtonPresetBrowser.registerFunction("drawToggleButton", function(g, obj)
@@ -147,15 +158,15 @@ LAFButtonBypass.registerFunction("drawToggleButton", function(g, obj)
 
 LAFButtonOpenShop.registerFunction("drawToggleButton", function(g, obj)
 {
-    g.setColour(Colours.withAlpha(Colours.black, .4));
-    g.fillRoundedRectangle(obj.area, 6.0);
-    g.setColour(Colours.withAlpha(Colours.white, .95));    
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     path.loadFromData(pathButtonOpenShop);
-    g.drawPath(path, [8, 8, obj.area[2] - 16, obj.area[3] - 16], 2.0);
-    g.setFont("Arial Bold", 6.0);
-    g.drawAlignedText("S H O P", [obj.area[2] / 2 - 18 , 6, 36, 8], "centred");
-    g.setColour(obj.over ? Colours.withAlpha(Colours.white, .15) : Colours.withAlpha(Colours.white, .0));
-    g.fillRoundedRectangle(obj.area, 2.0);
+    g.drawPath(path, [2, 4, obj.area[2] - 4, obj.area[3] - 10], 2.0);
+    g.fillEllipse([6, obj.area[3] - 5, 5, 5]);
+    g.fillEllipse([16, obj.area[3] - 5, 5, 5]);
+
+    //g.drawPath(path, [8, 8, obj.area[2] - 16, obj.area[3] - 16], 2.0);
+    //g.setFont("Arial Bold", 6.0);
+    //g.drawAlignedText("S H O P", [obj.area[2] / 2 - 18 , 6, 36, 8], "centred");
 });
 
 //FX Settings Button
@@ -359,11 +370,11 @@ LAFButtonAppData.registerFunction("drawToggleButton", function(g, obj)
 	g.setColour(obj.over ? Colours.lightgrey : Colours.grey);
     path.clear();
     path.loadFromData(openAppDataFolderButtonFillDataBack);
-    g.fillPath(path, [obj.area[0] + 2, 1, obj.area[2] - 4, obj.area[3] - 8]);
+    g.fillPath(path, [obj.area[0] + 2, 2, obj.area[2] - 3, obj.area[3] - 7]);
     path.clear();
     g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     path.loadFromData(openAppDataFolderButtonFillDataFront);
-    g.fillPath(path, [obj.area[0] + 2, 7, obj.area[2] - 4, obj.area[3] - 10]); 
+    g.fillPath(path, [obj.area[0] + 2, 8, obj.area[2] - 3, obj.area[3] - 9]); 
 });
 
 //Up Arrow Button
@@ -516,16 +527,14 @@ LAFSliderOutputGain.registerFunction("drawRotarySlider", function(g, obj)
     
     if (obj.clicked)
     {
-		g.setColour(Colours.withAlpha(Colours.black, .3));
-		g.fillRoundedRectangle([obj.area[0], obj.area[1], obj.area[2], obj.area[3]], 2.0);
 		g.setColour(Colours.white);
 
 		g.setFont("Arial", 12);
 		g.drawAlignedText(Engine.doubleToString(Engine.getDecibelsForGainFactor(obj.valueNormalized), 2) + " dB", [obj.area[0], obj.area[1], obj.area[2], obj.area[3]], "centred");
-    }
-    
-    g.setColour(obj.hover ? Colours.withAlpha(Colours.lightgrey, 1.0) : Colours.withAlpha(Colours.lightgrey, 0.6));
-    g.drawRoundedRectangle(obj.area, 2.0, .6);
+    }    
+
+    g.setColour(obj.hover ? Colours.withAlpha(Colours.lightgrey, 0.3) : Colours.withAlpha(Colours.lightgrey, 0.0));
+    g.fillRoundedRectangle(obj.area, 2.0);
 });
 
 //PDQ Bass Velocity Slider
@@ -596,7 +605,7 @@ Button_InstallLibrary.setLocalLookAndFeel(LAFButtonInstallLibrary);
 Button_BulkInstall.setLocalLookAndFeel(LAFButtonBulkInstall);
 
 Button_CustomSettings.setLocalLookAndFeel(LAFButtonSettings);
-Button_AddLibrary.setLocalLookAndFeel(LAFButtonSetup);
+Button_AddLibrary.setLocalLookAndFeel(LAFButtonAddLibrary);
 Button_OpenPresetBrowser.setLocalLookAndFeel(LAFButtonPresetBrowser);
 
 Button_OpenAppData.setLocalLookAndFeel(LAFButtonAppData);
