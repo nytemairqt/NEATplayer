@@ -51,12 +51,14 @@ const var LAFArpMajorButton = Content.createLocalLookAndFeel();
 const var LAFButtonAppData = Content.createLocalLookAndFeel();
 const var LAFButtonUpArrow = Content.createLocalLookAndFeel();
 const var LAFButtonDownArrow = Content.createLocalLookAndFeel();
+const var LAFButtonPresetBrowser = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerBypass = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerShowADSR = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerLoop = Content.createLocalLookAndFeel();
 const var LAFButtonSamplerReverse = Content.createLocalLookAndFeel();
 const var LAFButtonSettingsCogwheel = Content.createLocalLookAndFeel();
 const var LAFButtonOpenShop = Content.createLocalLookAndFeel();
+const var LAFButtonSettings = Content.createLocalLookAndFeel();
 
 const var LAFSliderMain = Content.createLocalLookAndFeel();
 const var LAFSliderPan = Content.createLocalLookAndFeel();
@@ -89,6 +91,31 @@ LAFButtonRandomize.registerFunction("drawToggleButton", function(g, obj)
     	g.setColour(obj.over ? Colours.grey : Colours.darkgrey);
     g.setFont("Arial", 10);
     g.drawAlignedText("R", obj.area, "centred");
+});
+
+//Settings Button
+
+LAFButtonSettings.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+    path.loadFromData(settingsCogExtras);
+
+    g.drawEllipse([6, 6, obj.area[2] - 12, obj.area[3] - 12], 3.5);
+    g.fillPath(path, [2, 2, obj.area[2] - 4, obj.area[3] - 4]); 
+});
+
+//Preset Browser Button
+
+LAFButtonPresetBrowser.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    path.loadFromData(presetBrowserButton);
+    g.drawPath(path, [4, 2, obj.area[2] - 8, obj.area[3] - 4], 2.0);
+
+    g.drawLine(8, obj.area[2] - 10, 8, 8, 1.5);
+    g.drawLine(8, obj.area[2] - 8, 12, 12, 1.5);
+    g.drawLine(8, obj.area[2] - 8, 16, 16, 1.5);
 });
 
 //Update Button
@@ -332,11 +359,11 @@ LAFButtonAppData.registerFunction("drawToggleButton", function(g, obj)
 	g.setColour(obj.over ? Colours.lightgrey : Colours.grey);
     path.clear();
     path.loadFromData(openAppDataFolderButtonFillDataBack);
-    g.fillPath(path, [obj.area[0], obj.area[1], obj.area[2] - 6, obj.area[3] - 6]);
+    g.fillPath(path, [obj.area[0] + 2, 1, obj.area[2] - 4, obj.area[3] - 8]);
     path.clear();
     g.setColour(obj.over ? Colours.white : Colours.lightgrey);
     path.loadFromData(openAppDataFolderButtonFillDataFront);
-    g.fillPath(path, [obj.area[0], obj.area[1] + 6, obj.area[2] - 6, obj.area[3] - 8]); 
+    g.fillPath(path, [obj.area[0] + 2, 7, obj.area[2] - 4, obj.area[3] - 10]); 
 });
 
 //Up Arrow Button
@@ -568,9 +595,9 @@ Button_MoveDisplay.setLocalLookAndFeel(LAFButtonChangePage);
 Button_InstallLibrary.setLocalLookAndFeel(LAFButtonInstallLibrary);
 Button_BulkInstall.setLocalLookAndFeel(LAFButtonBulkInstall);
 
-Button_CustomSettings.setLocalLookAndFeel(LAFButtonSetup);
+Button_CustomSettings.setLocalLookAndFeel(LAFButtonSettings);
 Button_AddLibrary.setLocalLookAndFeel(LAFButtonSetup);
-Button_OpenPresetBrowser.setLocalLookAndFeel(LAFButtonSetup);
+Button_OpenPresetBrowser.setLocalLookAndFeel(LAFButtonPresetBrowser);
 
 Button_OpenAppData.setLocalLookAndFeel(LAFButtonAppData);
 

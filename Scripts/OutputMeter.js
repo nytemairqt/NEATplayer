@@ -107,7 +107,7 @@ const var OutputGain = Synth.getEffect("OutputGain");
 
 inline function positionOutputSliderContainer()
 {
-	local x = Button_OpenAppData.getGlobalPositionX() + Button_OpenAppData.getWidth() + padding;
+	local x = 300;
 	local y = 9;
 	local w = 160;
 	local h = 16;
