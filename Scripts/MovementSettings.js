@@ -27,9 +27,6 @@ const var Label_MovementEnvelopeTitle = Content.getComponent("Label_MovementEnve
 const var Label_MovementTitle = Content.getComponent("Label_MovementTitle");
 const var Label_MovementChaosTitle = Content.getComponent("Label_MovementChaosTitle");
 
-const var Button_ChaosTypeUp = Content.getComponent("Button_ChaosTypeUp");
-const var Button_ChaosTypeDown = Content.getComponent("Button_ChaosTypeDown");
-
 //Advanced Connections
 
 const var Button_MovementSettings = Content.getComponent("Button_MovementSettings");

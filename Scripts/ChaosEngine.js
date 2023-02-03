@@ -2,8 +2,6 @@
 
 //GUI Elements
 
-const var ComboBox_ChaosType = Content.getComponent("ComboBox_ChaosType");
-
 const var Button_ChaosTypeA = Content.getComponent("Button_ChaosTypeA");
 const var Button_ChaosTypeB = Content.getComponent("Button_ChaosTypeB");
 const var Button_ChaosTypeC = Content.getComponent("Button_ChaosTypeC");
@@ -447,7 +445,6 @@ inline function chaosRandomJump()
 
 chaosTimer.setTimerCallback(function()
 {   
-    //switch (ComboBox_ChaosType.getValue())
     switch (chaosType)
     {
         case 1:
@@ -489,7 +486,6 @@ inline function onButton_ChaosBypassControl(component, value)
 {
     if (value)
     {
-        //switch (ComboBox_ChaosType.getValue())
         switch (chaosType)
             {
                 //X Drift
@@ -563,7 +559,6 @@ inline function onSlider_MovementChaosIntensityControl(component, value)
 {	
 	if (Button_ChaosBypass.getValue())
     {
-        //switch (ComboBox_ChaosType.getValue())
         switch (chaosType)
         {
             //X Drift
@@ -735,88 +730,3 @@ inline function onButton_ChaosTypeGControl(component, value)
 };
 
 Content.getComponent("Button_ChaosTypeG").setControlCallback(onButton_ChaosTypeGControl);
-
-
-inline function onComboBox_ChaosTypeControl(component, value)
-{
-    switch (value)
-    {
-        //X Drift
-        case 1:
-            chaosStage = 1;
-            chaosXTarget = 50 + Slider_MovementChaosIntensity.getValue();
-        break;
-        
-        
-    //Y Drift
-        case 2:
-            chaosStage = 1;
-            chaosYTarget = 50 + Slider_MovementChaosIntensity.getValue();
-        break;
-        
-        //Orbit
-        case 3:
-            chaosStage = 1;
-            chaosXTarget = 50 + Slider_MovementChaosIntensity.getValue();
-            Slider_MovementXInvisible.setValue(50 - Slider_MovementChaosIntensity.getValue());
-            Slider_MovementYInvisible.setValue(50 + Slider_MovementChaosIntensity.getValue());
-        break;
-            
-        //Circular
-            
-        case 4:
-            chaosStage = 1;
-        break;
-            
-        //Twister
-            
-        case 5:
-            chaosStage = 1;
-            chaosStageTwister = 1;
-        break;
-            
-        //Random Drift
-            
-        case 6:
-            chaosStage = 1;
-        break;
-            
-        //Random Jump
-            
-        case 7:
-            chaosStage = 1;
-        break;
-    }
-             
-	if (Button_ChaosBypass.getValue())
-	    chaosTimer.startTimer(33.3333);   	   
-};
-
-Content.getComponent("ComboBox_ChaosType").setControlCallback(onComboBox_ChaosTypeControl);
-
-//Up Down Buttons
-
-
-inline function onButton_ChaosTypeUpControl(component, value)
-{
-	if (value)
-	    if (ComboBox_ChaosType.getValue() > ComboBox_ChaosType.get("min"))
-	        ComboBox_ChaosType.setValue(ComboBox_ChaosType.getValue() - 1);
-	    else
-	        ComboBox_ChaosType.setValue(ComboBox_ChaosType.get("max"));
-    ComboBox_ChaosType.changed();
-};
-
-Content.getComponent("Button_ChaosTypeUp").setControlCallback(onButton_ChaosTypeUpControl);
-
-inline function onButton_ChaosTypeDownControl(component, value)
-{
-	if (value)
-	    if (ComboBox_ChaosType.getValue() < ComboBox_ChaosType.get("max"))
-	        ComboBox_ChaosType.setValue(ComboBox_ChaosType.getValue() + 1);
-	    else
-	        ComboBox_ChaosType.setValue(ComboBox_ChaosType.get("min"));
-    ComboBox_ChaosType.changed();
-};
-
-Content.getComponent("Button_ChaosTypeDown").setControlCallback(onButton_ChaosTypeDownControl);

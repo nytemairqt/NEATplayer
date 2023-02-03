@@ -472,56 +472,113 @@ LAFButtonSettingsCogwheel.registerFunction("drawToggleButton", function(g, obj)
 LAFButtonChaosA.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+
+    if (obj.value)
+        g.setColour(Colours.withAlpha(Colours.white, 0.15));
     path.loadFromData(pathButtonChaosPolygon);
     g.fillPath(path, obj.area);
 
     g.setColour(obj.over ? Colours.white : Colours.lightgrey);
 
     path.loadFromData(pathButtonChaosTypeA);
-    g.drawPath(path, [8, 16, obj.area[2] - 16, obj.area[3] - 32], 3.0);
+    g.drawPath(path, [8, 16, obj.area[2] - 16, obj.area[3] - 32], 2.0);
+
+
 
 });
 
 LAFButtonChaosB.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    if (obj.value)
+        g.setColour(Colours.withAlpha(Colours.white, 0.15));
     path.loadFromData(pathButtonChaosPolygon);
     g.fillPath(path, obj.area);
+
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    path.loadFromData(pathButtonChaosTypeB);
+    g.drawPath(path, [12, 12, obj.area[2] - 24, obj.area[3] - 24], 2.0);
 });
 
 LAFButtonChaosC.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    if (obj.value)
+        g.setColour(Colours.withAlpha(Colours.white, 0.15));
     path.loadFromData(pathButtonChaosPolygon);
     g.fillPath(path, obj.area);
+
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    g.drawLine(20, 20, obj.area[3] - 26, 20, 2.0);
+    g.drawLine(20, obj.area[2] - 20, 20, 20, 2.0);
+    g.drawLine(obj.area[2] - 20, obj.area[2] - 20, 20, obj.area[3] - 20, 2.0);
+    g.drawLine(obj.area[2] - 20, 26, obj.area[3] - 20, obj.area[3] - 20, 2.0);
+    g.fillTriangle([22, obj.area[3] - 25, 10, 10], Math.toRadians(270));
 });
 
 LAFButtonChaosD.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    if (obj.value)
+        g.setColour(Colours.withAlpha(Colours.white, 0.15));
     path.loadFromData(pathButtonChaosPolygon);
     g.fillPath(path, obj.area);
+
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+    path.loadFromData(pathButtonChaosTypeD);
+    g.drawPath(path, [19, 19, obj.area[2] - 38, obj.area[3] - 38], 2.0);
+    g.fillTriangle([22, obj.area[3] - 25, 10, 10], Math.toRadians(270));
 });
 
 LAFButtonChaosE.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    if (obj.value)
+        g.setColour(Colours.withAlpha(Colours.white, 0.15));
     path.loadFromData(pathButtonChaosPolygon);
     g.fillPath(path, obj.area);
+
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    path.loadFromData(pathButtonChaosTypeE);
+    g.drawPath(path, [15, 15, obj.area[2] - 30, obj.area[3] - 30], 2.0);
 });
 
 LAFButtonChaosF.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    if (obj.value)
+        g.setColour(Colours.withAlpha(Colours.white, 0.15));
     path.loadFromData(pathButtonChaosPolygon);
     g.fillPath(path, obj.area);
+
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    path.loadFromData(pathButtonChaosTypeF);
+
+    g.drawPath(path, [17, 17, obj.area[2] - 34, obj.area[3] - 34], 2.0);
+    g.fillTriangle([12, 12, 8, 8], Math.toRadians(277));
+    g.fillTriangle([36, 38, 8, 8], Math.toRadians(100));
+
 });
 
 LAFButtonChaosG.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.withAlpha(Colours.white, 0.08) : Colours.withAlpha(Colours.white, 0.05));
+    if (obj.value)
+        g.setColour(Colours.withAlpha(Colours.white, 0.15));
     path.loadFromData(pathButtonChaosPolygon);
     g.fillPath(path, obj.area);
+
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    path.loadFromData(pathButtonChaosTypeG);
+
+    g.drawPath(path, [17, 17, obj.area[2] - 34, obj.area[3] - 34], 2.0);
+    g.fillTriangle([12, 12, 8, 8], Math.toRadians(277));
+    g.fillTriangle([36, 38, 8, 8], Math.toRadians(100));
 });
 
 
@@ -788,9 +845,6 @@ for (r in randomizationButtonsArp)
 
 Button_ChaosBypass.setLocalLookAndFeel(LAFButtonSamplerBypass);
 Button_MovementSettings.setLocalLookAndFeel(LAFButtonSettingsCogwheel);
-
-Button_ChaosTypeUp.setLocalLookAndFeel(LAFButtonUpArrow);
-Button_ChaosTypeDown.setLocalLookAndFeel(LAFButtonDownArrow);
 
 Button_MovementSettingsClose.setLocalLookAndFeel(LAFButtonClose);
 
