@@ -707,8 +707,6 @@ LAFSliderMovementY.registerFunction("drawRotarySlider", function(g, obj)
 
 LAFSliderSampleOffset.registerFunction("drawRotarySlider", function(g, obj)
 {
-    g.setColour(Colours.grey);
-    g.drawRoundedRectangle(obj.area, 2.0, 1.0);
     g.setColour(Colours.lightblue);
     if (obj.hover)
     {

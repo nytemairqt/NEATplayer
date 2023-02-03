@@ -32,7 +32,7 @@
   <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="990.0"
              height="470.0" borderRadius="0.0" borderSize="0.0">
     <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
-               text="Image" width="990.0" height="470.0" fileName="{EXP::Bloom}background.jpg"
+               text="Image" width="990.0" height="470.0" fileName="{EXP::Aetheric}background.jpg"
                alpha="0.0"/>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
                parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"
@@ -1069,8 +1069,8 @@
                  parentComponent="Panel_Sample" fontSize="12.0" visible="0"/>
       <Component type="ScriptAudioWaveform" id="AudioWaveform_SamplerA" x="10.0"
                  y="75.0" parentComponent="Panel_Sample" width="311.0" height="110.0"
-                 processorId="SamplerA" bgColour="4278584838" itemColour="2731725522"
-                 enableRange="0" showLines="1"/>
+                 processorId="SamplerA" bgColour="3205500944" itemColour="0" enableRange="0"
+                 textColour="4737096" itemColour3="16777215" itemColour2="4292861919"/>
       <Component type="ScriptSlider" id="Slider_SampleOffsetA" x="10.0" y="75.0"
                  parentComponent="Panel_Sample" width="311.0" height="110.0" text="LAFSliderOracleSampleOffset"
                  dragDirection="Horizontal" itemColour="4294901502" bgColour="4294967295"
@@ -1251,8 +1251,8 @@
                  numStrips="127.0" stepSize="1.0" defaultValue="1000.0" tooltip="Adjusts the Release value of this Sampler's ADSR."/>
       <Component type="ScriptAudioWaveform" id="AudioWaveform_SamplerB" x="341.0"
                  y="75.0" parentComponent="Panel_Sample" width="311.0" height="110.0"
-                 processorId="SamplerB" bgColour="4278584838" itemColour="2731725522"
-                 enableRange="0" showLines="1"/>
+                 processorId="SamplerB" bgColour="3205500944" itemColour="0" enableRange="0"
+                 itemColour2="4292861919" textColour="4737096"/>
       <Component type="ScriptSlider" id="Slider_SampleOffsetB" x="341.0" y="75.0"
                  parentComponent="Panel_Sample" width="311.0" height="110.0" text="LAFSliderOracleSampleOffset"
                  dragDirection="Horizontal" itemColour="4294901502" bgColour="4294967295"
@@ -1368,8 +1368,8 @@
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" x="672.0"
                  y="75.0" parentComponent="Panel_Sample" width="311.0" height="110.0"
-                 showLines="1" processorId="SamplerC" bgColour="4278584838" itemColour="2731725522"
-                 enableRange="0"/>
+                 processorId="SamplerC" bgColour="3205500944" itemColour="0" enableRange="0"
+                 itemColour2="4292861919" textColour="4737096"/>
       <Component type="ScriptFloatingTile" id="AHDSR_SamplerC" x="672.0" y="75.0"
                  parentComponent="Panel_Sample" ContentType="AHDSRGraph" bgColour="0"
                  itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerC_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
@@ -1562,17 +1562,20 @@
                  isMomentary="1" saveInPreset="0" enableMidiLearn="0"/>
       <Component type="ScriptPanel" id="Panel_SamplerALoopDisplay" x="10.0" y="75.0"
                  parentComponent="Panel_Sample" width="311.0" height="110.0" holdIsRightClick="0"
-                 popupOnRightClick="0" enabled="0"/>
+                 popupOnRightClick="0" enabled="0" bgColour="16777215" itemColour="16777215"
+                 textColour="16777215" itemColour2="16777215"/>
       <Component type="ScriptPanel" id="Panel_SamplerBLoopDisplay" x="341.0" y="75.0"
                  parentComponent="Panel_Sample" width="311.0" height="110.0" popupOnRightClick="0"
-                 holdIsRightClick="0" enabled="0"/>
+                 holdIsRightClick="0" enabled="0" bgColour="16777215" itemColour="16777215"
+                 itemColour2="16777215" textColour="16777215"/>
       <Component type="ScriptPanel" id="Panel_SamplerCLoopDisplay" x="672.0" y="75.0"
                  parentComponent="Panel_Sample" width="311.0" height="110.0" enabled="0"
-                 popupOnRightClick="0" holdIsRightClick="0"/>
+                 popupOnRightClick="0" holdIsRightClick="0" bgColour="16777215"
+                 itemColour="16777215" itemColour2="16777215" textColour="16777215"/>
     </Component>
     <Component type="ScriptPanel" id="Panel_Movement" x="0.0" y="0.0" width="994.0"
                height="474.0" parentComponent="Panel_BG" bgColour="3825600006"
-               itemColour="2583691264" itemColour2="2583691264" text="*">
+               itemColour="2583691264" itemColour2="2583691264" text="*" visible="0">
       <Component type="ScriptLabel" id="Label_MovementTitle" x="348.0" y="0.0"
                  width="298.0" height="28.0" fontStyle="Bold" text="MOVEMENT"
                  parentComponent="Panel_Movement" editable="0"/>
