@@ -79,6 +79,8 @@ const var LAFSliderSampleOffset = Content.createLocalLookAndFeel();
 const var LAFSliderPackArpNotes = Content.createLocalLookAndFeel();
 const var LAFSliderPackArpOther = Content.createLocalLookAndFeel();
 
+const var LAFComboBoxSampler = Content.createLocalLookAndFeel();
+
 const var LAFPresetBrowser = Content.createLocalLookAndFeel();
 
 //Setup Image Loading
@@ -419,39 +421,31 @@ LAFButtonSamplerBypass.registerFunction("drawToggleButton", function(g, obj)
 
 LAFButtonSamplerShowADSR.registerFunction("drawToggleButton", function(g, obj)
 {
-    g.setColour(0xFB111111);
+
+    g.setColour(Colours.withAlpha(Colours.white, 0.04));
     g.fillRoundedRectangle(obj.area, 2.0);
-    g.setColour(Colours.white);
-    g.setFont("Arial", 8);
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 1.0) : Colours.withAlpha(Colours.white, 0.8));
+
+    g.setFont("Arial Bold", 14.0);
+
     if (obj.value)
-    	g.drawAlignedText("WAVE", reduced(obj, 0.5), "centred");
-    else 
-    	g.drawAlignedText("ADSR", reduced(obj, 0.5), "centred");
-    g.setColour(obj.over ? Colours.withAlpha(Colours.black, 0.05) : Colours.withAlpha(Colours.black, 0.00));
-    g.fillRoundedRectangle(obj.area, 2.0);    
-    g.setColour(Colours.lightgrey);
-    g.drawRoundedRectangle(obj.area, 2.0, 1.0);    
+        g.drawAlignedText("WAVE", obj.area, "centred");
+    else
+        g.drawAlignedText("ADSR", obj.area, "centred");
 });
 
 //Sampler Reverse Button
 
 LAFButtonSamplerReverse.registerFunction("drawToggleButton", function(g, obj)
 {
+    g.setColour(Colours.withAlpha(Colours.white, 0.04));
+    g.fillRoundedRectangle(obj.area, 2.0);
+    g.setColour(obj.over ? Colours.withAlpha(Colours.white, 1.0) : Colours.withAlpha(Colours.white, 0.8));
     if (obj.value)
-    {
-		g.setColour(obj.over ? Colours.white : Colours.lightgrey);
-		g.drawRoundedRectangle(obj.area, 2.0, .5);
-        g.setColour(Colours.withAlpha(Colours.lightblue, 0.2));
-        g.fillRoundedRectangle(obj.area, 2.0);
-    }
-    else
-    {
-		g.setColour(obj.over ? Colours.grey : Colours.darkgrey);
-		g.drawRoundedRectangle(obj.area, 2.0, .5);
-    }
-    g.setColour(Colours.white);
-    g.setFont("Arial", 9.0);
-    g.drawAlignedText("REV", obj.area, "centred");      
+        g.setColour(Colours.lightblue);
+
+    g.setFont("Arial Bold", 14.0);
+    g.drawAlignedText("REV", obj.area, "centred");
 });
 
 //Settings Cogwheel Button
@@ -1210,3 +1204,18 @@ LAFSliderPackArpOther.registerFunction("drawLinearSlider", function(g, obj)
     g.setColour(Colours.withAlpha(Colours.white, .8));
     g.drawRoundedRectangle([0, obj.area[1] + obj.area[3] * (1.0 - obj.valueNormalized), obj.area[2], obj.area[3]], 2.0, 2.0);
 });
+
+//ComboBoxes
+
+LAFComboBoxSampler.registerFunction("drawComboBox", function(g, obj)
+{
+    g.setColour(obj.hover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .05));
+    g.fillRoundedRectangle(obj.area, 2.0);
+
+
+});
+
+
+ComboBox_SamplerA.setLocalLookAndFeel(LAFComboBoxSampler);
+ComboBox_SamplerB.setLocalLookAndFeel(LAFComboBoxSampler);
+ComboBox_SamplerC.setLocalLookAndFeel(LAFComboBoxSampler);
