@@ -1572,7 +1572,7 @@
     </Component>
     <Component type="ScriptPanel" id="Panel_Movement" x="0.0" y="0.0" width="994.0"
                height="474.0" parentComponent="Panel_BG" bgColour="3825600006"
-               itemColour="2583691264" itemColour2="2583691264" text="*" visible="0">
+               itemColour="2583691264" itemColour2="2583691264" text="*">
       <Component type="ScriptLabel" id="Label_MovementTitle" x="348.0" y="0.0"
                  width="298.0" height="28.0" fontStyle="Bold" text="MOVEMENT"
                  parentComponent="Panel_Movement" editable="0"/>
@@ -1789,6 +1789,27 @@
                  parentComponent="Panel_Movement" text="LAFButtonSettingsCogwheel"
                  width="170.0" height="30.0" saveInPreset="0" enableMidiLearn="0"
                  tooltip="Opens the Advanced Movement panel."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeA" x="821.0" y="56.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="X Drift."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeB" x="787.0" y="105.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Y Drift."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeC" x="855.0" y="105.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Orbit."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeD" x="821.0" y="154.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Circular."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeE" x="787.0" y="203.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Twister."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeF" x="855.0" y="203.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Random Drift."/>
+      <Component type="ScriptButton" id="Button_ChaosTypeG" x="821.0" y="252.0"
+                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
+                 tooltip="Random Jump."/>
       <Component type="ScriptLabel" id="Label_MovementSettings" x="547.0" y="407.0"
                  width="99.0" height="28.0" fontStyle="Bold" text="Advanced" parentComponent="Panel_Movement"
                  editable="0" fontSize="15.0" enabled="0" visible="0"/>
@@ -1812,27 +1833,6 @@
                  y="1.0" parentComponent="Panel_Movement" text="LAFButtonClose"
                  width="14.0" height="14.0" isMomentary="1" enableMidiLearn="0"
                  saveInPreset="0"/>
-      <Component type="ScriptButton" id="Button_ChaosTypeA" x="821.0" y="56.0"
-                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
-                 tooltip="X Drift."/>
-      <Component type="ScriptButton" id="Button_ChaosTypeB" x="787.0" y="105.0"
-                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
-                 tooltip="Y Drift."/>
-      <Component type="ScriptButton" id="Button_ChaosTypeC" x="855.0" y="105.0"
-                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
-                 tooltip="Orbit."/>
-      <Component type="ScriptButton" id="Button_ChaosTypeD" x="821.0" y="154.0"
-                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
-                 tooltip="Circular."/>
-      <Component type="ScriptButton" id="Button_ChaosTypeE" x="787.0" y="203.0"
-                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
-                 tooltip="Twister."/>
-      <Component type="ScriptButton" id="Button_ChaosTypeF" x="855.0" y="203.0"
-                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
-                 tooltip="Random Drift."/>
-      <Component type="ScriptButton" id="Button_ChaosTypeG" x="821.0" y="252.0"
-                 parentComponent="Panel_Movement" width="60.0" height="60.0" radioGroup="5.0"
-                 tooltip="Random Jump."/>
     </Component>
     <Component type="ScriptPanel" id="Panel_Arp" x="0.0" y="0.0" width="990.0"
                height="470.0" parentComponent="Panel_BG" bgColour="3825600006"
