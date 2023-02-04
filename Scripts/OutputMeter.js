@@ -104,7 +104,7 @@ const var OutputGain = Synth.getEffect("OutputGain");
 
 inline function positionOutputSliderContainer()
 {
-	local x = 360;
+	local x = 260;
 	local y = 7;
 	local w = 250;
 	local h = 20;
