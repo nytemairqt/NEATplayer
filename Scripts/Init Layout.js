@@ -16,7 +16,6 @@ const var padding = 6;
 //Keyboard
 
 const var FloatingTile_Keyboard = Content.getComponent("FloatingTile_Keyboard");
-const var FloatingTile_ResourceUsage = Content.getComponent("FloatingTile_ResourceUsage");
 
 var keyboardOctave = 0;
 var keyboardLowKey = 0;

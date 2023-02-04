@@ -1219,3 +1219,23 @@ LAFComboBoxSampler.registerFunction("drawComboBox", function(g, obj)
 ComboBox_SamplerA.setLocalLookAndFeel(LAFComboBoxSampler);
 ComboBox_SamplerB.setLocalLookAndFeel(LAFComboBoxSampler);
 ComboBox_SamplerC.setLocalLookAndFeel(LAFComboBoxSampler);
+
+
+//Resource Monitor
+
+const var Panel_ResourceUsage = Content.getComponent("Panel_ResourceUsage");
+
+Panel_ResourceUsage.setPaintRoutine(function(g)
+{
+    g.setColour(Colours.white);
+    g.setFont("Arial Bold", 14);
+    g.drawAlignedText(this.data.text, [0, 0, this.getWidth(), this.getHeight()], "centred");
+});
+
+Panel_ResourceUsage.setTimerCallback(function()
+{
+    this.data.text = "CPU: " + Math.round(Engine.getCpuUsage()) + "% " + "RAM: " + Math.round(Engine.getMemoryUsage()) + "MB " + "Voices: " + Engine.getNumVoices();
+    this.repaint();
+});
+
+Panel_ResourceUsage.startTimer(350);

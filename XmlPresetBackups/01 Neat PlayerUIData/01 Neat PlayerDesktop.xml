@@ -2031,10 +2031,6 @@
              y="541.0" ContentType="Keyboard" bgColour="4284769380" itemColour="452984831"
              itemColour2="4294967295" textColour="0" Data="{&#10;  &quot;KeyWidth&quot;: 12.0,&#10;  &quot;DisplayOctaveNumber&quot;: false,&#10;  &quot;LowKey&quot;: 12,&#10;  &quot;HiKey&quot;: 120,&#10;  &quot;CustomGraphics&quot;: false,&#10;  &quot;DefaultAppearance&quot;: true,&#10;  &quot;BlackKeyRatio&quot;: 0.699999988079071,&#10;  &quot;ToggleMode&quot;: false,&#10;  &quot;MidiChannel&quot;: 1,&#10;  &quot;UseVectorGraphics&quot;: true,&#10;  &quot;UseFlatStyle&quot;: false,&#10;  &quot;MPEKeyboard&quot;: false,&#10;  &quot;MPEStartChannel&quot;: 2,&#10;  &quot;MPEEndChannel&quot;: 16&#10;}"
              width="756.0" height="70.0"/>
-  <Component type="ScriptFloatingTile" id="FloatingTile_ResourceUsage" x="814.0"
-             y="1.0" ContentType="PerformanceLabel" bgColour="0" itemColour="4294951115"
-             itemColour2="4294951115" Data="{&#13;&#10;}" width="180.0" height="30.0"
-             FontSize="13.0" Font="Arial"/>
   <Component type="ScriptComboBox" id="ExpansionSelector" x="275.0" y="0.0"
              max="5" items="No Expansion&#10;Atlas&#10;Blackout&#10;Bloom&#10;Cloudburst"
              enabled="0" visible="0"/>
@@ -2318,4 +2314,6 @@
   <Component type="ScriptButton" id="Button_OpenShop" x="551.0" y="4.0" height="24.0"
              width="24.0" text="LAFButtonUpdate" tooltip="Opens a browser window to the Shop."
              isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>
+  <Component type="ScriptPanel" id="Panel_ResourceUsage" x="794.0" y="2.0"
+             width="200.0" height="30.0"/>
 </ContentProperties>
