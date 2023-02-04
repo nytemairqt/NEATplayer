@@ -32,7 +32,7 @@
   <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="990.0"
              height="470.0" borderRadius="0.0" borderSize="0.0">
     <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
-               text="Image" width="990.0" height="470.0" fileName="{EXP::Aetheric}background.jpg"
+               text="Image" width="990.0" height="470.0" fileName="{EXP::Cloudburst}background.jpg"
                alpha="0.0"/>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
                parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"

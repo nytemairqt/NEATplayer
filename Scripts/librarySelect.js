@@ -27,9 +27,9 @@ expPanelTitle.setPosition(0, 0, Panel_ExpansionsItemHolder.getWidth(), 20);
 expPanelTitle.setPaintRoutine(function(g)
 {
     g.fillAll(0x1B1B1B);
-    g.setFont("Arial", 14.0);
-    g.setColour(Colours.white);
-    g.drawAlignedText("Libraries", [0 , 6, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
+    g.setFont("Arial Bold", 13.0);
+    g.setColour(Colours.withAlpha(Colours.white, .9));
+    g.drawAlignedText("LIBRARIES", [0 , 6, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
 });
     
 //Library Version Control & Select Buttons

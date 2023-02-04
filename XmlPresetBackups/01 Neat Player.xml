@@ -574,7 +574,7 @@
                RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
-               Group5Table="" Group6Table="" Group7Table="" SampleMapID="{EXP::Aetheric}AethericAmbiances_SampleMap">
+               Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -630,7 +630,7 @@
     <Processor Type="StreamingSampler" ID="SamplerA" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="3.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
@@ -761,7 +761,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="0" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="1" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>
@@ -831,7 +831,7 @@
                RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
-               Group5Table="" Group6Table="" Group7Table="" SampleMapID="{EXP::Aetheric}Aetheric_SampleMap3">
+               Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -860,7 +860,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerC_Velocity" Bypassed="0" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerC_Velocity" Bypassed="1" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>
@@ -1030,10 +1030,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="127.0" midi_cc="-1"/>
-    <macro name="Env B" value="127.0" midi_cc="-1"/>
-    <macro name="Velocity" value="127.0" midi_cc="-1"/>
-    <macro name="Random" value="127.0" midi_cc="-1"/>
+    <macro name="Env A" value="0.0" midi_cc="-1"/>
+    <macro name="Env B" value="0.0" midi_cc="-1"/>
+    <macro name="Velocity" value="97.0" midi_cc="-1"/>
+    <macro name="Random" value="78.63999176025391" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
