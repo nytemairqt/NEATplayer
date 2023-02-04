@@ -207,7 +207,7 @@ LAFButtonClose.registerFunction("drawToggleButton", function(g, obj)
         g.setColour(Colours.white);
     else
         g.setColour(Colours.lightgrey);
-    g.setFont("Arial", 14.0);
+    g.setFont("Arial Bold", 16.0);
     g.drawAlignedText("x", obj.area, "centred");    
 });
 
