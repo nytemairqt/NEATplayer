@@ -2314,6 +2314,6 @@
   <Component type="ScriptButton" id="Button_OpenShop" x="551.0" y="4.0" height="24.0"
              width="24.0" text="LAFButtonUpdate" tooltip="Opens a browser window to the Shop."
              isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>
-  <Component type="ScriptPanel" id="Panel_ResourceUsage" x="794.0" y="2.0"
-             width="200.0" height="30.0"/>
+  <Component type="ScriptPanel" id="Panel_ResourceUsage" x="774.0" y="2.0"
+             width="220" height="30"/>
 </ContentProperties>

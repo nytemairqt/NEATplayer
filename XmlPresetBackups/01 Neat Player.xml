@@ -1032,8 +1032,8 @@
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
     <macro name="Env A" value="0.0" midi_cc="-1"/>
     <macro name="Env B" value="0.0" midi_cc="-1"/>
-    <macro name="Velocity" value="97.0" midi_cc="-1"/>
-    <macro name="Random" value="78.63999176025391" midi_cc="-1"/>
+    <macro name="Velocity" value="106.0" midi_cc="-1"/>
+    <macro name="Random" value="69.85301971435547" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
