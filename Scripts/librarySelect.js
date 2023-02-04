@@ -210,17 +210,28 @@ inline function restoreAllExpansionsFromBackup()
 const var Button_RestoreAllExpansionsFromBackup = Panel_ExpansionsItemHolder.addChildPanel();
 Button_RestoreAllExpansionsFromBackup.set("width", 24);
 Button_RestoreAllExpansionsFromBackup.set("height", 24);
-Button_RestoreAllExpansionsFromBackup.set("x", 67);
+Button_RestoreAllExpansionsFromBackup.set("x", 42);
 Button_RestoreAllExpansionsFromBackup.set("y", 7);
 Button_RestoreAllExpansionsFromBackup.set("allowCallbacks", "All Callbacks");
 Button_RestoreAllExpansionsFromBackup.set("tooltip", "Restore missing Libraries from Backup.");
 
 Button_RestoreAllExpansionsFromBackup.setPaintRoutine(function(g)
 {
-    g.setColour(Colours.withAlpha(Colours.white, .9));
-    path.loadFromData(arpResetButtonStrokeData);
-    g.fillPath(path, [2, 3, this.getWidth() - 4, this.getHeight() - 6]);
+    g.setColour(Colours.withAlpha(Colours.white, .8));
+    path.loadFromData(pathRestoreFromBackup);
+    g.drawPath(path, [7, 3, this.getWidth() - 14, this.getHeight() - 14], 2.0);
+    g.fillRoundedRectangle([1, 17, this.getWidth() - 2, 6], 1.0);
 
+    g.fillTriangle([this.getWidth() / 2 - 5, 0, 6, 6], Math.toRadians(270));
+
+    //Little Extra Bits
+    
+    g.setColour(Colours.withAlpha(Colours.black, .8));
+    g.fillRoundedRectangle([3, 18, 4, 4], 0.5);
+    g.fillRoundedRectangle([8, 18, 4, 4], 0.5);
+    g.fillRoundedRectangle([16, 20, 5, 2], 0.5);    
+
+    //Mouseover
     g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
     g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);    
 });
@@ -240,19 +251,30 @@ Button_RestoreAllExpansionsFromBackup.setMouseCallback(function(event)
 const var Button_UpdateAllExpansions = Panel_ExpansionsItemHolder.addChildPanel();
 Button_UpdateAllExpansions.set("width", 24);
 Button_UpdateAllExpansions.set("height", 24);
-Button_UpdateAllExpansions.set("x", 42);
+Button_UpdateAllExpansions.set("x", 17);
 Button_UpdateAllExpansions.set("y", 7);
 Button_UpdateAllExpansions.set("allowCallbacks", "All Callbacks");
 Button_UpdateAllExpansions.set("tooltip", "Update all Libraries.");
 
 Button_UpdateAllExpansions.setPaintRoutine(function(g)
 {
-    g.setColour(Colours.withAlpha(Colours.white, .9));
-    g.fillRoundedRectangle([(this.getWidth() / 2) - 2, 4, 4, this.getHeight() - 10], 1.0);
-    g.fillTriangle([(this.getWidth() / 2) - 6, this.getHeight() - 10, 12, 8], Math.toRadians(180));
+    g.setColour(Colours.withAlpha(Colours.black, .8));
+    g.fillRoundedRectangle([1, 1, this.getWidth() - 2, this.getHeight() - 2], 2.0);
 
+    g.setColour(Colours.withAlpha(Colours.white, .8));
+    path.loadFromData(pathButtonBulkInstall);
+    g.fillPath(path, [1, 1, this.getWidth() - 2, this.getHeight() - 2]);
+
+    //Little Extra Bits
+    
+    g.setColour(Colours.withAlpha(Colours.black, .8));
+    g.fillRoundedRectangle([3, 18, 4, 4], 0.5);
+    g.fillRoundedRectangle([8, 18, 4, 4], 0.5);
+    g.fillRoundedRectangle([16, 20, 5, 2], 0.5);    
+
+    //Mouseover
     g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);    
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);  
 });
 
 Button_UpdateAllExpansions.setMouseCallback(function(event)
@@ -261,40 +283,6 @@ Button_UpdateAllExpansions.setMouseCallback(function(event)
 
     if (event.clicked)
         updateAllExpansions();
-
-    this.repaint();
-});  
-
-//Add New Library
-
-const var Button_AddNewLibrary = Panel_ExpansionsItemHolder.addChildPanel();
-Button_AddNewLibrary.set("width", 24);
-Button_AddNewLibrary.set("height", 24);
-Button_AddNewLibrary.set("x", 17);
-Button_AddNewLibrary.set("y", 7);
-Button_AddNewLibrary.set("allowCallbacks", "All Callbacks");
-Button_AddNewLibrary.set("tooltip", "Add New Library.");
-
-Button_AddNewLibrary.setPaintRoutine(function(g)
-{
-    g.setColour(Colours.withAlpha(Colours.white, .9));
-
-    g.fillRoundedRectangle([5, (this.getHeight() / 2) - 1.75, this.getWidth() - 10, 3.5], 2.0);
-    g.fillRoundedRectangle([(this.getWidth() / 2) - 1.75, 5, 3.5, this.getHeight() - 10], 2.0);
-
-    g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);    
-});
-
-Button_AddNewLibrary.setMouseCallback(function(event)
-{
-    this.data.mouseover = event.hover;        
-
-    if (event.clicked)
-    {
-        closePanels(Button_AddLibrary);
-        Panel_InstallLibraries.showControl(true);
-    }
 
     this.repaint();
 });  
