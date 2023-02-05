@@ -1240,7 +1240,7 @@ Panel_ResourceUsage.setPaintRoutine(function(g)
 
 Panel_ResourceUsage.setTimerCallback(function()
 {
-    this.data.text = "CPU: " + Math.round(Engine.getCpuUsage()) + "% " + "RAM: " + Math.round(Engine.getMemoryUsage()) + "MB " + "Voices: " + Engine.getNumVoices();
+    this.data.text = "CPU: " + (Math.round(Engine.getCpuUsage()) / 10) + "% " + "RAM: " + Math.round(Engine.getMemoryUsage()) + "MB " + "Voices: " + Engine.getNumVoices();
     this.repaint();
 });
 

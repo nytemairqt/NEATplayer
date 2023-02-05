@@ -168,21 +168,22 @@ const var th = Engine.createTransportHandler();
 inline function onStop(isPlaying)
 {
     if(!isPlaying)
-        Engine.allNotesOff();
-
-    if (manifest.isLoopInstrument)
     {
-        SamplerA.asSampler().enableRoundRobin(false);
-        SamplerA.asSampler().setActiveGroup(1);
-        if (manifest.sampleMapB != null)
+        Engine.allNotesOff();
+        if (manifest.isLoopInstrument)
         {
-            SamplerB.asSampler().enableRoundRobin(false);
-            SamplerB.asSampler().setActiveGroup(1);
-        }
-        if (manifest.sampleMapC != null)
-        {
-            SamplerC.asSampler().enableRoundRobin(false);
-            SamplerC.asSampler().setActiveGroup(1);
+            SamplerA.asSampler().enableRoundRobin(false);
+            SamplerA.asSampler().setActiveGroup(1);
+            if (manifest.sampleMapB != null)
+            {
+                SamplerB.asSampler().enableRoundRobin(false);
+                SamplerB.asSampler().setActiveGroup(1);
+            }
+            if (manifest.sampleMapC != null)
+            {
+                SamplerC.asSampler().enableRoundRobin(false);
+                SamplerC.asSampler().setActiveGroup(1);
+            }
         }
     }
 };

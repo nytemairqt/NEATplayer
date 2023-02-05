@@ -10,7 +10,7 @@
           <ChildProcessors/>
           <Content>
             <Control type="ScriptButton" id="Button_RandomizationButtonsVisibility"
-                     value="0.0"/>
+                     value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicPickAttack" value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicReleaseNoise" value="1.0"/>
             <Control type="ScriptButton" id="Button_AchromicNoiseGate" value="0.0"/>
@@ -33,23 +33,23 @@
             <Control type="ScriptButton" id="Button_PortalIgnoreArpVelocity" value="0.0"/>
             <Control type="ScriptButton" id="Button_FilterSettings" value="1.0"/>
             <Control type="ScriptButton" id="Button_FilterBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_EQSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_EQSettings" value="0"/>
             <Control type="ScriptButton" id="Button_EQBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DriveSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DriveSettings" value="0"/>
             <Control type="ScriptButton" id="Button_DriveTubeDriveEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_CompSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_CompSettings" value="0"/>
             <Control type="ScriptButton" id="Button_CompBypass" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ReverbSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ReverbSettings" value="0"/>
             <Control type="ScriptButton" id="Button_ReverbEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_WidthSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_WidthSettings" value="0"/>
             <Control type="ScriptButton" id="Button_WidthEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DelaySettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DelaySettings" value="0"/>
             <Control type="ScriptButton" id="Button_DelayEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_PhaserSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_PhaserSettings" value="0"/>
             <Control type="ScriptButton" id="Button_PhaserEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_DegradeSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_DegradeSettings" value="0"/>
             <Control type="ScriptButton" id="Button_DegradeEnable" value="0.0"/>
-            <Control type="ScriptButton" id="Button_AmpSettings" value="0.0"/>
+            <Control type="ScriptButton" id="Button_AmpSettings" value="0"/>
             <Control type="ScriptButton" id="Button_AmpEnable" value="0.0"/>
             <Control type="ScriptLabel" id="Label_FilterFreqValue" value="20000Hz"/>
             <Control type="ScriptSlider" id="Slider_FilterFreq" value="20000.0"/>
@@ -96,15 +96,15 @@
             <Control type="ScriptSlider" id="Slider_DriveTubeGain" value="0.0"/>
             <Control type="ScriptLabel" id="Label_DriveTubeGainValue" value="0db"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDriveWaveShaperGain"
-                     value="0.0"/>
+                     value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXDriveTubeDriveGain"
-                     value="0.0"/>
+                     value="1.0"/>
             <Control type="ScriptLabel" id="Label_DegradeBitDepthValue" value="16"/>
             <Control type="ScriptSlider" id="Slider_DegradeBitDepth" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_DegradeSampleHold" value="1.0"/>
             <Control type="ScriptLabel" id="Label_DegradeSampleHoldValue" value="1.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXDegradeBitDepth" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXSampleHold" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXDegradeBitDepth" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXSampleHold" value="1.0"/>
             <Control type="ScriptButton" id="Button_StutterLFOSync" value="1.0"/>
             <Control type="ScriptLabel" id="Label_WidthAmountValue" value="100%"/>
             <Control type="ScriptSlider" id="Slider_WidthAmount" value="100.0"/>
@@ -116,9 +116,9 @@
             <Control type="ScriptSlider" id="Slider_StutterLFOAmount" value="0.0"/>
             <Control type="ScriptLabel" id="Label_StutterLFOAmountValue" value="0%"/>
             <Control type="ScriptButton" id="Button_StutterLFOPreFX" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXWidenerWidth" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXStutterRate" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXStutterAmount" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXWidenerWidth" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXStutterRate" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXStutterAmount" value="1.0"/>
             <Control type="ScriptLabel" id="Label_PhaserRateAAmount" value="1500Hz"/>
             <Control type="ScriptSlider" id="Slider_PhaserRateA" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_PhaserRateB" value="1500.0"/>
@@ -127,10 +127,10 @@
             <Control type="ScriptLabel" id="Label_PhaserRateBAmount" value="1500Hz"/>
             <Control type="ScriptLabel" id="Label_PhaserFeedbackAmount" value="20%"/>
             <Control type="ScriptLabel" id="Label_PhaserMixAmount" value="20%"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXPhaserRateA" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXPhaserRateB" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXPhaserMix" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXPhaserRateA" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXPhaserRateB" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXPhaserFeedback" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXPhaserMix" value="1.0"/>
             <Control type="ScriptLabel" id="Label_ReverbSizeValue" value="70%"/>
             <Control type="ScriptSlider" id="Slider_ReverbSize" value="0.699999988079071"/>
             <Control type="ScriptSlider" id="Slider_ReverbWidth" value="0.800000011920929"/>
@@ -139,10 +139,10 @@
             <Control type="ScriptLabel" id="Label_ReverbDampingValue" value="50%"/>
             <Control type="ScriptLabel" id="Label_ReverbWidthValue" value="80%"/>
             <Control type="ScriptLabel" id="Label_ReverbMixValue" value="20%"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXReverbSize" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXReverbDamping" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXReverbWidth" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXReverbMix" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXReverbSize" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXReverbDamping" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXReverbWidth" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXReverbMix" value="1.0"/>
             <Control type="ScriptLabel" id="Label_DelayTimeLeftValue" value="1/4"/>
             <Control type="ScriptLabel" id="Label_DelayTimeRightValue" value="1/4"/>
             <Control type="ScriptSlider" id="Slider_DelayFeedbackRight" value="0.25"/>
@@ -153,11 +153,11 @@
             <Control type="ScriptLabel" id="Label_DelayFeedbackRightValue" value="25%"/>
             <Control type="ScriptLabel" id="Label_DelayFeedbackLeftValue" value="25%"/>
             <Control type="ScriptLabel" id="Label_DelayMixValue" value="20%"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeL" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeR" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeFXDelayMix" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeL" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXDelayTimeR" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackL" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXDelayFeedbackR" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeFXDelayMix" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_DelayTimeLeft" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_DelayTimeRight" value="5.0"/>
             <Control type="ScriptButton" id="Button_RandomizeFXFilterBypass" value="0.0"/>
@@ -178,41 +178,41 @@
             <Control type="ScriptSlider" id="Slider_SamplerADecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerASustain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerARelease" value="1000.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerAAttack" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerADecay" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerASustain" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerARelease" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerAAttack" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerADecay" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerASustain" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerARelease" value="1.0"/>
             <Control type="ScriptButton" id="Button_SamplerABypass" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAPitchCoarse" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAPitchFine" value="0.0"/>
             <Control type="ScriptButton" id="Button_SamplerBBypass" value="1.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBAttack" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBDecay" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBAttack" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBDecay" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBSustain" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBSustain" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBSustain" value="1.0"/>
             <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBRelease" value="1340.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerB" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetB" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBRelease" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBRelease" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBPitchFine" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBPitchCoarse" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBPan" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBGain" value="0.0"/>
             <Control type="ScriptButton" id="Button_SamplerCBypass" value="1.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCDecay" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCAttack" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCDecay" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCAttack" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCSustain" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCSustain" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCSustain" value="1.0"/>
             <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCRelease" value="1000.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCRelease" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCRelease" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCGain" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPan" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPitchCoarse" value="0.0"/>
@@ -221,23 +221,23 @@
             <Control type="ScriptButton" id="Button_SamplerBReverse" value="0.0"/>
             <Control type="ScriptButton" id="Button_SamplerCReverse" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAPitchCoarse"
-                     value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerAPitchFine" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerAPan" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerAGain" value="0.0"/>
+                     value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerAPitchFine" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerAPan" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerAGain" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBPitchCoarse"
-                     value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBPitchFine" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBPan" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBGain" value="0.0"/>
+                     value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBPitchFine" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBPan" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBGain" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCPitchCoarse"
-                     value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCPitchFine" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCPan" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCGain" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerAComboBox" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerBComboBox" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeSamplerCComboBox" value="0.0"/>
+                     value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCPitchFine" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCPan" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCGain" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerAComboBox" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerBComboBox" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeSamplerCComboBox" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerASampleStart"
                      value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBSampleStart"
@@ -283,11 +283,11 @@
             <Control type="ScriptButton" id="Button_ArpBypass" value="0.0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpNotes" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeArpLength" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeArpSteps" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeArpSpeed" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeArpOctaves" value="0.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeArpLength" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeArpSteps" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeArpSpeed" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeArpOctaves" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpSwing" value="0.0"/>
             <Control type="ScriptButton" id="Button_ArpSustain" value="0.0"/>
             <Control type="ScriptedViewport" id="Viewport_ExpansionsHolder" value="0.0"/>
@@ -336,7 +336,7 @@
         <Processor Type="LFO" ID="LFO Modulator1" Bypassed="1" Intensity="0.0" Frequency="11.0"
                    FadeIn="1000.0" WaveformType="4.0" Legato="0.0" TempoSync="1.0"
                    SmoothingTime="5.0" LoopEnabled="1.0" PhaseOffset="0.0" SyncToMasterClock="0.0"
-                   CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                   IgnoreNoteOn="0.0" CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
           <ChildProcessors>
             <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
               <ChildProcessors/>
@@ -513,7 +513,7 @@
                 <Processor Type="LFO" ID="LFO Modulator2" Bypassed="0" Intensity="0.0" Frequency="11.0"
                            FadeIn="1000.0" WaveformType="4.0" Legato="0.0" TempoSync="1.0"
                            SmoothingTime="5.0" LoopEnabled="0.0" PhaseOffset="0.0" SyncToMasterClock="0.0"
-                           CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
+                           IgnoreNoteOn="0.0" CustomWaveform="" StepData="64....f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+....9C...3O...f+.">
                   <ChildProcessors>
                     <Processor Type="ModulatorChain" ID="LFO Intensity Mod" Bypassed="0" Intensity="1.0">
                       <ChildProcessors/>
@@ -1030,10 +1030,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="0.0" midi_cc="-1"/>
-    <macro name="Env B" value="0.0" midi_cc="-1"/>
-    <macro name="Velocity" value="106.0" midi_cc="-1"/>
-    <macro name="Random" value="69.85301971435547" midi_cc="-1"/>
+    <macro name="Env A" value="127.0" midi_cc="-1"/>
+    <macro name="Env B" value="127.0" midi_cc="-1"/>
+    <macro name="Velocity" value="127.0" midi_cc="-1"/>
+    <macro name="Random" value="127.0" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
