@@ -1212,6 +1212,12 @@ LAFComboBoxSampler.registerFunction("drawComboBox", function(g, obj)
     g.setColour(obj.hover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .05));
     g.fillRoundedRectangle(obj.area, 2.0);
 
+    g.setColour(Colours.withAlpha(Colours.white, .8));
+    g.setFont("Arial Bold", 13.0);
+    if (obj.text == "(no choices)")
+        g.drawAlignedText("Select", obj.area, "centred");
+    else
+        g.drawAlignedText(obj.text, obj.area, "centred");
 
 });
 
