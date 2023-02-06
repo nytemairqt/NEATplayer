@@ -61,60 +61,59 @@ var hasCheckedForUpdates = false;
 
 var download_target;
 
-inline function updateExpansion()
-{
-    //Create Backup Folder
-    local root_folder = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder();
-    local backup_folder = root_folder.createDirectory("Backup");
-    if (library_is_premodular[this.data.index])
-        local subfolder_string = "_PreModular";
-    else
-        local subfolder_string = Engine.doubleToString(library_unloadedManifest.version, 1);
-    subfolder_string = subfolder_string.replace(".", "_");
-    local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
-
-    //First clean the download list.
-    this.data.downloading = true;
-
-    download_target = expHandler.getExpansion(expansionNames[this.data.index]).getRootFolder().getChildFile("info.hxi");
-
-    //Move old .hxi to backup folder
-    download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
-
-    Server.setBaseURL("https://storage.googleapis.com/iamlamprey-instruments/_ExpansionHXIs/");
-
-    local thisButton = this;
-    currentlyDownloading = true;
-    currentlyDownloadingName = expansionNames[thisButton.data.index];
-    loadingBar.startTimer(50);
-
-    //Server.downloadFile(library_names[this.data.index] +".hxi", {}, download_target, function[thisButton]() 
-
-    //local url = "";
-
-    if (library_is_premodular[this.data.index])
-        url = migration_list_urls_JSON[expansionNames[this.data.index]];
-    else
-        url = library_names[this.data.index] +".hxi";
-
-    Server.downloadFile(url, {}, download_target, function[thisButton]() 
-    {
-        currentlyDownloading = 1-this.data.finished;
-        if (this.data.finished && this.data.success)
-        {
-            Engine.showMessageBox("Update Complete", expansionNames[thisButton.data.index] + " updated successfully.  Please restart NEAT Player.", 0);
-            thisButton.data.downloading = false;              
-            thisButton.repaint();            
-        }            
-    });    
-}
-
 inline function loadExpansion()
 {
     expHandler.setCurrentExpansion(this.data.expansionName);   
     load+this.data.expansionName;
     Button_OpenExpansions.setValue(0);
     Button_OpenExpansions.changed();
+}
+
+inline function updateExpansion()
+{
+    if (!currentlyDownloading) //safety check
+    {
+        Server.cleanFinishedDownloads();
+        downloadURLs.clear();
+        downloadTargets.clear();
+        Server.setBaseURL("https://storage.googleapis.com/iamlamprey-instruments/_ExpansionHXIs/");
+
+        backupExpansion(this.data.index);    
+
+        local thisButton = this;
+        currentlyDownloading = true;
+        currentlyDownloadingName = expansionNames[thisButton.data.index];
+        loadingBar.startTimer(50); 
+
+        if (library_is_premodular[this.data.index])
+            downloadURLs.push(migration_list_urls_JSON[expansionNames[this.data.index]]);
+        else
+            downloadURLs.push(library_names[this.data.index] + ".hxi");   
+
+        startNextDownload(downloadURLs[0]);
+    }
+}
+
+inline function backupExpansion(index)
+{
+    //Create backup Folder           
+    local root_folder = expansionList[index].getRootFolder();
+    local backup_folder= root_folder.createDirectory("Backup");
+    if (library_is_premodular[index])
+        local subfolder_string = "_PreModular";
+    else
+        local subfolder_string = Engine.doubleToString(library_currentVersions[index], 1);
+    subfolder_string = subfolder_string.replace(".", "_");
+    local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
+
+    //Clean Download List
+    expButton[index].data.downloading = true;
+
+    download_target = expansionList[index].getRootFolder().getChildFile("info.hxi");
+    downloadTargets.push(download_target);
+
+    //Copy old .hxi to backup folder
+    download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 }
 
 inline function startNextDownload(url)
@@ -130,7 +129,7 @@ inline function startNextDownload(url)
             }
             else
             {
-                Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
+                Engine.showMessageBox("Update Complete", "Updated successfully.  Please restart NEAT Player.", 0);
                 Server.cleanFinishedDownloads();
                 currentlyDownloading = false;
             }
@@ -139,7 +138,7 @@ inline function startNextDownload(url)
 
 inline function updateAllExpansions()
 {
-    if (hasCheckedForUpdates)
+    if (hasCheckedForUpdates && !currentlyDownloading)
     {
         Server.cleanFinishedDownloads();
         downloadURLs.clear();
@@ -151,68 +150,14 @@ inline function updateAllExpansions()
         {
             if (library_outdatedVersions[i])
             {
-                //Create backup Folder           
-                local root_folder = expansionList[i].getRootFolder();
-                local backup_folder= root_folder.createDirectory("Backup");
-                if (library_is_premodular[index])
-                    local subfolder_string = "_PreModular";
-                else
-                    local subfolder_string = Engine.doubleToString(library_currentVersions[i], 1);
-                subfolder_string = subfolder_string.replace(".", "_");
-                local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
-
-                //Clean Download List
-                expButton[i].data.downloading = true;
-
-                download_target = expansionList[i].getRootFolder().getChildFile("info.hxi");
-                downloadTargets.push(download_target);
-
-                //Copy old .hxi to backup folder
-                download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+                backupExpansion(i);
 
                 local thisButton = expButton[i];            
 
                 if (library_is_premodular[i])
                     downloadURLs.push(migration_list_urls_JSON[expansionNames[i]]);
                 else
-                    downloadURLs.push(library_names[i] + ".hxi");
-
-                //local url = "";
-
-                /*
-                if (library_is_premodular[i])
-                    url = migration_list_urls_JSON[expansionNames[i]];
-                else
-                    url = library_names[i] +".hxi";
-                */
-                /*
-                Server.downloadFile(url, {}, download_target, function[thisButton]() 
-                {   
-
-                    
-                    currentlyDownloadingName = expansionNames[thisButton.data.index];
-
-                    if (this.data.finished)
-                    {
-                        if (this.data.success)
-                        {
-                            thisButton.data.downloading = false;              
-                            thisButton.repaint();
-                            if (thisButton.data.index == (expansionNames.length - 1))
-                            {                        
-                                Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
-                                Server.cleanFinishedDownloads();
-                                currentlyDownloading = false;
-                            }
-                        }
-                        else
-                        {
-                            Engine.showMessageBox("Download timed out.", "Wow you are a dumb dumb!! XD", 0);
-                        }
-                    }
-                    
-                }); 
-                */                      
+                    downloadURLs.push(library_names[i] + ".hxi");                 
             }
         }
         startNextDownload(downloadURLs[0]);
