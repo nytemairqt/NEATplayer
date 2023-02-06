@@ -55,7 +55,9 @@ loadingBar.setTimerCallback(function()
     if (Engine.getPreloadMessage().contains("Decompressing")) //Installation
         this.data.text = "Unpacking " + expansionInstallName.toString(1).substring(0, expansionInstallName.toString(1).indexOf("_")) + " " + this.data.progress + "%";
     else if (currentlyDownloading) //Updating
+    {
         this.data.text = "Updating " + currentlyDownloadingName + ", please wait.";
+    }
     else if (currentlyLoading) //Loading Library
         this.data.text = Engine.getPreloadMessage() + " " + this.data.progress + "%";
     else //Hide

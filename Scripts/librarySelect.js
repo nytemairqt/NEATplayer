@@ -54,6 +54,10 @@ var expansion_button_image = "";
 var selected_expansion;
 var currentlyDownloading = false;
 var currentlyDownloadingName = "";
+var downloadCount = 0;
+var downloadURLs = [];
+var downloadTargets = [];
+var hasCheckedForUpdates = false;
 
 var download_target;
 
@@ -86,7 +90,7 @@ inline function updateExpansion()
 
     //Server.downloadFile(library_names[this.data.index] +".hxi", {}, download_target, function[thisButton]() 
 
-    local url = "";
+    //local url = "";
 
     if (library_is_premodular[this.data.index])
         url = migration_list_urls_JSON[expansionNames[this.data.index]];
@@ -96,12 +100,12 @@ inline function updateExpansion()
     Server.downloadFile(url, {}, download_target, function[thisButton]() 
     {
         currentlyDownloading = 1-this.data.finished;
-        if (this.data.finished && this.data.success)         
+        if (this.data.finished && this.data.success)
         {
             Engine.showMessageBox("Update Complete", expansionNames[thisButton.data.index] + " updated successfully.  Please restart NEAT Player.", 0);
             thisButton.data.downloading = false;              
-            thisButton.repaint();
-        }              
+            thisButton.repaint();            
+        }            
     });    
 }
 
@@ -113,61 +117,108 @@ inline function loadExpansion()
     Button_OpenExpansions.changed();
 }
 
+inline function startNextDownload(url)
+{
+    Server.downloadFile(url, {}, downloadTargets[downloadCount], function[thisButton]() 
+    {
+        currentlyDownloadingName = downloadURLs[downloadCount];
+        if (this.data.finished)
+            if (downloadCount < downloadURLs.length - 1)
+            {
+                downloadCount++;
+                startNextDownload(downloadURLs[downloadCount]);
+            }
+            else
+            {
+                Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
+                Server.cleanFinishedDownloads();
+                currentlyDownloading = false;
+            }
+    });
+}
+
 inline function updateAllExpansions()
 {
-    currentlyDownloading = true;
-    loadingBar.startTimer(50);
-    for (i=0; i<expansionNames.length; i++)
+    if (hasCheckedForUpdates)
     {
-        if (library_outdatedVersions[i])
+        Server.cleanFinishedDownloads();
+        downloadURLs.clear();
+        downloadTargets.clear();
+        currentlyDownloading = true;
+        loadingBar.startTimer(50);
+        Server.setBaseURL("https://storage.googleapis.com/iamlamprey-instruments/_ExpansionHXIs/");
+        for (i=0; i<expansionNames.length; i++)
         {
-            //Create backup Folder           
-            local root_folder = expansionList[i].getRootFolder();
-            local backup_folder= root_folder.createDirectory("Backup");
-            if (library_is_premodular[index])
-                local subfolder_string = "_PreModular";
-            else
-                local subfolder_string = Engine.doubleToString(library_currentVersions[i], 1);
-            subfolder_string = subfolder_string.replace(".", "_");
-            local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
+            if (library_outdatedVersions[i])
+            {
+                //Create backup Folder           
+                local root_folder = expansionList[i].getRootFolder();
+                local backup_folder= root_folder.createDirectory("Backup");
+                if (library_is_premodular[index])
+                    local subfolder_string = "_PreModular";
+                else
+                    local subfolder_string = Engine.doubleToString(library_currentVersions[i], 1);
+                subfolder_string = subfolder_string.replace(".", "_");
+                local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
 
-            //Clean Download List
-            expButton[i].data.downloading = true;
+                //Clean Download List
+                expButton[i].data.downloading = true;
 
-            local download_target = expansionList[i].getRootFolder().getChildFile("info.hxi");
+                download_target = expansionList[i].getRootFolder().getChildFile("info.hxi");
+                downloadTargets.push(download_target);
 
-            //Copy old .hxi to backup folder
-            download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+                //Copy old .hxi to backup folder
+                download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
 
-            Server.setBaseURL("https://storage.googleapis.com/iamlamprey-instruments/_ExpansionHXIs/");
+                local thisButton = expButton[i];            
 
-            local thisButton = expButton[i];
+                if (library_is_premodular[i])
+                    downloadURLs.push(migration_list_urls_JSON[expansionNames[i]]);
+                else
+                    downloadURLs.push(library_names[i] + ".hxi");
 
-            local url = "";
+                //local url = "";
 
-            if (library_is_premodular[i])
-                url = migration_list_urls_JSON[expansionNames[i]];
-            else
-                url = library_names[i] +".hxi";
+                /*
+                if (library_is_premodular[i])
+                    url = migration_list_urls_JSON[expansionNames[i]];
+                else
+                    url = library_names[i] +".hxi";
+                */
+                /*
+                Server.downloadFile(url, {}, download_target, function[thisButton]() 
+                {   
 
-            Server.downloadFile(url, {}, download_target, function[thisButton]() 
-            {           
-                currentlyDownloadingName = expansionNames[thisButton.data.index];
                     
-                if (this.data.finished && this.data.success)         
-                {
-                    thisButton.data.downloading = false;              
-                    thisButton.repaint();
-                    if (thisButton.data.index == (expansionNames.length - 1))
-                    {                        
-                        Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
-                        Server.cleanFinishedDownloads();
-                        currentlyDownloading = false;
+                    currentlyDownloadingName = expansionNames[thisButton.data.index];
+
+                    if (this.data.finished)
+                    {
+                        if (this.data.success)
+                        {
+                            thisButton.data.downloading = false;              
+                            thisButton.repaint();
+                            if (thisButton.data.index == (expansionNames.length - 1))
+                            {                        
+                                Engine.showMessageBox("Update Complete", "All Libraries updated successfully.  Please restart NEAT Player.", 0);
+                                Server.cleanFinishedDownloads();
+                                currentlyDownloading = false;
+                            }
+                        }
+                        else
+                        {
+                            Engine.showMessageBox("Download timed out.", "Wow you are a dumb dumb!! XD", 0);
+                        }
                     }
-                }            
-            });                
+                    
+                }); 
+                */                      
+            }
         }
+        startNextDownload(downloadURLs[0]);
     }
+    else
+        Engine.showMessageBox("Please wait.", "Still checking for updates, please wait.", 0);
 }
 
 //Restore from Backups
@@ -330,7 +381,10 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
             library_latestVersions.push(library_latestVersion);
 
-            library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);             
+            library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);          
+
+            if (library_outdatedVersions.length == expansionList.length) //enable updating when finished check
+                hasCheckedForUpdates = true;
         });
     }
 
