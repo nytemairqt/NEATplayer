@@ -58,6 +58,7 @@ var downloadCount = 0;
 var downloadURLs = [];
 var downloadTargets = [];
 var hasCheckedForUpdates = false;
+var libraryVersionCheckCount = 0;
 
 var download_target;
 
@@ -326,7 +327,7 @@ for (i=0; i<expansionNames.length; i++) // For each found Expansion
 
             library_latestVersions.push(library_latestVersion);
 
-            library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);          
+            library_outdatedVersions.push(library_currentVersion < library_latestVersion ? true : false);     
 
             if (library_outdatedVersions.length == expansionList.length) //enable updating when finished check
                 hasCheckedForUpdates = true;
