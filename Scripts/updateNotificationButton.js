@@ -6,7 +6,7 @@ const var Button_UpdateAvailable = Content.getComponent("Button_UpdateAvailable"
 
 const var Label_CurrentVersion = Content.getComponent("Label_CurrentVersion");
 
-const var currentVersion = 0.13;
+const var currentVersion = 0.14;
 var latestVersion;
 
 var responseArray;
@@ -24,14 +24,13 @@ Server.callWithGET("/pages/neat-player", "", function(status, response)
 	
 	latestVersion = Math.range(latestVersion, 0.00, 9.99);
 	
-	/*
 	if (currentVersion < latestVersion)
 		Button_UpdateAvailable.set("visible", true);
 	else
 		Button_UpdateAvailable.set("visible", false);
-	*/
 	
-	Button_UpdateAvailable.set("visible", true);
+	
+	//Button_UpdateAvailable.set("visible", true); //TESTING ONLY
 });
 
 
