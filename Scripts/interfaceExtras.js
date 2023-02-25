@@ -5,6 +5,8 @@ const var Button_CustomSettings = Content.getComponent("Button_CustomSettings");
 const var Button_OpenAppData = Content.getComponent("Button_OpenAppData");
 const var Panel_TooltipDescriptions = Content.getComponent("Panel_TooltipDescriptions");
 
+var NEATBrainEnabled;
+
 //Custom Settings
 
 //Open Panel
@@ -39,6 +41,7 @@ inline function onButton_ExclusiveReverseControl(component, value)
 };
 
 Content.getComponent("Button_ExclusiveReverse").setControlCallback(onButton_ExclusiveReverseControl);
+
 
 //Portamento
 

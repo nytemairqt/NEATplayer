@@ -23,6 +23,7 @@ include("ChaosEngine.js");
 include("RandomizeEverything.js");
 include("presetBrowser.js");
 include("interfaceExtras.js");
+include("NEATBrain.js");
 
 include("OutputMeter.js");
 include("CustomFunctions.js");
@@ -200,8 +201,9 @@ function onNoteOn()
 {
     local e = Message.getNoteNumber();
     local v = Message.getVelocity();
+    local midiNoteName = Engine.getMidiNoteName(e);
 
-    Console.print("Note: " + e + " Velocity: " + v);
+    Console.print("Note: " + e + " Velocity: " + v + " Note Name: " + midiNoteName);
 
     //Portamento Stuff
     

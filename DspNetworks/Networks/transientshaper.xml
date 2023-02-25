@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Network ID="transientshaper" Version="0.0.0">
+  <Node FactoryPath="container.chain" ID="transientshaper" Bypassed="0"
+        ShowParameters="1">
+    <Nodes>
+      <Node ID="chain" FactoryPath="container.chain" Bypassed="0">
+        <Nodes>
+          <Node ID="envelope_follower" FactoryPath="dynamics.envelope_follower"
+                Bypassed="0">
+            <ModulationTargets>
+              <Connection NodeId="pma1" ParameterId="Value"/>
+            </ModulationTargets>
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="-1"/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.2313782125711441" ID="Attack" Value="0.1000000014901161"/>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.2313782125711441" ID="Release" Value="4.900000073015689"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="ProcessSignal" Value="0.0"/>
+            </Parameters>
+          </Node>
+          <Node ID="pma1" FactoryPath="control.pma" Bypassed="0">
+            <ModulationTargets>
+              <Connection NodeId="gain" ParameterId="Gain"/>
+            </ModulationTargets>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="6.0" ID="Multiply" Automated="1"/>
+              <Parameter MinValue="-1.0" MaxValue="1.0" ID="Add" Value="0.0"/>
+            </Parameters>
+          </Node>
+          <Node ID="gain" FactoryPath="core.gain" Bypassed="0">
+            <Parameters>
+              <Parameter MinValue="-12.0" MaxValue="12.0" StepSize="0.1000000014901161"
+                         SkewFactor="5.422270774841309" ID="Gain" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.3010300099849701" ID="Smoothing" Value="2.500000037252903"/>
+              <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                         SkewFactor="5.422270774841309" ID="ResetValue" Value="0.0"/>
+            </Parameters>
+          </Node>
+          <Node ID="envelope_follower1" FactoryPath="dynamics.envelope_follower"
+                Bypassed="0">
+            <ModulationTargets>
+              <Connection NodeId="pma" ParameterId="Value"/>
+            </ModulationTargets>
+            <ComplexData>
+              <DisplayBuffers>
+                <DisplayBuffer Index="-1"/>
+              </DisplayBuffers>
+            </ComplexData>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.2313782125711441" ID="Attack" Value="113.0000016838312"/>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.2313782125711441" ID="Release" Value="481.5000071749091"/>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="ProcessSignal" Value="0.0"/>
+            </Parameters>
+          </Node>
+          <Node ID="pma" FactoryPath="control.pma" Bypassed="0">
+            <ModulationTargets>
+              <Connection NodeId="gain1" ParameterId="Gain"/>
+            </ModulationTargets>
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="1.0" ID="Value" Automated="1"/>
+              <Parameter MinValue="12.0" MaxValue="0.0" ID="Multiply" Automated="1"/>
+              <Parameter MinValue="-1.0" MaxValue="1.0" ID="Add" Value="0.0"/>
+            </Parameters>
+          </Node>
+          <Node ID="gain1" FactoryPath="core.gain" Bypassed="0">
+            <Parameters>
+              <Parameter MinValue="0.0" MaxValue="-12.0" StepSize="0.1000000014901161"
+                         SkewFactor="5.422270774841309" ID="Gain" Automated="1"/>
+              <Parameter MinValue="0.0" MaxValue="1000.0" StepSize="0.1000000014901161"
+                         SkewFactor="0.3010300099849701" ID="Smoothing" Value="20.0"/>
+              <Parameter MinValue="-100.0" MaxValue="0.0" StepSize="0.1000000014901161"
+                         SkewFactor="5.422270774841309" ID="ResetValue" Value="0.0"/>
+            </Parameters>
+          </Node>
+        </Nodes>
+        <Parameters/>
+      </Node>
+    </Nodes>
+    <Parameters>
+      <Parameter ID="Attack" MinValue="0.0" MaxValue="1.0" Value="0.216">
+        <Connections>
+          <Connection NodeId="pma1" ParameterId="Multiply"/>
+        </Connections>
+      </Parameter>
+      <Parameter ID="Sustain" MinValue="0.0" MaxValue="1.0" Value="0.02799999999999991">
+        <Connections>
+          <Connection NodeId="pma" ParameterId="Multiply"/>
+        </Connections>
+      </Parameter>
+    </Parameters>
+  </Node>
+</Network>

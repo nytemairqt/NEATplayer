@@ -173,11 +173,11 @@
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A" value="1.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerA" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetA" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1"/>
             <Control type="ScriptSlider" id="Slider_SamplerAAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerADecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerASustain" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerARelease" value="1000.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerARelease" value="7134.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerAAttack" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerADecay" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerASustain" value="1.0"/>
@@ -185,14 +185,14 @@
             <Control type="ScriptButton" id="Button_SamplerABypass" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAPitchCoarse" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAPitchFine" value="0.0"/>
-            <Control type="ScriptButton" id="Button_SamplerBBypass" value="1.0"/>
+            <Control type="ScriptButton" id="Button_SamplerBBypass" value="1"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBAttack" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBDecay" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBSustain" value="1.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2"/>
             <Control type="ScriptSlider" id="Slider_SamplerBRelease" value="1340.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerB" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetB" value="0.0"/>
@@ -200,20 +200,20 @@
             <Control type="ScriptSlider" id="Slider_SamplerBPitchFine" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBPitchCoarse" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBPan" value="0.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerBGain" value="0.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerBGain" value="-5.0"/>
             <Control type="ScriptButton" id="Button_SamplerCBypass" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCDecay" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCAttack" value="1.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerCAttack" value="5.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerCAttack" value="20000.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCSustain" value="1.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3.0"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCRelease" value="1000.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCRelease" value="1.0"/>
-            <Control type="ScriptSlider" id="Slider_SamplerCGain" value="0.0"/>
+            <Control type="ScriptSlider" id="Slider_SamplerCGain" value="-7.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPan" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPitchCoarse" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCPitchFine" value="0.0"/>
@@ -270,24 +270,24 @@
             <Control type="ScriptButton" id="Button_ChaosTypeE" value="0.0"/>
             <Control type="ScriptButton" id="Button_ChaosTypeF" value="0.0"/>
             <Control type="ScriptButton" id="Button_ChaosTypeG" value="0.0"/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="-1.0"
-                     data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="-1.0"
-                     data="64......................................................................................."/>
-            <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="-1.0"
-                     data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
+            <Control type="ScriptSliderPack" id="SliderPack_ArpVelocity" value="14.0"
+                     data="64...fuBA..NKD..XrP..fsBA..xJD...qP...rBA..tJD..npP..foBA..hJD..HpP...pBA..nJD..fpP...lAA"/>
+            <Control type="ScriptSliderPack" id="SliderPack_ArpNotes" value="12.0"
+                     data="64...........D...PP.....A.........P...f.A...BD........P.A...BD...PP........fCD...NP...n.A"/>
+            <Control type="ScriptSliderPack" id="SliderPack_ArpLength" value="15.0"
+                     data="64....4BA..nID...JP...sBA..zHD..frP...7AA...BD..HnP...jBA..rJD..PuP...pAA...ED..XqP...iBA"/>
             <Control type="ScriptSlider" id="Slider_ArpSteps" value="16.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ArpBypass" value="0.0"/>
+            <Control type="ScriptButton" id="Button_ArpBypass" value="0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpNotes" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpLength" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpSteps" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpSpeed" value="0.0"/>
-            <Control type="ScriptButton" id="Button_RandomizeArpOctaves" value="1.0"/>
+            <Control type="ScriptButton" id="Button_RandomizeArpOctaves" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpSwing" value="0.0"/>
             <Control type="ScriptButton" id="Button_ArpSustain" value="0.0"/>
             <Control type="ScriptedViewport" id="Viewport_ExpansionsHolder" value="0.0"/>
@@ -302,6 +302,7 @@
             <Control type="ScriptButton" id="Button_PortamentoBypass" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_PortamentoTime" value="50.0"/>
             <Control type="ScriptButton" id="Button_ExclusiveReverse" value="0.0"/>
+            <Control type="ScriptButton" id="Button_EnableNEATBrain" value="0.0"/>
           </Content>
           <UIData Source="01 Neat PlayerUIData"/>
         </Processor>
@@ -319,9 +320,9 @@
             <Control type="ScriptSlider" id="OctaveRange" value="0.0"/>
             <Control type="ScriptSlider" id="Shuffle" value="0.0"/>
             <Control type="ScriptButton" id="EnableTie" value="1.0"/>
-            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="64......................................................................................."/>
-            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="64....2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA..bKD..vsP...2BA"/>
-            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="64....nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA..fJD...pP...nBA"/>
+            <Control type="ScriptSliderPack" id="SemiToneSliderPack" value="-1" data="64...........D...PP.....A.........P...f.A...BD........P.A...BD...PP........fCD...NP...n.A"/>
+            <Control type="ScriptSliderPack" id="VelocitySliderPack" value="-1" data="64...fuBA..NKD..XrP..fsBA..xJD...qP...rBA..tJD..npP..foBA..hJD..HpP...pBA..nJD..fpP...lAA"/>
+            <Control type="ScriptSliderPack" id="LengthSliderPack" value="-1" data="64....4BA..nID...JP...sBA..zHD..frP...7AA...BD..HnP...jBA..rJD..PuP...pAA...ED..XqP...iBA"/>
             <Control type="ScriptComboBox" id="ChannelSelector" value="2.0"/>
             <Control type="ScriptComboBox" id="OutputChannelSelector" value="1.0"/>
             <Control type="ScriptComboBox" id="MPEStartChannel" value="1.0"/>
@@ -566,6 +567,17 @@
             <ContentProperties DeviceType="Desktop"/>
           </UIData>
         </Processor>
+        <Processor Type="ScriptFX" ID="NEATBrain_Transient" Bypassed="0">
+          <ChildProcessors/>
+          <RoutingMatrix NumSourceChannels="2" Channel0="0" Send0="-1" Channel1="1" Send1="-1"/>
+          <Content/>
+          <Networks>
+            <Network ID="transientshaper" Version="0.0.0"/>
+          </Networks>
+          <UIData>
+            <ContentProperties DeviceType="Desktop"/>
+          </UIData>
+        </Processor>
       </ChildProcessors>
     </Processor>
     <Processor Type="StreamingSampler" ID="Sampler_Other" Bypassed="0" Gain="1.0"
@@ -630,10 +642,10 @@
     <Processor Type="StreamingSampler" ID="SamplerA" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="3.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
-               Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
+               Group5Table="" Group6Table="" Group7Table="" SampleMapID="{EXP::Bloom}Bloom_SampleMap">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -643,7 +655,7 @@
             <Processor Type="AHDSR" ID="SamplerA_AHDSR" Bypassed="0" Monophonic="0.0"
                        Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
                        Attack="5.0" AttackLevel="0.0" Hold="10.0" Decay="1500.0" Sustain="0.0"
-                       Release="1000.0" EcoMode="1.0">
+                       Release="7134.0" EcoMode="1.0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                   <ChildProcessors/>
@@ -684,6 +696,10 @@
             </Processor>
             <Processor Type="Constant" ID="SamplerA_LoopsPitchMod" Bypassed="0" Intensity="0.0"
                        Bipolar="1">
+              <ChildProcessors/>
+            </Processor>
+            <Processor Type="Random" ID="SamplerA_NEATBrainPitch" Bypassed="0" Intensity="0.006666666362434626"
+                       Bipolar="1" UseTable="0.0" RandomTableData="">
               <ChildProcessors/>
             </Processor>
           </ChildProcessors>
@@ -732,7 +748,7 @@
                RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
-               Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
+               Group5Table="" Group6Table="" Group7Table="" SampleMapID="{EXP::Bloom}Flourish_SampleMap">
       <ChildProcessors>
         <Processor Type="MidiProcessorChain" ID="Midi Processor" Bypassed="0">
           <ChildProcessors/>
@@ -761,7 +777,7 @@
                 </Processor>
               </ChildProcessors>
             </Processor>
-            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="1" Intensity="1.0"
+            <Processor Type="Velocity" ID="SamplerB_Velocity" Bypassed="0" Intensity="1.0"
                        UseTable="0.0" Inverted="0.0" DecibelMode="0.0">
               <ChildProcessors/>
             </Processor>
@@ -785,11 +801,15 @@
                        Bipolar="1">
               <ChildProcessors/>
             </Processor>
+            <Processor Type="Random" ID="SamplerB_NEATBrainPitch" Bypassed="0" Intensity="0.006666666362434626"
+                       Bipolar="1" UseTable="0.0" RandomTableData="">
+              <ChildProcessors/>
+            </Processor>
           </ChildProcessors>
         </Processor>
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors>
-            <Processor Type="SimpleGain" ID="SamplerB_Utility" Bypassed="0" Gain="0.0"
+            <Processor Type="SimpleGain" ID="SamplerB_Utility" Bypassed="0" Gain="-5.0"
                        Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
@@ -828,7 +848,7 @@
     <Processor Type="StreamingSampler" ID="SamplerC" Bypassed="0" Gain="1.0"
                Balance="0.0" VoiceLimit="32.0" KillFadeTime="20.0" IconColour="0"
                PreloadSize="8192.0" BufferSize="4096.0" VoiceAmount="32.0" SamplerRepeatMode="3.0"
-               RRGroupAmount="1.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
+               RRGroupAmount="16.0" PitchTracking="1.0" OneShot="0.0" CrossfadeGroups="0.0"
                Purged="0.0" Reversed="0.0" NumChannels="1" UseStaticMatrix="0.0"
                Group0Table="" Group1Table="" Group2Table="" Group3Table="" Group4Table=""
                Group5Table="" Group6Table="" Group7Table="" SampleMapID="">
@@ -840,8 +860,8 @@
           <ChildProcessors>
             <Processor Type="AHDSR" ID="SamplerC_AHDSR" Bypassed="0" Monophonic="0.0"
                        Retrigger="1.0" Intensity="1.0" AttackCurve="0.0" DecayCurve="0.0"
-                       Attack="5.0" AttackLevel="0.0" Hold="10.0" Decay="1500.0" Sustain="0.0"
-                       Release="1000.0" EcoMode="1.0">
+                       Attack="20000.0" AttackLevel="0.0" Hold="10.0" Decay="1500.0"
+                       Sustain="0.0" Release="1000.0" EcoMode="1.0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Attack Time" Bypassed="0" Intensity="1.0">
                   <ChildProcessors/>
@@ -884,11 +904,15 @@
                        Bipolar="1">
               <ChildProcessors/>
             </Processor>
+            <Processor Type="Random" ID="SamplerC_NEATBrainPitch" Bypassed="0" Intensity="0.006666666362434626"
+                       Bipolar="1" UseTable="0.0" RandomTableData="">
+              <ChildProcessors/>
+            </Processor>
           </ChildProcessors>
         </Processor>
         <Processor Type="EffectChain" ID="FX" Bypassed="0">
           <ChildProcessors>
-            <Processor Type="SimpleGain" ID="SamplerC_Utility" Bypassed="0" Gain="0.0"
+            <Processor Type="SimpleGain" ID="SamplerC_Utility" Bypassed="0" Gain="-7.0"
                        Delay="0.0" Width="100.0" Balance="0.0" InvertPolarity="0.0">
               <ChildProcessors>
                 <Processor Type="ModulatorChain" ID="Gain Modulation" Bypassed="0" Intensity="1.0">
@@ -1030,10 +1054,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="127.0" midi_cc="-1"/>
-    <macro name="Env B" value="127.0" midi_cc="-1"/>
+    <macro name="Env A" value="0.0" midi_cc="-1"/>
+    <macro name="Env B" value="0.0" midi_cc="-1"/>
     <macro name="Velocity" value="127.0" midi_cc="-1"/>
-    <macro name="Random" value="127.0" midi_cc="-1"/>
+    <macro name="Random" value="39.02107238769531" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>
