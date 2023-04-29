@@ -321,6 +321,7 @@ inline function loadCloudburst()
 };
 */
 
+/*
 //Cloudburst Acoustic
 
 inline function loadCloudburstAcoustic()
@@ -742,6 +743,7 @@ inline function loadOracle()
 
     restoreArp();    
 };
+*/
 
 //Aetheric
 
@@ -823,6 +825,7 @@ inline function loadAetheric()
 };
 
 //Machine Tribes
+/*
 
 inline function loadMachineTribes()
 {
@@ -1043,3 +1046,4 @@ inline function loadGloom()
     
     restoreArp();
 };
+*/

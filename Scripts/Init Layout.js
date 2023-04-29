@@ -119,7 +119,7 @@ const var Button_OpenShop = Content.getComponent("Button_OpenShop");
 inline function onButton_OpenShopControl(component, value)
 {
     if(value)
-        Engine.openWebsite("https://www.iamlamprey.com/collections/instruments");
+        Engine.openWebsite("https://www.iamlamprey.com");
 };
 
 Content.getComponent("Button_OpenShop").setControlCallback(onButton_OpenShopControl);

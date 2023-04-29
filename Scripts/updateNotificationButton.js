@@ -12,6 +12,9 @@ var latestVersion;
 var responseArray;
 var responseAsString;
 
+// switch to Gumroad
+// update on existing store page for now to futureproof
+
 Server.callWithGET("/pages/neat-player", "", function(status, response)
 {		
 	responseArray = response.split(" ");
@@ -38,7 +41,8 @@ inline function onButton_UpdateAvailableControl(component, value)
 {
 	if (value)
 	{
-		Engine.openWebsite("https://www.iamlamprey.com/pages/neat-player");
+		//Engine.openWebsite("https://www.iamlamprey.com/pages/neat-player");
+		Engine.openWebsite("https://iamlamprey.com/l/neatplayer");
 		Panel_PatchNotes.set("visible", false);
 	}
 };
@@ -55,8 +59,9 @@ const var Panel_PatchNotes = Content.getComponent("Panel_PatchNotes");
 
 var patchNotes = "";
 
-Server.callWithGET("/pages//neat-player-changelog", "", function(status, response)
+Server.callWithGET("/p/neat-player-changelog", "", function(status, response)
 {		
+	//test this...
 	patchNotes = response.substring(response.indexOf("main-page-title page-title h0"), response.indexOf("PREVIOUS VERSIONS"));
 
 	patchNotes = patchNotes.replace("<li>", "");
