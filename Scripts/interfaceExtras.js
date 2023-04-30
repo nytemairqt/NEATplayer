@@ -99,7 +99,7 @@ const var Label_MIDIDevicesTitle = Content.getComponent("Label_MIDIDevicesTitle"
 
 var midiDevices;
 
-if (!Engine.isPlugin())
+if (!Engine.isPlugin() && !Engine.isHISE())
 {
 	ComboBox_MIDIDevices.showControl(true);
 	Label_MIDIDevicesTitle.showControl(true);

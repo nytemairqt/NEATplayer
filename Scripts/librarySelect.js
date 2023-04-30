@@ -263,27 +263,6 @@ Button_UpdateAllExpansions.set("y", 7);
 Button_UpdateAllExpansions.set("allowCallbacks", "All Callbacks");
 Button_UpdateAllExpansions.set("tooltip", "Update all Libraries.");
 
-Button_UpdateAllExpansions.setPaintRoutine(function(g)
-{
-    g.setColour(Colours.withAlpha(Colours.black, .8));
-    g.fillRoundedRectangle([1, 1, this.getWidth() - 2, this.getHeight() - 2], 2.0);
-
-    g.setColour(Colours.withAlpha(Colours.white, .8));
-    path.loadFromData(pathButtonBulkInstall);
-    g.fillPath(path, [1, 1, this.getWidth() - 2, this.getHeight() - 2]);
-
-    //Little Extra Bits
-    
-    g.setColour(Colours.withAlpha(Colours.black, .8));
-    g.fillRoundedRectangle([3, 18, 4, 4], 0.5);
-    g.fillRoundedRectangle([8, 18, 4, 4], 0.5);
-    g.fillRoundedRectangle([16, 20, 5, 2], 0.5);    
-
-    //Mouseover
-    g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
-    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);  
-});
-
 Button_UpdateAllExpansions.setMouseCallback(function(event)
 {
     this.data.mouseover = event.hover;        
@@ -390,60 +369,6 @@ else
         expButton[i].set("allowCallbacks", "All Callbacks");
         expButton[i].data.mouseover = 0;
         expButton[i].data.hoverUpdateButton = 0;
-
-        
-        expButton[i].setPaintRoutine(function(g) 
-        {
-            g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
-
-            if (library_outdatedVersions[this.data.index] == true && !library_is_premodular[this.data.index])
-            {
-                g.setColour(Colours.withAlpha(Colours.black, .8));
-                g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
-
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
-                g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
-
-                //Little Extra Bits
-
-                g.setColour(Colours.withAlpha(Colours.black, .8));
-                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 5, 20, 3, 3], 2.0);
-                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 10, 20, 3, 3], 2.0);
-                g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 18, 21, 6, 2], 2.0);
-            }     
-
-            if (this.data.mouseover)
-            {
-                g.setColour(Colours.withAlpha(Colours.white, 0.1));
-                g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
-            }
-
-            if (this.data.hoverUpdateButton)
-            {
-                g.setColour(Colours.withAlpha(Colours.white, 0.3));
-                g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
-            }
-
-            if (library_is_premodular[this.data.index])
-            {
-                g.setColour(Colours.withAlpha(Colours.black, .8));
-                g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
-
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
-                g.setColour(Colours.withAlpha(Colours.white, .8));
-                g.fillPath(library_updateButtonPath, [68, 68, expButtonSize - 136, expButtonSize - 136]);
-
-                //Little Extra Bits
-
-                g.setColour(Colours.withAlpha(Colours.black, .86));
-                g.fillRoundedRectangle([70, 99, 8, 8], 2.0);
-                g.fillRoundedRectangle([80, 99, 8, 8], 2.0);
-                g.fillRoundedRectangle([93, 102, 13, 5], 2.0);            
-            }
-        });
-
         
         expButton[i].setLoadingCallback(function(isPreloading)
         {
@@ -531,3 +456,82 @@ inline function onButton_CloseExpansionsControl(component, value)
 };
 
 Content.getComponent("Button_CloseExpansions").setControlCallback(onButton_CloseExpansionsControl);
+
+// Paint Routines
+
+Button_UpdateAllExpansions.setPaintRoutine(function(g)
+{
+    g.setColour(Colours.withAlpha(Colours.black, .8));
+    g.fillRoundedRectangle([1, 1, this.getWidth() - 2, this.getHeight() - 2], 2.0);
+
+    g.setColour(Colours.withAlpha(Colours.white, .8));
+    path.loadFromData(pathButtonBulkInstall);
+    g.fillPath(path, [1, 1, this.getWidth() - 2, this.getHeight() - 2]);
+
+    //Little Extra Bits
+    
+    g.setColour(Colours.withAlpha(Colours.black, .8));
+    g.fillRoundedRectangle([3, 18, 4, 4], 0.5);
+    g.fillRoundedRectangle([8, 18, 4, 4], 0.5);
+    g.fillRoundedRectangle([16, 20, 5, 2], 0.5);    
+
+    //Mouseover
+    g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
+    g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);  
+});
+
+
+for (i=0; i<expansionNames.length; i++)
+{
+    expButton[i].setPaintRoutine(function(g) 
+    {
+        g.drawImage(this.data.imagefile, [0, 0, expButtonSize, expButtonSize], 0, 0); 
+
+        if (library_outdatedVersions[this.data.index] == true && !library_is_premodular[this.data.index])
+        {
+            g.setColour(Colours.withAlpha(Colours.black, .8));
+            g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
+
+            g.setColour(Colours.withAlpha(Colours.white, .8));
+            library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
+            g.fillPath(library_updateButtonPath, [(expButtonSize-library_updateButtonSize) + 4, 6, library_updateButtonSize - 8, library_updateButtonSize - 12]);
+
+            //Little Extra Bits
+
+            g.setColour(Colours.withAlpha(Colours.black, .8));
+            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 5, 20, 3, 3], 2.0);
+            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 10, 20, 3, 3], 2.0);
+            g.fillRoundedRectangle([(expButtonSize-library_updateButtonSize) + 18, 21, 6, 2], 2.0);
+        }     
+
+        if (this.data.mouseover)
+        {
+            g.setColour(Colours.withAlpha(Colours.white, 0.1));
+            g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
+        }
+
+        if (this.data.hoverUpdateButton)
+        {
+            g.setColour(Colours.withAlpha(Colours.white, 0.3));
+            g.fillRoundedRectangle([expButtonSize-library_updateButtonSize, 0, library_updateButtonSize, library_updateButtonSize], 2.0);
+        }
+
+        if (library_is_premodular[this.data.index])
+        {
+            g.setColour(Colours.withAlpha(Colours.black, .8));
+            g.fillRoundedRectangle([0, 0, expButtonSize, expButtonSize], 0);
+
+            g.setColour(Colours.withAlpha(Colours.white, .8));
+            library_updateButtonPath.loadFromData(pathButtonInstallLibrary);
+            g.setColour(Colours.withAlpha(Colours.white, .8));
+            g.fillPath(library_updateButtonPath, [68, 68, expButtonSize - 136, expButtonSize - 136]);
+
+            //Little Extra Bits
+
+            g.setColour(Colours.withAlpha(Colours.black, .86));
+            g.fillRoundedRectangle([70, 99, 8, 8], 2.0);
+            g.fillRoundedRectangle([80, 99, 8, 8], 2.0);
+            g.fillRoundedRectangle([93, 102, 13, 5], 2.0);            
+        }
+    });
+}
