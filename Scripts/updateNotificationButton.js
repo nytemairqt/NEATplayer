@@ -1,6 +1,20 @@
 //Crawls the web page and finds the "Latest Version", if the value is higher than "Current Version", notifies the user.
 
-Server.setBaseURL("https://www.iamlamprey.com");
+//Server.setBaseURL("https://www.iamlamprey.com");
+
+namespace updateButton
+{
+	const JSON_URL = "https://dropbox.com/";
+
+	inline function getJSONFileFromURL()
+	{
+		Server.setBaseURL(JSON_URL);
+		local file = 
+	}
+}
+
+
+Server.setBaseURL("https://iamlamprey.gumroad.com");
 
 const var Button_UpdateAvailable = Content.getComponent("Button_UpdateAvailable");
 
@@ -12,8 +26,19 @@ var latestVersion;
 var responseArray;
 var responseAsString;
 
-// switch to Gumroad
-// update on existing store page for now to futureproof
+/*
+	1. manual update button
+	2. download JSON from server
+	3. read JSON
+	4. compare current version with JSON latest version
+	5. if < latest version, download latest NP file from Dropbox 
+	6. once complete notify user 
+	7. delete JSON file
+	8 also need to pull patch notes file
+*/
+
+//old Shopify code
+/*
 
 Server.callWithGET("/pages/neat-player", "", function(status, response)
 {		
@@ -35,6 +60,7 @@ Server.callWithGET("/pages/neat-player", "", function(status, response)
 	
 	//Button_UpdateAvailable.set("visible", true); //TESTING ONLY
 });
+*/
 
 
 inline function onButton_UpdateAvailableControl(component, value)

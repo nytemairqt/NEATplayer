@@ -61,46 +61,6 @@ inline function onSlider_PortamentoTimeControl(component, value)
 
 Content.getComponent("Slider_PortamentoTime").setControlCallback(onSlider_PortamentoTimeControl);
 
-//MIDI Devices
-
-const var ComboBox_MIDIDevices = Content.getComponent("ComboBox_MIDIDevices");
-const var Label_MIDIDevicesTitle = Content.getComponent("Label_MIDIDevicesTitle");
-
-
-
-ComboBox_MIDIDevices.showControl(false);
-Label_MIDIDevicesTitle.showControl(false);
-
-//Uncomment the following for Standalone versions.
-/*
-
-const var midiDevices = Settings.getMidiInputDevices();
-
-ComboBox_MIDIDevices.set("items", "");
-
-ComboBox_MIDIDevices.addItem("None");
-
-for (m in midiDevices)
-	ComboBox_MIDIDevices.addItem(m);
-
-inline function onComboBox_MIDIDevicesControl(component, value)
-{
-	local newValue = Math.round(value);
-	for (m in midiDevices)
-	{
-		Settings.toggleMidiInput(m, false);		
-	}
-
-	if (newValue > 1)
-	{
-		Settings.toggleMidiInput(midiDevices[newValue - 2], true);
-		Console.print(Settings.isMidiInputEnabled(midiDevices[newValue - 2]));
-	}	
-};
-
-Content.getComponent("ComboBox_MIDIDevices").setControlCallback(onComboBox_MIDIDevicesControl);
-*/
-
 //Open AppData Button
 
 inline function onButton_OpenAppDataControl(component, value)
@@ -131,3 +91,46 @@ Panel_TooltipDescriptions.setTimerCallback(function()
 });
 
 Panel_TooltipDescriptions.startTimer(180);
+
+//Standalone Version MIDI Device Control
+
+const var ComboBox_MIDIDevices = Content.getComponent("ComboBox_MIDIDevices");
+const var Label_MIDIDevicesTitle = Content.getComponent("Label_MIDIDevicesTitle");
+
+var midiDevices;
+
+if (!Engine.isPlugin())
+{
+	ComboBox_MIDIDevices.showControl(true);
+	Label_MIDIDevicesTitle.showControl(true);
+
+	midiDevices = Settings.getMidiInputDevices();
+
+	ComboBox_MIDIDevices.set("items", "");
+	ComboBox_MIDIDevices.addItem("None");
+
+	for (m in midiDevices)
+		ComboBox_MIDIDevices.addItem(m);
+}
+else
+{
+	ComboBox_MIDIDevices.showControl(false);
+	Label_MIDIDevicesTitle.showControl(false);
+}
+
+inline function onComboBox_MIDIDevicesControl(component, value)
+{
+	local newValue = Math.round(value);
+	for (m in midiDevices)
+	{
+		Settings.toggleMidiInput(m, false);		
+	}
+
+	if (newValue > 1)
+	{
+		Settings.toggleMidiInput(midiDevices[newValue - 2], true);
+		Console.print(Settings.isMidiInputEnabled(midiDevices[newValue - 2]));
+	}	
+};
+
+Content.getComponent("ComboBox_MIDIDevices").setControlCallback(onComboBox_MIDIDevicesControl);
