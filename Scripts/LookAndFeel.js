@@ -60,6 +60,7 @@ const var LAFButtonSamplerReverse = Content.createLocalLookAndFeel();
 const var LAFButtonSettingsCogwheel = Content.createLocalLookAndFeel();
 const var LAFButtonOpenShop = Content.createLocalLookAndFeel();
 const var LAFButtonSettings = Content.createLocalLookAndFeel();
+const var LAFButtonDownloadLatestVersion = Content.createLocalLookAndFeel();
 
 const var LAFButtonChaosA = Content.createLocalLookAndFeel();
 const var LAFButtonChaosB = Content.createLocalLookAndFeel();
@@ -733,8 +734,6 @@ Button_OpenPresetBrowser.setLocalLookAndFeel(LAFButtonPresetBrowser);
 
 Button_OpenAppData.setLocalLookAndFeel(LAFButtonAppData);
 
-Button_UpdateAvailable.setLocalLookAndFeel(LAFButtonUpdate);
-
 Button_RandomizationButtonsVisibility.setLocalLookAndFeel(LAFButtonRandomizeVisibility);
 Button_OpenRandomizePanel.setLocalLookAndFeel(LAFButtonOpenRandomizationPanel);
 
@@ -743,6 +742,10 @@ Button_ExclusiveReverse.setLocalLookAndFeel(LAFButtonBypass);
 Button_EnableNEATBrain.setLocalLookAndFeel(LAFButtonBypass);
 
 Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
+
+updateHandler.Button_UpdateAvailable.setLocalLookAndFeel(LAFButtonUpdate);
+updateHandler.Button_ClosePatchNotes.setLocalLookAndFeel(LAFButtonClose);
+updateHandler.Button_DownloadLatestVersion.setLocalLookAndFeel(LAFButtonDownloadLatestVersion);
 
 //Close Buttons
 
@@ -1117,6 +1120,15 @@ LAFPresetBrowser.registerFunction("drawPresetBrowserListItem", function(g, obj)
     g.setColour(Colours.withAlpha(Colours.white, obj.selected ? .4 : .0));
     g.drawRoundedRectangle(obj.area, 2.0, 2.0);
     
+});
+
+LAFButtonDownloadLatestVersion.registerFunction("drawToggleButton", function(g, obj)
+{
+    g.setColour(obj.hover ? Colours.withAlpha(Colours.black, .8) : Colours.withAlpha(Colours.black, .2));
+    g.fillRoundedRectangle(obj.area, 2.0);
+    g.setColour(Colours.white);
+    g.setFont("Arial", 14.0);
+    g.drawAlignedText("Download", obj.area, "centred");
 });
 
 
