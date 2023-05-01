@@ -2248,9 +2248,9 @@
   </Component>
   <Component type="ScriptButton" id="Button_UpdateAvailable" x="15.0" y="512.0"
              height="20.0" width="90.0" text="LAFButtonUpdate" tooltip="A New Version is Available, click to Open Browser Window."
-             isMomentary="1" enableMidiLearn="0" saveInPreset="0" visible="0"/>
-  <Component type="ScriptPanel" id="Panel_PatchNotes" x="6.0" y="33.0" width="984.0"
-             height="470.0" visible="0"/>
+             isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>
+  <Component type="ScriptPanel" id="Panel_PatchNotes" x="70.0" y="80.0" width="860.0"
+             height="380.0"/>
   <Component type="ScriptButton" id="Button_OpenShop" x="551.0" y="4.0" height="24.0"
              width="24.0" text="LAFButtonUpdate" tooltip="Opens a browser window to the Shop."
              isMomentary="1" enableMidiLearn="0" saveInPreset="0"/>

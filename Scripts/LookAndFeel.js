@@ -143,8 +143,8 @@ LAFButtonPresetBrowser.registerFunction("drawToggleButton", function(g, obj)
 
 LAFButtonUpdate.registerFunction("drawToggleButton", function(g, obj)
 {
-	Panel_PatchNotes.set("visible", obj.over);
     g.setColour(obj.over ? Colours.darkgrey : 0xFB111111);
+    g.setColour(Colours.darkgrey);
     g.fillRoundedRectangle(obj.area, 2.0);        
     g.setColour(Colours.white);
     g.setFont("Arial", 14.0);

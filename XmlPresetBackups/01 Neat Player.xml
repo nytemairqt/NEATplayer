@@ -173,7 +173,7 @@
             <Control type="ScriptComboBox" id="ComboBox_Oracle2A" value="1.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerA" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetA" value="0.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerA" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerADecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerASustain" value="0.0"/>
@@ -185,14 +185,14 @@
             <Control type="ScriptButton" id="Button_SamplerABypass" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAPitchCoarse" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerAPitchFine" value="0.0"/>
-            <Control type="ScriptButton" id="Button_SamplerBBypass" value="1"/>
+            <Control type="ScriptButton" id="Button_SamplerBBypass" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBAttack" value="1.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBDecay" value="1.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBAttack" value="5.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerBSustain" value="1.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerB" value="2.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerBRelease" value="1340.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerB" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetB" value="0.0"/>
@@ -208,7 +208,7 @@
             <Control type="ScriptSlider" id="Slider_SamplerCDecay" value="1500.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCSustain" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeSamplerCSustain" value="1.0"/>
-            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3"/>
+            <Control type="ScriptComboBox" id="ComboBox_SamplerC" value="3.0"/>
             <Control type="ScriptAudioWaveform" id="AudioWaveform_SamplerC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SampleOffsetC" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_SamplerCRelease" value="1000.0"/>
@@ -280,7 +280,7 @@
             <Control type="ScriptSlider" id="Slider_ArpSpeed" value="11.0"/>
             <Control type="ScriptSlider" id="Slider_ArpOctave" value="0.0"/>
             <Control type="ScriptSlider" id="Slider_ArpSwing" value="0.0"/>
-            <Control type="ScriptButton" id="Button_ArpBypass" value="0"/>
+            <Control type="ScriptButton" id="Button_ArpBypass" value="0.0"/>
             <Control type="ScriptComboBox" id="Arp_ModeComboBox" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpNotes" value="0.0"/>
             <Control type="ScriptButton" id="Button_RandomizeArpVelocity" value="1.0"/>
@@ -1054,10 +1054,10 @@
     <macro name="X Neg" value="63.5" midi_cc="-1"/>
     <macro name="Y Pos" value="63.5" midi_cc="-1"/>
     <macro name="Y Neg" value="63.5" midi_cc="-1"/>
-    <macro name="Env A" value="0.0" midi_cc="-1"/>
-    <macro name="Env B" value="0.0" midi_cc="-1"/>
+    <macro name="Env A" value="127.0" midi_cc="-1"/>
+    <macro name="Env B" value="127.0" midi_cc="-1"/>
     <macro name="Velocity" value="127.0" midi_cc="-1"/>
-    <macro name="Random" value="39.02107238769531" midi_cc="-1"/>
+    <macro name="Random" value="127.0" midi_cc="-1"/>
   </macro_controls>
   <MidiAutomation/>
   <MPEData Enabled="0"/>

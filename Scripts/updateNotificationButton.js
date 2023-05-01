@@ -5,8 +5,11 @@ namespace updateButton
 {
 	const JSON_URL = "https://dl.dropbox.com/s/";
 	const fileVersionJSON = FileSystem.getFolder(FileSystem.Downloads).getChildFile("NEATPlayerVersion.json");
+	const filePatchNotesJSON = FileSystem.getFolder(FileSystem.Downloads).getChildFile("NEATPlayerPatchNotes.json");
 
 	var JSONVersionData;
+	var JSONPatchNotes;
+	var patchNotes = [];
 
 	const systemStats = Engine.getSystemStats();
 
@@ -42,6 +45,13 @@ namespace updateButton
 
 		if (currentVersion < JSONVersionData.version)
 		{
+			/*
+			instead of yes/no window, show the Patch Notes panel with full patch notes, and a button that says Download
+			*/
+			
+			downloadPatchNotesJSON();
+			//WORKING HERE CODY XD DONT FORGET
+			/*
 			Engine.showYesNoWindow("Update Available.", "There is a new NEAT Player version available, would you like to download?", function(response)
 			{
 				if (!response)
@@ -56,6 +66,7 @@ namespace updateButton
 						downloadLatestNEATPlayerVersion(2);
 				}
 			});
+			*/
 		}
 	}
 
@@ -106,6 +117,46 @@ namespace updateButton
 				}
 			});			
 		}
+	}
+
+	inline function downloadPatchNotesJSON()
+	{
+		Server.setBaseURL(JSON_URL);
+
+		// Safety Check
+		if (filePatchNotesJSON.isFile())
+			filePatchNotesJSON.deleteFileOrDirectory();
+
+		if (!Server.isOnline())
+		{
+			Engine.showMessageBox("No Internet Connection.", "Unable to connect to server.", 0);
+			return;
+		}
+		else
+		{
+			Server.cleanFinishedDownloads();
+			Server.downloadFile("sydwkiboq5t54f7/NEATPlayerPatchNotes.json", {}, filePatchNotesJSON, function()
+			{
+				if(this.data.finished)
+				{
+					JSONPatchNotes = filePatchNotesJSON.loadAsObject();
+					Console.print("Successfully loaded JSON.");
+
+					for (n in JSONPatchNotes)
+						patchNotes.push(JSONPatchNotes[n]);					
+
+					Panel_PatchNotes.repaint();
+					Panel_PatchNotes.set("visible", true);
+					//readPatchNotesJSON();
+				}
+			});
+		}
+	}
+
+	inline function readPatchNotesJSON()
+	{
+
+		Panel_PatchNotes.repaint();
 	}
 }
 
@@ -167,7 +218,7 @@ inline function onButton_UpdateAvailableControl(component, value)
 		//Engine.openWebsite("https://iamlamprey.com/l/neatplayer");
 		systemStats = Engine.getSystemStats();
 
-		Panel_PatchNotes.set("visible", false);
+		//Panel_PatchNotes.set("visible", false);
 	}
 };
 
@@ -181,8 +232,9 @@ const var Panel_PatchNotes = Content.getComponent("Panel_PatchNotes");
 
 //Patch Notes Main Panel 
 
-var patchNotes = "";
+//var patchNotes = "";
 
+/*
 Server.callWithGET("/p/neat-player-changelog", "", function(status, response)
 {		
 	//test this...
@@ -197,6 +249,7 @@ Server.callWithGET("/p/neat-player-changelog", "", function(status, response)
 	patchNotes = patchNotes.replace("<br>", "");
 	
 });
+*/
 
 Panel_PatchNotes.setPaintRoutine(function(g)
 {
@@ -204,6 +257,9 @@ Panel_PatchNotes.setPaintRoutine(function(g)
 	g.fillRoundedRectangle(this.getLocalBounds(2), 2.0);
 	g.setColour(Colours.white);
 	g.setFont("Arial", 14.0);
-	g.drawAlignedText("Changelog", [(this.getWidth() / 2) - 80, 10, 160, 20], "centred");
-	g.drawMultiLineText(patchNotes, [20, 80], this.getWidth() - 40, "topLeft", 0.0);
+	g.drawAlignedText("Update v" + updateButton.JSONVersionData.version, [(this.getWidth() / 2) - 80, 10, 160, 20], "centred");
+
+	for (i=0; i<patchNotes.length; i++)
+		g.drawAlignedText(patchNotes[i], [20, 80 + (20 * i), this.getWidth() - 50, 20], "left");
+
 });

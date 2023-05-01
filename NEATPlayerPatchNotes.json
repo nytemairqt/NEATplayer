@@ -1,0 +1,8 @@
+{
+	"0" : "- Refactored the update button. NEAT Player will no longer automatically check for updates on plugin start.",
+	"1" : "  If an update is available, the Patch Notes panel will appear containing information about the update and a button to download.",
+	"2" : "  When clicked, the Download button will immediately download the appropriate latest version of NEAT Player to your Downloads folder.",
+	"3" : "- Significantly improved the update pipeline in preparation of store migration.",
+	"4" : "- Various LAF adjustments.",
+	"5" : "- Cleaned up and deleted unused code."
+}
