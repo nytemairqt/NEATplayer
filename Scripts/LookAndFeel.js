@@ -144,12 +144,10 @@ LAFButtonPresetBrowser.registerFunction("drawToggleButton", function(g, obj)
 
 LAFButtonUpdate.registerFunction("drawToggleButton", function(g, obj)
 {
-    g.setColour(obj.over ? Colours.darkgrey : 0xFB111111);
-    g.setColour(Colours.darkgrey);
-    g.fillRoundedRectangle(obj.area, 2.0);        
-    g.setColour(Colours.white);
-    g.setFont("Arial", 14.0);
-    g.drawAlignedText("Update", obj.area, "centred");
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+
+    path.loadFromData(pathButtonCheckForUpdates);
+    g.fillPath(path, [1, 1, obj.area[2] - 2, obj.area[3] - 2]);
 });
 
 //Bypass Button
@@ -743,7 +741,7 @@ Button_EnableNEATBrain.setLocalLookAndFeel(LAFButtonBypass);
 
 Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
 
-updateHandler.Button_UpdateAvailable.setLocalLookAndFeel(LAFButtonUpdate);
+updateHandler.Button_UpdateNEATPlayer.setLocalLookAndFeel(LAFButtonUpdate);
 updateHandler.Button_ClosePatchNotes.setLocalLookAndFeel(LAFButtonClose);
 updateHandler.Button_DownloadLatestVersion.setLocalLookAndFeel(LAFButtonDownloadLatestVersion);
 
@@ -1124,11 +1122,11 @@ LAFPresetBrowser.registerFunction("drawPresetBrowserListItem", function(g, obj)
 
 LAFButtonDownloadLatestVersion.registerFunction("drawToggleButton", function(g, obj)
 {
-    g.setColour(obj.hover ? Colours.withAlpha(Colours.black, .8) : Colours.withAlpha(Colours.black, .2));
+    g.setColour(obj.over ? Colours.darkgrey : 0xFB252525);
     g.fillRoundedRectangle(obj.area, 2.0);
-    g.setColour(Colours.white);
-    g.setFont("Arial", 14.0);
-    g.drawAlignedText("Download", obj.area, "centred");
+    g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+    g.setFont("Arial Bold", 12.0);
+    g.drawAlignedText("DOWNLOAD", obj.area, "centred");
 });
 
 

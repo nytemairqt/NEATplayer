@@ -428,7 +428,7 @@ currentExpansion = currentExpansion.Name;
 var backgroundImage = "";
 var panelImage = "";
 
-var expansionDirectory = FileSystem.getFolder(FileSystem.Samples);
+const expansionDirectory = FileSystem.getFolder(FileSystem.Samples);
 var selectExpansionFile = "";
 reg hr;
 

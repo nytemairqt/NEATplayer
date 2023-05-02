@@ -8,12 +8,12 @@ namespace updateHandler
 
 	const systemStats = Engine.getSystemStats();
 
+	const Button_UpdateNEATPlayer = Content.getComponent("Button_UpdateNEATPlayer");
 	const Button_DownloadLatestVersion = Content.getComponent("Button_DownloadLatestVersion");
-	const Button_ClosePatchNotes = Content.getComponent("Button_ClosePatchNotes");
-	const Button_UpdateAvailable = Content.getComponent("Button_UpdateAvailable");
+	const Button_ClosePatchNotes = Content.getComponent("Button_ClosePatchNotes");	
 	const Label_CurrentVersion = Content.getComponent("Label_CurrentVersion");
 
-	Button_UpdateAvailable.set("visible", true);
+	Button_UpdateNEATPlayer.set("visible", true);
 	Label_CurrentVersion.set("text", "Current Version: v" + CURRENT_VERSION);
 
 	reg JSONVersionData;
@@ -181,13 +181,13 @@ namespace updateHandler
 
 	Content.getComponent("Button_ClosePatchNotes").setControlCallback(onButton_ClosePatchNotesControl);
 
-	inline function onButton_UpdateAvailableControl(component, value)
+	inline function onButton_UpdateNEATPlayerControl(component, value)
 	{
 		if (value)
 			downloadVersionJSON();
 	};
 
-	Content.getComponent("Button_UpdateAvailable").setControlCallback(onButton_UpdateAvailableControl);
+	Content.getComponent("Button_UpdateNEATPlayer").setControlCallback(onButton_UpdateNEATPlayerControl);
 
 
 	//Patch Notes Panel
@@ -196,7 +196,7 @@ namespace updateHandler
 
 	Panel_PatchNotes.setPaintRoutine(function(g)
 	{
-		g.setColour(0xFB111111);
+		g.setColour(0xFB111111);		
 		g.fillRoundedRectangle(this.getLocalBounds(2), 2.0);
 		g.setColour(Colours.white);
 		g.setFont("Arial", 14.0);
@@ -206,7 +206,7 @@ namespace updateHandler
 			g.drawAlignedText("Update", [(this.getWidth() / 2) - 80, 10, 160, 20], "centred");
 
 		for (i=0; i<patchNotes.length; i++)
-			g.drawAlignedText(patchNotes[i], [20, 80 + (20 * i), this.getWidth() - 50, 20], "left");
+			g.drawAlignedText(patchNotes[i], [20, 40 + (20 * i), this.getWidth() - 50, 20], "left");
 
 	});
 
