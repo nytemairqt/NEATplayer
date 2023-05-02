@@ -1,21 +1,40 @@
 {
-	  "Achromic" : [1.1, "AchromicURL"],
-	  "Aetheric" : [1.1, "Aethericurl"],
-	  "Atlas" : [1.1, "Atlasurl"],
-	  "Blackout" : [1.1, "Blackouturl"],
-	  "Blackout2" : [1.1, "Blackout2url"],
-	  "Bloom" : [1.1, "Bloomurl"],
-	  "Cloudburst" : [1.1, "Cloudbursturl"],
-	  "CloudburstAcoustic" : [1.1, "CloudburstAcousticurl"],
-	  "Eidolon" : [1.1, "Eidolonurl"],
-	  "Endure" : [1.1, "Endureurl"],
-	  "Found Keys" : [1.1, "Found Keysurl"],
-	  "Gloom" : [1.1, "Gloomurl"],
-	  "MachineTribes" : [1.1, "MachineTribesurl"],
-	  "Oracle" : [1.1, "Oracleurl"],
-	  "Oracle2" : [1.1, "Oracle2url"],
-	  "PDQBass" : [1.1, "PDQBassurl"],
-	  "Portal" : [1.1, "Portalurl"],
-	  "Prismatic" : [1.1, "Prismaticurl"],
-	  "Zephyr" : [1.1, "Zephyrurl"],
+	  "Achromic" : [1.1, "1ouzrv9g1b5pdrl/achromic.hxi"],
+
+	  "Aetheric" : [1.1, "7fyljt9mhfhvxqg/aetheric.hxi"],
+
+	  "Atlas" : [1.1, "4p3hw83iqgg98on/atlas.hxi"],
+
+	  "Blackout" : [1.1, "9ipqahxxmv852sw/blackout.hxi"],
+
+	  "Blackout2" : [1.1, "oyx1mivb6dskxke/blackout2.hxi"],
+
+	  "Bloom" : [1.1, "w8by1eq1a9mqkj3/bloom.hxi"],
+
+	  "Cloudburst" : [1.1, "jzalbl76lmx5cuj/cloudburst.hxi"],
+
+	  "CloudburstAcoustic" : [1.1, "o86dmc03jqo211q/cloudburstacoustic.hxi"],
+
+	  "Eidolon" : [1.1, "cp1cyg1r0gsx07w/eidolon.hxi"],
+
+	  "Endure" : [1.1, "piihe4p18av3npp/endure.hxi"],
+
+	  "Found Keys" : [1.1, "2k8hi8wupuix6og/foundkeys.hxi"],
+
+	  "Gloom" : [1.1, "igp0ouqfzid06xl/gloom.hxi"],
+
+	  "MachineTribes" : [1.1, "lm9o8is6iin8sha/machinetribes.hxi"],
+
+	  "Oracle" : [1.0, "z3ch9esqy3sotk9/oracle.hxi"],
+
+	  "Oracle2" : [1.1, "pj08nj8v9cukf88/oracle2.hxi"],
+
+	  "PDQBass" : [1.1, "zfuyd1finhvtr2p/pdqbass.hxi"],
+
+	  "Portal" : [1.1, "6t7yrncugbliwob/portal.hxi"],
+
+	  "Prismatic" : [1.1, "kfyxd7xxch1rr4q/prismatic.hxi"],
+
+	  "Zephyr" : [1.1, "7yh0ud0z4iikicj/zephyr.hxi"],
+
 }

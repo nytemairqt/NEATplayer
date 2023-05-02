@@ -26,8 +26,11 @@ namespace libraryHandler
 
     reg JSONLibraryUpdateHandler;
     const BASE_URL = "https://dl.dropbox.com/s/";
+    const LIBRARY_URL = "https://storage.googleapis.com/";
     const JSON_URL = "4e4ltu41bjwwc9w/NEATPlayerLibraryHandler.json";
-    const fileHandlerJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerLibraryHandler.json");
+    const fileLibraryHandlerJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerLibraryHandler.json");
+
+    reg downloadCounter = 0;
 
     inline function buildMainButtons()
     {
@@ -45,7 +48,7 @@ namespace libraryHandler
             this.data.mouseover = event.hover;
 
             if (event.clicked)
-                updateLibraries();
+                downloadLibraryHandler();
 
             this.repaint();
         });  
@@ -131,9 +134,9 @@ namespace libraryHandler
     {
         Console.print(this.data.expansionName);
         expHandler.setCurrentExpansion(this.data.expansionName);   
-        //load+this.data.expansionName;
-        //Button_OpenExpansions.setValue(0);
-        //Button_OpenExpansions.changed();
+        load+this.data.expansionName;
+        Button_OpenExpansions.setValue(0);
+        Button_OpenExpansions.changed();
     }
 
     // Expansion Loading
@@ -153,35 +156,24 @@ namespace libraryHandler
 
     expHandler.setExpansionCallback(expCallback);
 
-    inline function backupExpansion(index)
+    inline function backupExpansion(index, version)
     {
-        /* OLD CODE */
-        //Create backup Folder           
-        local root_folder = expansionList[index].getRootFolder();
-        local backup_folder= root_folder.createDirectory("Backup");
-        if (library_is_premodular[index])
-            local subfolder_string = "_PreModular";
-        else
-            local subfolder_string = Engine.doubleToString(library_currentVersions[index], 1);
-        subfolder_string = subfolder_string.replace(".", "_");
-        local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
+        local rootFolder = expansionList[index].getRootFolder();
+        local backupFolder = rootFolder.createDirectory("Backup");
+        local subfolderName = Engine.doubleToString(version, 1);
+        subfolderName = subfolderName.replace(".", "_");
+        local backupSubfolder = backupFolder.createDirectory(subfolderName);
 
-        //Clean Download List
-        expButton[index].data.downloading = true;
-
-        download_target = expansionList[index].getRootFolder().getChildFile("info.hxi");
-        downloadTargets.push(download_target);
-
-        //Copy old .hxi to backup folder
-        download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+        local hxiFile = rootFolder.getChildFile("info.hxi");
+        hxiFile.move(backupSubfolder.getChildFile("info.hxi"));
     }
 
     inline function downloadLibraryHandler()
     {
         Server.setBaseURL(BASE_URL);
         // Safety Check
-        if (fileHandlerJSON.isFile())
-            fileHandlerJSON.deleteFileOrDirectory();
+        if (fileLibraryHandlerJSON.isFile())
+            fileLibraryHandlerJSON.deleteFileOrDirectory();
 
         if (!Server.isOnline())
         {
@@ -191,52 +183,45 @@ namespace libraryHandler
         else
         {
             Server.cleanFinishedDownloads();
-            Server.downloadFile(JSON_URL, {}, fileHandlerJSON, function()
+            Server.downloadFile(JSON_URL, {}, fileLibraryHandlerJSON, function()
             {
-                if(this.data.finished)
+                if(this.data.finished && this.data.success)
                 {
-                    JSONLibraryUpdateHandler = fileHandlerJSON.loadAsObject();
+                    JSONLibraryUpdateHandler = fileLibraryHandlerJSON.loadAsObject();
+                    Console.print("Download Successful.");
+                    updateLibraries();
                 }
             });
         }
     }
 
     inline function updateLibraries()
-    {
-        for (exp in expansionList)
+    {            
+        for (i=0; i < expansionList.length; i++)
         {
-            local manifest = exp.loadDataFile("manifest.json");
-            local expName = exp.getProperties().Name;
-            local isModular = false;
+            local manifest = expansionList[i].loadDataFile("manifest.json");
+            local expName = expansionList[i].getProperties().Name;
+            //local hxiFile = expansionList[index].getRootFolder().getChildFile("info.hxi")            
+            local hxiFile = FileSystem.getFolder(FileSystem.Downloads).getChildFile(expName+".hxi"); //TESTING
 
-            if (!isDefined(manifest))
-                Console.print("Woah! This library isn't modular");
+            if (isDefined(manifest) && manifest.version < JSONLibraryUpdateHandler[expName][0])
+            {
+                // Backup
+                backupExpansion(i, manifest.version);
 
-            if (isDefined(manifest) && manifest.version < JSONLibraryUpdateHandler.expName[0]);
-                Console.print("WOAH! This library si out of date!!!1" + JSONLibraryUpdateHandler.expName[1]);
-        }    
-    }
-
-
-
-    inline function startNextDownload(url, file)
-    {
-        Server.downloadFile(url, {}, file, function[thisButton]() 
-        {
-            currentlyDownloadingName = downloadURLs[downloadCount];
-            if (this.data.finished)
-                if (downloadCount < downloadURLs.length - 1)
+                // Download New Version
+                Server.downloadFile(JSONLibraryUpdateHandler[expName][1], {}, hxiFile, function()
                 {
-                    downloadCount++;
-                    startNextDownload(downloadURLs[downloadCount], 1);
-                }
-                else
-                {
-                    Engine.showMessageBox("Update Complete", "Updated successfully.  Please restart NEAT Player.", 0);
-                    Server.cleanFinishedDownloads();
-                    currentlyDownloading = false;
-                }
-        });
+                    if (this.data.finished && this.data.success)
+                    {
+                        Server.cleanFinishedDownloads();
+
+                        if (Server.getPendingDownloads().length <= 1)
+                            Engine.showMessageBox("Update Successful.", libraryFileList.length + " Libraries were updated. Please restart NEAT Player.", 0);
+                    }                
+                });
+            }                           
+        }  
     }
 
     //reg hr;
