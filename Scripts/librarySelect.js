@@ -2,25 +2,327 @@
 
 include("librarySelectModularMigration.js");
 
-var currentExpansion; 
+namespace libraryHandler
+{
+    const Viewport_ExpansionsHolder = Content.getComponent("Viewport_ExpansionsHolder"); 
+    const Button_OpenExpansions = Content.getComponent("Button_OpenExpansions"); 
+    const Panel_ExpansionsItemHolder = Content.getComponent("Panel_ExpansionsItemHolder");
+    const Button_CloseExpansions = Content.getComponent("Button_CloseExpansions");
 
-const var Viewport_ExpansionsHolder = Content.getComponent("Viewport_ExpansionsHolder"); 
-const var Button_OpenExpansions = Content.getComponent("Button_OpenExpansions"); 
-const var Panel_ExpansionsItemHolder = Content.getComponent("Panel_ExpansionsItemHolder");
-const var Button_CloseExpansions = Content.getComponent("Button_CloseExpansions");
+    const Button_RestoreAllExpansionsFromBackup = Panel_ExpansionsItemHolder.addChildPanel();
+    const Button_UpdateAllExpansions = Panel_ExpansionsItemHolder.addChildPanel();
 
-var expansionList = expHandler.getExpansionList();
-const var expansionNames = [];
+    reg currentExpansion = expHandler.getCurrentExpansion().Name;
+
+    reg expansionList = expHandler.getExpansionList();
+    const expansionNames = [];
+
+    for (e in expansionList)
+        expansionNames.push(e.getProperties().Name);
+
+    const expButton = [];
+    const buttonPadding = 19;
+    const buttonSize = 176;
+
+    reg JSONLibraryUpdateHandler;
+    const BASE_URL = "https://dl.dropbox.com/s/";
+    const JSON_URL = "4e4ltu41bjwwc9w/NEATPlayerLibraryHandler.json";
+    const fileHandlerJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerLibraryHandler.json");
+
+    inline function buildMainButtons()
+    {
+        // Update
+
+        Button_UpdateAllExpansions.set("width", 24);
+        Button_UpdateAllExpansions.set("height", 24);
+        Button_UpdateAllExpansions.set("x", 17);
+        Button_UpdateAllExpansions.set("y", 7);
+        Button_UpdateAllExpansions.set("allowCallbacks", "All Callbacks");
+        Button_UpdateAllExpansions.set("tooltip", "Check for Library updates.");
+
+        Button_UpdateAllExpansions.setMouseCallback(function(event)
+        {
+            this.data.mouseover = event.hover;
+
+            if (event.clicked)
+                updateLibraries();
+
+            this.repaint();
+        });  
+
+        // Restore
+
+        Button_RestoreAllExpansionsFromBackup.set("width", 24);
+        Button_RestoreAllExpansionsFromBackup.set("height", 24);
+        Button_RestoreAllExpansionsFromBackup.set("x", 42);
+        Button_RestoreAllExpansionsFromBackup.set("y", 7);
+        Button_RestoreAllExpansionsFromBackup.set("allowCallbacks", "All Callbacks");
+        Button_RestoreAllExpansionsFromBackup.set("tooltip", "Restore missing Libraries from Backups.");
+
+        Button_RestoreAllExpansionsFromBackup.setMouseCallback(function(event)
+        {
+            this.data.mouseover = event.hover;        
+
+            if (event.clicked)
+                restoreAllExpansionsFromBackup();
+
+            this.repaint();
+        });  
+    }
+
+    inline function populateLibraries()
+    {
+        local row_x = 0;
+        local row_y = 0;
+
+        for (i=0; i<expansionNames.length; i++)
+        {   
+            expButton[i] = Panel_ExpansionsItemHolder.addChildPanel();
+
+            local button = expButton[i];
+
+            button.set("width", buttonSize);
+            button.set("height", buttonSize);
+            button.data.index = i;
+
+            if (row_x == 5)
+            {
+                row_y += 1; //Offset for next row
+                row_x = 0; //Reset counter
+            }
+
+            button.set("x", buttonPadding + (buttonPadding * row_x) + (buttonSize * row_x));
+            button.set("y", (2 * buttonPadding) + (buttonPadding * row_y) + (buttonSize * row_y));
+
+            row_x++;
+
+            local image = expansionList[i].getWildcardReference("button_image.jpg");
+
+            button.loadImage(image, "panel_" + expansionNames[i]);
+            button.data.imagefile = "panel_" + expansionNames[i]; 
+            button.data.expansionName = expansionNames[i];
+            button.set("allowCallbacks", "All Callbacks");
+
+            button.setLoadingCallback(function(isPreloading)
+            {
+                this.data.preload = isPreloading;
+            });      
+
+            button.setMouseCallback(function(event)
+            {
+                if (event.clicked)
+                    loadLibrary(); 
+            });  
+
+            button.setPaintRoutine(function(g) 
+            {
+                g.drawImage(this.data.imagefile, [0, 0, buttonSize, buttonSize], 0, 0);    
+
+                if (this.data.mouseover)
+                {
+                    g.setColour(Colours.withAlpha(Colours.white, 0.1));
+                    g.fillRoundedRectangle([0, 0, buttonSize, buttonSize], 0);
+                }
+            });
+        }
+    }
+
+    inline function loadLibrary() // Assigned to individual Buttons
+    {
+        Console.print(this.data.expansionName);
+        expHandler.setCurrentExpansion(this.data.expansionName);   
+        //load+this.data.expansionName;
+        //Button_OpenExpansions.setValue(0);
+        //Button_OpenExpansions.changed();
+    }
+
+    // Expansion Loading
+
+    function expCallback()
+    { 
+        currentExpansion = expHandler.getCurrentExpansion();
+        manifest = currentExpansion.loadDataFile("manifest.json");
+        currentExpansion = currentExpansion.getProperties();
+        currentExpansion = currentExpansion.Name;
+        Console.print("Current Expansion: " + currentExpansion);
+
+        loadExpansionFromManifest();
+
+        expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
+    }
+
+    expHandler.setExpansionCallback(expCallback);
+
+    inline function backupExpansion(index)
+    {
+        /* OLD CODE */
+        //Create backup Folder           
+        local root_folder = expansionList[index].getRootFolder();
+        local backup_folder= root_folder.createDirectory("Backup");
+        if (library_is_premodular[index])
+            local subfolder_string = "_PreModular";
+        else
+            local subfolder_string = Engine.doubleToString(library_currentVersions[index], 1);
+        subfolder_string = subfolder_string.replace(".", "_");
+        local backup_version_subfolder = backup_folder.createDirectory(subfolder_string);
+
+        //Clean Download List
+        expButton[index].data.downloading = true;
+
+        download_target = expansionList[index].getRootFolder().getChildFile("info.hxi");
+        downloadTargets.push(download_target);
+
+        //Copy old .hxi to backup folder
+        download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+    }
+
+    inline function downloadLibraryHandler()
+    {
+        Server.setBaseURL(BASE_URL);
+        // Safety Check
+        if (fileHandlerJSON.isFile())
+            fileHandlerJSON.deleteFileOrDirectory();
+
+        if (!Server.isOnline())
+        {
+            Engine.showMessageBox("No Server Connection.", "Unable to connect to server.", 0);
+            return;
+        }
+        else
+        {
+            Server.cleanFinishedDownloads();
+            Server.downloadFile(JSON_URL, {}, fileHandlerJSON, function()
+            {
+                if(this.data.finished)
+                {
+                    JSONLibraryUpdateHandler = fileHandlerJSON.loadAsObject();
+                }
+            });
+        }
+    }
+
+    inline function updateLibraries()
+    {
+        for (exp in expansionList)
+        {
+            local manifest = exp.loadDataFile("manifest.json");
+            local expName = exp.getProperties().Name;
+            local isModular = false;
+
+            if (!isDefined(manifest))
+                Console.print("Woah! This library isn't modular");
+
+            if (isDefined(manifest) && manifest.version < JSONLibraryUpdateHandler.expName[0]);
+                Console.print("WOAH! This library si out of date!!!1" + JSONLibraryUpdateHandler.expName[1]);
+        }    
+    }
+
+
+
+    inline function startNextDownload(url, file)
+    {
+        Server.downloadFile(url, {}, file, function[thisButton]() 
+        {
+            currentlyDownloadingName = downloadURLs[downloadCount];
+            if (this.data.finished)
+                if (downloadCount < downloadURLs.length - 1)
+                {
+                    downloadCount++;
+                    startNextDownload(downloadURLs[downloadCount], 1);
+                }
+                else
+                {
+                    Engine.showMessageBox("Update Complete", "Updated successfully.  Please restart NEAT Player.", 0);
+                    Server.cleanFinishedDownloads();
+                    currentlyDownloading = false;
+                }
+        });
+    }
+
+    //reg hr;
+
+    expHandler.setAllowedExpansionTypes([expHandler.FileBased, 
+                                         expHandler.Intermediate, 
+                                         expHandler.Encrypted]);
+
+    //Open Panel
+
+    inline function onButton_OpenExpansionsControl(component, value)
+    {
+        if (value)
+            closePanels(Button_OpenExpansions);
+        Viewport_ExpansionsHolder.showControl(value);
+    };
+
+    Content.getComponent("Button_OpenExpansions").setControlCallback(onButton_OpenExpansionsControl);
+
+    //Close Panel
+
+    inline function onButton_CloseExpansionsControl(component, value)
+    {
+        if (value)
+            closePanels("none");
+    };
+
+    Content.getComponent("Button_CloseExpansions").setControlCallback(onButton_CloseExpansionsControl);
+
+    // Paint Routines
+
+    Button_UpdateAllExpansions.setPaintRoutine(function(g)
+    {
+        g.setColour(obj.over ? Colours.darkgrey : 0xFB111111);
+        g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
+
+        g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+        path.loadFromData(pathButtonCheckForUpdates);
+        g.fillPath(path, [1, 1, this.getWidth() - 2, this.getHeight() - 2]);
+    });
+
+    Button_RestoreAllExpansionsFromBackup.setPaintRoutine(function(g)
+    {
+        g.setColour(Colours.withAlpha(Colours.white, .8));
+        path.loadFromData(pathRestoreFromBackup);
+        g.drawPath(path, [7, 3, this.getWidth() - 14, this.getHeight() - 14], 2.0);
+        g.fillRoundedRectangle([1, 17, this.getWidth() - 2, 6], 1.0);
+
+        g.fillTriangle([this.getWidth() / 2 - 5, 0, 6, 6], Math.toRadians(270));
+
+        //Little Extra Bits
+        
+        g.setColour(Colours.withAlpha(Colours.black, .8));
+        g.fillRoundedRectangle([3, 18, 4, 4], 0.5);
+        g.fillRoundedRectangle([8, 18, 4, 4], 0.5);
+        g.fillRoundedRectangle([16, 20, 5, 2], 0.5);    
+
+        //Mouseover
+        g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
+        g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);    
+    });
+} 
+
+libraryHandler.buildMainButtons();
+libraryHandler.populateLibraries();
+
+//end namespace
+
+//var currentExpansion; 
+
+
+
+//var expansionList = expHandler.getExpansionList();
+//const var expansionNames = [];
 
 //for (e in expHandler.getExpansionList())
-for (e in expansionList)
-    expansionNames.push(e.getProperties().Name);
+//for (e in expansionList)
+//    expansionNames.push(e.getProperties().Name);
 
+/*
 const var expButton = [];
 
 const var expButtonPadding = 19;
 const var expButtonHeight = 176;
 const var expButtonSize = 176;
+
 
 const var expPanelTitle = Panel_ExpansionsItemHolder.addChildPanel();
 expPanelTitle.setPosition(0, 0, Panel_ExpansionsItemHolder.getWidth(), 20);
@@ -31,9 +333,12 @@ expPanelTitle.setPaintRoutine(function(g)
     g.setColour(Colours.withAlpha(Colours.white, .9));
     g.drawAlignedText("LIBRARIES", [0 , 6, Panel_ExpansionsItemHolder.getWidth(), 20], "centred");
 });
+*/
     
 //Library Version Control & Select Buttons
 
+
+/*
 var library_outdatedVersions = [];
 var library_currentVersions = [];
 var library_latestVersions = [];
@@ -72,6 +377,7 @@ inline function loadExpansion()
 
 inline function updateExpansion()
 {
+    /*
     if (Server.isOnline())
     {
         if (!currentlyDownloading) //safety check
@@ -98,10 +404,12 @@ inline function updateExpansion()
     }
     else
         Engine.showMessageBox("No Internet Connection.", "Unable to connect to server.", 0);
-}
+    
+}*/
 
 inline function backupExpansion(index)
 {
+    /*
     //Create backup Folder           
     local root_folder = expansionList[index].getRootFolder();
     local backup_folder= root_folder.createDirectory("Backup");
@@ -120,10 +428,12 @@ inline function backupExpansion(index)
 
     //Copy old .hxi to backup folder
     download_target.move(backup_version_subfolder.getChildFile("info.hxi"));
+    */
 }
 
 inline function startNextDownload(url)
 {
+    /*
     Server.downloadFile(url, {}, downloadTargets[downloadCount], function[thisButton]() 
     {
         currentlyDownloadingName = downloadURLs[downloadCount];
@@ -140,10 +450,12 @@ inline function startNextDownload(url)
                 currentlyDownloading = false;
             }
     });
+    */
 }
 
 inline function updateAllExpansions()
 {
+    /*
     if (Server.isOnline())        
     {
         if (hasCheckedForUpdates && !currentlyDownloading)
@@ -175,12 +487,14 @@ inline function updateAllExpansions()
     }
     else
         Engine.showMessageBox("No Internet Connection.", "Unable to connect to server.", 0);
+    */
 }
 
 //Restore from Backups
 
 inline function restoreAllExpansionsFromBackup()
 {
+    /*
     local expansions_root = FileSystem.getFolder(FileSystem.Expansions);
     local expansion_list = FileSystem.findFiles(expansions_root, "*", false); //ASTERISK YOU SNEAKY DEVIL
 
@@ -212,8 +526,10 @@ inline function restoreAllExpansionsFromBackup()
         }
     }
     Engine.showMessageBox("Restore Complete", "Library restoration is complete, please restart NEAT Player.", 0);
+    */
 }
 
+/*
 const var Button_RestoreAllExpansionsFromBackup = Panel_ExpansionsItemHolder.addChildPanel();
 Button_RestoreAllExpansionsFromBackup.set("width", 24);
 Button_RestoreAllExpansionsFromBackup.set("height", 24);
@@ -268,15 +584,18 @@ Button_UpdateAllExpansions.setMouseCallback(function(event)
     this.data.mouseover = event.hover;        
 
     if (event.clicked)
-        updateAllExpansions();
+        libraryHandler.updateLibraries();
+        //updateAllExpansions();
 
     this.repaint();
 });  
+*/
 
 //Expansion Buttons
 
 inline function checkForUpdates()
 {
+    /*
     //Scrape Product Page
 
     Server.callWithGET(library_unloadedManifest.productPage, "", function[button](status, response)
@@ -302,8 +621,10 @@ inline function checkForUpdates()
         for (e in expButton) //yuck
             e.repaint();
     });
+    */
 }
 
+/*
 if (expansionNames.length == 0)
     hasCheckedForUpdates = true;
 else
@@ -421,11 +742,12 @@ else
         });    
     };
 }            
+*/
 
+/*
 currentExpansion = expHandler.getCurrentExpansion();
 currentExpansion = currentExpansion.Name;
 
-var backgroundImage = "";
 var panelImage = "";
 
 const expansionDirectory = FileSystem.getFolder(FileSystem.Samples);
@@ -535,3 +857,4 @@ for (i=0; i<expansionNames.length; i++)
         }
     });
 }
+*/

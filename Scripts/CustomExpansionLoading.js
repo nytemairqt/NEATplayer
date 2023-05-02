@@ -85,7 +85,7 @@ inline function clearGUI()
 inline function loadBloom()
 {
         //Setting BG Image        
-    backgroundImage = ("{PROJECT_FOLDER}bg_bloom.jpg");
+    local backgroundImage = ("{PROJECT_FOLDER}bg_bloom.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage); 
     
@@ -131,8 +131,9 @@ var manifestArrayLength;
 
 inline function loadExpansionFromManifest()
 {
+    local backgroundImage = expHandler.getCurrentExpansion().getWildcardReference("background.jpg");
     //backgroundImage = manifest.image;
-    backgroundImage = expHandler.getCurrentExpansion().getWildcardReference("background.jpg");
+    //backgroundImage = expHandler.getCurrentExpansion().getWildcardReference("background.jpg");
 
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);
@@ -295,7 +296,7 @@ inline function loadExpansionFromManifest()
 inline function loadAetheric()
 {
         //Setting BG Image       
-    backgroundImage = ("{PROJECT_FOLDER}bg_aetheric.jpg");
+    local backgroundImage = ("{PROJECT_FOLDER}bg_aetheric.jpg");
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);  
     

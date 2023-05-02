@@ -48,43 +48,12 @@ var panelButtons = [];
 
 inline function closePanels(keepOpen)
 {
-    switch (keepOpen)
+    if (keepOpen == "none")
+        panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+    else
     {
-        case "none": 
-            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_CustomSettings:
-            panelButtons = [Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_AddLibrary:
-            panelButtons = [Button_CustomSettings, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_OpenPresetBrowser:
-            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_OpenExpansions:
-            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_SampleDisplay:
-            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_FXDisplay:
-            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_ArpDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_ArpDisplay:
-            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_MoveDisplay];
-        break;
-
-        case Button_MoveDisplay:
-            panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay];
-        break;                                                     
+        panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        panelButtons.remove(keepOpen);
     }
 
     for (p in panelButtons)
@@ -140,23 +109,6 @@ var pianoReleaseNoiseActive;
 
 var velocityMin = 1;
 var velocityMax = 127;
-
-// Expansion Loading
-
-function expCallback()
-{ 
-    currentExpansion = expHandler.getCurrentExpansion();
-    manifest = currentExpansion.loadDataFile("manifest.json");
-    currentExpansion = currentExpansion.getProperties();
-    currentExpansion = currentExpansion.Name;
-    Console.print("Current Expansion: " + currentExpansion);
-
-    loadExpansionFromManifest();
-
-    expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
-}
-
-expHandler.setExpansionCallback(expCallback);
 
 
 //Extra Init Calls

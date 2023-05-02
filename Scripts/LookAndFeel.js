@@ -717,7 +717,7 @@ LAFSliderSampleOffset.registerFunction("drawRotarySlider", function(g, obj)
 
 //Buttons
 
-Button_OpenExpansions.setLocalLookAndFeel(LAFButtonChangePage);
+libraryHandler.Button_OpenExpansions.setLocalLookAndFeel(LAFButtonChangePage);
 Button_SampleDisplay.setLocalLookAndFeel(LAFButtonChangePage);
 Button_FXDisplay.setLocalLookAndFeel(LAFButtonChangePage);
 Button_ArpDisplay.setLocalLookAndFeel(LAFButtonChangePage);

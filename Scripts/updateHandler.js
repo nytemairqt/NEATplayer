@@ -2,7 +2,7 @@ namespace updateHandler
 {
 	const CURRENT_VERSION = 0.14;
 
-	const JSON_URL = "https://dl.dropbox.com/s/";
+	const BASE_URL = "https://dl.dropbox.com/s/";
 	const fileVersionJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerVersion.json");
 	const filePatchNotesJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerPatchNotes.json");
 
@@ -22,7 +22,7 @@ namespace updateHandler
 
 	inline function downloadVersionJSON()
 	{
-		Server.setBaseURL(JSON_URL);
+		Server.setBaseURL(BASE_URL);
 
 		// Safety Check
 		if (fileVersionJSON.isFile())
@@ -118,7 +118,7 @@ namespace updateHandler
 
 	inline function downloadPatchNotesJSON()
 	{
-		Server.setBaseURL(JSON_URL);
+		Server.setBaseURL(BASE_URL);
 
 		// Safety Check
 		if (filePatchNotesJSON.isFile())

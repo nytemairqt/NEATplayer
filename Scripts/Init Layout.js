@@ -22,7 +22,7 @@ var keyboardLowKey = 0;
 var keyboardHighKey = 120;
 
 const var pageButtonListTop = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser];
-const var pageButtonListBottom = [Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+const var pageButtonListBottom = [libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
 
 const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerAAttack"),
                                          Content.getComponent("Button_RandomizeSamplerADecay"),
