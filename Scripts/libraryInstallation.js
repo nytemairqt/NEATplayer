@@ -69,7 +69,8 @@ inline function onButton_InstallLibraryControl(component, value)
        {
         Engine.showYesNoWindow("Install Library", "Please select the .hr1 file.", function(response)
         {
-            if (!response) return;
+            if (!response) 
+                return;
    
             FileSystem.browse(FileSystem.Downloads, false, "*.hr1", function(f)
             {

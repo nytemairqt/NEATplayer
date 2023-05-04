@@ -132,8 +132,6 @@ var manifestArrayLength;
 inline function loadExpansionFromManifest()
 {
     local backgroundImage = expHandler.getCurrentExpansion().getWildcardReference("background.jpg");
-    //backgroundImage = manifest.image;
-    //backgroundImage = expHandler.getCurrentExpansion().getWildcardReference("background.jpg");
 
     Image_BG.setAlpha(1);
     Image_BG.set("fileName", backgroundImage);
@@ -281,8 +279,6 @@ inline function loadExpansionFromManifest()
         SamplerB.asSampler().setActiveGroup(1);
         SamplerC.asSampler().setActiveGroup(1);
     }
-
-
 
     //Notes:
     /*
