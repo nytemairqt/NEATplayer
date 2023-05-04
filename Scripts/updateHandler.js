@@ -19,12 +19,10 @@ namespace updateHandler
 	reg JSONVersionData;
 	reg JSONPatchNotes;
 	reg patchNotes = [];	
-	reg isChecking = false;
-	reg isUpdating = false;
 
 	inline function downloadVersionJSON()
 	{
-		isChecking = true;
+		updateSystemStatus(1);
 		Server.setBaseURL(BASE_URL);
 
 		// Safety Check
@@ -34,7 +32,7 @@ namespace updateHandler
 		if (!Server.isOnline())
 		{
 			Engine.showMessageBox("No Server Connection.", "Unable to connect to server.", 0);
-			isChecking = false;
+			updateSystemStatus(0);
 			return;
 		}
 		else
@@ -44,7 +42,7 @@ namespace updateHandler
 			{
 				if(this.data.finished)
 				{
-					isChecking = false;
+					updateSystemStatus(0);
 					JSONVersionData = fileVersionJSON.loadAsObject();
 					readVersionJSON();
 				}
@@ -56,6 +54,8 @@ namespace updateHandler
 	{
 		if (CURRENT_VERSION < JSONVersionData.version)
 			downloadPatchNotesJSON();
+		else
+			fileVersionJSON.deleteFileOrDirectory();
 	}
 
 	inline function downloadLatestNEATPlayerVersion(OS)
@@ -63,7 +63,7 @@ namespace updateHandler
 		local newVersion;
 		if (OS == 1) // Mac OS
 		{
-			isUpdating = true;
+			updateSystemStatus(2);
 			Server.setBaseURL("https://dl.dropbox.com/s/");
 			newVersion = FileSystem.getFolder(FileSystem.Downloads).getChildFile(JSONVersionData.macOSFileName);
 			if (newVersion.isFile())
@@ -72,7 +72,7 @@ namespace updateHandler
 			{
 				if(this.data.finished)
 				{
-					isUpdating = false;
+					updateSystemStatus(0);
 					Engine.showYesNoWindow("Download Complete.", "NEAT Player v" + JSONVersionData.version + " has been downloaded, open Downloads folder?", function(response)
 					{
 						if (!response)
@@ -94,7 +94,7 @@ namespace updateHandler
 		}
 		else // Windows & Linux
 		{
-			isUpdating = true;
+			updateSystemStatus(2);
 			Server.setBaseURL("https://dl.dropbox.com/s/");
 			newVersion = FileSystem.getFolder(FileSystem.Downloads).getChildFile(JSONVersionData.windowsFileName);
 			if (newVersion.isFile())
@@ -103,7 +103,7 @@ namespace updateHandler
 			{
 				if(this.data.finished)
 				{
-					isUpdating = false;
+					updateSystemStatus(0);
 					Engine.showYesNoWindow("Download Complete.", "NEAT Player v" + JSONVersionData.version + " has been downloaded, open Downloads folder?", function(response)
 					{
 						if (!response)
@@ -166,6 +166,8 @@ namespace updateHandler
 	{
 		if (value)
 		{
+			if (SYSTEM_STATUS != 0) // safety check
+				return;
 			if (systemStats.OperatingSystemName.contains("Windows"))
 				downloadLatestNEATPlayerVersion(0);
 			else if (systemStats.OperatingSystemName.contains("Mac"))

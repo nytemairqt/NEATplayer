@@ -13,7 +13,6 @@ namespace libraryHandler
     const Button_UpdateAllExpansions = Panel_ExpansionsItemHolder.addChildPanel();
 
     reg currentExpansion = expHandler.getCurrentExpansion().Name;
-    reg isUpdating = false;
     reg libraryCurrentlyUpdating = "";
     reg expName;
 
@@ -49,7 +48,7 @@ namespace libraryHandler
         {
             this.data.mouseover = event.hover;
 
-            if (event.clicked)
+            if (event.clicked && SYSTEM_STATUS == 0) //safety check
                 downloadLibraryHandler();
 
             this.repaint();
@@ -68,7 +67,7 @@ namespace libraryHandler
         {
             this.data.mouseover = event.hover;        
 
-            if (event.clicked)
+            if (event.clicked && SYSTEM_STATUS == 0) //safety check
                 restoreAllExpansionsFromBackup();
 
             this.repaint();
@@ -170,6 +169,34 @@ namespace libraryHandler
         hxiFile.move(backupSubfolder.getChildFile("info.hxi"));
     }
 
+    inline function restoreAllExpansionsFromBackup()
+    {
+        updateSystemStatus(4);
+        local expansionsRoot = FileSystem.getFolder(FileSystem.Expansions);
+        local expansionList = FileSystem.findFiles(expansionsRoot, "*", false);
+        for (i=0; i<expansionList.length; i++)
+        {
+            if (expansionList[i].isDirectory())
+            {
+                local hxi = expansionList[i].getChildFile("info.hxi");
+                if (!hxi.isFile())
+                {
+                    local backup = expansionList[i].getChildFile("Backup");
+                    if (backup.isDirectory())
+                    {
+                        local backupList = FileSystem.findFiles(backup, "*", false);
+                        local lastBackup = backupList[0];
+                        local hxiBackup = lastBackup.getChildFile("info.hxi");
+                        if (hxiBackup.isFile())
+                            backup_hxi.copy(hxi);
+                    }
+                }
+            }
+        }
+        Engine.showMessageBox("Restore Complete", "Library restoration is complete, please restart NEAT Player.", 0);
+        updateSystemStatus(0);
+    }   
+
     inline function downloadLibraryHandler()
     {
         Server.setBaseURL(BASE_URL);
@@ -219,7 +246,7 @@ namespace libraryHandler
                 {   
                     // Tooltip
                     libraryCurrentlyUpdating = name;
-                    isUpdating = true;   
+                    updateSystemStatus(3);
               
                     if (this.data.finished && this.data.success)
                     {
@@ -229,7 +256,7 @@ namespace libraryHandler
                         {
                             Engine.showMessageBox("Update Successful.", "Libraries were updated. Please restart NEAT Player.", 0);
                             libraryCurrentlyUpdating = "";
-                            isUpdating = false;
+                            updateSystemStatus(0);
                         }                        
                     }                
                 });
@@ -268,17 +295,19 @@ namespace libraryHandler
 
     Button_UpdateAllExpansions.setPaintRoutine(function(g)
     {
-        g.setColour(obj.over ? Colours.darkgrey : 0xFB111111);
-        g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);
+        g.setColour(this.data.mouseover ? Colours.white : Colours.lightgrey);
 
-        g.setColour(obj.over ? Colours.white : Colours.lightgrey);
+        if (SYSTEM_STATUS == 1 || SYSTEM_STATUS == 3)
+            g.setColour(Colours.lightblue);
         path.loadFromData(pathButtonCheckForUpdates);
         g.fillPath(path, [1, 1, this.getWidth() - 2, this.getHeight() - 2]);
     });
 
     Button_RestoreAllExpansionsFromBackup.setPaintRoutine(function(g)
     {
-        g.setColour(Colours.withAlpha(Colours.white, .8));
+        g.setColour(this.data.mouseover ? Colours.white : Colours.lightgrey);
+        if (SYSTEM_STATUS == 4)
+            g.setColour(Colours.lightblue);
         path.loadFromData(pathRestoreFromBackup);
         g.drawPath(path, [7, 3, this.getWidth() - 14, this.getHeight() - 14], 2.0);
         g.fillRoundedRectangle([1, 17, this.getWidth() - 2, 6], 1.0);
@@ -287,14 +316,10 @@ namespace libraryHandler
 
         //Little Extra Bits
         
-        g.setColour(Colours.withAlpha(Colours.black, .8));
+        g.setColour(0xFB111111);
         g.fillRoundedRectangle([3, 18, 4, 4], 0.5);
         g.fillRoundedRectangle([8, 18, 4, 4], 0.5);
         g.fillRoundedRectangle([16, 20, 5, 2], 0.5);    
-
-        //Mouseover
-        g.setColour(this.data.mouseover ? Colours.withAlpha(Colours.white, .2) : Colours.withAlpha(Colours.white, .0));
-        g.fillRoundedRectangle([0, 0, this.getWidth(), this.getHeight()], 2.0);    
     });
 } 
 

@@ -146,6 +146,9 @@ LAFButtonUpdate.registerFunction("drawToggleButton", function(g, obj)
 {
     g.setColour(obj.over ? Colours.white : Colours.lightgrey);
 
+    if (SYSTEM_STATUS == 1 || SYSTEM_STATUS == 2)
+        g.setColour(Colours.lightblue);
+
     path.loadFromData(pathButtonCheckForUpdates);
     g.fillPath(path, [1, 1, obj.area[2] - 2, obj.area[3] - 2]);
 });

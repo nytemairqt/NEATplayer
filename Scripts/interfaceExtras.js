@@ -77,15 +77,28 @@ Panel_TooltipDescriptions.setPaintRoutine(function(g)
 {
 	var tooltipDescription = Content.getCurrentTooltip();
 
-	if (libraryHandler.isUpdating)
-		tooltipDescription = "Updating " + libraryHandler.libraryCurrentlyUpdating;
+	switch (SYSTEM_STATUS)
+	{
+		case 0:
+			break;
 
-	if (updateHandler.isChecking)
-		tooltipDescription = "Checking for updates...";
+		case 1:
+			tooltipDescription = "Checking for updates...";
+			break;
 
-	if (updateHandler.isUpdating)
-		tooltipDescription = "Downloading latest version...";
-	
+		case 2:
+			tooltipDescription = "Downloading latest version.";
+			break;
+
+		case 3:
+			tooltipDescription = "Updating " + libraryHandler.libraryCurrentlyUpdating;
+			break;
+
+		case 4:
+			tooltipDescription = "Restoring from backup...";
+			break;
+	}
+
 	g.setColour(Colours.lightgrey);
 	g.setFont("Arial", 12.0);
 	g.drawAlignedText(tooltipDescription, [0, 0, this.getWidth(), this.getHeight()], "right");

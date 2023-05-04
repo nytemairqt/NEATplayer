@@ -5,6 +5,26 @@ Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 
 const var audiofiles = Engine.loadAudioFilesIntoPool();
 
+var SYSTEM_STATUS = 0;
+
+/*=======================================
+    System Messages:
+    0 - Idle
+    1 - Checking for Update
+    2 - Downloading Update
+    3 - Downloading Libraries
+    4 - Restoring from backup
+=======================================*/
+
+inline function updateSystemStatus(value)
+{
+    SYSTEM_STATUS = value;
+    updateHandler.Button_UpdateNEATPlayer.sendRepaintMessage();
+    libraryHandler.Button_UpdateAllExpansions.repaint();
+    libraryHandler.Button_RestoreAllExpansionsFromBackup.repaint();
+}
+
+
 audiofiles.sortNatural();
 
 //Expansion Manifest Variable
@@ -88,6 +108,7 @@ Content.getComponent("Button_OpenAppData").setControlCallback(onButton_OpenAppDa
 //Load expansions
 
 var manifest;
+
 
 //NoteOn Variables
 
