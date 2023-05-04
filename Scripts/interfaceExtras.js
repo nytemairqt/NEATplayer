@@ -76,6 +76,9 @@ Content.getComponent("Button_OpenAppData").setControlCallback(onButton_OpenAppDa
 Panel_TooltipDescriptions.setPaintRoutine(function(g)
 {
 	var tooltipDescription = Content.getCurrentTooltip();
+
+	if (libraryHandler.isUpdating)
+		tooltipDescription = "Updating " + libraryHandler.libraryCurrentlyUpdating;
 	
 	g.setColour(Colours.lightgrey);
 	g.setFont("Arial", 12.0);

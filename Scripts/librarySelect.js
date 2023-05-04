@@ -13,6 +13,9 @@ namespace libraryHandler
     const Button_UpdateAllExpansions = Panel_ExpansionsItemHolder.addChildPanel();
 
     reg currentExpansion = expHandler.getCurrentExpansion().Name;
+    reg isUpdating = false;
+    reg libraryCurrentlyUpdating = "";
+    reg expName;
 
     reg expansionList = expHandler.getExpansionList();
     const expansionNames = [];
@@ -26,7 +29,6 @@ namespace libraryHandler
 
     reg JSONLibraryUpdateHandler;
     const BASE_URL = "https://dl.dropbox.com/s/";
-    const LIBRARY_URL = "https://storage.googleapis.com/";
     const JSON_URL = "4e4ltu41bjwwc9w/NEATPlayerLibraryHandler.json";
     const fileLibraryHandlerJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerLibraryHandler.json");
 
@@ -188,7 +190,6 @@ namespace libraryHandler
                 if(this.data.finished && this.data.success)
                 {
                     JSONLibraryUpdateHandler = fileLibraryHandlerJSON.loadAsObject();
-                    Console.print("Download Successful.");
                     updateLibraries();
                 }
             });
@@ -200,9 +201,10 @@ namespace libraryHandler
         for (i=0; i < expansionList.length; i++)
         {
             local manifest = expansionList[i].loadDataFile("manifest.json");
-            local expName = expansionList[i].getProperties().Name;
-            //local hxiFile = expansionList[index].getRootFolder().getChildFile("info.hxi")            
-            local hxiFile = FileSystem.getFolder(FileSystem.Downloads).getChildFile(expName+".hxi"); //TESTING
+            expName = expansionList[i].getProperties().Name;
+            local hxiFile = expansionList[index].getRootFolder().getChildFile("info.hxi")            
+
+            local name = expName; // lambda for download method
 
             if (isDefined(manifest) && manifest.version < JSONLibraryUpdateHandler[expName][0])
             {
@@ -210,14 +212,23 @@ namespace libraryHandler
                 backupExpansion(i, manifest.version);
 
                 // Download New Version
-                Server.downloadFile(JSONLibraryUpdateHandler[expName][1], {}, hxiFile, function()
-                {
+                Server.downloadFile(JSONLibraryUpdateHandler[expName][1], {}, hxiFile, function[name]()
+                {   
+                    // Tooltip
+                    libraryCurrentlyUpdating = name;
+                    isUpdating = true;   
+              
                     if (this.data.finished && this.data.success)
                     {
+
                         Server.cleanFinishedDownloads();
 
                         if (Server.getPendingDownloads().length <= 1)
-                            Engine.showMessageBox("Update Successful.", libraryFileList.length + " Libraries were updated. Please restart NEAT Player.", 0);
+                        {
+                            Engine.showMessageBox("Update Successful.", "Libraries were updated. Please restart NEAT Player.", 0);
+                            libraryCurrentlyUpdating = "";
+                            isUpdating = false;
+                        }                        
                     }                
                 });
             }                           
