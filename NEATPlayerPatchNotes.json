@@ -6,7 +6,8 @@
 	"4" : "  This new pipeline also applies to updating Libraries. Users can check and update all libraries using a similar button inside",
 	"5" : "  the Libraries tab.",
 	"6" : "- Significantly improved the update pipelines in preparation of store migration.",
-	"7" : "- Various LAF adjustments and improvements.",
-	"8" : "- Cleaned up code.",
-	"9" : "- Minor bug fixes and optimizations."
+	"7" : "- Fixed an issue where Bloom would load incorrectly after Achromic was loaded.",
+	"8" : "- Various LAF adjustments and improvements.",
+	"9" : "- Cleaned up code.",
+	"10" : "- Minor bug fixes and optimizations."
 }
