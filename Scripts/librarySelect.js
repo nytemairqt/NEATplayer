@@ -114,8 +114,12 @@ namespace libraryHandler
 
             button.setMouseCallback(function(event)
             {
+                this.data.mouseover = event.hover;
+                
                 if (event.clicked)
                     loadLibrary(); 
+            
+                this.repaint();
             });  
 
             button.setPaintRoutine(function(g) 
@@ -172,23 +176,26 @@ namespace libraryHandler
     inline function restoreAllExpansionsFromBackup()
     {
         updateSystemStatus(4);
-        local expansionsRoot = FileSystem.getFolder(FileSystem.Expansions);
-        local expansionList = FileSystem.findFiles(expansionsRoot, "*", false);
+
+        local expansionRoot = FileSystem.getFolder(FileSystem.AppData).getChildFile("Expansions");
+        local expansionList = FileSystem.findFiles(expansionRoot, "*", false);
+
         for (i=0; i<expansionList.length; i++)
         {
             if (expansionList[i].isDirectory())
             {
-                local hxi = expansionList[i].getChildFile("info.hxi");
-                if (!hxi.isFile())
+                local hxiFile = expansionList[i].getChildFile("info.hxi");
+                if (!hxiFile.isFile())
                 {
                     local backup = expansionList[i].getChildFile("Backup");
                     if (backup.isDirectory())
                     {
                         local backupList = FileSystem.findFiles(backup, "*", false);
-                        local lastBackup = backupList[0];
-                        local hxiBackup = lastBackup.getChildFile("info.hxi");
+                        backupList.reverse();
+                        local hxiBackup = backupList[0].getChildFile("info.hxi");
+
                         if (hxiBackup.isFile())
-                            backup_hxi.copy(hxi);
+                            hxiBackup.copy(hxiFile);
                     }
                 }
             }
@@ -199,6 +206,7 @@ namespace libraryHandler
 
     inline function downloadLibraryHandler()
     {
+        updateSystemStatus(1);
         Server.setBaseURL(BASE_URL);
         // Safety Check
         if (fileLibraryHandlerJSON.isFile())
@@ -207,6 +215,7 @@ namespace libraryHandler
         if (!Server.isOnline())
         {
             Engine.showMessageBox("No Server Connection.", "Unable to connect to server.", 0);
+            updateSystemStatus(0);
             return;
         }
         else
@@ -232,7 +241,7 @@ namespace libraryHandler
         {
             local manifest = expansionList[i].loadDataFile("manifest.json");
             expName = expansionList[i].getProperties().Name;
-            local hxiFile = expansionList[index].getRootFolder().getChildFile("info.hxi");          
+            local hxiFile = expansionList[i].getRootFolder().getChildFile("info.hxi");          
 
             local name = expName; // lambda for download method
 
