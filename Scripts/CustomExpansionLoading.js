@@ -82,6 +82,7 @@ inline function clearGUI()
 
 //Bloom
 
+/*
 inline function loadBloom()
 {
         //Setting BG Image        
@@ -105,25 +106,21 @@ inline function loadBloom()
     ComboBox_SamplerA.setValue(1);
     ComboBox_SamplerA.changed();
 
-        
-    switch (ComboBox_SamplerA.getValue())
-    {
-        case 1:
-            SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Bloom_SampleMap");
-            SamplerA.asSampler().enableRoundRobin(true);
-        break;
-            
-        case 2:
-            SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Flourish_SampleMap");
-            SamplerA.asSampler().enableRoundRobin(false);
-            SamplerA_Velocity.setBypassed(false);
-        break;
-    }
+    SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Bloom_SampleMap");
+    SamplerA.asSampler().enableRoundRobin(false);
+    SamplerA_Velocity.setBypassed(true);
+    SamplerA.asSampler().setActiveGroup(1);            
+
+    SamplerB.asSampler().loadSampleMap("{EXP::Bloom}Flourish_SampleMap");
+    SamplerB.asSampler().enableRoundRobin(false);
+    SamplerB_Velocity.setBypassed(false);
+    SamplerB.asSampler().setActiveGroup(1);
     
     Panel_SamplerDisabledB.showControl(1);
     Panel_SamplerDisabledC.showControl(1);
     restoreArp();    
 };
+*/
 
 //Load Expansion from manifest.JSON
 
@@ -280,9 +277,22 @@ inline function loadExpansionFromManifest()
         SamplerC.asSampler().setActiveGroup(1);
     }
 
+    if (manifest.library == "bloom")
+    {
+        SamplerA.asSampler().setActiveGroup(1);
+        SamplerB.asSampler().setActiveGroup(1);
+        ComboBox_SamplerA.set("text", "Bloom");
+        ComboBox_SamplerB.set("text", "Flourish");
+
+        ComboBox_SamplerA.addItem("Bloom");
+        ComboBox_SamplerB.addItem("Flourish");
+
+        ComboBox_SamplerA.setValue(1);
+        ComboBox_SamplerB.setValue(1);
+    }
+
     //Notes:
     /*
-        Bloom uses two separate sample maps, might need to fix.
         PDQ Bass checks a button value to see if it should load processed or unprocessed samples.
     */
 }
