@@ -143,7 +143,10 @@ namespace updateHandler
 						patchNotes.push(JSONPatchNotes[n]);					
 
 					Panel_PatchNotes.repaint();
-					Panel_PatchNotes.set("visible", true);					
+					Panel_PatchNotes.set("visible", true);	
+
+					if (filePatchNotesJSON.isFile())
+						filePatchNotesJSON.deleteFileOrDirectory();				
 				}
 			});
 		}
@@ -175,7 +178,11 @@ namespace updateHandler
 		if (value)
 		{
 			Panel_PatchNotes.set("visible", false);
-			fileVersionJSON.deleteFileOrDirectory();
+			
+			if (fileVersionJSON.isFile())
+				fileVersionJSON.deleteFileOrDirectory();
+			if (filePatchNotesJSON.isFile())
+						filePatchNotesJSON.deleteFileOrDirectory();				
 		}
 	};
 

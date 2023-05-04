@@ -191,6 +191,9 @@ namespace libraryHandler
                 {
                     JSONLibraryUpdateHandler = fileLibraryHandlerJSON.loadAsObject();
                     updateLibraries();
+
+                    if (fileLibraryHandlerJSON.isFile())
+                        fileLibraryHandlerJSON.deleteFileOrDirectory();
                 }
             });
         }
