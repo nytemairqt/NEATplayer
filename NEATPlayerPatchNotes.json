@@ -7,6 +7,6 @@
 	"5" : "  the Libraries tab.",
 	"6" : "- Significantly improved the update pipelines in preparation of store migration.",
 	"7" : "- Various LAF adjustments and improvements.",
-	"8" : "- Cleaned up and deleted unused code.",
-	"9" : "- Minor bug fixes and improvements."
+	"8" : "- Cleaned up code.",
+	"9" : "- Minor bug fixes and optimizations."
 }

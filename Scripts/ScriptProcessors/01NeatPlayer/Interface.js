@@ -143,7 +143,7 @@ inline function onStop(isPlaying)
 
 th.setOnTransportChange(true, onStop);
 
-//clearEverything();
+clearEverything();
 
 
 

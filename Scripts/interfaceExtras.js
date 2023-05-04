@@ -79,6 +79,12 @@ Panel_TooltipDescriptions.setPaintRoutine(function(g)
 
 	if (libraryHandler.isUpdating)
 		tooltipDescription = "Updating " + libraryHandler.libraryCurrentlyUpdating;
+
+	if (updateHandler.isChecking)
+		tooltipDescription = "Checking for updates...";
+
+	if (updateHandler.isUpdating)
+		tooltipDescription = "Downloading latest version...";
 	
 	g.setColour(Colours.lightgrey);
 	g.setFont("Arial", 12.0);

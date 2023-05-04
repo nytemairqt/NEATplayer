@@ -19,9 +19,12 @@ namespace updateHandler
 	reg JSONVersionData;
 	reg JSONPatchNotes;
 	reg patchNotes = [];	
+	reg isChecking = false;
+	reg isUpdating = false;
 
 	inline function downloadVersionJSON()
 	{
+		isChecking = true;
 		Server.setBaseURL(BASE_URL);
 
 		// Safety Check
@@ -31,6 +34,7 @@ namespace updateHandler
 		if (!Server.isOnline())
 		{
 			Engine.showMessageBox("No Server Connection.", "Unable to connect to server.", 0);
+			isChecking = false;
 			return;
 		}
 		else
@@ -40,6 +44,7 @@ namespace updateHandler
 			{
 				if(this.data.finished)
 				{
+					isChecking = false;
 					JSONVersionData = fileVersionJSON.loadAsObject();
 					readVersionJSON();
 				}
@@ -58,6 +63,7 @@ namespace updateHandler
 		local newVersion;
 		if (OS == 1) // Mac OS
 		{
+			isUpdating = true;
 			Server.setBaseURL("https://dl.dropbox.com/s/");
 			newVersion = FileSystem.getFolder(FileSystem.Downloads).getChildFile(JSONVersionData.macOSFileName);
 			if (newVersion.isFile())
@@ -66,6 +72,7 @@ namespace updateHandler
 			{
 				if(this.data.finished)
 				{
+					isUpdating = false;
 					Engine.showYesNoWindow("Download Complete.", "NEAT Player v" + JSONVersionData.version + " has been downloaded, open Downloads folder?", function(response)
 					{
 						if (!response)
@@ -87,6 +94,7 @@ namespace updateHandler
 		}
 		else // Windows & Linux
 		{
+			isUpdating = true;
 			Server.setBaseURL("https://dl.dropbox.com/s/");
 			newVersion = FileSystem.getFolder(FileSystem.Downloads).getChildFile(JSONVersionData.windowsFileName);
 			if (newVersion.isFile())
@@ -95,6 +103,7 @@ namespace updateHandler
 			{
 				if(this.data.finished)
 				{
+					isUpdating = false;
 					Engine.showYesNoWindow("Download Complete.", "NEAT Player v" + JSONVersionData.version + " has been downloaded, open Downloads folder?", function(response)
 					{
 						if (!response)
@@ -163,8 +172,6 @@ namespace updateHandler
 				downloadLatestNEATPlayerVersion(1);
 			else if (systemStats.OperatingSystemName.contains("Linux"))
 				downloadLatestNEATPlayerVersion(2);
-
-			//this.repaint with fancy timer or whatever
 		}
 		
 	};
@@ -178,7 +185,7 @@ namespace updateHandler
 		if (value)
 		{
 			Panel_PatchNotes.set("visible", false);
-			
+
 			if (fileVersionJSON.isFile())
 				fileVersionJSON.deleteFileOrDirectory();
 			if (filePatchNotesJSON.isFile())
