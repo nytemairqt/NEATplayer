@@ -737,7 +737,6 @@ Button_OpenRandomizePanel.setLocalLookAndFeel(LAFButtonOpenRandomizationPanel);
 
 Button_PortamentoBypass.setLocalLookAndFeel(LAFButtonBypass);
 Button_ExclusiveReverse.setLocalLookAndFeel(LAFButtonBypass);
-Button_EnableNEATBrain.setLocalLookAndFeel(LAFButtonBypass);
 
 Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
 

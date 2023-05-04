@@ -32,7 +32,7 @@
   <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="990.0"
              height="470.0" borderRadius="0.0" borderSize="0.0">
     <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
-               text="Image" width="990.0" height="470.0" fileName="{EXP::Bloom}background.jpg"
+               text="Image" width="990.0" height="470.0" fileName="{EXP::Cloudburst}background.jpg"
                alpha="0.0"/>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
                parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"
@@ -1071,7 +1071,7 @@
                  y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptLabel" id="Label_SamplerAReleaseValue" x="242.0"
-                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="7134ms"
+                 y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="1000ms"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptSlider" id="Slider_SamplerAAttack" x="43.0" y="260.0"
                  parentComponent="Panel_Sample" showTextBox="0" width="48.0" height="48.0"
@@ -2120,20 +2120,6 @@
                parentComponent="Panel_CustomSettings" text="Current Version: v0.15"/>
     <Component type="ScriptLabel" id="Label_MadeWithHISE" x="869.0" y="446.0"
                parentComponent="Panel_CustomSettings" text="Made with HISE."/>
-    <Component type="ScriptPanel" id="Panel_SettingsNEATBrain" x="169.0" y="119.0"
-               parentComponent="Panel_CustomSettings" width="135.0" height="70.0"
-               borderRadius="2.0">
-      <Component type="ScriptButton" id="Button_EnableNEATBrain" x="25.0" y="46.0"
-                 parentComponent="Panel_SettingsNEATBrain" text="LAFButtonBypass"
-                 width="10.0" height="10.0" tooltip="Enables NEAT Brain, an advanced sample randomization engine."
-                 enableMidiLearn="0"/>
-    </Component>
-    <Component type="ScriptLabel" id="Label_NEATBrain" x="169.0" y="119.0" width="137.0"
-               height="28.0" fontStyle="Bold" text="NEAT BRAIN" parentComponent="Panel_CustomSettings"
-               editable="0" fontSize="12.0"/>
-    <Component type="ScriptLabel" id="Label_SampleExclusiveReverse1" x="219.0"
-               y="156.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
-               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
   </Component>
   <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="490.0" y="613.0"
              width="440.0" height="18.0" borderRadius="2.0" bgColour="16777215"

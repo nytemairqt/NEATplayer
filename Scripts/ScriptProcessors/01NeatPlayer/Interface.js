@@ -23,7 +23,6 @@ include("ChaosEngine.js");
 include("RandomizeEverything.js");
 include("presetBrowser.js");
 include("interfaceExtras.js");
-include("NEATBrain.js");
 
 include("OutputMeter.js");
 include("CustomFunctions.js");
@@ -143,7 +142,7 @@ inline function onStop(isPlaying)
 
 th.setOnTransportChange(true, onStop);
 
-clearEverything();
+//clearEverything();
 
 
 
