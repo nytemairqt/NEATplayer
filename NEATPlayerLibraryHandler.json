@@ -1,40 +1,40 @@
 {
-	  "Achromic" : [1.1, "1ouzrv9g1b5pdrl/achromic.hxi"],
+	  "Achromic" : [1.0, "1ouzrv9g1b5pdrl/achromic.hxi"],
 
-	  "Aetheric" : [1.1, "7fyljt9mhfhvxqg/aetheric.hxi"],
+	  "Aetheric" : [1.0, "7fyljt9mhfhvxqg/aetheric.hxi"],
 
-	  "Atlas" : [1.1, "4p3hw83iqgg98on/atlas.hxi"],
+	  "Atlas" : [1.0, "4p3hw83iqgg98on/atlas.hxi"],
 
-	  "Blackout" : [1.1, "9ipqahxxmv852sw/blackout.hxi"],
+	  "Blackout" : [1.0, "9ipqahxxmv852sw/blackout.hxi"],
 
-	  "Blackout2" : [1.1, "oyx1mivb6dskxke/blackout2.hxi"],
+	  "Blackout2" : [1.0, "oyx1mivb6dskxke/blackout2.hxi"],
 
-	  "Bloom" : [1.1, "w8by1eq1a9mqkj3/bloom.hxi"],
+	  "Bloom" : [1.0, "w8by1eq1a9mqkj3/bloom.hxi"],
 
-	  "Cloudburst" : [1.1, "jzalbl76lmx5cuj/cloudburst.hxi"],
+	  "Cloudburst" : [1.0, "jzalbl76lmx5cuj/cloudburst.hxi"],
 
-	  "CloudburstAcoustic" : [1.1, "o86dmc03jqo211q/cloudburstacoustic.hxi"],
+	  "CloudburstAcoustic" : [1.0, "o86dmc03jqo211q/cloudburstacoustic.hxi"],
 
-	  "Eidolon" : [1.1, "cp1cyg1r0gsx07w/eidolon.hxi"],
+	  "Eidolon" : [1.0, "cp1cyg1r0gsx07w/eidolon.hxi"],
 
-	  "Endure" : [1.1, "piihe4p18av3npp/endure.hxi"],
+	  "Endure" : [1.0, "piihe4p18av3npp/endure.hxi"],
 
-	  "Found Keys" : [1.1, "2k8hi8wupuix6og/foundkeys.hxi"],
+	  "Found Keys" : [1.0, "2k8hi8wupuix6og/foundkeys.hxi"],
 
-	  "Gloom" : [1.1, "igp0ouqfzid06xl/gloom.hxi"],
+	  "Gloom" : [1.0, "igp0ouqfzid06xl/gloom.hxi"],
 
-	  "MachineTribes" : [1.1, "lm9o8is6iin8sha/machinetribes.hxi"],
+	  "MachineTribes" : [1.0, "lm9o8is6iin8sha/machinetribes.hxi"],
 
 	  "Oracle" : [1.0, "z3ch9esqy3sotk9/oracle.hxi"],
 
-	  "Oracle2" : [1.1, "pj08nj8v9cukf88/oracle2.hxi"],
+	  "Oracle2" : [1.0, "pj08nj8v9cukf88/oracle2.hxi"],
 
-	  "PDQBass" : [1.1, "zfuyd1finhvtr2p/pdqbass.hxi"],
+	  "PDQBass" : [1.0, "zfuyd1finhvtr2p/pdqbass.hxi"],
 
-	  "Portal" : [1.1, "6t7yrncugbliwob/portal.hxi"],
+	  "Portal" : [1.0, "6t7yrncugbliwob/portal.hxi"],
 
-	  "Prismatic" : [1.1, "kfyxd7xxch1rr4q/prismatic.hxi"],
+	  "Prismatic" : [1.0, "kfyxd7xxch1rr4q/prismatic.hxi"],
 
-	  "Zephyr" : [1.1, "7yh0ud0z4iikicj/zephyr.hxi"],
+	  "Zephyr" : [1.0, "7yh0ud0z4iikicj/zephyr.hxi"],
 
 }
