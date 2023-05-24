@@ -1,13 +1,3 @@
 {
-	"0" : "- Refactored the update button. NEAT Player will no longer automatically check for updates on plugin start.",
-	"1" : "  Users can now check for new versions of NEAT Player by clicking the button in the top-left corner of the interface.",
-	"2" : "  If an update is available, the Changelog panel will appear containing information about the update and a button to download.",
-	"3" : "  When clicked, the Download button will immediately download the appropriate latest version of NEAT Player to your Downloads folder.",
-	"4" : "  This new pipeline also applies to updating Libraries. Users can check and update all libraries using a similar button inside",
-	"5" : "  the Libraries tab.",
-	"6" : "- Significantly improved the update pipelines in preparation of store migration.",
-	"7" : "- Fixed an issue where Bloom would load incorrectly after Achromic was loaded.",
-	"8" : "- Various LAF adjustments and improvements.",
-	"9" : "- Cleaned up code.",
-	"10" : "- Minor bug fixes and optimizations."
+	"0" : "- Added dynamic resizing for Library select panel to make room for future Library releases.",
 }
