@@ -1944,7 +1944,7 @@
                parentComponent="Panel_BG" itemColour="4291480266" bgColour="4278190080"
                itemColour2="4211739146" textColour="4278190080" visible="0">
       <Component type="ScriptPanel" id="Panel_ExpansionsItemHolder" x="0.0" y="0.0"
-                 width="983.0" height="900.0" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
+                 width="983.0" height="1201" borderRadius="0.0" parentComponent="Viewport_ExpansionsHolder"
                  bgColour="9700870" itemColour="4278190080" itemColour2="4278190080"
                  borderSize="0.0">
         <Component type="ScriptButton" id="Button_CloseExpansions" x="967.0" y="1.0"

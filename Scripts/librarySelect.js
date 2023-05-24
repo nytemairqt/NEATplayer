@@ -33,6 +33,23 @@ namespace libraryHandler
 
     reg downloadCounter = 0;
 
+    inline function buildLibraryPanel()
+    {
+        local numRows = 0;
+        local firstPad = 24 + 7;
+        local rowHeight = buttonSize + buttonPadding;
+
+        for (i=0; i<expansionNames.length; i++)
+        {
+            if (i % 4 == 0)   
+                numRows++;
+        }
+
+        local totalHeight = firstPad + (rowHeight * numRows);
+
+        Panel_ExpansionsItemHolder.set("height", totalHeight);
+    }
+
     inline function buildMainButtons()
     {
         // Update
@@ -335,5 +352,6 @@ namespace libraryHandler
 //end namespace
 
 libraryHandler.buildMainButtons();
+libraryHandler.buildLibraryPanel();
 libraryHandler.populateLibraries();
 
