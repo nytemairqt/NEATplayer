@@ -32,7 +32,7 @@
   <Component type="ScriptPanel" id="Panel_BG" x="3.0" y="33.0" width="990.0"
              height="470.0" borderRadius="0.0" borderSize="0.0">
     <Component type="ScriptImage" id="Image_BG" x="0.0" y="0.0" parentComponent="Panel_BG"
-               text="Image" width="990.0" height="470.0" fileName="{EXP::Cloudburst}background.jpg"/>
+               text="Image" width="990.0" height="470.0" fileName="{EXP::Bloom}background.jpg"/>
     <Component type="ScriptPanel" id="Panel_AchromicSettings" x="17.0" y="377.0"
                parentComponent="Panel_BG" width="120.0" height="80.0" itemColour="3456106496"
                itemColour2="3456106496" borderRadius="2.0" bgColour="16777215"
@@ -354,7 +354,7 @@
       <Component type="ScriptPanel" id="Panel_FilterSettings" x="197.0" y="87.0"
                  parentComponent="Panel_FX" width="600.0" height="300.0" itemColour="3372220416"
                  itemColour2="3372220416" borderRadius="2.0" bgColour="16777215"
-                 textColour="16777215" visible="0">
+                 textColour="16777215">
         <Component type="ScriptLabel" id="Label_FilterFreqValue" x="90.0" y="258.0"
                    parentComponent="Panel_FilterSettings" width="60.0" height="27.0"
                    text="20000Hz" editable="0" saveInPreset="1" alignment="left"/>
@@ -1079,10 +1079,10 @@
                  middlePosition="0.5" tooltip="Adjusts the Sample Start Offset of this Sampler."
                  mouseSensitivity="1.210000038146973"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerA" x="90.66666412353516"
-                 y="41.0" text="Cloudburst" width="150.0" height="28.0" itemColour="4212199697"
+                 y="41.0" text="Bloom" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
-                 max="0"/>
+                 items="&#10;Bloom"/>
       <Component type="ScriptFloatingTile" id="AHDSR_SamplerA" x="10.0" y="75.0"
                  parentComponent="Panel_Sample" ContentType="AHDSRGraph" bgColour="0"
                  itemColour="436207615" itemColour2="2147483647" Data="{&#13;&#10;  &quot;ProcessorId&quot;: &quot;SamplerA_AHDSR&quot;,&#13;&#10;  &quot;Index&quot;: -1&#13;&#10;}"
@@ -1232,10 +1232,10 @@
                  y="329.0" width="48.0" height="20.0" fontStyle="Regular" text="0dB"
                  parentComponent="Panel_Sample" editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerB" x="422.0" y="41.0"
-                 text="unused" width="150.0" height="28.0" itemColour="4212199697"
+                 text="Flourish" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
-                 max="0"/>
+                 items="&#10;Flourish"/>
       <Component type="ScriptLabel" id="Label_SamplerBPan" x="507.0" y="419.0"
                  width="48.0" height="20.0" fontStyle="Bold" text="Pan" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
@@ -1355,7 +1355,7 @@
                  width="48.0" height="20.0" fontStyle="Bold" text="Sustain" parentComponent="Panel_Sample"
                  editable="0" fontSize="12.0"/>
       <Component type="ScriptComboBox" id="ComboBox_SamplerC" x="753.3333129882813"
-                 y="41.0" text="unused" width="150.0" height="28.0" itemColour="4212199697"
+                 y="41.0" text="Disabled" width="150.0" height="28.0" itemColour="4212199697"
                  bgColour="721420287" parentComponent="Panel_Sample" fontSize="12.0"
                  fontName="Arial" tooltip="Select a Patch to load in this Sampler."
                  max="0"/>
@@ -1549,7 +1549,7 @@
                  tooltip="Switches between Waveform and ADSR Display."/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledB" x="331.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
-                 itemColour2="3942645760"/>
+                 itemColour2="3942645760" visible="0"/>
       <Component type="ScriptPanel" id="Panel_SamplerDisabledC" x="662.0" y="0.0"
                  parentComponent="Panel_Sample" width="331.0" height="474.0" itemColour="3942645760"
                  itemColour2="3942645760"/>
@@ -2196,7 +2196,7 @@
                y="65.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
                parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
     <Component type="ScriptLabel" id="Label_CurrentVersion" x="7.0" y="449.0"
-               parentComponent="Panel_CustomSettings" text="Current Version: v0.16"/>
+               parentComponent="Panel_CustomSettings" text="Current Version: v0.17"/>
     <Component type="ScriptLabel" id="Label_MadeWithHISE" x="869.0" y="446.0"
                parentComponent="Panel_CustomSettings" text="Made with HISE."/>
     <Component type="ScriptLabel" id="Label_SampleDynamicPurge" x="219.0" y="119.0"

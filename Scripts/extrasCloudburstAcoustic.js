@@ -1,9 +1,9 @@
 namespace extrasCloudburstAcoustic
 {
 
-	const var Label_CloudburstAcousticNoises = Content.getComponent("Label_CloudburstAcousticNoises");
-	const var Button_CloudburstAcousticNoises = Content.getComponent("Button_CloudburstAcousticNoises");
-	const var Panel_CloudburstAcousticNoises = Content.getComponent("Panel_CloudburstAcousticNoises");
+	const Label_CloudburstAcousticNoises = Content.getComponent("Label_CloudburstAcousticNoises");
+	const Button_CloudburstAcousticNoises = Content.getComponent("Button_CloudburstAcousticNoises");
+	const Panel_CloudburstAcousticNoises = Content.getComponent("Panel_CloudburstAcousticNoises");
 
 	inline function onButton_CloudburstAcousticNoisesControl(component, value)
 	{

@@ -6,6 +6,7 @@ Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 const var audiofiles = Engine.loadAudioFilesIntoPool();
 
 var SYSTEM_STATUS = 0;
+const expHandler = Engine.createExpansionHandler();
 
 /*=======================================
     System Messages:
@@ -34,24 +35,24 @@ audiofiles.sortNatural();
 var manifest;
 const var pitchKeyValues = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-include("InterfaceExtra.js");
+include("interfaceExtra.js");
 include("updateHandler.js");
-include("libraryInstallation.js");
-include("SampleSettings.js");
-include("FXGUI.js");
-include("ArpeggiatorScript.js");
-include("MovementSettings.js");
-include("ChaosEngine.js");
-include("RandomizeEverything.js");
+include("libraryInstaller.js");
+include("sampleSettings.js");
+include("fxGUI.js");
+include("arpeggiatorScript.js");
+include("movementSettings.js");
+include("chaosEngine.js");
+include("randomizeEverything.js");
 include("presetBrowser.js");
 include("NEATPlayerSettings.js");
 include("LAFPathData.js");
 
-include("OutputMeter.js");
-include("CustomFunctions.js");
-include("CustomExpansionLoading.js");
+include("outputMeter.js");
+include("customFunctions.js");
+include("customExpansionLoading.js");
 include("loadingBar.js");
-include("InitializeModules.js");
+include("initializeModules.js");
 include("librarySelect.js");
 
 include("extrasAchromic.js");
@@ -59,22 +60,22 @@ include("extrasCloudburstAcoustic.js");
 include("extrasGloom.js");
 include("extrasPDQBass.js");
 include("extrasPortal.js");
+include("lookAndFeel.js");
+include("lookAndFeelAssignment.js");
 
-include("LookAndFeel.js");
 
 
 //Push Panel Buttons
 
 var panelButtons = [];
 
-
 inline function closePanels(keepOpen)
 {
     if (keepOpen == "none")
-        panelButtons = [NEATPlayerSettings.Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, Button_MoveDisplay];
     else
     {
-        panelButtons = [NEATPlayerSettings.Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, Button_MoveDisplay];
         panelButtons.remove(keepOpen);
     }
 

@@ -1,4 +1,4 @@
-//GUI
+/* Miscellaneous functions that don't necessarily belong to any namespaces */
 
 inline function controlUpdate()
 {

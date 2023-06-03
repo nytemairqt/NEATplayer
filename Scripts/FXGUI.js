@@ -1,6 +1,6 @@
 //------------------------------------------------------------FX
 
-include("fxImageData.js");
+include("fxPathData.js");
 
 const var Panel_FX = Content.getComponent("Panel_FX");
 const var Button_FXDisplay = Content.getComponent("Button_FXDisplay");

@@ -39,7 +39,7 @@ inline function resolveComboBoxes()
     }
 }
 
-var comboBoxRandomButtons = ["Button_RandomizeSamplerAComboBox", "Button_RandomizeSamplerBComboBox", "Button_RandomizeSamplerCComboBox"];
+//const comboBoxRandomButtons = ["Button_RandomizeSamplerAComboBox", "Button_RandomizeSamplerBComboBox", "Button_RandomizeSamplerCComboBox"];
 
 inline function clearGUI()
 {
@@ -70,62 +70,7 @@ inline function clearGUI()
     extrasPDQBass.Button_PDQBassForceDownpick.set("isPluginParameter", 0);
 }
 
-/*********
- * /*********
- * /*********
- * /*********
- * /********* DONT DELETE BLOOM METHOD
- * /*********
- * /*********
- * /*********
- * /*********
- */
-
-//Bloom
-
-/*
-inline function loadBloom()
-{
-        //Setting BG Image        
-    local backgroundImage = ("{PROJECT_FOLDER}bg_bloom.jpg");
-    Image_BG.setAlpha(1);
-    Image_BG.set("fileName", backgroundImage); 
-    
-        //Setting up Samplers    
-    clearSamplers();
-
-        //Setting Key Colours    
-    colourKeysReset();
-    colourKeysBloom();
-    
-        //Hiding othe GUI Elements    
-    clearGUI();
-    
-    ComboBox_SamplerA.addItem("Bloom");
-    ComboBox_SamplerA.addItem("Flourish");
-    
-    ComboBox_SamplerA.setValue(1);
-    ComboBox_SamplerA.changed();
-
-    SamplerA.asSampler().loadSampleMap("{EXP::Bloom}Bloom_SampleMap");
-    SamplerA.asSampler().enableRoundRobin(false);
-    SamplerA_Velocity.setBypassed(true);
-    SamplerA.asSampler().setActiveGroup(1);            
-
-    SamplerB.asSampler().loadSampleMap("{EXP::Bloom}Flourish_SampleMap");
-    SamplerB.asSampler().enableRoundRobin(false);
-    SamplerB_Velocity.setBypassed(false);
-    SamplerB.asSampler().setActiveGroup(1);
-    
-    Panel_SamplerDisabledB.showControl(1);
-    Panel_SamplerDisabledC.showControl(1);
-    restoreArp();    
-};
-*/
-
-//Load Expansion from manifest.JSON
-
-var manifestArrayLength;
+//Load Expansion from Manifest
 
 inline function loadExpansionFromManifest()
 {
@@ -180,7 +125,7 @@ inline function loadExpansionFromManifest()
     ComboBox_SamplerB.set("text", manifest.samplerText[1]);
     ComboBox_SamplerC.set("text", manifest.samplerText[2]);
     
-    restoreArp();
+    ArpeggiatorScript.restoreArp();
 
     //Set Round Robins, even if Sampler is unused (important for Custom RR Script)
 
@@ -195,6 +140,7 @@ inline function loadExpansionFromManifest()
         Button_SamplerBBypass.setValue(1);
         Button_SamplerBBypass.changed();
     }
+
     if (manifest.sampleMapC != null)
     {
         SamplerC.asSampler().loadSampleMap(manifest.sampleMapC);    
@@ -374,5 +320,5 @@ inline function loadAetheric()
     SamplerC.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(ComboBox_SamplerC.getValue()));
     
     resolveComboBoxes(); 
-    restoreArp();    
+    ArpeggiatorScript.restoreArp();    
 };

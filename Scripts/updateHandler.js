@@ -1,6 +1,6 @@
 namespace updateHandler
 {
-	const CURRENT_VERSION = 0.16;
+	const CURRENT_VERSION = 0.17;
 
 	const BASE_URL = "https://dl.dropbox.com/s/";
 	const fileVersionJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerVersion.json");

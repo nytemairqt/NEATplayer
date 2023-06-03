@@ -578,15 +578,6 @@ namespace LookAndFeel
         g.fillTriangle([36, 38, 8, 8], Math.toRadians(100));
     });
 
-
-    Button_ChaosTypeA.setLocalLookAndFeel(LAFButtonChaosA);
-    Button_ChaosTypeB.setLocalLookAndFeel(LAFButtonChaosB);
-    Button_ChaosTypeC.setLocalLookAndFeel(LAFButtonChaosC);
-    Button_ChaosTypeD.setLocalLookAndFeel(LAFButtonChaosD);
-    Button_ChaosTypeE.setLocalLookAndFeel(LAFButtonChaosE);
-    Button_ChaosTypeF.setLocalLookAndFeel(LAFButtonChaosF);
-    Button_ChaosTypeG.setLocalLookAndFeel(LAFButtonChaosG);
-
     //SLIDERS
 
     //Slider Main
@@ -717,194 +708,8 @@ namespace LookAndFeel
         g.fillRoundedRectangle([0, 0, obj.area[2] * obj.valueNormalized, obj.area[3]], 2.0);
     });
 
-    //Assigning LAF Functions
 
-    //Buttons
-
-    libraryHandler.Button_OpenExpansions.setLocalLookAndFeel(LAFButtonChangePage);
-    Button_SampleDisplay.setLocalLookAndFeel(LAFButtonChangePage);
-    Button_FXDisplay.setLocalLookAndFeel(LAFButtonChangePage);
-    Button_ArpDisplay.setLocalLookAndFeel(LAFButtonChangePage);
-    Button_MoveDisplay.setLocalLookAndFeel(LAFButtonChangePage);
-
-    Button_InstallLibrary.setLocalLookAndFeel(LAFButtonInstallLibrary);
-    Button_BulkInstall.setLocalLookAndFeel(LAFButtonBulkInstall);
-
-    Button_AddLibrary.setLocalLookAndFeel(LAFButtonAddLibrary);
-    Button_OpenPresetBrowser.setLocalLookAndFeel(LAFButtonPresetBrowser);
-
-    Button_RandomizationButtonsVisibility.setLocalLookAndFeel(LAFButtonRandomizeVisibility);
-    Button_OpenRandomizePanel.setLocalLookAndFeel(LAFButtonOpenRandomizationPanel);
-
-    NEATPlayerSettings.Button_CustomSettings.setLocalLookAndFeel(LAFButtonSettings);
-    NEATPlayerSettings.Button_OpenAppData.setLocalLookAndFeel(LAFButtonAppData);
-    NEATPlayerSettings.Button_PortamentoBypass.setLocalLookAndFeel(LAFButtonBypass);
-    NEATPlayerSettings.Button_ExclusiveReverse.setLocalLookAndFeel(LAFButtonBypass);
-    NEATPlayerSettings.Button_DynamicPurge.setLocalLookAndFeel(LAFButtonBypass);
-    NEATPlayerSettings.Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
-
-    updateHandler.Button_UpdateNEATPlayer.setLocalLookAndFeel(LAFButtonUpdate);
-    updateHandler.Button_ClosePatchNotes.setLocalLookAndFeel(LAFButtonClose);
-    updateHandler.Button_DownloadLatestVersion.setLocalLookAndFeel(LAFButtonDownloadLatestVersion);
-
-    //Close Buttons
-
-    const closeButtons = [Content.getComponent("Button_CloseCustomSettings"),
-                          Content.getComponent("Button_CloseInstallPanel"),
-                          Content.getComponent("Button_PresetBrowserClose"),
-                          Content.getComponent("Button_CloseExpansions"),
-                          Content.getComponent("Button_CloseSamplePanel"),
-                          Content.getComponent("Button_CloseFXPanel"),
-                          Content.getComponent("Button_CloseArpPanel"),
-                          Content.getComponent("Button_CloseMovementPanel")];
-
-
-    for (c in closeButtons)
-        c.setLocalLookAndFeel(LAFButtonClose);
-
-    Button_CloseRandomizationPanel.setLocalLookAndFeel(LAFButtonCloseRandomizationPanel);
-
-    //Sampler
-
-    Button_SamplerABypass.setLocalLookAndFeel(LAFButtonSamplerBypass);
-    Button_SamplerBBypass.setLocalLookAndFeel(LAFButtonSamplerBypass);
-    Button_SamplerCBypass.setLocalLookAndFeel(LAFButtonSamplerBypass);
-
-    Button_SamplerAShowADSR.setLocalLookAndFeel(LAFButtonSamplerShowADSR);
-    Button_SamplerBShowADSR.setLocalLookAndFeel(LAFButtonSamplerShowADSR);
-    Button_SamplerCShowADSR.setLocalLookAndFeel(LAFButtonSamplerShowADSR);
-
-    Button_SamplerAReverse.setLocalLookAndFeel(LAFButtonSamplerReverse);
-    Button_SamplerBReverse.setLocalLookAndFeel(LAFButtonSamplerReverse);
-    Button_SamplerCReverse.setLocalLookAndFeel(LAFButtonSamplerReverse);
-
-    Button_SamplerAComboBoxUp.setLocalLookAndFeel(LAFButtonUpArrow);
-    Button_SamplerAComboBoxDown.setLocalLookAndFeel(LAFButtonDownArrow);
-    Button_SamplerBComboBoxUp.setLocalLookAndFeel(LAFButtonUpArrow);
-    Button_SamplerBComboBoxDown.setLocalLookAndFeel(LAFButtonDownArrow);
-    Button_SamplerCComboBoxUp.setLocalLookAndFeel(LAFButtonUpArrow);
-    Button_SamplerCComboBoxDown.setLocalLookAndFeel(LAFButtonDownArrow);
-
-    for (r in randomizationButtonsSampler)
-        r.setLocalLookAndFeel(LAFButtonRandomize);
-
-    //FX
-
-    for (f in listFXButtonsLeft)
-        f.setLocalLookAndFeel(LAFButtonFXSettings);
-
-    for (f in listFXButtonsRight)
-        f.setLocalLookAndFeel(LAFButtonFXSettings);
-
-    for (f in FXBypassButtons)
-        f.setLocalLookAndFeel(LAFButtonSamplerBypass);
-
-    for (l in listRandomizationButtonsFXBypass)
-        l.setLocalLookAndFeel(LAFButtonRandomize);
-
-    for (l in listRandomizationButtonsFX)
-        l.setLocalLookAndFeel(LAFButtonRandomize);
-
-    Button_AmpCabBypass.setLocalLookAndFeel(LAFButtonBypass);
-    Button_AmpHQ.setLocalLookAndFeel(LAFButtonBypass);
-
-    Button_AmpComboBoxUp.setLocalLookAndFeel(LAFButtonUpArrow);
-    Button_AmpComboBoxDown.setLocalLookAndFeel(LAFButtonDownArrow);
-
-    Button_StutterLFOPreFX.setLocalLookAndFeel(LAFButtonBypass);
-    Button_StutterLFOSync.setLocalLookAndFeel(LAFButtonBypass);
-
-    Button_DelayLink.setLocalLookAndFeel(LAFButtonBypass);
-    Button_DelaySync.setLocalLookAndFeel(LAFButtonBypass);
-
-    //Arp
-
-    Button_ArpBypass.setLocalLookAndFeel(LAFButtonSamplerBypass);
-
-    Button_ArpNotesMinor.setLocalLookAndFeel(LAFArpMinorButton);
-    Button_ArpNotesMajor.setLocalLookAndFeel(LAFArpMajorButton);
-    Button_ArpNotesReset.setLocalLookAndFeel(LAFArpResetButton);
-    Button_ArpNotesInvert.setLocalLookAndFeel(LAFArpInvertButton);
-
-    Button_ArpVelocityReset.setLocalLookAndFeel(LAFArpResetButton);
-    Button_ArpLengthReset.setLocalLookAndFeel(LAFArpResetButton);
-
-    Button_ArpSustain.setLocalLookAndFeel(LAFButtonBypass);
-
-    Button_ArpModeUpArrow.setLocalLookAndFeel(LAFButtonUpArrow);
-    Button_ArpModeDownArrow.setLocalLookAndFeel(LAFButtonDownArrow);
-
-    for (r in randomizationButtonsArp)
-        r.setLocalLookAndFeel(LAFButtonRandomize);
-
-    //Movement
-
-    Button_ChaosBypass.setLocalLookAndFeel(LAFButtonSamplerBypass);
-    Button_MovementSettings.setLocalLookAndFeel(LAFButtonSettingsCogwheel);
-
-    Button_MovementSettingsClose.setLocalLookAndFeel(LAFButtonClose);
-
-    //Sliders
-
-    const var mainSliders = Content.getAllComponents("Slider*");
-    const var otherSliders = [Slider_SampleOffsetA, 
-                              Slider_SampleOffsetB, 
-                              Slider_SampleOffsetC, 
-                              Slider_MovementXInvisible, 
-                              Slider_MovementYInvisible, 
-                              Slider_OutputGain];
-
-    for (o=0; o<otherSliders.length; o++)
-        mainSliders.remove(otherSliders[o]);
-
-    for (m in mainSliders)
-        m.setLocalLookAndFeel(LAFSliderMain);
-
-    Slider_OutputGain.setLocalLookAndFeel(LAFSliderOutputGain);
-    Slider_MovementXInvisible.setLocalLookAndFeel(LAFSliderMovementX);
-    Slider_MovementYInvisible.setLocalLookAndFeel(LAFSliderMovementY);
-
-    Slider_SampleOffsetA.setLocalLookAndFeel(LAFSliderSampleOffset);
-    Slider_SampleOffsetB.setLocalLookAndFeel(LAFSliderSampleOffset);
-    Slider_SampleOffsetC.setLocalLookAndFeel(LAFSliderSampleOffset);
-
-    //Extra Expansion Specific Controls
-
-    //Achromic
-
-    extrasAchromic.Button_AchromicPickAttack.setLocalLookAndFeel(LAFButtonBypass);
-    extrasAchromic.Button_AchromicReleaseNoise.setLocalLookAndFeel(LAFButtonBypass);
-    extrasAchromic.Button_AchromicNoiseGate.setLocalLookAndFeel(LAFButtonBypass);
-    extrasAchromic.Button_AchromicForceDownpick.setLocalLookAndFeel(LAFButtonBypass);
-
-    //Cloudburst Acoustic
-
-    extrasCloudburstAcoustic.Button_CloudburstAcousticNoises.setLocalLookAndFeel(LAFButtonBypass);
-
-    //Gloom
-
-    extrasGloom.Button_GloomChairCreakNoise.setLocalLookAndFeel(LAFButtonBypass);
-    extrasGloom.Button_GloomReleaseNoise.setLocalLookAndFeel(LAFButtonBypass);
-
-    //PDQ Bass
-
-    extrasPDQBass.Button_PDQBassForceDownpick.setLocalLookAndFeel(LAFButtonBypass);
-    extrasPDQBass.Button_PDQBassProcessed.setLocalLookAndFeel(LAFButtonBypass);
-
-    extrasPDQBass.Slider_PDQBassVelocityMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassVelocityMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassPMVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassPMVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassFVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassFVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassAPVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassAPVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassSLVelMin.setLocalLookAndFeel(LAFSliderPDQBassVel);
-    extrasPDQBass.Slider_PDQBassSLVelMax.setLocalLookAndFeel(LAFSliderPDQBassVel);
-
-    //Portal
-
-    extrasPortal.Button_PortalIgnoreArpVelocity.setLocalLookAndFeel(LAFButtonBypass);
+ 
 
     //------------------------
 
@@ -1010,7 +815,6 @@ namespace LookAndFeel
 
     //Preset Browser
 
-    FloatingTile_PresetBrowser.setLocalLookAndFeel(LAFPresetBrowser);
     var presetBrowserSelectedExpansion;
     var presetBrowserExpansionImage;
     const var presetBrowserPath = Content.createPath();
@@ -1182,10 +986,6 @@ namespace LookAndFeel
         }
     });
 
-    //Arpeggiator
-
-    SliderPack_ArpNotes.setLocalLookAndFeel(LAFSliderPackArpNotes);
-
     LAFSliderPackArpNotes.registerFunction("drawLinearSlider", function(g, obj)
     {        
         g.setColour(Colours.mix(Colours.grey, Colours.lightgrey, .5));
@@ -1205,9 +1005,6 @@ namespace LookAndFeel
         g.setColour(Colours.withAlpha(Colours.white, .8));
         g.fillRoundedRectangle(obj.area, 2);
     });
-
-    SliderPack_ArpVelocity.setLocalLookAndFeel(LAFSliderPackArpOther);
-    SliderPack_ArpLength.setLocalLookAndFeel(LAFSliderPackArpOther);
 
     LAFSliderPackArpOther.registerFunction("drawLinearSlider", function(g, obj)
     {
@@ -1233,11 +1030,6 @@ namespace LookAndFeel
             g.drawAlignedText(obj.text, obj.area, "centred");
 
     });
-
-
-    ComboBox_SamplerA.setLocalLookAndFeel(LAFComboBoxSampler);
-    ComboBox_SamplerB.setLocalLookAndFeel(LAFComboBoxSampler);
-    ComboBox_SamplerC.setLocalLookAndFeel(LAFComboBoxSampler);
 
 
     //Resource Monitor
