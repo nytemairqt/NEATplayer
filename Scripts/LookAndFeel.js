@@ -740,8 +740,7 @@ NEATPlayerSettings.Button_OpenAppData.setLocalLookAndFeel(LAFButtonAppData);
 NEATPlayerSettings.Button_PortamentoBypass.setLocalLookAndFeel(LAFButtonBypass);
 NEATPlayerSettings.Button_ExclusiveReverse.setLocalLookAndFeel(LAFButtonBypass);
 NEATPlayerSettings.Button_DynamicPurge.setLocalLookAndFeel(LAFButtonBypass);
-
-Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
+NEATPlayerSettings.Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
 
 updateHandler.Button_UpdateNEATPlayer.setLocalLookAndFeel(LAFButtonUpdate);
 updateHandler.Button_ClosePatchNotes.setLocalLookAndFeel(LAFButtonClose);

@@ -42,7 +42,7 @@ include("MovementSettings.js");
 include("ChaosEngine.js");
 include("RandomizeEverything.js");
 include("presetBrowser.js");
-include("interfaceExtras.js");
+include("NEATPlayerSettings.js");
 
 include("OutputMeter.js");
 include("CustomFunctions.js");

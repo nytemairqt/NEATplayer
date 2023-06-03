@@ -8,8 +8,20 @@ namespace NEATPlayerSettings
 	const var Button_OpenAppData = Content.getComponent("Button_OpenAppData");
 	const var Panel_TooltipDescriptions = Content.getComponent("Panel_TooltipDescriptions");
 	const var Button_CloseCustomSettings = Content.getComponent("Button_CloseCustomSettings");
+	const var Button_OpenShop = Content.getComponent("Button_OpenShop");
 
 	//Custom Settings
+
+	//Open Shop
+
+	inline function onButton_OpenShopControl(component, value)
+	{
+	    if(value)
+	        Engine.openWebsite("https://www.iamlamprey.com");
+	};
+
+	Content.getComponent("Button_OpenShop").setControlCallback(onButton_OpenShopControl);
+	Button_OpenShop.set("tooltip", "Opens a browser window to the Shop.");
 
 	//Open AppData Button
 
