@@ -2068,7 +2068,7 @@
                itemColour="4294951115" itemColour2="4294951115" Data="{&#10;  &quot;Driver&quot;: false,&#10;  &quot;UseOpenGL&quot;: false,&#10;  &quot;Device&quot;: false,&#10;  &quot;Output&quot;: false,&#10;  &quot;BufferSize&quot;: false,&#10;  &quot;SampleRate&quot;: false,&#10;  &quot;GlobalBPM&quot;: false,&#10;  &quot;StreamingMode&quot;: true,&#10;  &quot;ScaleFactor&quot;: false,&#10;  &quot;VoiceAmountMultiplier&quot;: true,&#10;  &quot;ClearMidiCC&quot;: true,&#10;  &quot;SampleLocation&quot;: false,&#10;  &quot;DebugMode&quot;: true,&#10;  &quot;ScaleFactorList&quot;: [&#10;    0.5,&#10;    0.75,&#10;    1.0,&#10;    1.25,&#10;    1.5,&#10;    2.0&#10;  ]&#10;}"
                Font="Arial"/>
     <Component type="ScriptPanel" id="Panel_SettingsPortamento" x="17.0" y="39.0"
-               parentComponent="Panel_CustomSettings" width="135.0" height="119.0"
+               parentComponent="Panel_CustomSettings" width="135.0" height="120.0"
                borderRadius="2.0">
       <Component type="ScriptButton" id="Button_PortamentoBypass" x="25.0" y="46.0"
                  parentComponent="Panel_SettingsPortamento" text="LAFButtonBypass"
@@ -2103,23 +2103,33 @@
                parentComponent="Panel_CustomSettings" width="250.0" height="40.0"
                text="Select" items="&#10;None" visible="0" saveInPreset="0"/>
     <Component type="ScriptPanel" id="Panel_SettingsPortamento1" x="169.0" y="39.0"
-               parentComponent="Panel_CustomSettings" width="135.0" height="70.0"
+               parentComponent="Panel_CustomSettings" width="130.0" height="120.0"
                borderRadius="2.0">
-      <Component type="ScriptButton" id="Button_ExclusiveReverse" x="25.0" y="46.0"
+      <Component type="ScriptButton" id="Button_ExclusiveReverse" x="25.0" y="36.0"
                  parentComponent="Panel_SettingsPortamento1" text="LAFButtonBypass"
                  width="10.0" height="10.0" tooltip="Allows Samplers to reverse individually at the cost of greater Memory usage."
                  enableMidiLearn="0"/>
+      <Component type="ScriptButton" id="Button_DynamicPurge" x="25.0" y="90.0"
+                 parentComponent="Panel_SettingsPortamento1" text="LAFButtonBypass"
+                 width="10.0" height="10.0" tooltip="Samples are loaded when played, greatly reducing RAM footprint."
+                 enableMidiLearn="0" defaultValue="1.0"/>
     </Component>
     <Component type="ScriptLabel" id="Label_SamplerReverseTitle" x="169.0" y="41.0"
                width="137.0" height="28.0" fontStyle="Bold" text="EXCLUSIVE REVERSE"
                parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
     <Component type="ScriptLabel" id="Label_SampleExclusiveReverse" x="219.0"
-               y="75.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
+               y="65.0" width="58.0" height="28.0" fontStyle="Bold" text="Enable"
                parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
     <Component type="ScriptLabel" id="Label_CurrentVersion" x="7.0" y="449.0"
-               parentComponent="Panel_CustomSettings" text="Current Version: v0.15"/>
+               parentComponent="Panel_CustomSettings" text="Current Version: v0.16"/>
     <Component type="ScriptLabel" id="Label_MadeWithHISE" x="869.0" y="446.0"
                parentComponent="Panel_CustomSettings" text="Made with HISE."/>
+    <Component type="ScriptLabel" id="Label_SampleDynamicPurge" x="219.0" y="119.0"
+               width="58.0" height="28.0" fontStyle="Bold" text="Enable" parentComponent="Panel_CustomSettings"
+               editable="0" fontSize="12.0"/>
+    <Component type="ScriptLabel" id="Label_SamplerDynamicPurge" x="169.0" y="99.0"
+               width="137.0" height="28.0" fontStyle="Bold" text="DYNAMIC PURGE"
+               parentComponent="Panel_CustomSettings" editable="0" fontSize="12.0"/>
   </Component>
   <Component type="ScriptPanel" id="Panel_TooltipDescriptions" x="490.0" y="613.0"
              width="440.0" height="18.0" borderRadius="2.0" bgColour="16777215"

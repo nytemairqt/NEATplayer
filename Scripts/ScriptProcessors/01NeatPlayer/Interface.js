@@ -68,10 +68,10 @@ var panelButtons = [];
 inline function closePanels(keepOpen)
 {
     if (keepOpen == "none")
-        panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        panelButtons = [NEATPlayerSettings.Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
     else
     {
-        panelButtons = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
+        panelButtons = [NEATPlayerSettings.Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
         panelButtons.remove(keepOpen);
     }
 
@@ -92,15 +92,7 @@ const var syncTimes = ["1/1", "1/2D", "1/2", "1/2T", "1/4D", "1/4", "1/4T", "1/8
 
 var installDirectory = expansionDirectory;
 
-//Open AppData Button
 
-inline function onButton_OpenAppDataControl(component, value)
-{
-	if (value)
-	    FileSystem.getFolder(FileSystem.AppData).show();
-};
-
-Content.getComponent("Button_OpenAppData").setControlCallback(onButton_OpenAppDataControl);
 
 
 //Initialize GUI.

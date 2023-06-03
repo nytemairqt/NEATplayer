@@ -349,8 +349,6 @@ namespace libraryHandler
     });
 } 
 
-//end namespace
-
 libraryHandler.buildMainButtons();
 libraryHandler.buildLibraryPanel();
 libraryHandler.populateLibraries();

@@ -729,17 +729,17 @@ Button_MoveDisplay.setLocalLookAndFeel(LAFButtonChangePage);
 Button_InstallLibrary.setLocalLookAndFeel(LAFButtonInstallLibrary);
 Button_BulkInstall.setLocalLookAndFeel(LAFButtonBulkInstall);
 
-Button_CustomSettings.setLocalLookAndFeel(LAFButtonSettings);
 Button_AddLibrary.setLocalLookAndFeel(LAFButtonAddLibrary);
 Button_OpenPresetBrowser.setLocalLookAndFeel(LAFButtonPresetBrowser);
-
-Button_OpenAppData.setLocalLookAndFeel(LAFButtonAppData);
 
 Button_RandomizationButtonsVisibility.setLocalLookAndFeel(LAFButtonRandomizeVisibility);
 Button_OpenRandomizePanel.setLocalLookAndFeel(LAFButtonOpenRandomizationPanel);
 
-Button_PortamentoBypass.setLocalLookAndFeel(LAFButtonBypass);
-Button_ExclusiveReverse.setLocalLookAndFeel(LAFButtonBypass);
+NEATPlayerSettings.Button_CustomSettings.setLocalLookAndFeel(LAFButtonSettings);
+NEATPlayerSettings.Button_OpenAppData.setLocalLookAndFeel(LAFButtonAppData);
+NEATPlayerSettings.Button_PortamentoBypass.setLocalLookAndFeel(LAFButtonBypass);
+NEATPlayerSettings.Button_ExclusiveReverse.setLocalLookAndFeel(LAFButtonBypass);
+NEATPlayerSettings.Button_DynamicPurge.setLocalLookAndFeel(LAFButtonBypass);
 
 Button_OpenShop.setLocalLookAndFeel(LAFButtonOpenShop);
 
@@ -749,14 +749,14 @@ updateHandler.Button_DownloadLatestVersion.setLocalLookAndFeel(LAFButtonDownload
 
 //Close Buttons
 
-const var closeButtons = [Content.getComponent("Button_CloseCustomSettings"),
-                          Content.getComponent("Button_CloseInstallPanel"),
-                          Content.getComponent("Button_PresetBrowserClose"),
-                          Content.getComponent("Button_CloseExpansions"),
-                          Content.getComponent("Button_CloseSamplePanel"),
-                          Content.getComponent("Button_CloseFXPanel"),
-                          Content.getComponent("Button_CloseArpPanel"),
-                          Content.getComponent("Button_CloseMovementPanel")];
+const closeButtons = [Content.getComponent("Button_CloseCustomSettings"),
+                      Content.getComponent("Button_CloseInstallPanel"),
+                      Content.getComponent("Button_PresetBrowserClose"),
+                      Content.getComponent("Button_CloseExpansions"),
+                      Content.getComponent("Button_CloseSamplePanel"),
+                      Content.getComponent("Button_CloseFXPanel"),
+                      Content.getComponent("Button_CloseArpPanel"),
+                      Content.getComponent("Button_CloseMovementPanel")];
 
 
 for (c in closeButtons)

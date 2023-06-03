@@ -3,10 +3,6 @@
 const var Panel_BG = Content.getComponent("Panel_BG");
 const var Image_BG = Content.getComponent("Image_BG");
 
-//Top Bar Stuff
-
-const var Button_CloseCustomSettings = Content.getComponent("Button_CloseCustomSettings");
-
 //Interface Extras
 
 const var pageButtonWidth = 120;
@@ -21,7 +17,7 @@ var keyboardOctave = 0;
 var keyboardLowKey = 0;
 var keyboardHighKey = 120;
 
-const var pageButtonListTop = [Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser];
+const var pageButtonListTop = [NEATPlayerSettings.Button_CustomSettings, Button_AddLibrary, Button_OpenPresetBrowser];
 const var pageButtonListBottom = [libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, Button_ArpDisplay, Button_MoveDisplay];
 
 const var samplerRandomizationButtons = [Content.getComponent("Button_RandomizeSamplerAAttack"),
