@@ -37,7 +37,9 @@ const var pitchKeyValues = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0
 
 include("interfaceExtra.js");
 include("updateHandler.js");
+include("libraryHandler.js");
 include("libraryInstaller.js");
+
 include("sampleSettings.js");
 include("fxGUI.js");
 include("arpeggiatorScript.js");
@@ -52,8 +54,6 @@ include("outputMeter.js");
 include("customFunctions.js");
 include("customExpansionLoading.js");
 include("loadingBar.js");
-include("initializeModules.js");
-include("librarySelect.js");
 
 include("extrasAchromic.js");
 include("extrasCloudburstAcoustic.js");
@@ -72,10 +72,10 @@ var panelButtons = [];
 inline function closePanels(keepOpen)
 {
     if (keepOpen == "none")
-        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, Button_MoveDisplay];
+        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, MovementSettings.Button_MoveDisplay];
     else
     {
-        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, Button_MoveDisplay];
+        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, MovementSettings.Button_MoveDisplay];
         panelButtons.remove(keepOpen);
     }
 

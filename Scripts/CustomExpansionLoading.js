@@ -1,3 +1,5 @@
+/* Functions specific to loading expansions */
+
 inline function clearSamplers()
 {
     SamplerA.asSampler().clearSampleMap();
@@ -39,8 +41,6 @@ inline function resolveComboBoxes()
     }
 }
 
-//const comboBoxRandomButtons = ["Button_RandomizeSamplerAComboBox", "Button_RandomizeSamplerBComboBox", "Button_RandomizeSamplerCComboBox"];
-
 inline function clearGUI()
 {
     ComboBox_SamplerA.set("items", ""); //Clears ComboBox
@@ -62,7 +62,7 @@ inline function clearGUI()
     extrasGloom.Panel_GloomExtras.set("visible", 0);      
     extrasPortal.Panel_PortalVelocity.set("visible", 0);
     
-    //Clear parameters
+    // Clear parameters
     
     for (a in extrasAchromic.achromicParameters)
         a.set("isPluginParameter", 0);
@@ -237,88 +237,4 @@ inline function loadExpansionFromManifest()
         ComboBox_SamplerA.setValue(1);
         ComboBox_SamplerB.setValue(1);
     }
-
-    //Notes:
-    /*
-        PDQ Bass checks a button value to see if it should load processed or unprocessed samples.
-    */
 }
-
-//Aetheric
-
-inline function loadAetheric()
-{
-        //Setting BG Image       
-    local backgroundImage = ("{PROJECT_FOLDER}bg_aetheric.jpg");
-    Image_BG.setAlpha(1);
-    Image_BG.set("fileName", backgroundImage);  
-    
-        //Setting Up Samplers
-    clearSamplers(); 
-    
-    Sampler_Other.setAttribute(12, 0);  
-    Sampler_Other.setBypassed(0);
-    Sampler_Other.asSampler().loadSampleMap("{EXP::Aetheric}AethericAmbiances_SampleMap");
-
-    SamplerA.asSampler().enableRoundRobin(false);
-    SamplerB.asSampler().enableRoundRobin(false);
-    SamplerC.asSampler().enableRoundRobin(false);
-    
-    SamplerA_Velocity.setBypassed(false);
-    SamplerB_Velocity.setBypassed(false);
-    SamplerC_Velocity.setBypassed(false);
-
-        //Colour Keys
-    colourKeysReset();   
-    colourKeysAetheric();
-    
-        //Other GUI Elements
-    clearGUI();
-    
-        //Populating ComboBox
-    local populateCB = ["Angelic A",
-                        "Angelic B",
-                        "Angelic C",
-                        "Croon A",
-                        "Croon B",
-                        "Croon C",
-                        "Ephemeral A",
-                        "Ephemeral B",
-                        "Ephemeral C",
-                        "Hybrid Strings A",
-                        "Hybrid Strings B",
-                        "Hybrid Strings C",
-                        "Mockingbird A",
-                        "Mockingbird B",
-                        "Mockingbird C",
-                        "Nexus A",
-                        "Nexus B",
-                        "Nexus C",
-                        "Nimbus A",
-                        "Nimbus B",
-                        "Nimbus C",
-                        "Oculus A",
-                        "Oculus B",
-                        "Oculus C",
-                        "Silk A",
-                        "Silk B",
-                        "Silk C",
-                        "Wisp A",
-                        "Wisp B",
-                        "Wisp C"
-                    ];
-                    
-    for (p in populateCB)
-    {
-        ComboBox_SamplerA.addItem(p);
-        ComboBox_SamplerB.addItem(p);
-        ComboBox_SamplerC.addItem(p);
-    }
-
-    SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(ComboBox_SamplerA.getValue()));
-    SamplerB.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(ComboBox_SamplerB.getValue()));
-    SamplerC.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(ComboBox_SamplerC.getValue()));
-    
-    resolveComboBoxes(); 
-    ArpeggiatorScript.restoreArp();    
-};

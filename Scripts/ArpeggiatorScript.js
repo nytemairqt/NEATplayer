@@ -1,5 +1,3 @@
-//Arp Stuff
-
 namespace ArpeggiatorScript
 {
     const Panel_Arp = Content.getComponent("Panel_Arp");
@@ -101,22 +99,6 @@ namespace ArpeggiatorScript
     {
         wasArpOn = value;
     	Arpeggiator1.setBypassed(1-value);
-    	
-    	//To get Achromic working
-        /*
-
-        if (currentExpansion == "Achromic")
-        {
-          	SamplerA.asSampler().enableRoundRobin(value);
-            SamplerB.asSampler().enableRoundRobin(value);
-            
-            if (!value)
-            {
-                SamplerA.asSampler().setActiveGroup(1);
-                SamplerB.asSampler().setActiveGroup(2);       
-            }
-        }
-        */
     };
 
     Content.getComponent("Button_ArpBypass").setControlCallback(onButton_ArpBypassControl);

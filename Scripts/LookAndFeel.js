@@ -1,4 +1,4 @@
-//LAF Setup
+/* Custom LookAndFeel methods */
 
 const var path = Content.createPath();    
 

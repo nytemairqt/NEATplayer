@@ -1,7 +1,3 @@
-//Library Select
-
-include("librarySelectModularMigration.js");
-
 namespace libraryHandler
 {
     const Viewport_ExpansionsHolder = Content.getComponent("Viewport_ExpansionsHolder"); 
