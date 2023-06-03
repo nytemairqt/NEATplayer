@@ -50,23 +50,24 @@ inline function clearGUI()
     ComboBox_SamplerA.set("text", "Select");
     ComboBox_SamplerB.set("text", "Select");
     ComboBox_SamplerC.set("text", "Select");
-    
-    Panel_CloudburstAcousticNoises.set("visible", 0);
-    Panel_AchromicSettings.set("visible", 0);
-    Panel_PDQBassSettings.set("visible", 0);
-    Panel_GloomExtras.set("visible", 0);
-    
+
     Panel_SamplerDisabledB.showControl(0);
     Panel_SamplerDisabledC.showControl(0);
+
+    // Hide extra GUI elements
     
-    Panel_PortalVelocity.set("visible", 0);
+    extrasCloudburstAcoustic.Panel_CloudburstAcousticNoises.set("visible", 0);
+    extrasAchromic.Panel_AchromicSettings.set("visible", 0);
+    extrasPDQBass.Panel_PDQBassSettings.set("visible", 0);
+    extrasGloom.Panel_GloomExtras.set("visible", 0);      
+    extrasPortal.Panel_PortalVelocity.set("visible", 0);
     
     //Clear parameters
     
-    for (a in achromicParameters)
+    for (a in extrasAchromic.achromicParameters)
         a.set("isPluginParameter", 0);
         
-    Button_PDQBassForceDownpick.set("isPluginParameter", 0);
+    extrasPDQBass.Button_PDQBassForceDownpick.set("isPluginParameter", 0);
 }
 
 /*********

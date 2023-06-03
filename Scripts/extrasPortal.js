@@ -1,13 +1,17 @@
 //Portal
 
-const var Panel_PortalVelocity = Content.getComponent("Panel_PortalVelocity");
-const var Label_PortalIgnoreArpVelocity = Content.getComponent("Label_PortalIgnoreArpVelocity");
-const var Button_PortalIgnoreArpVelocity = Content.getComponent("Button_PortalIgnoreArpVelocity");
-var portalArpIgnoreVelocity;
-
-inline function onButton_PortalIgnoreArpVelocityControl(component, value)
+namespace extrasPortal
 {
-	writingArpVelocity = value;
-};
 
-Content.getComponent("Button_PortalIgnoreArpVelocity").setControlCallback(onButton_PortalIgnoreArpVelocityControl);
+	const Panel_PortalVelocity = Content.getComponent("Panel_PortalVelocity");
+	const Label_PortalIgnoreArpVelocity = Content.getComponent("Label_PortalIgnoreArpVelocity");
+	const Button_PortalIgnoreArpVelocity = Content.getComponent("Button_PortalIgnoreArpVelocity");
+
+	inline function onButton_PortalIgnoreArpVelocityControl(component, value)
+	{
+		writingArpVelocity = value;
+	};
+
+	Content.getComponent("Button_PortalIgnoreArpVelocity").setControlCallback(onButton_PortalIgnoreArpVelocityControl);
+
+}

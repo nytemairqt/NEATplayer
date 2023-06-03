@@ -16,8 +16,8 @@ inline function disableRoundRobin()
 function clearEverything()
 {
     Image_BG.setAlpha(0);
-    Panel_ResizeGUI.setValue(1.0);
-    Panel_ResizeGUI.changed();
+    InterfaceExtra.Panel_ResizeGUI.setValue(1.0);
+    InterfaceExtra.Panel_ResizeGUI.changed();
 
     expHandler.setCurrentExpansion("No Expansion");
     SamplerA.asSampler().clearSampleMap();

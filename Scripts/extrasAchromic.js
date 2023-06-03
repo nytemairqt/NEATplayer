@@ -1,62 +1,55 @@
-//Achromic Functions
-
-const var Panel_AchromicSettings = Content.getComponent("Panel_AchromicSettings");
-
-const var Button_AchromicPickAttack = Content.getComponent("Button_AchromicPickAttack");
-const var Button_AchromicReleaseNoise = Content.getComponent("Button_AchromicReleaseNoise");
-const var Button_AchromicNoiseGate = Content.getComponent("Button_AchromicNoiseGate");
-const var Button_AchromicForceDownpick = Content.getComponent("Button_AchromicForceDownpick");
-
-const var achromicParameters = [ Button_AchromicPickAttack, Button_AchromicReleaseNoise, Button_AchromicNoiseGate, Button_AchromicForceDownpick];
-
-const var AchromicGate = Synth.getEffect("AchromicGate");
-
-//Local LAF
-
-Button_AchromicPickAttack.setLocalLookAndFeel(LAFButtonBypass);
-Button_AchromicReleaseNoise.setLocalLookAndFeel(LAFButtonBypass);
-Button_AchromicNoiseGate.setLocalLookAndFeel(LAFButtonBypass);
-Button_AchromicForceDownpick.setLocalLookAndFeel(LAFButtonBypass);
-
-//Achromic
-
-const var achromicRRNum = 6;
-
-reg achromicCurrentRR = 1;
-reg achromicPreviousRR;
-reg achromicIsUppick = 0;
-
-var achromicForceDownpick;
-var achromicPickAttack;
-var achromicReleaseNoise;
-
-//Button Callbacks
-
-
-inline function onButton_AchromicPickAttackControl(component, value)
+namespace extrasAchromic
 {
-	pickAttack = value;
-};
+	const Panel_AchromicSettings = Content.getComponent("Panel_AchromicSettings");
 
-Content.getComponent("Button_AchromicPickAttack").setControlCallback(onButton_AchromicPickAttackControl);
+	const Button_AchromicPickAttack = Content.getComponent("Button_AchromicPickAttack");
+	const Button_AchromicReleaseNoise = Content.getComponent("Button_AchromicReleaseNoise");
+	const Button_AchromicNoiseGate = Content.getComponent("Button_AchromicNoiseGate");
+	const Button_AchromicForceDownpick = Content.getComponent("Button_AchromicForceDownpick");
 
-inline function onButton_AchromicReleaseNoiseControl(component, value)
-{
-	randomReleaseNoiseActive = value;
-};
+	const achromicParameters = [Button_AchromicPickAttack, Button_AchromicReleaseNoise, Button_AchromicNoiseGate, Button_AchromicForceDownpick];
 
-Content.getComponent("Button_AchromicReleaseNoise").setControlCallback(onButton_AchromicReleaseNoiseControl);
+	const AchromicGate = Synth.getEffect("AchromicGate");
 
-inline function onButton_AchromicNoiseGateControl(component, value)
-{
-	AchromicGate.setBypassed(1-value);
-};
+	//Local LAF
 
-Content.getComponent("Button_AchromicNoiseGate").setControlCallback(onButton_AchromicNoiseGateControl);
+	Button_AchromicPickAttack.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
+	Button_AchromicReleaseNoise.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
+	Button_AchromicNoiseGate.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
+	Button_AchromicForceDownpick.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
 
-inline function onButton_AchromicForceDownpickControl(component, value)
-{
-	forceDownPick = value;
-};
+	var achromicForceDownpick;
+	var achromicPickAttack;
+	var achromicReleaseNoise;
 
-Content.getComponent("Button_AchromicForceDownpick").setControlCallback(onButton_AchromicForceDownpickControl);
+	//Button Callbacks
+
+	inline function onButton_AchromicPickAttackControl(component, value)
+	{
+		pickAttack = value;
+	};
+
+	Content.getComponent("Button_AchromicPickAttack").setControlCallback(onButton_AchromicPickAttackControl);
+
+	inline function onButton_AchromicReleaseNoiseControl(component, value)
+	{
+		randomReleaseNoiseActive = value;
+	};
+
+	Content.getComponent("Button_AchromicReleaseNoise").setControlCallback(onButton_AchromicReleaseNoiseControl);
+
+	inline function onButton_AchromicNoiseGateControl(component, value)
+	{
+		AchromicGate.setBypassed(1-value);
+	};
+
+	Content.getComponent("Button_AchromicNoiseGate").setControlCallback(onButton_AchromicNoiseGateControl);
+
+	inline function onButton_AchromicForceDownpickControl(component, value)
+	{
+		forceDownPick = value;
+	};
+
+	Content.getComponent("Button_AchromicForceDownpick").setControlCallback(onButton_AchromicForceDownpickControl);
+
+}

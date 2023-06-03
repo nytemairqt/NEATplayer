@@ -1,6 +1,22 @@
 namespace NEATPlayerSettings
 {
 
+	/*    These are custom settings that will be saved & loaded on plugin initialization.    */
+
+	/*
+	use JSON to save / load settings...
+	*/
+
+	inline function saveCustomSettings()
+	{
+		/* creates / overwrites a JSON file when a setting is changed */
+	}
+
+	inline function loadCustomSettings()
+	{
+		/* reads a JSON file and updates control parameters @ plugin initialization */
+	}
+
 	//Declarations
 
 	const var Panel_CustomSettings = Content.getComponent("Panel_CustomSettings");

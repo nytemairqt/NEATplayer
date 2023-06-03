@@ -173,7 +173,7 @@ namespace libraryHandler
 
         loadExpansionFromManifest();
 
-        expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-Button_ExclusiveReverse.getValue());
+        expHandler.getCurrentExpansion().setAllowDuplicateSamples(1-NEATPlayerSettings.Button_ExclusiveReverse.getValue());
     }
 
     expHandler.setExpansionCallback(expCallback);

@@ -24,6 +24,8 @@ inline function updateSystemStatus(value)
     libraryHandler.Button_RestoreAllExpansionsFromBackup.repaint();
 }
 
+const Panel_BG = Content.getComponent("Panel_BG");
+const Image_BG = Content.getComponent("Image_BG");
 
 audiofiles.sortNatural();
 
@@ -32,7 +34,7 @@ audiofiles.sortNatural();
 var manifest;
 const var pitchKeyValues = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-include("Init Layout.js");
+include("InterfaceExtra.js");
 include("updateHandler.js");
 include("libraryInstallation.js");
 include("SampleSettings.js");
@@ -43,6 +45,7 @@ include("ChaosEngine.js");
 include("RandomizeEverything.js");
 include("presetBrowser.js");
 include("NEATPlayerSettings.js");
+include("LAFPathData.js");
 
 include("OutputMeter.js");
 include("CustomFunctions.js");
@@ -51,12 +54,12 @@ include("loadingBar.js");
 include("InitializeModules.js");
 include("librarySelect.js");
 
-include("extrasOracle2.js");
 include("extrasAchromic.js");
-include("extrasPortal.js");
 include("extrasCloudburstAcoustic.js");
 include("extrasGloom.js");
-include("PDQBass_Extras.js");
+include("extrasPDQBass.js");
+include("extrasPortal.js");
+
 include("LookAndFeel.js");
 
 
@@ -171,7 +174,7 @@ function onNoteOn()
 
     //Portamento Stuff
     
-    if (Button_PortamentoBypass.getValue())
+    if (NEATPlayerSettings.Button_PortamentoBypass.getValue())
         {
             if (lastNote == -1)
             {
@@ -180,10 +183,10 @@ function onNoteOn()
             }
             else
             {
-                if (Slider_PortamentoTime.getValue() > 0 && eventId != -1)
+                if (NEATPlayerSettings.Slider_PortamentoTime.getValue() > 0 && eventId != -1)
                 {
                     Message.ignoreEvent(true);
-                    Synth.addPitchFade(eventId, Slider_PortamentoTime.getValue(), lastTuning + e - lastNote, 0);
+                    Synth.addPitchFade(eventId, NEATPlayerSettings.Slider_PortamentoTime.getValue(), lastTuning + e - lastNote, 0);
                     lastTuning = lastTuning + e - lastNote;
                 }
                 else 
@@ -404,347 +407,6 @@ function onNoteOn()
                 }
     }
 
-
-    
-    //Nested switch statement to select expansion, then select specific note played.
-
-    /*
-	switch (currentExpansion)
-    {
-        
-        if (e >= 60 && e <= 98 && portalArpIgnoreVelocity == 1)
-        {
-            local notes = Slider_ArpSteps.getValue();
-            for (i = 0; i < notes; i++)
-            {
-                SliderPack_ArpVelocity.setAllValues(v);
-                SliderPack_ArpVelocity.changed();
-            }
-        }
-        SamplerA.asSampler().enableRoundRobin(true);
-	    break;   
-	    
-	    case "MachineTribes":
-	    SamplerA.asSampler().enableRoundRobin(true);
-	    SamplerB.asSampler().enableRoundRobin(true);
-	    SamplerC.asSampler().enableRoundRobin(true);
-	    if (e >= 84 && e <= 120)
-        {
-            local currentRR = Arpeggiator1.getAttribute(Arpeggiator1.CurrentValue);	 
-            SamplerA.asSampler().enableRoundRobin(false);
-            SamplerA.asSampler().setActiveGroup(1);
-            Message.ignoreEvent(e);
-            Synth.playNote(e, v); 
-        }
-	    break;
-        
-        case "CloudburstAcoustic":
-            SamplerA.asSampler().enableRoundRobin(true);
-            SamplerB.asSampler().enableRoundRobin(true);
-            if (e > 0 && e <= 15)
-            {
-                Message.ignoreEvent(e);
-            }
-        
-            else if (e >= 60 && e <= 96)
-            {
-                local randomNoise = Math.random() * cloudburstAcousticNoises;
-                if (randomNoise > 0.95)
-                {
-                    local vel = Message.getVelocity();
-                    local playedNote = Math.randInt(1, 2);
-                    Message.ignoreEvent(e);
-                    Synth.playNote(playedNote, vel);
-                }
-            }
-        break;
-
-        case "Cloudburst":
-            SamplerA.asSampler().enableRoundRobin(true);            
-        break;
-        
-        case "Aetheric":
-            disableRoundRobin();
-        break;
-        
-        case "Atlas":
-            disableRoundRobin();
-            SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
-            SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
-            SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
-        break;
-        
-        case "Oracle":
-            disableRoundRobin();
-            SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
-            if(e >= manifest.keyRange[0] && e <= manifest.keyRange[1])
-            {
-                Engine.setKeyColour(e, Colours.withAlpha(Colours.black, 0.10));
-            }
-        break;
-        
-        case "Found Keys":
-            disableRoundRobin();
-            SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
-            SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
-            SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
-        break;
-        
-        case "Prismatic":
-            disableRoundRobin();
-            SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
-            SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
-            SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
-        break;
-        
-        case "Endure":
-            disableRoundRobin();
-            SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
-            SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
-            SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
-        break;
-        
-        case "Achromic":
-            if (e < 2)
-                Message.ignoreEvent(true); //ignoring pick attack and release
-            
-            else if (e == 36) //Reset RR
-            {
-                Engine.setKeyColour(e, 0xFFA74FC3);
-                achromicCurrentRR = 1;
-            }
-        
-            else if (e == 38) //Tight mute
-            {
-                Engine.setKeyColour(e, 0xFFB9C32E);
-                Message.ignoreEvent(e);
-                if (!achromicIsUppick)
-                            {
-                                achromicPreviousRR = achromicCurrentRR;
-                                while (achromicCurrentRR == achromicPreviousRR)
-                                    {
-                                        achromicCurrentRR = Math.randInt(1, 6);
-                                    }
-                                SamplerA.asSampler().setActiveGroup(achromicPreviousRR);
-                                SamplerB.asSampler().setActiveGroup(achromicCurrentRR);
-                                achromicIsUppick = 1 - achromicForceDownpick;
-                            }
-                        else
-                            {
-                                achromicPreviousRR = achromicCurrentRR;
-                                while (achromicCurrentRR == achromicPreviousRR)
-                                    {
-                                        achromicCurrentRR = Math.randInt(1, 6);
-                                    }
-                                SamplerA.asSampler().setActiveGroup(achromicPreviousRR + 6);
-                                SamplerB.asSampler().setActiveGroup(achromicCurrentRR + 6);
-                                achromicIsUppick = 0;
-                            }     
-                Synth.playNote(0, v);
-            }
-            
-            else if (e >= 41 && e <= 98) //non-repeating RR
-                {
-                    if (!Button_ArpBypass.getValue())
-                        {
-                        if (!achromicIsUppick)
-                            {
-                                achromicPreviousRR = achromicCurrentRR;
-                                while (achromicCurrentRR == achromicPreviousRR)
-                                    {
-                                        achromicCurrentRR = Math.randInt(1, 6);
-                                    }
-                                SamplerA.asSampler().setActiveGroup(achromicPreviousRR);
-                                SamplerB.asSampler().setActiveGroup(achromicCurrentRR);
-                                achromicIsUppick = 1 - achromicForceDownpick;
-                            }
-                        else
-                            {
-                                achromicPreviousRR = achromicCurrentRR;
-                                while (achromicCurrentRR == achromicPreviousRR)
-                                    {
-                                        achromicCurrentRR = Math.randInt(1, 6);
-                                    }
-                                SamplerA.asSampler().setActiveGroup(achromicPreviousRR + 6);
-                                SamplerB.asSampler().setActiveGroup(achromicCurrentRR + 6);
-                                achromicIsUppick = 0;
-                            }     
-                        }
-                        if (achromicPickAttack)
-                            Synth.playNote(0, v); //Trigger Pick Attack     
-                }
-            else if (e > 107 && e < 117)
-            {
-                SamplerA.asSampler().setActiveGroup(1);
-                SamplerB.asSampler().setActiveGroup(2);
-                if (achromicFXKeysWhite.contains(e))
-                    Engine.setKeyColour(e, 0xFF5DC03C);
-                else
-                    Engine.setKeyColour(e, 0xFF214C12);
-            }
-            else if (e == 117)
-            {
-                Engine.setKeyColour(e, 0xFF5DC03C);
-                if (!Button_ArpBypass.getValue())
-                        {
-                        if (!achromicIsUppick)
-                            {
-                                achromicPreviousRR = achromicCurrentRR;
-                                while (achromicCurrentRR == achromicPreviousRR)
-                                    {
-                                        achromicCurrentRR = Math.randInt(1, 6);
-                                    }
-                                SamplerA.asSampler().setActiveGroup(achromicPreviousRR);
-                                SamplerB.asSampler().setActiveGroup(achromicCurrentRR);
-                                achromicIsUppick = 1 - achromicForceDownpick;
-                            }
-                        else
-                            {
-                                achromicPreviousRR = achromicCurrentRR;
-                                while (achromicCurrentRR == achromicPreviousRR)
-                                    {
-                                        achromicCurrentRR = Math.randInt(1, 6);
-                                    }
-                                SamplerA.asSampler().setActiveGroup(achromicPreviousRR + 6);
-                                SamplerB.asSampler().setActiveGroup(achromicCurrentRR + 6);
-                                achromicIsUppick = 0;
-                            }     
-                }
-            }
-        break;
-        
-        case "PDQBass":
-        
-        //Velocity Control
-        
-        if (v < Slider_PDQBassVelocityMin.getValue())
-        {
-            v = Slider_PDQBassVelocityMin.getValue();
-            Message.setVelocity(Slider_PDQBassVelocityMin.getValue());
-        }
-            
-        if (v > Slider_PDQBassVelocityMax.getValue())
-        {
-            v = Slider_PDQBassVelocityMax.getValue();
-            Message.setVelocity(Slider_PDQBassVelocityMax.getValue());
-        }
-            
-        
-        if (e >= 41 && e <= 97) //playable range
-            {
-                if (!Button_ArpBypass.getValue())
-                    {
-                        if (v > Slider_PDQBassPMVelMin.getValue() && v < Slider_PDQBassPMVelMax.getValue()) // Palm Mute
-                            {
-                                if (!PDQBassIsUppick)
-                                {
-                                    PDQBassPreviousRR = PDQBassCurrentRR;
-                                    while (PDQBassCurrentRR == PDQBassPreviousRR)
-                                    {
-                                        PDQBassCurrentRR = Math.randInt(1, 6);
-                                    }
-                                    Message.setVelocity(20);
-                                    SamplerA.asSampler().setActiveGroup(PDQBassCurrentRR);
-                                    PDQBassIsUppick = 1 - PDQBassForceDownpick;
-                                }
-                                else
-                                {
-                                    PDQBassPreviousRR = PDQBassCurrentRR;
-                                    while (PDQBassCurrentRR == PDQBassPreviousRR)
-                                    {
-                                        PDQBassCurrentRR = Math.randInt(1, 6);
-                                    }
-                                    Message.setVelocity(10);
-                                    SamplerA.asSampler().setActiveGroup(PDQBassCurrentRR);
-                                    PDQBassIsUppick = 1 - PDQBassForceDownpick;
-                                }
-                            }
-                        else if (v > Slider_PDQBassFVelMin.getValue() && v < Slider_PDQBassFVelMax.getValue()) // Finger
-                            {
-                                PDQBassPreviousRR = PDQBassCurrentRR;
-                                while (PDQBassCurrentRR == PDQBassPreviousRR)
-                                {
-                                    PDQBassCurrentRR = Math.randInt(1, 6);
-                                }
-                                Message.setVelocity(52);
-                                SamplerA.asSampler().setActiveGroup(PDQBassCurrentRR);
-                            }     
-                       else if (v > Slider_PDQBassAPVelMin.getValue() && v < Slider_PDQBassAPVelMax.getValue()) // Alt Picking
-                            {
-                                if (!PDQBassIsUppick)
-                                {
-                                    PDQBassPreviousRR = PDQBassCurrentRR;
-                                    while (PDQBassCurrentRR == PDQBassPreviousRR)
-                                    {
-                                        PDQBassCurrentRR = Math.randInt(1, 6);
-                                    }
-                                    Message.setVelocity(80);
-                                    SamplerA.asSampler().setActiveGroup(PDQBassCurrentRR);
-                                    PDQBassIsUppick = 1 - PDQBassForceDownpick;
-                                }
-                                else
-                                {
-                                    PDQBassPreviousRR = PDQBassCurrentRR;
-                                    while (PDQBassCurrentRR == PDQBassPreviousRR)
-                                    {
-                                        PDQBassCurrentRR = Math.randInt(1, 6);
-                                    }
-                                    Message.setVelocity(114);
-                                    SamplerA.asSampler().setActiveGroup(PDQBassCurrentRR);
-                                    PDQBassIsUppick = 1 - PDQBassForceDownpick;
-                                }
-                            }
-                        else if (v > Slider_PDQBassSLVelMin.getValue() && v < Slider_PDQBassSLVelMax.getValue()) // Slap
-                        {
-                            PDQBassPreviousRR = PDQBassCurrentRR;
-                                while (PDQBassCurrentRR == PDQBassPreviousRR)
-                                {
-                                    PDQBassCurrentRR = Math.randInt(1, 6);
-                                }
-                                Message.setVelocity(127);
-                                SamplerA.asSampler().setActiveGroup(PDQBassCurrentRR);
-                        }
-                    }
-            }
-        break;
-        
-        case "Oracle2":
-            disableRoundRobin();
-            SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
-            SamplerB.asSampler().setActiveGroup(ComboBox_SamplerB.getValue());
-            SamplerC.asSampler().setActiveGroup(ComboBox_SamplerC.getValue());
-        break;
-        
-        case "Gloom":
-            SamplerA.asSampler().enableRoundRobin(true);
-            if (e > 0 && e <= 5)
-                Message.ignoreEvent(e);
-            
-            //chair creaking.
-            else if (e >= 36 && e <= 120) 
-            {
-                local randomNoise = Math.random() * Button_GloomChairCreakNoise.getValue();
-                if (randomNoise > .55)
-                {
-                    if (randomNoiseCounter >= 8)
-                    {
-                        local vel = Message.getVelocity();
-                        local playedNote = Math.randInt(0, 2);
-                        Synth.playNote(playedNote, vel);
-                        randomNoiseCounter = 0;
-                    }
-                    else
-                        randomNoiseCounter += 1;
-                }
-            }
-        break;
-        
-        
-        default:
-    }*/
-
-//} Might not need this scope.
-
   function onNoteOff()
 {
     local e = Message.getNoteNumber();    
@@ -754,7 +416,7 @@ function onNoteOn()
     
     //Portamento Stuff
     
-    if (Button_PortamentoBypass.getValue())
+    if (NEATPlayerSettings.Button_PortamentoBypass.getValue())
     {
         Message.ignoreEvent(true);
         
@@ -762,7 +424,7 @@ function onNoteOn()
         {
             if (Synth.isKeyDown(retrigger))
             {
-                Synth.addPitchFade(eventId, Slider_PortamentoTime.getValue(), 0, 0);
+                Synth.addPitchFade(eventId, NEATPlayerSettings.Slider_PortamentoTime.getValue(), 0, 0);
                 lastTuning = 0;
                 lastNote = retrigger;
                 retrigger = -1;
