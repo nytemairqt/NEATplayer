@@ -1,20 +1,43 @@
 namespace GlobalSettings
 {
+	const globalSettingsJSON = FileSystem.getFolder(FileSystem.AppData).getChildFile("NEATPlayerSettings.json");
 
-	/*    These are custom settings that will be saved & loaded on plugin initialization.    */
+	reg globalSettings = {"ExclusiveReverse" : 0,
+						  "DynamicPurge" : 1};
 
-	/*
-	use JSON to save / load settings...
-	*/
+	inline function save()
+	{	/* saves a persistent state without depending on Presets */		
 
-	inline function saveCustomSettings()
-	{
-		/* creates / overwrites a JSON file when a setting is changed */
+		globalSettings.ExclusiveReverse = Math.round(Button_ExclusiveReverse.getValue());
+		globalSettings.DynamicPurge = Math.round(Button_DynamicPurge.getValue());
+		if (globalSettingsJSON.isFile())
+			globalSettingsJSON.deleteFileOrDirectory();
+		globalSettingsJSON.writeObject(globalSettings);
 	}
 
-	inline function loadCustomSettings()
+	inline function load()
 	{
-		/* reads a JSON file and updates control parameters @ plugin initialization */
+		if (globalSettingsJSON.isFile())
+		{
+			// Make sure to not call .changed() here, as it will overwrite the JSON file.
+			// Instead, call the functions manually.
+
+			globalSettings = globalSettingsJSON.loadAsObject();
+
+			Button_DynamicPurge.setValue(globalSettings.DynamicPurge);
+			dynamicPurge(globalSettings.DynamicPurge);
+
+			Button_ExclusiveReverse.setValue(globalSettings.ExclusiveReverse);
+		}
+		else // ensures DynamicPurge is on for updaters
+		{
+			Button_DynamicPurge.setValue(globalSettings.DynamicPurge);
+			dynamicPurge(globalSettings.DynamicPurge);
+
+			Button_ExclusiveReverse.setValue(globalSettings.ExclusiveReverse);
+
+			save(); // only called if file is missing
+		}
 	}
 
 	//Declarations
@@ -73,6 +96,13 @@ namespace GlobalSettings
 
 	//Exclusive Reverse
 
+	inline function onButton_ExclusiveReverseControl(component, value)
+	{
+		save();
+	};
+
+	Content.getComponent("Button_ExclusiveReverse").setControlCallback(onButton_ExclusiveReverseControl);
+
 	const var Button_ExclusiveReverse = Content.getComponent("Button_ExclusiveReverse");
 
 	// Dynamic Purge
@@ -82,6 +112,7 @@ namespace GlobalSettings
 	inline function onButton_DynamicPurgeControl(component, value)
 	{
 		dynamicPurge(value);
+		save();
 	};
 
 	Content.getComponent("Button_DynamicPurge").setControlCallback(onButton_DynamicPurgeControl);
@@ -209,3 +240,5 @@ namespace GlobalSettings
 	Content.getComponent("ComboBox_MIDIDevices").setControlCallback(onComboBox_MIDIDevicesControl);
 
 }
+
+GlobalSettings.load();
