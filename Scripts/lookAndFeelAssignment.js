@@ -32,12 +32,12 @@
 
     // NEAT Player Settings
 
-    NEATPlayerSettings.Button_CustomSettings.setLocalLookAndFeel(LookAndFeel.LAFButtonSettings);
-    NEATPlayerSettings.Button_OpenAppData.setLocalLookAndFeel(LookAndFeel.LAFButtonAppData);
-    NEATPlayerSettings.Button_PortamentoBypass.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
-    NEATPlayerSettings.Button_ExclusiveReverse.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
-    NEATPlayerSettings.Button_DynamicPurge.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
-    NEATPlayerSettings.Button_OpenShop.setLocalLookAndFeel(LookAndFeel.LAFButtonOpenShop);    
+    GlobalSettings.Button_CustomSettings.setLocalLookAndFeel(LookAndFeel.LAFButtonSettings);
+    GlobalSettings.Button_OpenAppData.setLocalLookAndFeel(LookAndFeel.LAFButtonAppData);
+    GlobalSettings.Button_PortamentoBypass.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
+    GlobalSettings.Button_ExclusiveReverse.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
+    GlobalSettings.Button_DynamicPurge.setLocalLookAndFeel(LookAndFeel.LAFButtonBypass);
+    GlobalSettings.Button_OpenShop.setLocalLookAndFeel(LookAndFeel.LAFButtonOpenShop);    
 
     // Close Buttons
 
@@ -53,8 +53,6 @@
 
     for (c in closeButtons)
         c.setLocalLookAndFeel(LookAndFeel.LAFButtonClose);
-
-    Button_CloseRandomizationPanel.setLocalLookAndFeel(LookAndFeel.LAFButtonCloseRandomizationPanel);
 
     //Sampler
 
@@ -81,7 +79,7 @@
     Slider_SampleOffsetB.setLocalLookAndFeel(LookAndFeel.LAFSliderSampleOffset);
     Slider_SampleOffsetC.setLocalLookAndFeel(LookAndFeel.LAFSliderSampleOffset);
 
-    for (r in randomizationButtonsSampler)
+    for (r in Randomize.randomizationButtonsSampler)
         r.setLocalLookAndFeel(LookAndFeel.LAFButtonRandomize);
 
     ComboBox_SamplerA.setLocalLookAndFeel(LookAndFeel.LAFComboBoxSampler);
@@ -134,7 +132,7 @@
     ArpeggiatorScript.Button_ArpModeUpArrow.setLocalLookAndFeel(LookAndFeel.LAFButtonUpArrow);
     ArpeggiatorScript.Button_ArpModeDownArrow.setLocalLookAndFeel(LookAndFeel.LAFButtonDownArrow);
 
-    for (r in randomizationButtonsArp)
+    for (r in Randomize.randomizationButtonsArp)
         r.setLocalLookAndFeel(LookAndFeel.LAFButtonRandomize);
 
     // Movement
@@ -144,11 +142,15 @@
     MovementSettings.Slider_MovementXInvisible.setLocalLookAndFeel(LookAndFeel.LAFSliderMovementX);
     MovementSettings.Slider_MovementYInvisible.setLocalLookAndFeel(LookAndFeel.LAFSliderMovementY);
 
-    // Miscellaneous
+    // Preset Browser
 
     Button_OpenPresetBrowser.setLocalLookAndFeel(LookAndFeel.LAFButtonPresetBrowser);
-    Button_RandomizationButtonsVisibility.setLocalLookAndFeel(LookAndFeel.LAFButtonRandomizeVisibility);
-    Button_OpenRandomizePanel.setLocalLookAndFeel(LookAndFeel.LAFButtonOpenRandomizationPanel);
+
+    // Randomize
+
+    Randomize.Button_RandomizationButtonsVisibility.setLocalLookAndFeel(LookAndFeel.LAFButtonRandomizeVisibility);
+    Randomize.Button_OpenRandomizePanel.setLocalLookAndFeel(LookAndFeel.LAFButtonOpenRandomizationPanel);
+    Randomize.Button_CloseRandomizationPanel.setLocalLookAndFeel(LookAndFeel.LAFButtonCloseRandomizationPanel);
 
     // Main Sliders
 

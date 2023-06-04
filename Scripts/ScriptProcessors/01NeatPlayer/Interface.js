@@ -4,6 +4,7 @@ const var frontInterfaceHeight = 630;
 Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 
 const var audiofiles = Engine.loadAudioFilesIntoPool();
+const path = Content.createPath();    
 
 var SYSTEM_STATUS = 0;
 const expHandler = Engine.createExpansionHandler();
@@ -35,7 +36,9 @@ audiofiles.sortNatural();
 var manifest;
 const var pitchKeyValues = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+include("LAFPathData.js");
 include("interfaceExtra.js");
+
 include("updateHandler.js");
 include("libraryHandler.js");
 include("libraryInstaller.js");
@@ -47,14 +50,12 @@ include("movementSettings.js");
 include("chaosEngine.js");
 include("randomizeEverything.js");
 include("presetBrowser.js");
-include("NEATPlayerSettings.js");
-include("LAFPathData.js");
+include("globalSettings.js");
 
 include("outputMeter.js");
 include("customFunctions.js");
 include("customExpansionLoading.js");
 include("loadingBar.js");
-
 include("extrasAchromic.js");
 include("extrasCloudburstAcoustic.js");
 include("extrasGloom.js");
@@ -63,8 +64,6 @@ include("extrasPortal.js");
 include("lookAndFeel.js");
 include("lookAndFeelAssignment.js");
 
-
-
 //Push Panel Buttons
 
 var panelButtons = [];
@@ -72,10 +71,10 @@ var panelButtons = [];
 inline function closePanels(keepOpen)
 {
     if (keepOpen == "none")
-        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, MovementSettings.Button_MoveDisplay];
+        panelButtons = [GlobalSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, MovementSettings.Button_MoveDisplay];
     else
     {
-        panelButtons = [NEATPlayerSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, MovementSettings.Button_MoveDisplay];
+        panelButtons = [GlobalSettings.Button_CustomSettings, libraryInstaller.Button_AddLibrary, Button_OpenPresetBrowser, libraryHandler.Button_OpenExpansions, Button_SampleDisplay, Button_FXDisplay, ArpeggiatorScript.Button_ArpDisplay, MovementSettings.Button_MoveDisplay];
         panelButtons.remove(keepOpen);
     }
 
@@ -175,7 +174,7 @@ function onNoteOn()
 
     //Portamento Stuff
     
-    if (NEATPlayerSettings.Button_PortamentoBypass.getValue())
+    if (GlobalSettings.Button_PortamentoBypass.getValue())
         {
             if (lastNote == -1)
             {
@@ -184,10 +183,10 @@ function onNoteOn()
             }
             else
             {
-                if (NEATPlayerSettings.Slider_PortamentoTime.getValue() > 0 && eventId != -1)
+                if (GlobalSettings.Slider_PortamentoTime.getValue() > 0 && eventId != -1)
                 {
                     Message.ignoreEvent(true);
-                    Synth.addPitchFade(eventId, NEATPlayerSettings.Slider_PortamentoTime.getValue(), lastTuning + e - lastNote, 0);
+                    Synth.addPitchFade(eventId, GlobalSettings.Slider_PortamentoTime.getValue(), lastTuning + e - lastNote, 0);
                     lastTuning = lastTuning + e - lastNote;
                 }
                 else 
@@ -417,7 +416,7 @@ function onNoteOn()
     
     //Portamento Stuff
     
-    if (NEATPlayerSettings.Button_PortamentoBypass.getValue())
+    if (GlobalSettings.Button_PortamentoBypass.getValue())
     {
         Message.ignoreEvent(true);
         
@@ -425,7 +424,7 @@ function onNoteOn()
         {
             if (Synth.isKeyDown(retrigger))
             {
-                Synth.addPitchFade(eventId, NEATPlayerSettings.Slider_PortamentoTime.getValue(), 0, 0);
+                Synth.addPitchFade(eventId, GlobalSettings.Slider_PortamentoTime.getValue(), 0, 0);
                 lastTuning = 0;
                 lastNote = retrigger;
                 retrigger = -1;

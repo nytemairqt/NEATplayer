@@ -26,7 +26,7 @@ function clearEverything()
     
     samplerLoopPitch(0.0);
     
-    randomRESET();
+    Randomize.randomRESET();
     
     clearGUI();
 }

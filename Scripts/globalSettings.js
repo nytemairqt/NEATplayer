@@ -1,4 +1,4 @@
-namespace NEATPlayerSettings
+namespace GlobalSettings
 {
 
 	/*    These are custom settings that will be saved & loaded on plugin initialization.    */

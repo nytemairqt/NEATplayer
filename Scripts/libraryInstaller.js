@@ -8,7 +8,6 @@ namespace libraryInstaller
 
     const var Button_CloseInstallPanel = Content.getComponent("Button_CloseInstallPanel");
 
-
     reg nest = {};
     const hrList = [];
 

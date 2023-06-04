@@ -1,6 +1,6 @@
 /* Custom LookAndFeel methods */
 
-const var path = Content.createPath();    
+
 
 namespace LookAndFeel
 {
