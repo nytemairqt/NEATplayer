@@ -226,7 +226,7 @@ function onNoteOn()
 
     //ComboBox Based Libraries
 
-    if (manifest.usesComboBoxItems && currentExpansion != "Aetheric") // Aetheric & Bloom have split samplemaps.
+    if (manifest.usesComboBoxItems && libraryHandler.currentExpansion != "Aetheric") // Aetheric & Bloom have split samplemaps.
     {
         SamplerA.asSampler().setActiveGroup(ComboBox_SamplerA.getValue());
         if (manifest.sampleMapB != null)

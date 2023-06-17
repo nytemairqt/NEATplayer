@@ -283,7 +283,7 @@ Content.getComponent("Button_SamplerAShowADSR").setControlCallback(onButton_Samp
 
 inline function onComboBox_SamplerAControl(component, value)
 {
-    if (currentExpansion == "Aetheric")
+    if (libraryHandler.currentExpansion == "Aetheric")
     {
         SamplerA.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
     } 
@@ -413,7 +413,7 @@ Content.getComponent("Button_SamplerBShowADSR").setControlCallback(onButton_Samp
 
 inline function onComboBox_SamplerBControl(component, value)
 {
-    if (currentExpansion == "Aetheric")
+    if (libraryHandler.currentExpansion == "Aetheric")
     {
         SamplerB.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
     }
@@ -542,7 +542,7 @@ Content.getComponent("Button_SamplerCShowADSR").setControlCallback(onButton_Samp
 
 inline function onComboBox_SamplerCControl(component, value)
 {
-    if (currentExpansion == "Aetheric")
+    if (libraryHandler.currentExpansion == "Aetheric")
     {
         SamplerC.asSampler().loadSampleMap("{EXP::Aetheric}Aetheric_SampleMap" + Math.round(value));
     }
