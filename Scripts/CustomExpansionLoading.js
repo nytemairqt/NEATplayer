@@ -206,9 +206,9 @@ inline function loadExpansionFromManifest()
     //Arp Steps 
     if(manifest.isLoopInstrument)
     {
-        Slider_ArpSteps.setValue(manifest.numArpSteps);
-        Slider_ArpSteps.changed();    
-        turnArpOn();  
+        ArpeggiatorScript.Slider_ArpSteps.setValue(manifest.numArpSteps);
+        ArpeggiatorScript.Slider_ArpSteps.changed();    
+        ArpeggiatorScript.turnArpOn();  
     }
 
     //Guitar Instruments
