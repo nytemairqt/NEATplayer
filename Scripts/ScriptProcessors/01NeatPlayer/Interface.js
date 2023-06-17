@@ -340,7 +340,7 @@ function onNoteOn()
 
         if (e >= manifest.keyRange[0] && e <= manifest.keyRange[1] ) //Non-Repeating RR
         {            
-            if (!Button_ArpBypass.getValue())
+            if (!ArpeggiatorScript.Button_ArpBypass.getValue())
             {                
                 if (v >= alternatePickingVelocityRange[0] && v <= alternatePickingVelocityRange[1])
                 {
@@ -386,7 +386,7 @@ function onNoteOn()
         }
 
         if (e >= manifest._guitarAltDeadNotes[0] && e <= manifest._guitarAltDeadNotes[1])
-            if (!Button_ArpBypass.getValue())
+            if (!ArpeggiatorScript.Button_ArpBypass.getValue())
                 {   
                     previousRR = currentRR;
                     while (previousRR == currentRR)
@@ -541,10 +541,10 @@ function onNoteOn()
     {
         case 64:
             
-            if (Button_ArpBypass.getValue() == 1)
+            if (ArpeggiatorScript.Button_ArpBypass.getValue())
             {
-                Button_ArpSustain.setValue(val);
-                Button_ArpSustain.changed();
+                ArpeggiatorScript.Button_ArpSustain.setValue(val);
+                ArpeggiatorScript.Button_ArpSustain.changed();
                 Message.ignoreEvent(1);
             }
             else

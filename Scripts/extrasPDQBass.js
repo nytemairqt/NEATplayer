@@ -53,13 +53,11 @@ namespace extrasPDQBass
 
 	inline function onButton_PDQBassProcessedControl(component, value)
 	{
-	    if (currentExpansion == "PDQBass")
-	    {
-	        if (!value)
-	            SamplerA.asSampler().loadSampleMap("{EXP::PDQBass}PDQBass_SampleMap");
-	        else
-	            SamplerA.asSampler().loadSampleMap("{EXP::PDQBass}PDQBassPROC_SampleMap");
-	    }
+    	Console.print("Clicked button!");
+        if (!value)
+            SamplerA.asSampler().loadSampleMap("{EXP::PDQBass}PDQBass_SampleMap");
+        else
+            SamplerA.asSampler().loadSampleMap("{EXP::PDQBass}PDQBassPROC_SampleMap");
 	};
 
 	Content.getComponent("Button_PDQBassProcessed").setControlCallback(onButton_PDQBassProcessedControl);
