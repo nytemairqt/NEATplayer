@@ -1,3 +1,14 @@
 {
-	"0" : "- Added dynamic resizing for Library select panel to make room for future Library releases.",
+	"0" : "- New Feature: Dynamic Purging:",
+	"1" : "      When active, Libraries will now dynamically load Samples on Keypress. This significantly reduces RAM usage for Libraries.",
+	"2" : "      If it causes any loading issues (specifically for users with very slow HDD speeds), it can be disabled in the Settings Panel.",
+	"3" : "- Replaced multiple important variables with a faster reg type.",
+	"4" : "- Added support for some settings to be Persistent between sessions & updates.",
+	"5" : "- Removed some unused variables & methods.",
+	"6" : "- Cleaned & refactored codebase.",
+	"7" : "- Fixed an issue where the Arpeggiator playback would get stuck after switching DAW Transport states.",
+	"8" : "- Fixed an issue with the PDQBass Processed button not correctly switching SampleMaps.",
+	"9" : "- Fixed an issue with Achromic's Second Guitar not playing Robin variations correctly.",
+	"10" : "- Fixed NoteOn errors related to Arpeggiator calls.",
+	"11" : "- Fixed various arpeggiator-related scope errors.	",
 }
