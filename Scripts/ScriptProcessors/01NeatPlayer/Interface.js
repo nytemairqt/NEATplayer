@@ -1,9 +1,9 @@
-const var frontInterfaceWidth = 1000;
-const var frontInterfaceHeight = 630;
+const frontInterfaceWidth = 1000;
+const frontInterfaceHeight = 630;
 
 Content.makeFrontInterface(frontInterfaceWidth, frontInterfaceHeight);
 
-const var audiofiles = Engine.loadAudioFilesIntoPool();
+const audiofiles = Engine.loadAudioFilesIntoPool();
 const path = Content.createPath();    
 
 var SYSTEM_STATUS = 0;
@@ -34,7 +34,7 @@ audiofiles.sortNatural();
 //Expansion Manifest Variable
 
 var manifest;
-const var pitchKeyValues = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const pitchKeyValues = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 include("LAFPathData.js");
 include("interfaceExtra.js");
@@ -90,7 +90,7 @@ Engine.setFrontendMacros(["X Pos", "X Neg", "Y Pos", "Y Neg", "Env A", "Env B", 
 
 colourKeysReset();
 
-const var syncTimes = ["1/1", "1/2D", "1/2", "1/2T", "1/4D", "1/4", "1/4T", "1/8D", "1/8", "1/8T", "1/16D", "1/16", "1/16T", "1/32D", "1/32", "1/32T", "1/64D", "1/64", "1/64T"];
+const syncTimes = ["1/1", "1/2D", "1/2", "1/2T", "1/4D", "1/4", "1/4T", "1/8D", "1/8", "1/8T", "1/16D", "1/16", "1/16T", "1/32D", "1/32", "1/32T", "1/64D", "1/64", "1/64T"];
 
 //Install Single
 
@@ -108,8 +108,8 @@ var manifest;
 
 //NoteOn Variables
 
-var currentRR = 1;
-var previousRR;
+reg currentRR = 1;
+reg previousRR;
 var isUpPick = 0;
 var forceDownPick = 0;
 var pickAttack = 0;
@@ -159,7 +159,7 @@ inline function onStop(isPlaying)
 
 th.setOnTransportChange(true, onStop);
 
-clearEverything();
+//clearEverything();
 
 
 
@@ -343,7 +343,7 @@ function onNoteOn()
             if (!ArpeggiatorScript.Button_ArpBypass.getValue())
             {                
                 if (v >= alternatePickingVelocityRange[0] && v <= alternatePickingVelocityRange[1])
-                {
+                {                    
                     previousRR = currentRR;
                     while (currentRR == previousRR)
                         currentRR = Math.randInt(1, manifest.numCustomRoundRobins);
@@ -356,6 +356,7 @@ function onNoteOn()
                                 if (manifest._guitarIsStereo)
                                     SamplerB.asSampler().setActiveGroup(previousRR);
                                 isUpPick = 1 - forceDownPick;
+                                
                             }
                         else
                             {
